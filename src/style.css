@@ -28,6 +28,15 @@ body {
   width: 50vw;
 }
 
+.logo {
+  /*background-color: red;*/
+  fill: blue;
+  display: inline;
+  color: white;
+  width: 20vh;
+  height: 20vh;
+}
+
 p {
   font-size: 60px;
 }

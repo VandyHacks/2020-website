@@ -26,6 +26,7 @@
     "prettier": "^1.19.1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
     "normalize.css": "^8.0.1"
   }
 }
