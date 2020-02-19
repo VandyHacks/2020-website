@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
+    "@mdi/svg": "^4.9.95",
     "normalize.css": "^8.0.1"
   }
 }
