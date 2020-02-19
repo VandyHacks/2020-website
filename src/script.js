@@ -58,7 +58,7 @@ class TextScramble {
 
   const phrases = [
     'VAnderbilt uniVersity',
-    'october 16-18, 2020',
+    'october 16-18 2020',
     'All hAckers Welcome'
   ]
   
