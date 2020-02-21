@@ -14,6 +14,9 @@ body {
   font-size: 3em;
 }
 
+noscript > h1 {
+  font-size: 48px;
+}
 
 svg {
   width: 48px;
@@ -28,10 +31,9 @@ a {
 
 svg:hover {
   transition: all .1s ease-in-out;
-  transform: scale(1.1);
-  background-color: white;
-  color: black;
+  transform: scale(1.25);
 }
+
 
 img {
   width: 280px;
@@ -52,6 +54,9 @@ img {
     align-items: center;
     justify-content: center;
     font-size: 2.25em;
+  }
+  noscript > h1 {
+    font-size: 36px;
   }
 }
 

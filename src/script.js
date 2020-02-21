@@ -59,7 +59,7 @@ class TextScramble {
   const phrases = [
     'VAnderbilt uniVersity',
     'october 16-18 2020',
-    'All hAckers Welcome'
+    'All hAckers Welcome',
   ]
   
   const el = document.querySelector('.text')
@@ -68,7 +68,7 @@ class TextScramble {
   let counter = 0
   const next = () => {
     fx.setText(phrases[counter]).then(() => {
-      setTimeout(next, 2000)
+      setTimeout(next, 1500)
     })
     counter = (counter + 1) % phrases.length
   }
