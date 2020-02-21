@@ -1,3 +1,6 @@
+* {
+  overflow: hidden;
+}
 body {
   width: 100vw;
   height: 100vh;
@@ -31,7 +34,7 @@ a {
 
 svg:hover {
   transition: all .1s ease-in-out;
-  transform: scale(1.25);
+  transform: scale(1.2);
 }
 
 

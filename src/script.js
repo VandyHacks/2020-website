@@ -26,7 +26,7 @@ class TextScramble {
       return promise
     }
     update() {
-      let output = ''
+      let output = '<div style="height: 3em;">'
       let complete = 0
       for (let i = 0, n = this.queue.length; i < n; i++) {
         let { from, to, start, end, char } = this.queue[i]
@@ -43,6 +43,7 @@ class TextScramble {
           output += from
         }
       }
+      output += "</div>"
       this.el.innerHTML = output
       if (complete === this.queue.length) {
         this.resolve()
