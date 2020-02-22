@@ -25,6 +25,7 @@ svg {
   width: 48px;
   height: 48px;
   border-radius: 15%;
+  transition: transform .1s ease-in-out;
 }
 
 a {
@@ -33,8 +34,59 @@ a {
 }
 
 svg:hover {
-  transition: all .1s ease-in-out;
   transform: scale(1.2);
+}
+
+#facebook-container {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+}
+#facebook {
+  transition: background 0s linear;
+  transition: color 0.1s linear;
+}
+#facebook:hover {
+  color: #355998;
+  background: white;
+}
+
+#instagram-container {
+  width: 48px;
+  height: 48px;
+  border-radius: 29%;
+  display: inline-block;
+}
+#instagram {
+  transition: background .1s ease-in-out;
+}
+#instagram:hover {
+  background: #f09433; 
+  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+}
+
+#github-container {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+}
+#github {
+  transition: background 0s linear;
+}
+#github:hover {
+  background: #2B3137;
+}
+
+#twitter {
+  transition: color .1s linear;
+}
+#twitter:hover {
+  color: #00ACEE;
 }
 
 
