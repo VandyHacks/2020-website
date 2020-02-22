@@ -44,8 +44,8 @@ svg:hover {
   display: inline-block;
 }
 #facebook {
-  transition: background 0s linear;
-  transition: color 0.1s linear;
+  transition: background linear;
+  transition: color linear;
 }
 #facebook:hover {
   color: #355998;
@@ -59,7 +59,7 @@ svg:hover {
   display: inline-block;
 }
 #instagram {
-  transition: background .1s ease-in-out;
+  transition: background linear;
 }
 #instagram:hover {
   background: #f09433; 
@@ -76,14 +76,14 @@ svg:hover {
   display: inline-block;
 }
 #github {
-  transition: background 0s linear;
+  transition: background linear;
 }
 #github:hover {
   background: #2B3137;
 }
 
 #twitter {
-  transition: color .1s linear;
+  transition: color linear;
 }
 #twitter:hover {
   color: #00ACEE;
