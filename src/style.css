@@ -15,6 +15,7 @@ body {
   flex-wrap: no-wrap;
   font-family: 'Major Mono Display', monospace;
   font-size: 3em;
+  user-select: none;
 }
 
 noscript > h1 {
@@ -25,7 +26,7 @@ svg {
   width: 48px;
   height: 48px;
   border-radius: 15%;
-  transition: transform .1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
 }
 
 a {
@@ -62,10 +63,17 @@ svg:hover {
   transition: background linear;
 }
 #instagram:hover {
-  background: #f09433; 
-  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
-  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  background: #f09433;
+  /* background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);  */
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
 }
 
@@ -79,16 +87,15 @@ svg:hover {
   transition: background linear;
 }
 #github:hover {
-  background: #2B3137;
+  background: #2b3137;
 }
 
 #twitter {
   transition: color linear;
 }
 #twitter:hover {
-  color: #00ACEE;
+  color: #00acee;
 }
-
 
 img {
   width: 280px;
@@ -97,7 +104,6 @@ img {
 .info {
   width: 50vw;
 }
-
 
 @media only screen and (max-width: 700px) {
   body {
@@ -115,9 +121,5 @@ img {
   }
 }
 
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2)
-  and (orientation: portrait) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
 }
