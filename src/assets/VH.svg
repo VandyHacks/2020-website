@@ -4,15 +4,15 @@
       .cls-1 {
         fill: #fff;
       }
-
-      @media screen and (prefers-color-scheme: light) {
-        .cls-1 {
-          fill: #303B53;
-        }
-        .logo-container > svg {
-          fill: #303B53;
-        }
-      }
+<!--RIP LIGHTMODE-->
+<!--      @media screen and (prefers-color-scheme: light) {-->
+<!--        .cls-1 {-->
+<!--          fill: #303B53;-->
+<!--        }-->
+<!--        .logo-container > svg {-->
+<!--          fill: #303B53;-->
+<!--        }-->
+<!--      }-->
     </style>
   </defs>
   <title>VH Logo Without Text</title>
