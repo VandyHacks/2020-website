@@ -9,6 +9,9 @@
         .cls-1 {
           fill: #303B53;
         }
+        .logo-container > svg {
+          fill: #303B53;
+        }
       }
     </style>
   </defs>

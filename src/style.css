@@ -19,7 +19,6 @@ body {
   user-select: none;
 }
 
-
 .text {
   margin-top: 100px;
   width: 100vw;
@@ -114,7 +113,7 @@ img {
     align-self: center;
   }
   .socials {
-    margin-top: 10px;
+    margin-top: 20px;
   }
   noscript > h1 {
     font-size: 36px;
@@ -135,7 +134,6 @@ img {
   }
 
   a:hover {
-    color:  #303B53;
     box-shadow: 0 0 5px #303B53;
   }
 
