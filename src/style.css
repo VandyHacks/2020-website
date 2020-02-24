@@ -19,13 +19,9 @@ body {
   user-select: none;
 }
 
-.socials {
-  margin-top: 20px;
-}
 
 .text {
-  /* height: 80px; */
-  margin-top: 40px;
+  margin-top: 100px;
   width: 100vw;
 }
 
@@ -116,6 +112,9 @@ img {
     display: inline-block;
     text-align: center;
     align-self: center;
+  }
+  .socials {
+    margin-top: 10px;
   }
   noscript > h1 {
     font-size: 36px;
