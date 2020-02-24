@@ -24,6 +24,7 @@ body {
   width: 100vw;
 }
 
+
 noscript > h1 {
   font-size: 48px;
 }
@@ -33,11 +34,13 @@ svg {
   height: 48px;
   border-radius: 15%;
   transition: transform 0.1s ease-in-out;
+  overflow: hidden;
 }
 
 a {
   text-decoration: none;
   color: white;
+  overflow: hidden;
 }
 
 svg:hover {
