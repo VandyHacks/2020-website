@@ -118,7 +118,7 @@ img {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   body {
     background:  #ECEAEE; 
     color:  #303B53;
