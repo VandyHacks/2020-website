@@ -135,20 +135,28 @@ img {
     color:  #303B53;
   }
 
-
   a:hover {
     box-shadow: 0 0 5px #303B53;
   }
 
-  #instagram-container:hover, #instagram:hover {
+  #instagram-container:hover {
+    color: white;
+  }
+  #instagram:hover {
     color: white;
   }
 
-  #twitter-container:hover, #twitter:hover {
+  #twitter-container:hover {
+    color: white;
+  }
+  #twitter:hover {
     color: white;
   }
 
-  #facebook-container:hover, #facebook:hover {
+  #facebook-container:hover {
+    color: #355998;
+  }
+  #facebook:hover {
     color: #355998;
   }
 
