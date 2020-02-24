@@ -1,0 +1,164 @@
+* {
+  overflow-x: hidden;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #121212;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-family: 'Major Mono Display', monospace;
+  font-size: 3em;
+  user-select: none;
+}
+
+.text {
+  margin-top: 100px;
+  width: 100vw;
+}
+
+noscript > h1 {
+  font-size: 48px;
+}
+
+.socials {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+svg {
+  width: 48px;
+  height: 48px;
+  border-radius: 15%;
+  transition: transform 0.1s ease-in-out;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  border-radius: 25%;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20px;
+  width: 54px;
+  height: 54px;
+}
+
+#facebook-container:hover {
+  transition: all 0.1s ease-in-out;
+  transform: scale(1.1);
+  background-color: white;
+  color: #355998;
+}
+
+#instagram-container:hover {
+  transition: all 0.1s ease-in-out;
+  transform: scale(1.1);
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  color: white;
+}
+
+#github-container:hover {
+  transition: all 0.1s ease-in-out;
+  transform: scale(1.1);
+  color: #121212;
+  background: white;
+}
+
+#twitter-container:hover {
+  transition: all 0.1s ease-in-out;
+  transform: scale(1.1);
+  background: #00acee;
+  color: white;
+}
+
+img {
+  width: 280px;
+}
+
+@media only screen and (max-width: 700px) {
+  body {
+    margin: 0;
+    background-color: #121212;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.25em;
+  }
+  .text {
+    display: inline-block;
+    text-align: center;
+    align-self: center;
+  }
+  .socials {
+    margin-top: 20px;
+  }
+  noscript > h1 {
+    font-size: 36px;
+  }
+  a {
+    margin: 0 10px;
+  }
+}
+
+/*If you enjoy lightmode, we apologize for your suffering*/
+
+/*@media (prefers-color-scheme: light) {
+  body {
+    background:  #ECEAEE;
+    color:  #303B53;
+  }
+
+  svg {
+    color:  #303B53;
+  }
+
+
+  a:hover {
+    box-shadow: 0 0 5px #303B53;
+  }
+
+  #instagram-container:hover, #instagram:hover {
+    color: white;
+  }
+
+  #twitter-container:hover, #twitter:hover {
+    color: white;
+  }
+
+  #facebook-container:hover, #facebook:hover {
+    color: #355998;
+  }
+
+}*/
+
+@media only screen and (min-device-width: 315px) and (max-device-width: 967px) and (orientation: landscape) {
+  .content {
+    padding-top: 10%;
+  }
+  .socials {
+    margin-top: 20px;
+  }
+}
