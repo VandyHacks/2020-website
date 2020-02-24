@@ -81,6 +81,7 @@ a {
           #cc2366 75%,
           #bc1888 100%
   );
+  color: white;
 }
 
 #github-container:hover {
@@ -127,8 +128,23 @@ img {
     color:  #303B53;
   }
 
+  a:hover {
+    color:  #303B53;
+    box-shadow: 0 0 5px #303B53;
+  }
+
   #instagram:hover {
     color: white;
+  }
+  #instagram-container:hover {
+    background-color: white;
+  }
+  #twitter:hover {
+    color: white;
+  }
+  #facebook:hover {
+
+    color: #355998;
   }
 }
 
