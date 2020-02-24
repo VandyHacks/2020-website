@@ -123,9 +123,11 @@ img {
   }
 }
 
-@media (prefers-color-scheme: light) {
+/*If you enjoy lightmode, we apologize for your suffering*/
+
+/*@media (prefers-color-scheme: light) {
   body {
-    background:  #ECEAEE; 
+    background:  #ECEAEE;
     color:  #303B53;
   }
 
@@ -150,7 +152,7 @@ img {
     color: #355998;
   }
 
-}
+}*/
 
 @media only screen 
   and (min-device-width: 315px) 
