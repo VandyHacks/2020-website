@@ -5,7 +5,7 @@
         fill: #fff;
       }
 
-      @media (prefers-color-scheme: light) {
+      @media (prefers-color-scheme: dark) {
         .cls-1 {
           fill: #303B53;
         }

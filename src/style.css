@@ -13,7 +13,7 @@ body {
   justify-content: space-around;
   text-align: center;
   align-items: center;
-  flex-wrap: no-wrap;
+  flex-wrap: nowrap;
   font-family: 'Major Mono Display', monospace;
   font-size: 3em;
   user-select: none;
@@ -33,6 +33,13 @@ noscript > h1 {
   font-size: 48px;
 }
 
+.socials {
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 svg {
   width: 48px;
   height: 48px;
@@ -43,77 +50,51 @@ svg {
 
 a {
   text-decoration: none;
+  border-radius: 25%;
   color: white;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 54px;
+  height: 54px;
+
 }
 
-svg:hover {
-  transform: scale(1.2);
-}
-
-#facebook-container {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-#facebook {
-  transition: background linear;
-  transition: color linear;
-}
-
-#facebook:hover {
+#facebook-container:hover {
+  transition: all .1s ease-in-out;
+  transform: scale(1.1);
+  background-color: white;
   color: #355998;
-  background: radial-gradient(circle at 100%, #fff, #fff 50%, #fff 75%, #121212 75%);
-  transform: scale(1.25);
 }
 
-#instagram-container {
-  width: 48px;
-  height: 48px;
-  border-radius: 29%;
-  display: inline-block;
-}
-#instagram {
-  transition: background linear;
-}
-#instagram:hover {
-  background: #f09433;
-  /* background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
-  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);  */
+#instagram-container:hover {
+  transition: all .1s ease-in-out;
+  transform: scale(1.1);
   background: linear-gradient(
-    45deg,
-    #f09433 0%,
-    #e6683c 25%,
-    #dc2743 50%,
-    #cc2366 75%,
-    #bc1888 100%
+          45deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
 }
 
-#github-container {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: inline-block;
+#github-container:hover {
+  transition: all .1s ease-in-out;
+  transform: scale(1.1);
+  color: #121212;
+  background: white;
 }
 
-#github {
-  transition: background linear;
-}
-
-#github:hover {
-  background: #2b3137;
-}
-
-#twitter {
-  transition: color linear;
-}
-
-#twitter:hover {
-  color: #00acee;
+#twitter-container:hover {
+  transition: all .1s ease-in-out;
+  transform: scale(1.1);
+  background: #00acee;
+  color: white;
 }
 
 img {
@@ -136,7 +117,7 @@ img {
   }
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   body {
     background:  #ECEAEE; 
     color:  #303B53;
