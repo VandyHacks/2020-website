@@ -25,9 +25,9 @@ body {
 
 .text {
   /* height: 80px; */
+  margin-top: 40px;
   width: 100vw;
 }
-
 
 noscript > h1 {
   font-size: 48px;
@@ -40,6 +40,7 @@ noscript > h1 {
     align-items: center;
     justify-content: center;
 }
+
 svg {
   width: 48px;
   height: 48px;
@@ -60,7 +61,6 @@ a {
   margin-right: 20px;
   width: 54px;
   height: 54px;
-
 }
 
 #facebook-container:hover {
