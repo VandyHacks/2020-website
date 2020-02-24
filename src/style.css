@@ -1,6 +1,7 @@
 * {
-  overflow: hidden;
+  overflow-x: hidden;
 }
+
 body {
   width: 100vw;
   height: 100vh;
@@ -16,6 +17,11 @@ body {
   font-family: 'Major Mono Display', monospace;
   font-size: 3em;
   user-select: none;
+}
+
+.text {
+  /* height: 80px; */
+  width: 100vw;
 }
 
 noscript > h1 {
@@ -44,13 +50,16 @@ svg:hover {
   border-radius: 50%;
   display: inline-block;
 }
+
 #facebook {
   transition: background linear;
   transition: color linear;
 }
+
 #facebook:hover {
   color: #355998;
-  background: white;
+  background: radial-gradient(circle at 100%, #fff, #fff 50%, #fff 75%, #121212 75%);
+  transform: scale(1.25);
 }
 
 #instagram-container {
@@ -101,9 +110,6 @@ img {
   width: 280px;
 }
 
-.info {
-  width: 50vw;
-}
 
 @media only screen and (max-width: 700px) {
   body {
@@ -120,6 +126,25 @@ img {
     font-size: 36px;
   }
 }
+@media (prefers-color-scheme: light) {
+  body {
+    background:  #eee; 
+    color: black;
+  }
+  svg {
+    color: black;
+  }
+  
+}
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 967px) 
+  and (orientation: landscape) { 
+    .content {
+      padding-top: 10%;
+    }
+    .socials {
+      margin-top: 20px;
+    }
 }
