@@ -133,6 +133,7 @@ img {
     color:  #303B53;
   }
 
+
   a:hover {
     box-shadow: 0 0 5px #303B53;
   }
@@ -146,6 +147,9 @@ img {
   }
 
   #facebook-container:hover #facebook {
+    transition: all .1s ease-in-out;
+    transform: scale(1.1);
+    background-color: white;
     color: #355998;
   }
 }
