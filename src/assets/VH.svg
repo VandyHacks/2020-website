@@ -7,7 +7,7 @@
 
       @media (prefers-color-scheme: light) {
         .cls-1 {
-          fill: #000;
+          fill: #303B53;
         }
       }
     </style>
