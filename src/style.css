@@ -36,7 +36,7 @@ noscript > h1 {
   justify-content: center;
 }
 
-svg {
+.socials svg {
   width: 48px;
   height: 48px;
   border-radius: 15%;
@@ -92,7 +92,14 @@ a {
   color: white;
 }
 
-img {
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-container svg {
+  height: auto;
   width: 280px;
 }
 
@@ -123,44 +130,34 @@ img {
   }
 }
 
-/*If you enjoy lightmode, we apologize for your suffering*/
-
-/*@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light) {
   body {
-    background:  #ECEAEE;
-    color:  #303B53;
+    background: #eceaee;
+    color: #303b53;
   }
 
-  svg {
-    color:  #303B53;
+  svg,
+  svg path.cls-1 {
+    color: #303b53;
+    fill: #303b53;
   }
 
   a:hover {
-    box-shadow: 0 0 5px #303B53;
+    box-shadow: 0 0 5px #303b53;
   }
 
-  #instagram-container:hover {
-    color: white;
-  }
-  #instagram:hover {
+  #instagram-container:hover #instagram {
     color: white;
   }
 
-  #twitter-container:hover {
-    color: white;
-  }
-  #twitter:hover {
+  #twitter-container:hover #twitter {
     color: white;
   }
 
-  #facebook-container:hover {
+  #facebook-container:hover #facebook {
     color: #355998;
   }
-  #facebook:hover {
-    color: #355998;
-  }
-
-}*/
+}
 
 @media only screen and (min-device-width: 315px) and (max-device-width: 967px) and (orientation: landscape) {
   .content {

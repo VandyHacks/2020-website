@@ -71,3 +71,21 @@ const next = () => {
 };
 
 next();
+
+function setLightThemeMetaTags() {
+  // Set the theme color for the top bar in Android Chrome to the dark (light mode) color
+  const themeColorEl = document.querySelector('meta[name="theme-color"]');
+  console.log(themeColorEl);
+  themeColorEl.setAttribute('content', '#303b53');
+
+  // Set favicon to the dark version (for light mode) on Safari
+  document.querySelector('link[rel="mask-icon"]').setAttribute('color', '#303b53');
+}
+
+/* Respond to color changes for parts of the webpage outside of the body */
+const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: light)');
+darkModeMediaQuery.addListener(({ matches }) => {
+  if (matches) setLightThemeMetaTags();
+});
+
+if (darkModeMediaQuery.matches) setLightThemeMetaTags();
