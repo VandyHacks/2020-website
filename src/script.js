@@ -1,3 +1,4 @@
+import faviconSwitcher from 'favicon-switcher';
 // ——————————————————————————————————————————————————
 // TextScramble
 // ——————————————————————————————————————————————————
@@ -77,9 +78,6 @@ function setLightThemeMetaTags() {
   const themeColorEl = document.querySelector('meta[name="theme-color"]');
   console.log(themeColorEl);
   themeColorEl.setAttribute('content', '#303b53');
-
-  // Set favicon to the dark version (for light mode) on Safari
-  document.querySelector('link[rel="mask-icon"]').setAttribute('color', '#303b53');
 }
 
 /* Respond to color changes for parts of the webpage outside of the body */
@@ -89,3 +87,5 @@ darkModeMediaQuery.addListener(({ matches }) => {
 });
 
 if (darkModeMediaQuery.matches) setLightThemeMetaTags();
+
+faviconSwitcher();
