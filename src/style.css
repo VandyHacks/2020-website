@@ -146,15 +146,15 @@ a {
     box-shadow: 0 0 5px #303b53;
   }
 
-  #instagram-container:hover #instagram {
+  #instagram-container:hover svg {
     color: white;
   }
 
-  #twitter-container:hover #twitter {
+  #twitter-container:hover svg {
     color: white;
   }
 
-  #facebook-container:hover #facebook {
+  #facebook-container:hover svg {
     color: #355998;
   }
 }
