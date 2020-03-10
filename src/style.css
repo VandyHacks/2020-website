@@ -134,7 +134,12 @@ a {
     align-self: center;
   }
   .socials {
+    padding: 0 10%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin-top: 20px;
+    overflow-y: hidden;
   }
   noscript > h1 {
     font-size: 36px;
