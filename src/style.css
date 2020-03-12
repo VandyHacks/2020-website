@@ -44,7 +44,7 @@ noscript > h1 {
   overflow: hidden;
 }
 
-a {
+main a {
   text-decoration: none;
   border-radius: 25%;
   color: white;
@@ -102,7 +102,7 @@ a {
 #youtube-container:hover {
   transition: all 0.1s ease-in-out;
   transform: scale(1.1);
-  background: #FF0000;
+  background: #ff0000;
   color: white;
 }
 
@@ -128,6 +128,10 @@ footer {
   margin-bottom: 1vh;
   text-align: center;
   font-size: 0.3em;
+}
+
+footer a {
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 700px) {
@@ -157,7 +161,7 @@ footer {
   noscript > h1 {
     font-size: 36px;
   }
-  a {
+  main a {
     margin: 0 10px;
   }
 }
@@ -174,7 +178,7 @@ footer {
     fill: #303b53;
   }
 
-  a:hover {
+  main a:hover {
     box-shadow: 0 0 5px #303b53;
   }
 
@@ -191,7 +195,7 @@ footer {
   }
 
   #twitch-container:hover svg {
-    color: #6441a5;;
+    color: #6441a5;
   }
 
   #youtube-container:hover svg {
@@ -207,7 +211,6 @@ footer {
     margin-top: 20px;
   }
 }
-
 
 .form {
   display: flex;
@@ -272,6 +275,7 @@ footer {
 }
 
 /* reset input */
-.form__field:required, .form__field:invalid {
+.form__field:required,
+.form__field:invalid {
   box-shadow: none;
 }
