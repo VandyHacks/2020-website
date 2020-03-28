@@ -1,32 +1,44 @@
 {
-  "name": "2020-website",
-  "version": "1.0.0",
-  "description": "VandyHacks 2020 Website",
-  "main": "index.js",
+  "name": "gatsby-starter-default",
+  "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "dependencies": {
+    "gatsby": "^2.19.45",
+    "gatsby-image": "^2.2.44",
+    "gatsby-plugin-manifest": "^2.2.48",
+    "gatsby-plugin-offline": "^3.0.41",
+    "gatsby-plugin-react-helmet": "^3.1.24",
+    "gatsby-plugin-sharp": "^2.4.13",
+    "gatsby-source-filesystem": "^2.1.56",
+    "gatsby-transformer-sharp": "^2.3.19",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html",
-    "format": "prettier --write src/**/*.{css,html,js}"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VandyHacks/2020-website.git"
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   },
-  "author": "VandyHacks 2020",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/VandyHacks/2020-website/issues"
-  },
-  "homepage": "https://github.com/VandyHacks/2020-website#readme",
-  "devDependencies": {
-    "autoprefixer": "^9.7.4",
-    "parcel-bundler": "^1.12.4",
-    "prettier": "^1.19.1"
-  },
-  "dependencies": {
-    "@mdi/svg": "^4.9.95",
-    "favicon-switcher": "^1.2.2",
-    "normalize.css": "^8.0.1"
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
