@@ -1,3 +1,4 @@
+DELETE THIS LINE!!!
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ffd471ba-feb3-43b7-9a11-d72f89d5a88e/deploy-status)](https://app.netlify.com/sites/vh2020/deploys)
 
 # VandyHacks VII
