@@ -1,9 +1,12 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "2020-website",
+  "private": false,
+  "description": "Our promotional website for VandyHacks VII.",
+  "version": "0.0.1",
+  "contributors": [
+    "Chuka Munkh-Achit <chinchuluun.munkh-achit@vanderbilt.edu> (https://chuka.me)",
+    "Samuel Lee <samuel.r.lee@vanderbilt.edu>"
+  ],
   "dependencies": {
     "gatsby": "^2.19.45",
     "gatsby-image": "^2.2.44",
@@ -22,7 +25,9 @@
     "prettier": "^1.19.1"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "vandyhacks",
+    "hackathon"
   ],
   "license": "MIT",
   "scripts": {
@@ -36,9 +41,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/VandyHacks/2020-website"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/VandyHacks/2020-website/issues"
   }
 }
