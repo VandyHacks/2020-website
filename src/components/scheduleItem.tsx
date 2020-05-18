@@ -7,16 +7,14 @@ interface ScheduleItemProps {
 }
 
 const ScheduleItem = (props: ScheduleItemProps) => {
-    const times = useState(props.times)[0];
-    const title = useState(props.title)[0];
-    const desc = useState(props.desc)[0];
+    
     return (
         <>
         <div /* Style to be put in later, so it's mad basic rn */ >
             <div>
-                {times}
+                {props.times}
             </div>
-            <Col trigger={title} content={desc}/>
+            <Col trigger={props.title} content={props.desc}/>
         </div>
         </>
     );

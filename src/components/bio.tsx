@@ -33,16 +33,13 @@ interface BioProps {
 }
 
 const Bio = (props: BioProps) => {
-    const headshot = useState(props.headshot)[0];
-    const name = useState(props.name)[0];
-    const title = useState(props.title)[0];
-    const desc = useState(props.desc)[0];
+    
     return (
         <>
-        <img src={headshot} alt='Headshot'></img>
-        <div>{name}</div>
-        <div>{title}</div>
-        <div>{desc}</div>
+        <img src={props.headshot} alt='Headshot'></img>
+        <div>{props.name}</div>
+        <div>{props.title}</div>
+        <div>{props.desc}</div>
         </>
     );
 }
