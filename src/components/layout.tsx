@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
       </div>
       {/* Just here to test*/}
       <Col trigger='FAQ question' content='FAQ answer'/>
-      <ScheduleItem times='4pm-5pm' title='Event' description='Details about event'/>
+      <ScheduleItem times='4pm-5pm' title='Event' desc='Details about event'/>
       <Footer />
     </>
   )
