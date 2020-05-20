@@ -3,7 +3,7 @@ import Col from './collapsible'
 interface ScheduleItemProps {
     times: string,
     title: string,
-    desc: string,
+    desc: string[],
 }
 
 const ScheduleItem = (props: ScheduleItemProps) => {

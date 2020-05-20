@@ -4,8 +4,8 @@ import Header from "./header"
 import Footer from "./footer"
 import "./layout.css"
 
-import Col from "./collapsible"
-import ScheduleItem from "./scheduleItem"
+import FAQ from "./faq"
+import Schedule from "./schedule"
 
 const Layout = ({ children }) => {
 
@@ -20,8 +20,8 @@ const Layout = ({ children }) => {
         <main>{children}</main>
       </div>
       {/* Just here to test*/}
-      <Col trigger='FAQ question' content='FAQ answer'/>
-      <ScheduleItem times='4pm-5pm' title='Event' desc='Details about event'/>
+      <FAQ />
+      <Schedule />
       <Footer />
     </>
   )

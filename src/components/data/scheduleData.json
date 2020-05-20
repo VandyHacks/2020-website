@@ -1,0 +1,7 @@
+[
+    {
+        "times": "5pm-6pm",
+        "title": "My Event",
+        "desc": ["Description of event!", "Detail 1", "Detail 2"]
+    }
+]
