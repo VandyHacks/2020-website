@@ -1,0 +1,17 @@
+#bio {
+    border: solid black 2px;
+    background: aqua;
+}
+
+#main {
+    display: flex;
+    flex-direction: row;
+}
+
+#headshot {
+    border-radius: 50%;
+}
+
+#text {
+    margin-left: 20px;
+}

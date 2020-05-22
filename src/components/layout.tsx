@@ -6,6 +6,7 @@ import "./layout.css"
 
 import FAQ from "./faq"
 import Schedule from "./schedule"
+import Bio from "./bio"
 
 const Layout = ({ children }) => {
 
@@ -22,6 +23,7 @@ const Layout = ({ children }) => {
       {/* Just here to test*/}
       <FAQ />
       <Schedule />
+      <Bio />
       <Footer />
     </>
   )

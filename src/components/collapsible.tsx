@@ -11,8 +11,8 @@ const Col = (props: ColProps) => {
     return (
         <Collapsible trigger={props.trigger}>
             {props.content[0]}
-            {Object.values(props.content.slice(1)).map(item => (
-                <li>{item}</li>
+            {Object.values(props.content.slice(1)).map((data, index) => (
+                <li key={`content_item_${index}`}>{data}</li>
             ))}
         </Collapsible>
     );

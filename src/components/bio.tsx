@@ -1,47 +1,22 @@
-import React, { useState } from 'react';
-import Col from './collapsible'
+import React from 'react';
+import './bio.css'
+import bioData from './data/bioData.json'
 
-// // TODO: Do this with hooks? Idk haven't made it that far with React tutorial yet
-// class Bio extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             headshot: this.props.headshot,
-//             name: this.props.name,
-//             title: this.props.title,
-//             desc: this.props.desc,
-//         }
-//     }
-    
-//     render() {
-//         return (
-//             <>
-//             <img src={this.props.headshot} alt='Headshot'></img>
-//             <div>{this.state.name}</div>
-//             <div>{this.state.title}</div>
-//             <div>{this.state.desc}</div>
-//             </>
-//         );
-//     }
-// }
-
-interface BioProps {
-    headshot: string,
-    name: string,
-    title: string,
-    desc: string,
-}
-
-const Bio = (props: BioProps) => {
-    
-    return (
-        <>
-        <img src={props.headshot} alt='Headshot'></img>
-        <div>{props.name}</div>
-        <div>{props.title}</div>
-        <div>{props.desc}</div>
-        </>
-    );
-}
-
-export default Bio;
+const Bio = () => (
+    <div id='bio'>
+      <h1>Bios of relevant people</h1>
+      <ul>
+        {bioData.map((data, index) => {
+          return <div id='main'>
+                <img src={data.headshot} id='headshot'></img>
+                <div id='text'>
+                  <h2>{data.name}</h2>
+                  <h3>{data.title}</h3>
+                  <div>{data.desc}</div>
+                </div>
+              </div>
+        })}
+      </ul>
+    </div>
+  )
+  export default Bio
