@@ -8,7 +8,7 @@ import FAQ from "./faq"
 import Schedule from "./schedule"
 import Bio from "./bio"
 
-const Layout = ({ children }) => {
+const Layout: React.FC<{}> = ({ children }) => {
 
   return (
     <>

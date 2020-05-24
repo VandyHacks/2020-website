@@ -1,7 +1,7 @@
 import React from 'react';
 import './footer.css';
 
-const Footer = () => (
+const Footer: React.FC<{}> = () => (
   <footer>
     <span className="right">
       {/* <p>{'Made with <3 and < / > at VandyHacks'}</p> */}

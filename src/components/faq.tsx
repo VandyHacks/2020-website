@@ -2,7 +2,7 @@ import React from 'react';
 import Col from './collapsible';
 import faqData from './data/faqData.json'
 
-const FAQ = () => (
+const FAQ: React.FC<{}> = () => (
     <div>>
       <h1>FAQ</h1>
       <ul>

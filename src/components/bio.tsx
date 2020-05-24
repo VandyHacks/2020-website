@@ -2,11 +2,11 @@ import React from 'react';
 import './bio.css'
 import bioData from './data/bioData.json'
 
-const Bio = () => (
+const Bio: React.FC<{}> = () => (
     <div id='bio'>
       <h1>Bios of relevant people</h1>
       <ul>
-        {bioData.map((data, index) => {
+        {bioData.map((data) => {
           return <div id='main'>
                 <img src={data.headshot} id='headshot'></img>
                 <div id='text'>

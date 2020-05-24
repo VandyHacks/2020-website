@@ -7,7 +7,7 @@ interface ColProps {
     content: string[],
 }
 
-const Col = (props: ColProps) => {
+const Col: React.FC<ColProps> = (props: ColProps) => {
     return (
         <Collapsible trigger={props.trigger}>
             {props.content[0]}

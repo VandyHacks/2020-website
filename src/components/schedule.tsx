@@ -3,7 +3,7 @@ import Col from './collapsible';
 import scheduleData from './data/scheduleData.json'
 
 // TODO: formatting list for bus stop question, link for CoC question
-const Schedule = () => (
+const Schedule: React.FC<{}> = () => (
     <div style={{ maxWidth: `960px`, margin: `1.45rem` }}>
       <h1>Schedule</h1>
       <ul>
