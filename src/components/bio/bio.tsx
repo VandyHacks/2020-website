@@ -1,6 +1,6 @@
 import React from 'react';
 import * as styles from './bio.module.css'
-import bioData from './data/bioData.json'
+import bioData from '../data/bioData.json'
 
 const Bio: React.FC<{}> = () => (
     <div id='bio'>

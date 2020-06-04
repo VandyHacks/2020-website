@@ -1,12 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Title from "./title/title"
-import Footer from "./footer"
+import Title from "../title/title"
+import Footer from "../footer/footer"
 import "./layout.css"
 
-import FAQ from "./faq"
-import Schedule from "./schedule"
-import Bio from "./bio"
+import FAQ from "../faq"
+import Schedule from "../schedule"
+import Bio from "../bio/bio"
 
 const Layout: React.FC<{}> = ({ children }) => {
 
