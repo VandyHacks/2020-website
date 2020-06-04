@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'ARCADE_N';
+    src: URL('./fonts/ARCADE_N.TTF') format('truetype');
+}
+
+html {
+    background-color: black;
+}
+
+* {
+    color: white;
+}

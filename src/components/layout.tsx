@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Header from "./header"
+import Title from "./title/title"
 import Footer from "./footer"
 import "./layout.css"
 
@@ -12,7 +12,7 @@ const Layout: React.FC<{}> = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={'VandyHacks'} />
+      <Title />
       <div
         style={{
           margin: `0 auto`,
@@ -20,7 +20,6 @@ const Layout: React.FC<{}> = ({ children }) => {
       >
         <main>{children}</main>
       </div>
-      {/* Just here to test*/}
       <FAQ />
       <Schedule />
       <Bio />

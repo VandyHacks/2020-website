@@ -1,0 +1,46 @@
+
+/* TODO: idk why it's all the way to the side >:( */
+.banner {
+  display: flex;
+  align-content: space-around;
+  background-color: #4257ba;
+  box-shadow: 0px 10px #180166;
+  margin-bottom: 50px;
+}
+
+.banner h2 {
+  color: white;
+  letter-spacing: 32px;
+  font-family: ARCADE_N;
+  overflow: hidden;
+  white-space: pre;
+  margin: 0 auto;
+  animation: 
+  typing 1s steps(12, end);
+}
+  
+/* TODO: make this come out from side, not center */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.maintitle h1 {
+  font-size: 60px;
+  font-family: ARCADE_N;
+  color: #fe9a00;
+}
+
+.subtitle h2 {
+  color: #3a4fb7;
+  font-family: ARCADE_N;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 800px;
+  margin: 0 auto;
+}
