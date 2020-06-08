@@ -1,11 +1,7 @@
-#bio {
-    border: solid black 2px;
-    background: aqua;
-}
-
 #main {
     display: flex;
     flex-direction: row;
+    background-color: blue;
 }
 
 #headshot {
