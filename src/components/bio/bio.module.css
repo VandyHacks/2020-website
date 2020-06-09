@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'hellovetica';
+    src: URL('fonts/hellovetica.ttf') format('truetype');
+}
+
 #main {
     display: flex;
     flex-direction: row;

@@ -2,9 +2,10 @@ import React from "react"
 import PropTypes from "prop-types"
 import Title from "../title/title"
 import Footer from "../footer/footer"
-import "./layout.css"
+import "./layout.module.css"
 import About from '../about/about'
 import Nav from '../nav/nav'
+import logo from '../../assets/VH Pixel Logo.png'
 
 const Layout: React.FC<{}> = ({ children }) => {
 
@@ -17,7 +18,7 @@ const Layout: React.FC<{}> = ({ children }) => {
       <About />
       <Nav />
       <Footer />
-      <img src='../../assets/VH Pixel Logo.png'/>
+      <img id='img' src={logo} alt="Logo" /> 
     </html>
   )
 }

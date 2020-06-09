@@ -3,7 +3,7 @@ import Col from './collapsible';
 import faqData from './data/faqData.json'
 
 const FAQ: React.FC<{}> = () => (
-    <div>>
+    <div>
       <h1>FAQ</h1>
       <ul>
         {faqData.map((data, index) => {
