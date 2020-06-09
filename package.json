@@ -19,6 +19,7 @@
     "gatsby-source-filesystem": "^2.1.56",
     "gatsby-transformer-sharp": "^2.3.19",
     "gatsby-transformer-typescript-css-modules": "^1.0.14",
+    "nes.css": "^2.3.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-collapsible": "^2.8.0",

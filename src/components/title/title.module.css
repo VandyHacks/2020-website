@@ -1,5 +1,9 @@
-
 /* TODO: idk why it's all the way to the side >:( */
+@font-face {
+  font-family: 'hellovetica';
+  src: URL('fonts/hellovetica.ttf') format('truetype');
+}
+
 .banner {
   display: flex;
   align-content: space-around;

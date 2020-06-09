@@ -4,7 +4,6 @@ import * as styles from './nav.module.css'
 import FAQ from '../faq'
 import Schedule from '../schedule'
 import Bio from '../bio/bio'
-
 // const togglePop = ({children}) => 
   
 Modal.setAppElement(document.getElementById('root'));
@@ -16,31 +15,34 @@ const Nav: React.FC<{}> = () => {
     setIsOpen(false);
   }
   return (
-  <div>
-    <button className={styles.styled_button}
+  <div id={styles.nav}>
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+    <h3
       onClick={() => {
         setContent(<FAQ />),
         setIsOpen(true)}}>
         FAQ
-    </button>
-    <button
+    </h3>
+    <h3
       onClick={() => {
         setContent(<Schedule />),
-        setIsOpen(true)}}>
+        setIsOpen(true)}}
+      >
         Events
-    </button>
-    <button
+    </h3>
+    <h3
       onClick={() => {
         setContent(<Bio />),
         setIsOpen(true)}}>
         Bios
-    </button>
-    <button
+    </h3>
+    <h3
       onClick={() => alert('Join')}>
         Join
-    </button>
+    </h3>
     <Modal
-      className={styles.Modal}
+      id={styles.Modal}
+      className='nes-container is-dark is-rounded'
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
       contentLabel='Modal Window'

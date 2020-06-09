@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'ARCADE_N';
+    src: URL('./ARCADE_N.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'hellovetica';
+    src: URL('./hellovetica.ttf') format('truetype');
+}

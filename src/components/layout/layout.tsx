@@ -4,27 +4,19 @@ import Title from "../title/title"
 import Footer from "../footer/footer"
 import "./layout.css"
 
-import FAQ from "../faq"
-import Schedule from "../schedule"
-import Bio from "../bio/bio"
+import Nav from '../nav/nav'
 
 const Layout: React.FC<{}> = ({ children }) => {
 
   return (
-    <>
+    <html>
       <Title />
-      <div
-        style={{
-          margin: `0 auto`,
-        }}
-      >
+      <div style={{margin: `0 auto`,}}>
         <main>{children}</main>
       </div>
-      <FAQ />
-      <Schedule />
-      <Bio />
+      <Nav />
       <Footer />
-    </>
+    </html>
   )
 }
 

@@ -1,6 +1,11 @@
 @font-face {
     font-family: 'ARCADE_N';
-    src: URL('./fonts/ARCADE_N.TTF') format('truetype');
+    src: URL('../fonts/ARCADE_N.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'hellovetica';
+    src: URL('fonts/hellovetica.ttf') format('truetype');
 }
 
 html {
@@ -8,5 +13,7 @@ html {
 }
 
 * {
+    font-family: ARCADE_N;
+    font-size: 10px;
     color: white;
 }
