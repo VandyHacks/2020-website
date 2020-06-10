@@ -5,7 +5,7 @@ const About: React.FC<{}> = () => {
   return (
   <div id={styles.about}>
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
-    <div className='nes-container is-rounded'>
+    <div className='nes-container is-dark is-rounded'>
       This is the about section.
     </div>
   </div>

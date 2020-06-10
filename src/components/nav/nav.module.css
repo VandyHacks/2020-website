@@ -1,21 +1,93 @@
-#Modal {
+/* TODO: There is straight up way too much hardcoded
+CSS for repeating elements*/
+
+#nav {
+    display: grid;
+    grid-template-columns: auto 100px 200px 100px auto;
+    grid-template-rows: repeat(4, auto);
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.option {
+    font-family: ARCADE_N;
+}
+
+.option:hover {
+    color: #f2b707;
+}
+
+#faq_button {
+    grid-column-start: 3;
+    grid-row-start: 1
+}
+
+#faq_button:hover ~ #faq_sword{
+    visibility: visible;
+}
+
+#events_button:hover ~ #events_sword{
+    visibility: visible;
+}
+
+#bios_button:hover ~ #bios_sword{
+    visibility: visible;
+}
+
+#join_button:hover ~ #join_sword{
+    visibility: visible;
+}
+
+#events_button {
+    grid-column-start: 3;
+    grid-row-start: 2
+}
+
+#bios_button {
+    grid-column-start: 3;
+    grid-row-start: 3
+}
+
+#join_button {
+    grid-column-start: 3;
+    grid-row-start: 4
+}
+
+#faq_sword {
+    visibility: hidden;
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
+#events_sword {
+    visibility: hidden;
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+#bios_sword {
+    visibility: hidden;
+    grid-column-start: 2;
+    grid-row-start: 3;
+}
+
+#join_sword {
+    visibility: hidden;
+    grid-column-start: 2;
+    grid-row-start: 4;
+}
+.modal {
     position: absolute;
     top: 40px;
     left: 40px;
     right: 40px;
     bottom: 40px;
-    background: #212529 !important;
-    border-radius: 0% !important;
-    border: 4px solid #212529 !important;
+    padding: 10px;
+    background: #212529;
+    border-radius: 0%;
+    border: 4px solid #212529;
     box-shadow:
         inset 4px 4px white,
         inset -4px -4px white;
-}
-
-h3 {
-    font-family: ARCADE_N;
-}
-
-#nav {
-    text-align: center;
 }
