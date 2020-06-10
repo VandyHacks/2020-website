@@ -1,12 +1,15 @@
-/* @import '../../../node_modules/nes.css/css/nes.css'; */
-
 #Modal {
     position: absolute;
-    top: 100px;
+    top: 40px;
     left: 40px;
     right: 40px;
     bottom: 40px;
-    background: #202020;
+    background: #212529 !important;
+    border-radius: 0% !important;
+    border: 4px solid #212529 !important;
+    box-shadow:
+        inset 4px 4px white,
+        inset -4px -4px white;
 }
 
 h3 {
@@ -15,19 +18,4 @@ h3 {
 
 #nav {
     text-align: center;
-}
-
-#main {
-    display: flex;
-    flex-direction: row;
-}
-
-#headshot {
-    border-radius: 50%;
-}
-
-#text {
-    margin-left: 50px;
-    font: ARCADE_N;
-    font: white;
 }

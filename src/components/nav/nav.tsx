@@ -42,12 +42,12 @@ const Nav: React.FC<{}> = () => {
     </h3>
     <Modal
       id={styles.Modal}
-      className='nes-container is-dark is-rounded'
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
       contentLabel='Modal Window'
     >
       {content}
+      
     </Modal>
   </div>
   )
