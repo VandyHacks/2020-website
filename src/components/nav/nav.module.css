@@ -7,9 +7,7 @@
     background: #212529 !important;
     border-radius: 0% !important;
     border: 4px solid #212529 !important;
-    box-shadow:
-        inset 4px 4px white,
-        inset -4px -4px white;
+    box-shadow: inset 4px 4px white, inset -4px -4px white;
 }
 
 h3 {
@@ -18,4 +16,13 @@ h3 {
 
 #nav {
     text-align: center;
+}
+
+#sword-div {
+    width: 10vw;
+}
+
+img {
+    width: 20vw;
+    height: auto;
 }
