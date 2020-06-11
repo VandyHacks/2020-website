@@ -38,7 +38,6 @@ const Footer: React.FC<{}> = () => (
             id="github-container"
             href="https://github.com/VandyHacks"
             target="_blank"
-            alt="github icon"
           >
             <img src={GithubLogo} />
           </a>

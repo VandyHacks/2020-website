@@ -9,12 +9,11 @@ const Title: React.FC<{}> = () => (
     </div>
 )
 
-const Banner: React.FC<{}> = () => {
-    return <div className={styles.banner}>
+const Banner: React.FC<{}> = () => (
+    <div className={styles.banner}>
         <h2>{' '}retro edn.</h2>
-        </div>;
-}
-
+    </div>
+)
 const Maintitle: React.FC<{}> = () => (
     <div className={styles.maintitle}>
         <h1>VandyHacks</h1>
