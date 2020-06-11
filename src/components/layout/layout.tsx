@@ -18,7 +18,6 @@ const Layout: React.FC<{}> = ({ children }) => {
       <About />
       <Nav />
       <Footer />
-      <img id='img' src={logo} alt="Logo" /> 
     </html>
   )
 }
