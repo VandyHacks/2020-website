@@ -1,16 +1,17 @@
-import React from "react"
-import PropTypes from "prop-types"
-import Title from "../title/title"
-import Footer from "../footer/footer"
-import "./layout.module.css"
-import About from '../about/about'
-import Nav from '../nav/nav'
-import logo from '../../assets/VH Pixel Logo.png'
+import React from "react";
+import PropTypes from "prop-types";
+
+import Title from "../title/title";
+import Footer from "../footer/footer";
+import About from '../about/about';
+import Nav from '../nav/nav';
+
+import "./layout.module.css";
 
 const Layout: React.FC<{}> = ({ children }) => {
 
   return (
-    <html>
+    <>
       <Title />
       <div style={{margin: `0 auto`,}}>
         <main>{children}</main>
@@ -18,8 +19,7 @@ const Layout: React.FC<{}> = ({ children }) => {
       <About />
       <Nav />
       <Footer />
-      <img id='img' src={logo} alt="Logo" /> 
-    </html>
+    </>
   )
 }
 

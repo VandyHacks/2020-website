@@ -6,9 +6,11 @@ import SEO from "../components/seo"
 import './index.css'
 
 const IndexPage = () => (
-  <Layout id='root'>
-    <SEO title="Home" />
-  </Layout>
+  <div id="main">
+    <Layout id='root'>
+      <SEO title="Home" />
+    </Layout>
+  </div>
 )
 
 export default IndexPage

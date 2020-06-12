@@ -7,6 +7,8 @@ const About: React.FC<{}> = () => {
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
     <div className='nes-container is-dark is-rounded'>
       This is the about section.
+      <br />
+      I see.
     </div>
   </div>
   )

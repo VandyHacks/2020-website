@@ -1,73 +1,63 @@
 html {
-  font-family: "ARCADE_N", sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+    font-family: "ARCADE_N", sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  font-family: sans-serif;
-  color: #fff;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-family: sans-serif;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
 footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  display: inline-block;
-  padding: 0.5rem 0.5rem;
-  width: 100vw;
-  background-color: rebeccapurple;
+    flex-shrink: 0;
 }
-.right {
-  min-width: 50vw;
-  color: #fff;
-  /* text-align: center; */
+
+#footer-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#retro-logo {
+    width: 100px;
+    height: auto;
 }
 
 .socials {
-  height: 100px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.socials svg {
-  color: #fff;
-  width: 36px;
-  height: 36px;
-  border-radius: 15%;
-  transition: transform 0.1s ease-in-out;
-  overflow: hidden;
+    height: 140px;
+    display: flex;
+    margin: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 footer a {
-  text-decoration: none;
-  border-radius: 25%;
-  color: white;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 5px;
-  width: 54px;
-  height: 54px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    width: 54px;
+    height: 54px;
 }
 
 .logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo-container svg {
-  height: auto;
-  width: 280px;
+    height: auto;
+    width: 280px;
 }

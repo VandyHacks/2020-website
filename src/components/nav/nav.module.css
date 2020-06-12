@@ -83,6 +83,7 @@ CSS for repeating elements*/
     left: 40px;
     right: 40px;
     bottom: 40px;
+<<<<<<< HEAD
     padding: 10px;
     background: #212529;
     border-radius: 0%;
@@ -90,4 +91,27 @@ CSS for repeating elements*/
     box-shadow:
         inset 4px 4px white,
         inset -4px -4px white;
+=======
+    background: #212529 !important;
+    border-radius: 0% !important;
+    border: 4px solid #212529 !important;
+    box-shadow: inset 4px 4px white, inset -4px -4px white;
+}
+
+h3 {
+    font-family: ARCADE_N;
+}
+
+#nav {
+    text-align: center;
+}
+
+#sword-div {
+    width: 10vw;
+}
+
+img {
+    width: 20vw;
+    height: auto;
+>>>>>>> 9d782338db3c5f39ba18c7ec4b17b61fbe7c18ad
 }
