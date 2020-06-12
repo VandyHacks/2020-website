@@ -46,10 +46,10 @@ const Nav: React.FC<{}> = () => {
       onClick={() => alert('Join')}>
         Join
     </h3>
-    <img id={styles.faq_sword} src={sword} alt="faq sword" /> 
-    <img id={styles.events_sword} src={sword} alt="events sword" /> 
-    <img id={styles.bios_sword} src={sword} alt="bios sword" /> 
-    <img id={styles.join_sword} src={sword} alt="join sword" /> 
+    <img className={styles.sword} id={styles.faq_sword} src={sword} alt="faq sword" /> 
+    <img className={styles.sword} id={styles.events_sword} src={sword} alt="events sword" /> 
+    <img className={styles.sword} id={styles.bios_sword} src={sword} alt="bios sword" /> 
+    <img className={styles.sword} id={styles.join_sword} src={sword} alt="join sword" /> 
     <Modal
       className={styles.modal}
       isOpen={modalIsOpen}
