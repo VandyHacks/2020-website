@@ -17,3 +17,4 @@ export const joinButton: string;
 export const join_sword: string;
 export const joinSword: string;
 export const modal: string;
+export const swordDiv: string;
