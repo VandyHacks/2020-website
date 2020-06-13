@@ -1,8 +1,32 @@
 #about {
-    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: hidden;
     margin-left: 100px;
     margin-right: 100px;
     margin-top: 50px;
     margin-bottom: 50px;
     line-height: 1rem;
+}
+
+#down {
+    max-width: 10px;
+    align-self: flex-end;
+    animation: blink 1s linear infinite;
+}
+
+#up {
+    max-width: 10px;
+    align-self: flex-end;
+    transform: rotate(180deg);
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {  
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
 }
