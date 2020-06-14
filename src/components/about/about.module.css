@@ -10,13 +10,17 @@
 }
 
 #down {
-    max-width: 10px;
+    max-width: 12px;
+    max-height: auto;
+    padding: 2px 0px 2px 0px;
     align-self: flex-end;
     animation: blink 1s linear infinite;
 }
 
 #up {
     max-width: 10px;
+    max-height: auto;
+    padding: 2px 0px 2px 0px;
     align-self: flex-end;
     transform: rotate(180deg);
     animation: blink 1s linear infinite;
