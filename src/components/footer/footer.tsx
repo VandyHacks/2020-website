@@ -5,14 +5,14 @@ import InstagramLogo from '../../assets/instagram icon.png';
 import GithubLogo from '../../assets/github icon.png';
 import TwitterLogo from '../../assets/twitter icon.png';
 
-import './footer.css';
+import * as styles from './footer.module.css'
 
 const Footer: React.FC<{}> = () => (
-  <div id="footer-main">
+  <div id={styles.footerMain}>
     <footer>
       <span className="right">
         {/* <p>{'Made with <3 and < / > at VandyHacks'}</p> */}
-        <div className="socials">
+        <div className={styles.socials}>
           {/* Facebook Icon */}
           <a
             id="facebook-container"
@@ -54,7 +54,7 @@ const Footer: React.FC<{}> = () => (
         </div>
       </span>
     </footer>
-    <img id="retro-logo" src={RetroLogo} alt="RetroLogo" />
+    <img id={styles.retroLogo} src={RetroLogo} alt="RetroLogo" />
   </div>
 );
 
