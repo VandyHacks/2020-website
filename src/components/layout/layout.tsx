@@ -17,7 +17,7 @@ const Layout: React.FC<{}> = ({ children }) => {
         <main>{children}</main>
       </div>
       <About />
-      <Nav />
+      {/* <Nav /> */}
       <Footer />
     </>
   )
