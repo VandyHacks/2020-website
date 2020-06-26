@@ -27,6 +27,7 @@ body {
 noscript > h1 {
   font-size: 48px;
 }
+
 .summer_container {
   width: 400px;
   margin: 0 auto;
@@ -57,9 +58,9 @@ noscript > h1 {
   border: 4px solid #00CD00;
 }
 
+
 .socials {
   height: 100px;
-  padding: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -205,7 +206,7 @@ footer a {
     background: #eceaee;
     color: #303b53;
   }
-  
+
   .summer_hackathon {
     display: block;
     font-size: 20px;
@@ -227,7 +228,8 @@ footer a {
     color: #00CD00;
     border: 4px solid #00CD00;
   }
-  
+
+
   svg,
   svg path.cls-1 {
     color: #303b53;
