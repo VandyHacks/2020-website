@@ -4,7 +4,7 @@
 
 body {
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
   background-color: #121212;
   color: white;
   display: flex;
@@ -27,6 +27,7 @@ body {
 noscript > h1 {
   font-size: 48px;
 }
+
 .summer_container {
   width: 400px;
   margin: 0 auto;
@@ -57,9 +58,9 @@ noscript > h1 {
   border: 4px solid #00CD00;
 }
 
+
 .socials {
   height: 100px;
-  padding: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -132,7 +133,7 @@ noscript > h1 {
 #youtube-container:hover {
   transition: all 0.1s ease-in-out;
   transform: scale(1.1);
-  background: #FF0000;
+  background: #ff0000;
   color: white;
 }
 
@@ -145,6 +146,23 @@ noscript > h1 {
 .logo-container svg {
   height: auto;
   width: 280px;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+footer {
+  margin-bottom: 1vh;
+  text-align: center;
+  font-size: 0.3em;
+}
+
+footer a {
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 700px) {
@@ -174,7 +192,7 @@ noscript > h1 {
   noscript > h1 {
     font-size: 36px;
   }
-  a {
+  main a {
     margin: 0 10px;
   }
 }
@@ -184,7 +202,7 @@ noscript > h1 {
     background: #eceaee;
     color: #303b53;
   }
-  
+
   .summer_hackathon {
     display: block;
     font-size: 20px;
@@ -206,14 +224,15 @@ noscript > h1 {
     color: #00CD00;
     border: 4px solid #00CD00;
   }
-  
+
+
   svg,
   svg path.cls-1 {
     color: #303b53;
     fill: #303b53;
   }
 
-  a:hover {
+  main a:hover {
     box-shadow: 0 0 5px #303b53;
   }
 
@@ -230,7 +249,7 @@ noscript > h1 {
   }
 
   #twitch-container:hover svg {
-    color: #6441a5;;
+    color: #6441a5;
   }
 
   #youtube-container:hover svg {
@@ -246,7 +265,6 @@ noscript > h1 {
     margin-top: 20px;
   }
 }
-
 
 .form {
   display: flex;
@@ -311,6 +329,7 @@ noscript > h1 {
 }
 
 /* reset input */
-.form__field:required, .form__field:invalid {
+.form__field:required,
+.form__field:invalid {
   box-shadow: none;
 }
