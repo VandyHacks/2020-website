@@ -28,17 +28,13 @@ noscript > h1 {
   font-size: 48px;
 }
 
-.summer_container {
-  width: 100%;
-  padding: 10px;
-}
-
-
 .summer_hackathon {
   display: block;
   width: 400px;
   margin: 0 auto;
   font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 40px;
   text-decoration: none;
   padding: 10px;
   color: white;
