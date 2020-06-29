@@ -267,6 +267,20 @@ footer a:hover {
   noscript > h1 {
     font-size: 36px;
   }
+
+  .form__field {
+    font-size: 1rem;
+  }
+
+  .form__field:placeholder-shown ~ .form__label {
+    font-size: 1rem;
+    cursor: text;
+    top: 20px;
+  }
+
+  .form__field:focus ~ .form__label {
+    top: 0;
+  }
   main a {
     margin: 0 10px;
   }
