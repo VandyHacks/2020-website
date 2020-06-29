@@ -2,6 +2,7 @@
   overflow-x: hidden;
 }
 
+
 body {
   width: 100vw;
   height: 110vh;
@@ -137,13 +138,15 @@ noscript > h1 {
 .logo-container svg {
   height: auto;
   width: 280px;
+
 }
 
 main {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .form {
@@ -159,7 +162,7 @@ main {
   position: relative;
   padding: 15px 0 0;
   margin-top: 10px;
-  width: 40%;
+  width: 100%;
 }
 
 .form__field {
@@ -244,6 +247,7 @@ footer a:hover {
     justify-content: center;
     font-size: 2.25em;
   }
+
   .text {
     display: inline-block;
     text-align: center;
