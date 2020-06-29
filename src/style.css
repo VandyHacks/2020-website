@@ -225,6 +225,14 @@ footer a {
   text-decoration: none;
 }
 
+footer a {
+  color: #FFDB73;
+}
+
+footer a:hover {
+  font-weight: bold;
+}
+
 @media only screen and (max-width: 700px) {
   body {
     margin: 0;
@@ -315,6 +323,9 @@ footer a {
     color: #303b53;
   }
   .form__label {
+    color: #303b53;
+  }
+  footer a {
     color: #303b53;
   }
 }
