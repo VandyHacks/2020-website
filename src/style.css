@@ -199,16 +199,17 @@ main {
   padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
-  border-image: linear-gradient(to right, #11998e, #38ef7d);
+  border-image: linear-gradient(to right, #ffb303, #f2f200);
   border-image-slice: 1;
 }
+
 .form__field:focus ~ .form__label {
   position: absolute;
   top: 0;
   display: block;
   transition: 0.2s;
   font-size: 1rem;
-  color: #11998e;
+  color: #FFDB73;
   font-weight: 700;
 }
 
@@ -270,6 +271,7 @@ footer a:hover {
 
   .form__field {
     font-size: 1rem;
+    margin-top: 30px;
   }
 
   .form__field:placeholder-shown ~ .form__label {
