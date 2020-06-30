@@ -1,12 +1,12 @@
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyDdLHuotCYia2O3TQMH5EqDZhEzE8lkPJQ",
-    authDomain: "vh-placeholder-test.firebaseapp.com",
-    databaseURL: "https://vh-placeholder-test.firebaseio.com",
-    projectId: "vh-placeholder-test",
-    storageBucket: "vh-placeholder-test.appspot.com",
-    messagingSenderId: "797653730750",
-    appId: "1:797653730750:web:6ba8e27da8d3ac3694e5ef"
+    apiKey: "AIzaSyAMg5ALVWNDSLux3yI-P9ftZYXCt4_4ViM",
+    authDomain: "vh7-preregistration.firebaseapp.com",
+    databaseURL: "https://vh7-preregistration.firebaseio.com",
+    projectId: "vh7-preregistration",
+    storageBucket: "vh7-preregistration.appspot.com",
+    messagingSenderId: "70446224469",
+    appId: "1:70446224469:web:a66c6be57c125245d8f0dc"
 };
 // // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
