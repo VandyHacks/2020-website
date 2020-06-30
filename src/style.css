@@ -5,7 +5,7 @@
 
 body {
   width: 100vw;
-  height: 110vh;
+  min-height: 100vh;
   background-color: #121212;
   color: white;
   display: flex;
@@ -133,11 +133,12 @@ noscript > h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 5vh;
 }
 
 .logo-container svg {
-  height: auto;
-  width: 280px;
+  height: 25vh;
+  width: auto;
 
 }
 
@@ -357,4 +358,9 @@ footer a:hover {
   .socials {
     margin-top: 20px;
   }
+}
+
+footer {
+  height: 100px;
+  margin-top: auto;
 }
