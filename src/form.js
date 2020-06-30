@@ -15,15 +15,23 @@ firebase.initializeApp(firebaseConfig);
 var emailRef = firebase.database().ref('emails');
 
 // Listen for form submit
-document.getElementById('email').addEventListener('keyup', e => {
+var emailField = document.getElementById('email')
+emailField.addEventListener('keyup', e => {
     if (e.keyCode === 13) {
-        
+
         e.preventDefault();
-        // Send input to Firebase
-        saveEmail()
-        // Feedback to user that submission was successful
-        document.getElementById('email').value = '';
-        document.getElementById('form__label').innerHTML = "thank you for subscribing!"
+
+        var label = document.getElementById('form__label');
+        // Validate email address
+        if (emailField.validity.typeMismatch) {
+            label.innerHTML = "please enter a valid email address";
+        } else {
+            // Send to firebase
+            saveEmail();
+            // Feedback to user that submission was successful
+            emailField.value = '';
+            label.innerHTML = "thank you for subscribing!";
+        }
     }
 });
 
