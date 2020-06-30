@@ -2,7 +2,6 @@
   overflow-x: hidden;
 }
 
-
 body {
   width: 100vw;
   min-height: 100vh;
@@ -18,6 +17,10 @@ body {
   font-family: 'Major Mono Display', monospace;
   font-size: 3em;
   user-select: none;
+}
+
+.mlh-badge {
+  content: url(https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-white.svg);
 }
 
 .text {
@@ -45,11 +48,11 @@ noscript > h1 {
 .summer_hackathon:hover {
   transition: all 0.1s ease-in-out;
   transform: scale(1.1);
+  font-weight: bold;
   background-color: #121212;
-  color: #FFDB73;
-  border: 4px solid #FFDB73;
+  color: #ffdb73;
+  border: 4px solid #ffdb73;
 }
-
 
 .socials {
   min-height: 100px;
@@ -139,7 +142,6 @@ noscript > h1 {
 .logo-container svg {
   height: 25vh;
   width: auto;
-
 }
 
 main {
@@ -216,9 +218,8 @@ input {
   display: block;
   transition: 0.2s;
   font-size: 1rem;
-  color: #FFDB73;
+  color: #ffdb73;
   font-weight: 700;
-
 }
 
 /* reset input */
@@ -235,10 +236,7 @@ footer {
 
 footer a {
   text-decoration: none;
-}
-
-footer a {
-  color: #FFDB73;
+  color: #ffdb73;
 }
 
 footer a:hover {
@@ -265,7 +263,6 @@ footer a:hover {
   }
   .text div {
     min-height: 160px;
-
   }
   .summer_hackathon {
     width: 200px;
@@ -307,20 +304,46 @@ footer a:hover {
     color: #303b53;
   }
 
+  #form__label {
+    color: #fff;
+  }
+  
+  .form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #303b53, #303b53);
+    border-image-slice: 1;
+    -webkit-appearance: none;
+  }
+  
+  .form__field:focus ~ #form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #303b53;
+    font-weight: 700;
+  }
+
+  .mlh-badge {
+    content: url(https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-black.svg);
+  }
+
   .summer_hackathon {
     color: #303b53;
     border: 4px solid #303b53;
     border-radius: 10px;
   }
-  
+
   .summer_hackathon:hover {
     transition: all 0.1s ease-in-out;
     transform: scale(1.1);
-    background-color: #303b53;
-    color: #FFDB73;
-    border: 4px solid #FFDB73;
+    background-color: #ffdb73;
+    color: #303b53;
+    border: 4px solid #ffdb73;
   }
-
 
   svg,
   svg path.cls-1 {
@@ -364,7 +387,6 @@ footer a:hover {
 }
 
 @media only screen and (min-device-width: 315px) and (max-device-width: 967px) and (orientation: landscape) {
-
   .content {
     padding-top: 10%;
   }
