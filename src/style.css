@@ -4,7 +4,7 @@
 
 body {
   width: 100vw;
-  height: 110vh;
+  min-height: 100vh;
   background-color: #121212;
   color: white;
   display: flex;
@@ -17,6 +17,10 @@ body {
   font-family: 'Major Mono Display', monospace;
   font-size: 3em;
   user-select: none;
+}
+
+.mlh-badge {
+  content: url(https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-white.svg);
 }
 
 .text {
@@ -44,14 +48,14 @@ noscript > h1 {
 .summer_hackathon:hover {
   transition: all 0.1s ease-in-out;
   transform: scale(1.1);
+  font-weight: bold;
   background-color: #121212;
-  color: #FFDB73;
-  border: 4px solid #FFDB73;
+  color: #ffdb73;
+  border: 4px solid #ffdb73;
 }
 
-
 .socials {
-  height: 100px;
+  min-height: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -132,18 +136,25 @@ noscript > h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 5vh;
 }
 
 .logo-container svg {
-  height: auto;
-  width: 280px;
+  height: 25vh;
+  width: auto;
 }
 
 main {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  /* height: 100vh; */
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 .form {
@@ -159,7 +170,7 @@ main {
   position: relative;
   padding: 15px 0 0;
   margin-top: 10px;
-  width: 40%;
+  width: 100%;
 }
 
 .form__field {
@@ -177,13 +188,13 @@ main {
 .form__field::placeholder {
   color: transparent;
 }
-.form__field:placeholder-shown ~ .form__label {
+.form__field:placeholder-shown ~ #form__label {
   font-size: 1.3rem;
   cursor: text;
   top: 20px;
 }
 
-.form__label {
+#form__label {
   position: absolute;
   top: 0;
   display: block;
@@ -196,16 +207,18 @@ main {
   padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
-  border-image: linear-gradient(to right, #11998e, #38ef7d);
+  border-image: linear-gradient(to right, #ffb303, #f2f200);
   border-image-slice: 1;
+  -webkit-appearance: none;
 }
-.form__field:focus ~ .form__label {
+
+.form__field:focus ~ #form__label {
   position: absolute;
   top: 0;
   display: block;
   transition: 0.2s;
   font-size: 1rem;
-  color: #11998e;
+  color: #ffdb73;
   font-weight: 700;
 }
 
@@ -223,6 +236,11 @@ footer {
 
 footer a {
   text-decoration: none;
+  color: #ffdb73;
+}
+
+footer a:hover {
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 700px) {
@@ -234,12 +252,17 @@ footer a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 2.25em;
+    font-size: 2.15em;
   }
+
   .text {
     display: inline-block;
     text-align: center;
     align-self: center;
+    margin-top: 60px;
+  }
+  .text div {
+    min-height: 160px;
   }
   .summer_hackathon {
     width: 200px;
@@ -255,6 +278,21 @@ footer a {
   noscript > h1 {
     font-size: 36px;
   }
+
+  .form__field {
+    font-size: 1rem;
+    margin-top: 30px;
+  }
+
+  .form__field:placeholder-shown ~ #form__label {
+    font-size: 1rem;
+    cursor: text;
+    top: 20px;
+  }
+
+  .form__field:focus ~ #form__label {
+    top: 0;
+  }
   main a {
     margin: 0 10px;
   }
@@ -266,20 +304,46 @@ footer a {
     color: #303b53;
   }
 
+  #form__label {
+    color: #fff;
+  }
+  
+  .form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #303b53, #303b53);
+    border-image-slice: 1;
+    -webkit-appearance: none;
+  }
+  
+  .form__field:focus ~ #form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #303b53;
+    font-weight: 700;
+  }
+
+  .mlh-badge {
+    content: url(https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-gray.svg);
+  }
+
   .summer_hackathon {
     color: #303b53;
     border: 4px solid #303b53;
     border-radius: 10px;
   }
-  
+
   .summer_hackathon:hover {
     transition: all 0.1s ease-in-out;
     transform: scale(1.1);
-    background-color: #303b53;
-    color: #FFDB73;
-    border: 4px solid #FFDB73;
+    background-color: #ffdb73;
+    color: #303b53;
+    border: 4px solid #ffdb73;
   }
-
 
   svg,
   svg path.cls-1 {
@@ -314,7 +378,10 @@ footer a {
     border-bottom: 2px solid #303b53;
     color: #303b53;
   }
-  .form__label {
+  #form__label {
+    color: #303b53;
+  }
+  footer a {
     color: #303b53;
   }
 }
@@ -326,4 +393,9 @@ footer a {
   .socials {
     margin-top: 20px;
   }
+}
+
+footer {
+  height: 100px;
+  margin-top: auto;
 }
