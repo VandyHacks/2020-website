@@ -150,6 +150,10 @@ main {
   /* height: 100vh; */
 }
 
+input {
+  -webkit-appearance: none;
+}
+
 .form {
   display: flex;
   flex-direction: column;
