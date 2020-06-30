@@ -207,6 +207,7 @@ input {
   border-width: 3px;
   border-image: linear-gradient(to right, #ffb303, #f2f200);
   border-image-slice: 1;
+  -webkit-appearance: none;
 }
 
 .form__field:focus ~ #form__label {
@@ -217,6 +218,7 @@ input {
   font-size: 1rem;
   color: #FFDB73;
   font-weight: 700;
+
 }
 
 /* reset input */
