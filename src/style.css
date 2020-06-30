@@ -150,6 +150,11 @@ main {
   /* height: 100vh; */
 }
 
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -202,6 +207,7 @@ main {
   border-width: 3px;
   border-image: linear-gradient(to right, #ffb303, #f2f200);
   border-image-slice: 1;
+  -webkit-appearance: none;
 }
 
 .form__field:focus ~ #form__label {
@@ -212,6 +218,7 @@ main {
   font-size: 1rem;
   color: #FFDB73;
   font-weight: 700;
+
 }
 
 /* reset input */
