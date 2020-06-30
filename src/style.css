@@ -180,13 +180,13 @@ main {
 .form__field::placeholder {
   color: transparent;
 }
-.form__field:placeholder-shown ~ .form__label {
+.form__field:placeholder-shown ~ #form__label {
   font-size: 1.3rem;
   cursor: text;
   top: 20px;
 }
 
-.form__label {
+#form__label {
   position: absolute;
   top: 0;
   display: block;
@@ -203,7 +203,7 @@ main {
   border-image-slice: 1;
 }
 
-.form__field:focus ~ .form__label {
+.form__field:focus ~ #form__label {
   position: absolute;
   top: 0;
   display: block;
@@ -274,13 +274,13 @@ footer a:hover {
     margin-top: 30px;
   }
 
-  .form__field:placeholder-shown ~ .form__label {
+  .form__field:placeholder-shown ~ #form__label {
     font-size: 1rem;
     cursor: text;
     top: 20px;
   }
 
-  .form__field:focus ~ .form__label {
+  .form__field:focus ~ #form__label {
     top: 0;
   }
   main a {
@@ -342,7 +342,7 @@ footer a:hover {
     border-bottom: 2px solid #303b53;
     color: #303b53;
   }
-  .form__label {
+  #form__label {
     color: #303b53;
   }
   footer a {

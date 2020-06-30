@@ -183,10 +183,12 @@
           </svg>
         </a>
       </div>
+
+
       <div class="form">
         <div class="form__group field">
-          <input type="input" class="form__field" placeholder="email" name="email" id='email' required />
-          <label for="email" class="form__label">get email updates</label>
+          <input type="email" class="form__field" placeholder="email" name="email" id='email' required />
+          <label for="email" id="form__label">get email updates</label>
         </div>
       <!-- </div> -->
     </main>
@@ -206,5 +208,14 @@
       <a href="https://netlify.com" target="_blank" rel="noopener">netlify</a>
     </footer>
   </body>
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+   <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+
+   <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script>
+
   <script type="text/javascript" src="script.js"></script>
+  <script type="text/javascript" src="form.js"></script>
+
 </html>
