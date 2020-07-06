@@ -5,8 +5,7 @@ import FAQ from '../faq'
 import Schedule from '../schedule'
 import Bio from '../bio/bio'
 import sword from '../../assets/horizontal-goldsword.png';
-  
-Modal.setAppElement(document.getElementById('root'));
+Modal.setAppElement('root');
 const Nav: React.FC<{}> = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [content, setContent] = useState(<FAQ />)
