@@ -8,6 +8,10 @@
     margin-top: 50px;
     margin-bottom: 50px;
     line-height: 1rem;
+    /* Temporary */
+    width: 500px;
+    margin: 0 auto;
+    /*  */
 }
 
 #down {

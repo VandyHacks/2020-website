@@ -5,7 +5,7 @@ import DownArrow from '../../assets/downarrow.png';
 const About: React.FC<{}> = () => {
   <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
   const topText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum'
-  const bottomText = 'Jeffrey Woods, also more commonly known as Jeff the Killer, is the titular villainous protagonist of the creepypasta story of the same name by the brother of GameFuelTv, who loses his sanity and becomes a serial killer to satisfy his homicidal urges. Jeff became one of the largest creepypasta icons to date, even rivaling Slender Man of all creepypastas. He is a teenage boy, who was a caring youth and deeply cared about his brother Liu. As a killer, this changed and he became a vengeful, dangerous, and bloodthirsty sociopath.'
+  const bottomText = 'In each hemisphere of our brain, humans have a primary visual cortex, also known as V1, containing 140 million neurons, with tens of billions of connections between them. And yet human vision involves not just V1, but an entire series of visual cortices - V2, V3, V4, and V5 - doing progressively more complex image processing. We carry in our heads a supercomputer, tuned by evolution over hundreds of millions of years'
   const [arrowDirection, setArrowDirection] = useState('down');
   const [content, setContent] = useState(topText)
   function toggleDisplay() {

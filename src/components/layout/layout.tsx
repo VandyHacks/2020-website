@@ -5,6 +5,7 @@ import Title from "../title/title";
 import Footer from "../footer/footer";
 import About from '../about/about';
 import Nav from '../nav/nav';
+import Window from '../window/window'
 
 import "./layout.module.css";
 
