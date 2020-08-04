@@ -1,0 +1,122 @@
+#dashboard {
+    display: grid;
+    grid-template-rows: 55vh 10vh 35vh;
+}
+#top {
+    grid-row-start: 1;
+    width: 500px;
+    background-color: #060606;
+    margin: 0 auto;
+    margin-top: 0;
+}
+
+#title {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 25px;
+    overflow: hidden;
+}
+
+#about {
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: hidden;
+    background-color: #060606;
+    line-height: 1rem;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+#down {
+    max-width: 12px;
+    max-height: auto;
+    padding: 2px 0px 2px 0px;
+    align-self: flex-end;
+    animation: blink 1s linear infinite;
+}
+
+#up {
+    max-width: 10px;
+    max-height: auto;
+    padding: 2px 0px 2px 0px;
+    align-self: flex-end;
+    transform: rotate(180deg);
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {  
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0%;
+    font-family: sans-serif;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.right {
+    font-size: 20px;
+}
+
+#footerMain {
+    grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #060606;
+    width: 500px;
+    margin: 0 auto;
+    bottom: 0px;
+}
+
+#retro-logo {
+    width: 100px;
+    height: auto;
+    margin-top: 36px;
+}
+
+#socials {
+    /* height: 140px; */
+    display: flex;
+    margin: 0px;
+    margin-top: 30px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#socials a {
+    text-decoration: none;
+    color: white;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    width: 54px;
+    height: 54px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+.logo-container svg {
+    margin-top: 0px;
+    width: 280px;
+    margin: 0 auto;
+}

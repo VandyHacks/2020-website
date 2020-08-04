@@ -3,15 +3,11 @@
     flex-flow: column nowrap;
     overflow: hidden;
     background-color: #060606;
-    margin-left: 100px;
-    margin-right: 100px;
     margin-top: 50px;
     margin-bottom: 50px;
     line-height: 1rem;
-    /* Temporary */
     width: 500px;
     margin: 0 auto;
-    /*  */
 }
 
 #down {

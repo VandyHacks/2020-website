@@ -12,13 +12,14 @@ html {
     width: 100vw;
     height: 100vh;
     background-color: #060606;
-    padding-top: 20px;
     margin: 0;
     overflow-x: hidden;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 
 * {
-    font-family: ARCADE_N;
+    font-family: ARCADE_N, sans-serif;
     font-size: 10px;
     color: white;
 }
