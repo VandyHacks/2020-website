@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import {useSpring, animated} from 'react-spring';
+import {Keyframes} from 'react-spring/renderprops'
 import Banner from '../../assets/retroedn-used.png';
 import Maintitle from '../../assets/vandygoldhacks.png'
 import Subtitle from '../../assets/thehackathon.png'
@@ -9,6 +11,7 @@ import InstagramLogo from '../../assets/instagram icon.png';
 import GithubLogo from '../../assets/github icon.png';
 import TwitterLogo from '../../assets/twitter icon.png';
 import * as styles from './dashboard.module.css'
+import { unmountComponentAtNode } from 'react-dom';
 
 
 
@@ -33,11 +36,16 @@ const Top: React.FC<{}> = () => {
                     {content}
                     {/* TODO: Make the text slide up and down */}
                 </div>
-                <img id={styles[arrowDirection]} onClick={toggleDisplay} src={DownArrow} alt="DownArrow" />
+                <img id={styles[arrowDirection]} className={styles.animateBlink} onClick={toggleDisplay} src={DownArrow} alt="DownArrow" />
             </div>
         </div>
       )
 }
+
+// const Fader = Keyframes.Spring(async next => {
+//   while (true)
+//   await next({ opacity: 1, from: { opacity: 0 }, reset: true })
+// });
 
 const Footer: React.FC<{}> = () => {
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
@@ -97,13 +105,28 @@ const Footer: React.FC<{}> = () => {
 }  
 
 const Dashboard: React.FC<{}> = () => {
-    return (
-        <div id={styles.dashboard}>
-            <Top />
-            {/* <button>HELLO!</button> */}
-            <Footer />
-        </div>
-    );
+  const [showDashboard, setShowDashboard] = useState(true);
+  const toggleDashboard = () => setShowDashboard(!showDashboard);
+  // const props = useSpring({
+  //   opacity: 1,
+  //   from: { opacity: 0 },
+  // })
+  return (
+    <div id={styles.dashboard}>
+        { !showDashboard ? <button
+          onClick={toggleDashboard}>
+            Bring it back
+          </button> : null}
+        { showDashboard ? <Top /> : null }
+        { showDashboard ? <button 
+          id={styles.startButton} 
+          className={styles.animateFade}
+          onClick={toggleDashboard}>
+            press start to begin...
+        </button> : null }
+        {showDashboard ? <Footer /> : null }
+    </div>
+  );
 }
 
 

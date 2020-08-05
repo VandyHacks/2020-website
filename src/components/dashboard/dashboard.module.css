@@ -33,7 +33,6 @@
     max-height: auto;
     padding: 2px 0px 2px 0px;
     align-self: flex-end;
-    animation: blink 1s linear infinite;
 }
 
 #up {
@@ -42,15 +41,18 @@
     padding: 2px 0px 2px 0px;
     align-self: flex-end;
     transform: rotate(180deg);
-    animation: blink 1s linear infinite;
+}
+
+.animateBlink {
+    animation: blink 0.8s linear infinite;
 }
 
 @keyframes blink {  
     0%, 50% {
-        opacity: 1;
+        opacity: 0;
     }
     51%, 100% {
-        opacity: 0;
+        opacity: 1;
     }
 }
 
@@ -68,6 +70,45 @@ body {
 
 .right {
     font-size: 20px;
+}
+
+#startButton {
+    width: 500px;
+    margin: 0 auto;
+    background: none;
+    border: none;
+    font-size: 18px;
+}
+
+@keyframes fadeAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+@-o-keyframes fadeAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes fadeAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes fadeAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+}
+.animateFade {
+    -webkit-animation: fadeAnimation 1.6s infinite;
+    -moz-animation: fadeAnimation 1.6s infinite;
+    -o-animation: fadeAnimation 1.6s infinite;
+    animation: fadeAnimation 1.6s infinite;
+}
+
+#startButton:focus {
+    outline: none;
 }
 
 #footerMain {
