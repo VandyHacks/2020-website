@@ -1,0 +1,9 @@
+#gameBoard {
+    position: absolute;
+    background-color: aliceblue;
+    bottom: 0;
+    right: 0;
+    height: 100vw;
+    overflow: hidden;
+
+}

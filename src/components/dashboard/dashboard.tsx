@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useSpring, animated} from 'react-spring';
+import {useSpring, animated, useTransition} from 'react-spring';
 import {Keyframes} from 'react-spring/renderprops'
 import Banner from '../../assets/retroedn-used.png';
 import Maintitle from '../../assets/vandygoldhacks.png'
@@ -11,7 +11,7 @@ import InstagramLogo from '../../assets/instagram icon.png';
 import GithubLogo from '../../assets/github icon.png';
 import TwitterLogo from '../../assets/twitter icon.png';
 import * as styles from './dashboard.module.css'
-import { unmountComponentAtNode } from 'react-dom';
+import Game from '../game/game'
 
 
 
@@ -107,17 +107,24 @@ const Footer: React.FC<{}> = () => {
 const Dashboard: React.FC<{}> = () => {
   const [showDashboard, setShowDashboard] = useState(true);
   const toggleDashboard = () => setShowDashboard(!showDashboard);
+  const transitions = useTransition(showDashboard, null, {
+    from: { transform: 'translate(10px, 10px)' },
+    enter: {transform: 'translate(0px, 100px)' },
+    leave: {transform: 'translate(20px, -20px)'},
+  })
   // const props = useSpring({
   //   opacity: 1,
   //   from: { opacity: 0 },
   // })
   return (
     <div id={styles.dashboard}>
+      <Game />
         { !showDashboard ? <button
           onClick={toggleDashboard}>
             Bring it back
           </button> : null}
         { showDashboard ? <Top /> : null }
+        
         { showDashboard ? <button 
           id={styles.startButton} 
           className={styles.animateFade}
