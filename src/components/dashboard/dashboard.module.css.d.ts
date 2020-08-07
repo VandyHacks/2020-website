@@ -6,7 +6,6 @@ export const down: string;
 export const up: string;
 export const animateBlink: string;
 export const blink: string;
-export const right: string;
 export const startButton: string;
 export const animateFade: string;
 export const fadeAnimation: string;

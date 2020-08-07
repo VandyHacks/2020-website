@@ -51,53 +51,49 @@ const Footer: React.FC<{}> = () => {
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
     return (
       <div id={styles.footerMain}  className='nes-container is-dark is-rounded'>
-        <div>
-          <span id={styles.right}>
-            {/* <p>{'Made with <3 and < / > at VandyHacks'}</p> */}
-            Contact us!
-            <br/>
-            email@vanderbilt.edu
-            <div id={styles.socials}>
-              {/* Facebook Icon */}
-              <a
-                id="facebook-container"
-                href="https://www.facebook.com/vandyhacks/"
-                target="_blank"
-                rel="noopener"
-              >
-                <img src={FacebookLogo} />
-              </a>
-  
-              {/* <!-- Instagram Icon --> */}
-              <a
-                id="instagram-container"
-                href="https://www.instagram.com/vandyhacks/"
-                target="_blank"
-                rel="noopener"
-              >
-                <img src={InstagramLogo} />
-              </a>
-  
-              {/* <!-- Github Icon --> */}
-              <a
-                id="github-container"
-                href="https://github.com/VandyHacks"
-                target="_blank"
-              >
-                <img src={GithubLogo} />
-              </a>
-  
-              {/* <!-- Twitter Icon --> */}
-              <a
-                id="twitter-container"
-                href="https://twitter.com/vandyhacks"
-                target="_blank"
-                rel="noopener"
-              >
-                <img src={TwitterLogo} />
-              </a>
-            </div>
-          </span>
+        {/* <p>{'Made with <3 and < / > at VandyHacks'}</p> */}
+        Contact us!
+        <br/>
+        email@vanderbilt.edu
+        <div id={styles.socials}>
+          {/* Facebook Icon */}
+          <a
+            id="facebook-container"
+            href="https://www.facebook.com/vandyhacks/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src={FacebookLogo} />
+          </a>
+
+          {/* <!-- Instagram Icon --> */}
+          <a
+            id="instagram-container"
+            href="https://www.instagram.com/vandyhacks/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src={InstagramLogo} />
+          </a>
+
+          {/* <!-- Github Icon --> */}
+          <a
+            id="github-container"
+            href="https://github.com/VandyHacks"
+            target="_blank"
+          >
+            <img src={GithubLogo} />
+          </a>
+
+          {/* <!-- Twitter Icon --> */}
+          <a
+            id="twitter-container"
+            href="https://twitter.com/vandyhacks"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src={TwitterLogo} />
+          </a>
         </div>
         <img id={styles.retroLogo} src={RetroLogo} alt="RetroLogo" />
       </div>
@@ -118,20 +114,14 @@ const Dashboard: React.FC<{}> = () => {
   // })
   return (
     <div id={styles.dashboard}>
-      <Game />
-        { !showDashboard ? <button
-          onClick={toggleDashboard}>
-            Bring it back
-          </button> : null}
-        { showDashboard ? <Top /> : null }
-        
-        { showDashboard ? <button 
-          id={styles.startButton} 
-          className={styles.animateFade}
-          onClick={toggleDashboard}>
-            press start to begin...
-        </button> : null }
-        {showDashboard ? <Footer /> : null }
+      { showDashboard ? <Top /> : null }
+      { showDashboard ? <button 
+        id={styles.startButton} 
+        className={styles.animateFade}
+        onClick={toggleDashboard}>
+          press start to begin...
+      </button> : null }
+      {showDashboard ? <Footer /> : null }
     </div>
   );
 }

@@ -7,8 +7,8 @@ import "./game.module.css";
 
 const Game = () => {
   return (
-    <div id='gameBoard'>
-      <img id='map' src={map}></img>
+    <div id={styles.gameBoard}>
+      <img id={styles.map} src={map}></img>
     </div>
   )
 }
