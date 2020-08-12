@@ -5,10 +5,31 @@
     resize: cover;
     overflow: hidden;
     left: calc(50vw - 100vh);
-    right: -25%;
+    /* right: -25%; */
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(10, 1fr);
 }
 
 #map {
-    height: 100%;
-    width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+}
+
+#squirrel {
+    margin: 0;
+}
+
+/* Messes with localization on map if user clicks on squirrel */
+#squirrel:active {
+    pointer-events: none;
+}
+
+.cellButton {
+    display: block;
+    /* align-items: center; */
+    background: transparent;
+    border: none;
+    height: 100% !important;
+    width: 100% !important;
 }
