@@ -7,8 +7,8 @@
     left: calc(50vw - 100vh);
     /* right: -25%; */
     display: grid;
-    grid-template-columns: repeat(20, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(60, 1fr);
+    grid-template-rows: repeat(30, 1fr);
 }
 
 #map {
