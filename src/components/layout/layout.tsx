@@ -1,11 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Title from "../dashboard/dashboard";
-import Footer from "../footer/footer";
-import About from '../about/about';
-import Nav from '../nav/nav';
-import Window from '../window/window';
 import Dashboard from '../dashboard/dashboard';
 import Game from '../game/game';
 
