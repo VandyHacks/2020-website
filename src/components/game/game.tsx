@@ -29,10 +29,20 @@ const Game = () => {
   const [targetX, setTargetX] = useState(squirrelX)
   const [targetY, setTargetY] = useState(squirrelY)
   const [isMoving, setMoving] = useState(false);
+  const [isUp, setUp] = useState(false);
+  const [bounce, setBounce, stopBounce] = useSpring(() => ({
+    transform: 'translate(0px, 0px)'
+  }))
+
   useEffect(() => {
 
     const interval = setInterval(() => {
-      if (isMoving) {
+      if (!isMoving) {
+        setBounce({transform: isUp ? 'translate(0px, 0px)' : 'translate(0px, 10px'});
+        setUp(!isUp);
+      }
+      else {
+        stopBounce();
         console.log('isMoving:', isMoving)
         console.log('Moving!')
         if (targetY > squirrelY) {
@@ -60,9 +70,9 @@ const Game = () => {
           setMoving(false);
         }
       }
-    }, 300);
+    }, 400);
     return () => clearInterval(interval);
-  }, [squirrelX, squirrelY, targetX, targetY, isMoving])
+  }, [squirrelX, squirrelY, targetX, targetY, isMoving, isUp])
 
   const initiateMovement = e => {
     setMoving(true);
@@ -81,23 +91,24 @@ const Game = () => {
     gridRow: `${squirrelY - 1} / ${squirrelY + 2}`,
   }
 
-  const bounce = useSpring({
-    from: {transform: 'translate(0px, 0px)'},
-    to: async (next, cancel) => {
-      while (!isMoving) {
-        console.log('bouncing')
-        await next({transform: 'translate(0px, -10px)'})
-        await next({transform: 'translate(0px, 10px)'})
-      }
-    },
-  })
+  // const bounce = useSpring({
+  //   from: {transform: 'translate(0px, 0px)'},
+  //   to: async (next, cancel) => {
+  //     while (!isMoving) {
+  //       console.log('bouncing')
+  //       await next({transform: 'translate(0px, -10px)'})
+  //       await next({transform: 'translate(0px, 10px)'})
+  //     }
+  //     stop();
+  //   },
+  // })
 
   return (
     <div id={styles.gameBoard} onClick={initiateMovement}>
       <img id={styles.map} src={map}></img>
       <animated.img id={styles.squirrel}
            src={squirrelPose}
-           style={squirrelStyle}></animated.img>
+           style={{...squirrelStyle,...bounce}}></animated.img>
     </div>
   )
 }
