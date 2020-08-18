@@ -108,10 +108,7 @@ const Dashboard: React.FC<{}> = () => {
     enter: {transform: 'translate(0px, 100px)' },
     leave: {transform: 'translate(20px, -20px)'},
   })
-  // const props = useSpring({
-  //   opacity: 1,
-  //   from: { opacity: 0 },
-  // })
+
   return (
     <div id={styles.dashboard}>
       { showDashboard ? <Top /> : null }

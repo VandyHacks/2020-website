@@ -1,5 +1,6 @@
 #gameBoard {
     position: absolute;
+    /* HARDCODED for map image with 2:1 aspect ratio */
     height: 100vh;
     width: 200vh;
     resize: cover;
@@ -11,7 +12,7 @@
     grid-template-rows: repeat(30, 1fr);
 }
 
-#map {
+.gridBackground {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
 }
@@ -32,4 +33,32 @@
     border: none;
     height: 100% !important;
     width: 100% !important;
+}
+
+/* Can afford to have this be a little off because it's only aesthetic */
+.room {
+    /* The image used TODO: this will need to be factored out into IDs for individual rooms*/
+    background-image: url("../../assets/faqBackground.png");
+
+    /* Full height */
+    min-width: 100vw;
+    min-height: 100vh;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Grid TODO: add shit to this, for now the only content is the back button*/
+    padding: 3vw;
+    display: grid;
+    grid-template-columns: 90% auto;
+    grid-template-rows: auto 90%;
+}
+
+.returnButton {
+    grid-row: 1;
+    grid-column: -1;
+    height: 50%;
+    background: black;
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import PropTypes from "prop-types";
 import map from '../../assets/map.png'
+import faqBackground from '../../assets/faqBackground.png'
 
 // Import squirrel images
 import br from '../../assets/squirrel/back-rest.png'
@@ -19,18 +20,24 @@ import * as styles from './game.module.css'
 import "./game.module.css";
 
 const Game = () => {
+  <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
   const h = 30;
   const w = 60;
   const rectHeight = 860;
   const rectWidth = 1720;
+  // map: 0, faq: 1, sponsors: 2 ...
+  const [display, setDisplay] = useState(1)
+  // The squirrel image that gets displayed, followed by its x and y coordinates
   const [squirrelPose, setSquirrelPose] = useState(fr)
   const [squirrelX, setSquirrelX] = useState(30)
   const [squirrelY, setSquirrelY] = useState(21)
+  // x and y coordinates of click location, flag for whether or not squirrel is in motion
   const [targetX, setTargetX] = useState(squirrelX)
   const [targetY, setTargetY] = useState(squirrelY)
   const [isMoving, setMoving] = useState(false);
   // I didn't have a better word for this but basically this toggles squirrel using left-walk-0 vs left-walk-1, etc.
   const [stride, setStride] = useState(false);
+
   const [bounce, setBounce] = useSpring(() => ({
     transform: 'translate(0px, 0px)'
   }))
@@ -70,7 +77,7 @@ const Game = () => {
         }
       }
       setStride(!stride);
-    }, 400);
+    }, 200);
     return () => clearInterval(interval);
   }, [squirrelX, squirrelY, targetX, targetY, isMoving, stride])
 
@@ -81,9 +88,6 @@ const Game = () => {
     // Discretize x and y into grid cells
     setTargetX(Math.round(w * (e.clientX - rect.left) / rectWidth));
     setTargetY(Math.round(h * (e.clientY - rect.top) / rectHeight));
-    // setSquirrelX(x);
-    // setSquirrelY(y);
-    // console.log('Moving squirrel to:', x.toString(), y.toString());
   }
 
   const squirrelStyle = {
@@ -92,12 +96,20 @@ const Game = () => {
   }
 
   return (
-    <div id={styles.gameBoard} onClick={initiateMovement}>
-      <img id={styles.map} src={map}></img>
-      <animated.img id={styles.squirrel}
-           src={squirrelPose}
-           style={{...squirrelStyle,...bounce}}></animated.img>
+    <div>
+      {display == 0 ? <div id={styles.gameBoard} onClick={initiateMovement}>
+        {/* can't do this via CSS background image b/c won't fit properly */}
+        <img className={styles.gridBackground} src={map}></img>
+        <animated.img id={styles.squirrel}
+            src={squirrelPose}
+            style={{...squirrelStyle,...bounce}}></animated.img>
+      </div> : null}
+      {display == 1 ? <div className={styles.room} onClick={initiateMovement}>
+        <button className={`${styles.returnButton} nes-btn`}
+                onClick={() => setDisplay(0)}>BACK</button>
+      </div> : null}
     </div>
+    
   )
 }
 
