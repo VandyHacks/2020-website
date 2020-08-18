@@ -42,8 +42,8 @@ const Game = () => {
     transform: 'translate(0px, 0px)'
   }))
 
+  // Engine for squirrel movement
   useEffect(() => {
-
     const interval = setInterval(() => {
       if (!isMoving) {
         setBounce({transform: stride ? 'translate(0px, 0px)' : 'translate(0px, 10px'});
@@ -75,9 +75,17 @@ const Game = () => {
           setSquirrelPose(fr);
           setMoving(false);
         }
+        console.log('Squirrel X:', squirrelX, 'Squirrel Y:', squirrelY)
       }
       setStride(!stride);
     }, 200);
+    
+    // IF THE SQUIRREL IS AT THESE POINTS GO TO A ROOM
+    if (squirrelX == 46 && squirrelY == 12) {
+      // TODO: the transition needs to feel more natural lol
+      setDisplay(1);
+    }
+
     return () => clearInterval(interval);
   }, [squirrelX, squirrelY, targetX, targetY, isMoving, stride])
 
@@ -91,8 +99,8 @@ const Game = () => {
   }
 
   const squirrelStyle = {
-    gridColumn: `${squirrelX - 1} / ${squirrelX + 2}`,
-    gridRow: `${squirrelY - 1} / ${squirrelY + 2}`,
+    gridColumn: `${squirrelX - 2} / ${squirrelX + 1}`,
+    gridRow: `${squirrelY - 2} / ${squirrelY}`,
   }
 
   return (
@@ -106,7 +114,7 @@ const Game = () => {
       </div> : null}
       {display == 1 ? <div className={styles.room} onClick={initiateMovement}>
         <button className={`${styles.returnButton} nes-btn`}
-                onClick={() => setDisplay(0)}>BACK</button>
+                onClick={() => {console.log('x:', targetX, 'y:', targetY);setDisplay(0);}}>BACK</button>
       </div> : null}
     </div>
     
