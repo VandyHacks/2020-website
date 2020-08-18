@@ -1,0 +1,44 @@
+#top {
+    grid-row-start: 1;
+    width: 500px;
+    background-color: #060606;
+    margin: 0 auto;
+    margin-top: -16px;
+}
+
+#title {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 25px;
+    overflow: hidden;
+}
+
+#about {
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: hidden;
+    background-color: #060606;
+    line-height: 1rem;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+#up {
+    max-width: 10px;
+    max-height: auto;
+    padding: 2px 0px 2px 0px;
+    align-self: flex-end;
+    transform: rotate(180deg);
+}
+
+#down {
+    max-width: 12px;
+    max-height: auto;
+    padding: 2px 0px 2px 0px;
+    align-self: flex-end;
+}
+
+.animateBlink {
+    animation: blink 0.8s linear infinite;
+}

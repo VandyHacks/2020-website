@@ -16,20 +16,17 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-footer {
-    flex-shrink: 0;
-    background-color: #060606 !important;
-    width: 500px;
-}
 
-.right {
-    font-size: 20px;
-}
-
-#footer-main {
+#footerMain {
+    grid-row: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 14px;
+    background-color: #060606;
+    width: 500px;
+    margin: 0 auto;
+    bottom: -16px;
 }
 
 #retro-logo {
@@ -67,4 +64,24 @@ footer a {
 .logo-container svg {
     height: auto;
     width: 280px;
+}
+
+#socials {
+    display: flex;
+    margin: 0px;
+    margin-top: 30px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#socials a {
+    text-decoration: none;
+    color: white;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    width: 54px;
+    height: 54px;
 }
