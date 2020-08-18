@@ -29,8 +29,9 @@ const Game = () => {
   const [targetX, setTargetX] = useState(squirrelX)
   const [targetY, setTargetY] = useState(squirrelY)
   const [isMoving, setMoving] = useState(false);
-  const [isUp, setUp] = useState(false);
-  const [bounce, setBounce, stopBounce] = useSpring(() => ({
+  // I didn't have a better word for this but basically this toggles squirrel using left-walk-0 vs left-walk-1, etc.
+  const [stride, setStride] = useState(false);
+  const [bounce, setBounce] = useSpring(() => ({
     transform: 'translate(0px, 0px)'
   }))
 
@@ -38,29 +39,27 @@ const Game = () => {
 
     const interval = setInterval(() => {
       if (!isMoving) {
-        setBounce({transform: isUp ? 'translate(0px, 0px)' : 'translate(0px, 10px'});
-        setUp(!isUp);
+        setBounce({transform: stride ? 'translate(0px, 0px)' : 'translate(0px, 10px'});
       }
-      else {
-        stopBounce();
+      if (isMoving) {
         console.log('isMoving:', isMoving)
         console.log('Moving!')
         if (targetY > squirrelY) {
           console.log('Moving up')
-          setSquirrelPose(fw);
+          setSquirrelPose(stride ? fw : fr);
           setSquirrelY(squirrelY + 1);
         } else if (targetY < squirrelY) {
           console.log('Moving down')
-          setSquirrelPose(bw);
+          setSquirrelPose(stride ? bw : br);
           setSquirrelY(squirrelY - 1);
         }
         if (targetX > squirrelX) {
           console.log('Moving left')
-          setSquirrelPose(rw0);
+          setSquirrelPose(stride ? rw0 : rw1);
           setSquirrelX(squirrelX + 1);
         } else if (targetX < squirrelX) {
           console.log('Moving right')
-          setSquirrelPose(lw0);
+          setSquirrelPose(stride ? lw0 : lw1);
           setSquirrelX(squirrelX - 1);
         }
         if (squirrelX == targetX && squirrelY == targetY) {
@@ -70,9 +69,10 @@ const Game = () => {
           setMoving(false);
         }
       }
+      setStride(!stride);
     }, 400);
     return () => clearInterval(interval);
-  }, [squirrelX, squirrelY, targetX, targetY, isMoving, isUp])
+  }, [squirrelX, squirrelY, targetX, targetY, isMoving, stride])
 
   const initiateMovement = e => {
     setMoving(true);
@@ -90,18 +90,6 @@ const Game = () => {
     gridColumn: `${squirrelX - 1} / ${squirrelX + 2}`,
     gridRow: `${squirrelY - 1} / ${squirrelY + 2}`,
   }
-
-  // const bounce = useSpring({
-  //   from: {transform: 'translate(0px, 0px)'},
-  //   to: async (next, cancel) => {
-  //     while (!isMoving) {
-  //       console.log('bouncing')
-  //       await next({transform: 'translate(0px, -10px)'})
-  //       await next({transform: 'translate(0px, 10px)'})
-  //     }
-  //     stop();
-  //   },
-  // })
 
   return (
     <div id={styles.gameBoard} onClick={initiateMovement}>
