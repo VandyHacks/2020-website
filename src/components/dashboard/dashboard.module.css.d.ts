@@ -13,3 +13,7 @@ export const footerMain: string;
 export const retroLogo: string;
 export const socials: string;
 export const logoContainer: string;
+export const exampleEnter: string;
+export const exampleEnterActive: string;
+export const exampleLeave: string;
+export const exampleLeaveActive: string;

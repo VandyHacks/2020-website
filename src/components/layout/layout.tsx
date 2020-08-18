@@ -18,7 +18,6 @@ const Layout: React.FC<{}> = ({ children }) => {
       <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
       <Game />
       <Dashboard />
-      
     </>
   )
 }
