@@ -28,8 +28,8 @@ const Top: React.FC<{}> = () => {
             </div>
             <div id={styles.about}>
                 {content}
-                <img id={styles[arrowDirection]} className={styles.animateBlink} onClick={toggleDisplay} src={DownArrow} alt="DownArrow" />
             </div>
+            <img id={styles[arrowDirection]} className={styles.animateBlink} onClick={toggleDisplay} src={DownArrow} alt="DownArrow" />
         </div>
     )
 }

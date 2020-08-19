@@ -1,5 +1,6 @@
 #dashboard {
     display: grid;
+    max-height: 100vh;
     grid-template-rows: 55vh 10vh 35vh;
 }
 
@@ -12,7 +13,7 @@
     }
 }
 
-body {
+/* body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,7 +23,7 @@ body {
     color: #fff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 #startButton {
     width: 500px;
