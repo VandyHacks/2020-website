@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
-import PropTypes from "prop-types";
-import map from '../../assets/map.png'
-import faqBackground from '../../assets/faqBackground.png'
+import map from '../../assets/map.png';
+import faqBackground from '../../assets/faqBackground.png';
 
 // Import squirrel images
-import br from '../../assets/squirrel/back-rest.png'
-import bw from '../../assets/squirrel/back-walk.png'
-import fr from '../../assets/squirrel/front-rest.png'
-import fw from '../../assets/squirrel/front-walk.png'
-import lr from '../../assets/squirrel/left-rest.png'
-import lw0 from '../../assets/squirrel/left-walk-0.png'
-import lw1 from '../../assets/squirrel/left-walk-1.png'
-import rw0 from '../../assets/squirrel/right-walk-0.png'
-import rw1 from '../../assets/squirrel/right-walk-1.png'
+import br from '../../assets/squirrel/back-rest.png';
+import bw from '../../assets/squirrel/back-walk.png';
+import fr from '../../assets/squirrel/front-rest.png';
+import fw from '../../assets/squirrel/front-walk.png';
+import lr from '../../assets/squirrel/left-rest.png';
+import lw0 from '../../assets/squirrel/left-walk-0.png';
+import lw1 from '../../assets/squirrel/left-walk-1.png';
+import rw0 from '../../assets/squirrel/right-walk-0.png';
+import rw1 from '../../assets/squirrel/right-walk-1.png';
+
+// Rooms
+import FAQRoom from '../rooms/FAQ/FAQRoom';
+import ScheduleRoom from '../rooms/Schedule/ScheduleRoom';
+import SpeakersRoom from '../rooms/Speakers/SpeakersRoom';
+import SponsorsRoom from '../rooms/Sponsors/SponsorsRoom';
+import JudgesRoom from '../rooms/Judges/JudgesRoom';
 
 import * as styles from './game.module.css'
 
@@ -91,7 +97,7 @@ const Game = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isMoving) {
-        setBounce({transform: stride ? 'translate(0px, 0px)' : 'translate(0px, 10px'});
+        setBounce({ transform: stride ? 'translate(0px, 0px)' : 'translate(0px, 10px' });
       }
       if (isMoving) {
         // console.log('isMoving:', isMoving)
@@ -172,21 +178,35 @@ const Game = () => {
     gridRow: `${squirrelY - 2} / ${squirrelY + 1}`,
   }
 
+  const rooms = [
+    null,
+    <FAQRoom setDisplay={setDisplay} />,
+    <ScheduleRoom />,
+    <SpeakersRoom />,
+    <SponsorsRoom />,
+    <JudgesRoom />
+  ];
+
   return (
     <div>
+<<<<<<< HEAD
       {display == 0 ? <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
         {/* can't do this via CSS background image b/c won't fit properly */}
         <img className={styles.gridBackground} src={map}></img>
         <animated.img id={styles.squirrel}
+=======
+      {display == 0 ?
+        <div id={styles.gameBoard} onClick={initiateMovement}>
+          {/* can't do this via CSS background image b/c won't fit properly */}
+          <img className={styles.gridBackground} src={map} />
+          <animated.img id={styles.squirrel}
+>>>>>>> 12b8e7f8571c83007d1acf5d0503a0f4e7bb70e0
             src={squirrelPose}
-            style={{...squirrelStyle,...bounce}}></animated.img>
-      </div> : null}
-      {display == 1 ? <div className={styles.room} onClick={initiateMovement}>
-        <button className={`${styles.returnButton} nes-btn`}
-                onClick={() => {console.log('x:', targetX, 'y:', targetY);setDisplay(0);}}>BACK</button>
-      </div> : null}
+            style={{ ...squirrelStyle, ...bounce }} />
+        </div> :
+        null}
+      {rooms[display]}
     </div>
-    
   )
 }
 

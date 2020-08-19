@@ -13,6 +13,7 @@ const Dashboard: React.FC<{}> = () => {
   const slideUp = useSpring({
     config: { duration: 500 },
     transform: `translateY(${showDashboard ? 0 : -100}%)`,
+    opacity: showDashboard ? 1 : 0,
   });
 
   const startButton = useSpring({

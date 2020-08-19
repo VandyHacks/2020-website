@@ -1,9 +1,11 @@
 #top {
     grid-row-start: 1;
-    width: 500px;
+    max-height: 55vh;
+    max-width: 500px;
     background-color: #060606;
     margin: 0 auto;
     margin-top: -16px;
+    overflow: hidden;
 }
 
 #title {
@@ -14,14 +16,10 @@
 }
 
 #about {
-    display: flex;
-    flex-flow: column nowrap;
-    overflow: hidden;
-    background-color: #060606;
-    line-height: 1rem;
     width: 400px;
-    margin: 0 auto;
-    margin-top: 25px;
+    line-height: 1rem;
+    margin: 24px auto 0;
+    text-overflow: ellipsis;
 }
 
 #up {
