@@ -21,16 +21,31 @@ import "./game.module.css";
 
 const Game = () => {
   <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
-  const h = 30;
-  const w = 60;
-  const rectHeight = 860;
-  const rectWidth = 1720;
+
+  const constants = {
+    'gridHeight': 30,
+    'gridWidth': 60,
+    'rectHeight': 860,
+    'rectWidth': 1720,
+    'startX': 30,
+    'startY': 21,
+  }
+
+  const roomCoords = {
+    'faqX': 46,
+    'faqY': 12,
+  }
+
+  const displayIDs = {
+    'home': 0,
+    'faq': 1,
+  }
   // map: 0, faq: 1, sponsors: 2 ...
-  const [display, setDisplay] = useState(1)
+  const [display, setDisplay] = useState(displayIDs.home)
   // The squirrel image that gets displayed, followed by its x and y coordinates
   const [squirrelPose, setSquirrelPose] = useState(fr)
-  const [squirrelX, setSquirrelX] = useState(30)
-  const [squirrelY, setSquirrelY] = useState(21)
+  const [squirrelX, setSquirrelX] = useState(constants.startX)
+  const [squirrelY, setSquirrelY] = useState(constants.startY)
   // x and y coordinates of click location, flag for whether or not squirrel is in motion
   const [targetX, setTargetX] = useState(squirrelX)
   const [targetY, setTargetY] = useState(squirrelY)
@@ -81,7 +96,7 @@ const Game = () => {
     }, 200);
     
     // IF THE SQUIRREL IS AT THESE POINTS GO TO A ROOM
-    if (squirrelX == 46 && squirrelY == 12) {
+    if (squirrelX == roomCoords.faqX && squirrelY == roomCoords.faqY) {
       // TODO: the transition needs to feel more natural lol
       setDisplay(1);
     }
@@ -94,8 +109,12 @@ const Game = () => {
     console.log('isMoving:', isMoving)
     const rect = e.target.getBoundingClientRect()
     // Discretize x and y into grid cells
-    setTargetX(Math.round(w * (e.clientX - rect.left) / rectWidth));
-    setTargetY(Math.round(h * (e.clientY - rect.top) / rectHeight));
+    setTargetX(Math.round(
+      constants.gridWidth * (e.clientX - rect.left) / constants.rectWidth
+    ));
+    setTargetY(Math.round(
+      constants.gridHeight * (e.clientY - rect.top) / constants.rectHeight
+    ));
   }
 
   const squirrelStyle = {
