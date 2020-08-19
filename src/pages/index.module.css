@@ -30,7 +30,7 @@ html {
 }
 
 #main {
-    background-color: #060606;
+    background-color: #00c5ff;
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -44,7 +44,6 @@ body {
     overflow: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #060606;
 }
 
 
