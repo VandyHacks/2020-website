@@ -5,8 +5,6 @@
     width: 200vh;
     resize: cover;
     overflow: hidden;
-    left: calc(50vw - 100vh);
-    /* right: -25%; */
     display: grid;
     grid-template-columns: repeat(60, 1fr);
     grid-template-rows: repeat(30, 1fr);

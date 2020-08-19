@@ -94,33 +94,32 @@ const Game = () => {
         setBounce({transform: stride ? 'translate(0px, 0px)' : 'translate(0px, 10px'});
       }
       if (isMoving) {
-        console.log('isMoving:', isMoving)
-        console.log('Moving!')
+        // console.log('isMoving:', isMoving)
         if (targetY > squirrelY) {
-          console.log('Moving up')
+          // console.log('Moving up')
           setSquirrelPose(stride ? fw : fr);
           setSquirrelY(squirrelY + 1);
         } else if (targetY < squirrelY) {
-          console.log('Moving down')
+          // console.log('Moving down')
           setSquirrelPose(stride ? bw : br);
           setSquirrelY(squirrelY - 1);
         }
         if (targetX > squirrelX) {
-          console.log('Moving left')
+          // console.log('Moving left')
           setSquirrelPose(stride ? rw0 : rw1);
           setSquirrelX(squirrelX + 1);
         } else if (targetX < squirrelX) {
-          console.log('Moving right')
+          // console.log('Moving right')
           setSquirrelPose(stride ? lw0 : lw1);
           setSquirrelX(squirrelX - 1);
         }
         if (squirrelX == targetX && squirrelY == targetY) {
-          console.log('clear interval');
+          // console.log('clear interval');
           clearInterval(interval);
           setSquirrelPose(fr);
           setMoving(false);
         }
-        console.log('Squirrel X:', squirrelX, 'Squirrel Y:', squirrelY)
+        // console.log('Squirrel X:', squirrelX, 'Squirrel Y:', squirrelY)
       }
       setStride(!stride);
     }, 200);
@@ -144,9 +143,12 @@ const Game = () => {
     const squirrelVWL = Math.round(squirrelX * constants.cellWidth*vh)
     // Right edge of squirrel center grid cell in terms of pixels on map
     const squirrelVWR = Math.round(squirrelVWL + constants.cellWidth*vh)
-    if (leftEdge > 1 && squirrelVWL <= leftEdge) { // using 1 instead of 0 to accomodate rounding error
+
+    console.log('leftEdge:', leftEdge, 'squirrelVWL', squirrelVWL)
+    // Shift if squirrel is reasonably close to edge
+    if (leftEdge > 1 && squirrelVWL <= leftEdge + constants.cellWidth*vh) {
       setViewLoc(viewLoc - 6*constants.cellWidth)
-    } else if (rightEdge < 200*vh && squirrelVWR >= rightEdge) {
+    } else if (rightEdge < 200*vh && squirrelVWR >= rightEdge - constants.cellWidth*vh) {
       setViewLoc(viewLoc + 6*constants.cellWidth)
     }
   }, [squirrelX]);
