@@ -142,6 +142,7 @@ const Game = () => {
 
   // Engine for map movement in response to squirrel
   useEffect(() => {
+    console.log('YO!!!!!')
     // Left edge of view in terms of pixel location on map
     const leftEdge = Math.round(viewLoc*vh - 50*vw);
     // Right edge of view in terms of pixel location on map
@@ -156,7 +157,7 @@ const Game = () => {
     } else if (rightEdge < 200*vh && squirrelVWR >= rightEdge - constants.cellWidth*vh) {
       setViewLoc(viewLoc + 6*constants.cellWidth)
     }
-  }, [squirrelX]);
+  }, [squirrelX, vw, vh]);
 
   const initiateMovement = e => {
     setMoving(true);
@@ -189,18 +190,11 @@ const Game = () => {
 
   return (
     <div>
-<<<<<<< HEAD
-      {display == 0 ? <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
-        {/* can't do this via CSS background image b/c won't fit properly */}
-        <img className={styles.gridBackground} src={map}></img>
-        <animated.img id={styles.squirrel}
-=======
       {display == 0 ?
-        <div id={styles.gameBoard} onClick={initiateMovement}>
+        <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
           {/* can't do this via CSS background image b/c won't fit properly */}
           <img className={styles.gridBackground} src={map} />
           <animated.img id={styles.squirrel}
->>>>>>> 12b8e7f8571c83007d1acf5d0503a0f4e7bb70e0
             src={squirrelPose}
             style={{ ...squirrelStyle, ...bounce }} />
         </div> :
