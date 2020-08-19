@@ -120,6 +120,7 @@ const Game = () => {
           setMoving(false);
         }
         // console.log('Squirrel X:', squirrelX, 'Squirrel Y:', squirrelY)
+        console.log('Target x y:', targetX, targetY);
       }
       setStride(!stride);
     }, 200);
@@ -143,8 +144,6 @@ const Game = () => {
     const squirrelVWL = Math.round(squirrelX * constants.cellWidth*vh)
     // Right edge of squirrel center grid cell in terms of pixels on map
     const squirrelVWR = Math.round(squirrelVWL + constants.cellWidth*vh)
-
-    console.log('leftEdge:', leftEdge, 'squirrelVWL', squirrelVWL)
     // Shift if squirrel is reasonably close to edge
     if (leftEdge > 1 && squirrelVWL <= leftEdge + constants.cellWidth*vh) {
       setViewLoc(viewLoc - 6*constants.cellWidth)
@@ -158,12 +157,10 @@ const Game = () => {
     console.log('isMoving:', isMoving)
     const rect = e.target.getBoundingClientRect()
     // Discretize x and y into grid cells
-    setTargetX(Math.round(
-      constants.gridWidth * (e.clientX - rect.left) / constants.rectWidth
-    ));
-    setTargetY(Math.round(
-      constants.gridHeight * (e.clientY - rect.top) / constants.rectHeight
-    ));
+    const x = Math.round(constants.gridWidth * (e.clientX - rect.left) / constants.rectWidth)
+    setTargetX(Math.min(x, constants.gridWidth - 2));
+    const y = Math.round(constants.gridHeight * (e.clientY - rect.top) / constants.rectHeight)
+    setTargetY(Math.min(y, constants.gridWidth));
   }
 
   const boardStyle = {
