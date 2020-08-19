@@ -17,11 +17,37 @@ import rw1 from '../../assets/squirrel/right-walk-1.png'
 
 import * as styles from './game.module.css'
 
-import "./game.module.css";
+// Stolen from https://stackoverflow.com/a/36862446 **********************
+function getWindowDims() {
+  const { innerWidth: windowWidth, innerHeight: windowHeight } = window;
+  return {
+    windowWidth,
+    windowHeight
+  };
+}
+
+function useWindowDims() {
+  const [WindowDims, setWindowDims] = useState(
+    getWindowDims()
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDims(getWindowDims());
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return WindowDims;
+}
+// ***********************************************************************
 
 const Game = () => {
   <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
 
+  // CONSTANTS
   const constants = {
     'gridHeight': 30,
     'gridWidth': 60,
@@ -40,8 +66,11 @@ const Game = () => {
     'home': 0,
     'faq': 1,
   }
-  // map: 0, faq: 1, sponsors: 2 ...
+
+  // Determines which view to display (map, FAQ room, etc.)
   const [display, setDisplay] = useState(displayIDs.home)
+  // Get window dimensions
+  const { windowHeight, windowWidth } = useWindowDims();
   // The squirrel image that gets displayed, followed by its x and y coordinates
   const [squirrelPose, setSquirrelPose] = useState(fr)
   const [squirrelX, setSquirrelX] = useState(constants.startX)
@@ -52,7 +81,7 @@ const Game = () => {
   const [isMoving, setMoving] = useState(false);
   // I didn't have a better word for this but basically this toggles squirrel using left-walk-0 vs left-walk-1, etc.
   const [stride, setStride] = useState(false);
-
+  // Initial state for animation
   const [bounce, setBounce] = useSpring(() => ({
     transform: 'translate(0px, 0px)'
   }))
