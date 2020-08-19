@@ -118,8 +118,8 @@ const Game = () => {
   }
 
   const squirrelStyle = {
-    gridColumn: `${squirrelX - 2} / ${squirrelX + 1}`,
-    gridRow: `${squirrelY - 2} / ${squirrelY}`,
+    gridColumn: `${squirrelX} / ${squirrelX + 3}`,
+    gridRow: `${squirrelY - 2} / ${squirrelY + 1}`,
   }
 
   return (
