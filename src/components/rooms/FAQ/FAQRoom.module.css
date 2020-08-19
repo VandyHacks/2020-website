@@ -1,0 +1,19 @@
+.room {
+    /* The image used TODO: this will need to be factored out into IDs for individual rooms*/
+    background-image: url("../../../assets/faqBackground.png");
+
+    /* Full height */
+    min-width: 100vw;
+    min-height: 100vh;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Grid TODO: add shit to this, for now the only content is the back button*/
+    padding: 3vw;
+    display: grid;
+    grid-template-columns: 90% auto;
+    grid-template-rows: auto 90%;
+}
