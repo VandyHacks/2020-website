@@ -19,11 +19,10 @@ import * as styles from './game.module.css'
 
 // Stolen from https://stackoverflow.com/a/36862446 **********************
 function getWindowDims() {
-  const { innerWidth: windowWidth, innerHeight: windowHeight } = window;
-  return {
-    windowWidth,
-    windowHeight
-  };
+  const { innerWidth: width, innerHeight: height } = window;
+  const vw = width / 100;
+  const vh = height / 100;
+  return { vw, vh };
 }
 
 function useWindowDims() {
@@ -51,6 +50,7 @@ const Game = () => {
   const constants = {
     'gridHeight': 30,
     'gridWidth': 60,
+    'cellWidth': 200/60,
     'rectHeight': 860,
     'rectWidth': 1720,
     'startX': 30,
@@ -69,8 +69,9 @@ const Game = () => {
 
   // Determines which view to display (map, FAQ room, etc.)
   const [display, setDisplay] = useState(displayIDs.home)
-  // Get window dimensions
-  const { windowHeight, windowWidth } = useWindowDims();
+  // Get window dimensions and distance btwn center of view and left edge of map
+  const { vw, vh } = useWindowDims();
+  const [viewLoc, setViewLoc] = useState(100);
   // The squirrel image that gets displayed, followed by its x and y coordinates
   const [squirrelPose, setSquirrelPose] = useState(fr)
   const [squirrelX, setSquirrelX] = useState(constants.startX)
@@ -123,7 +124,7 @@ const Game = () => {
       }
       setStride(!stride);
     }, 200);
-    
+
     // IF THE SQUIRREL IS AT THESE POINTS GO TO A ROOM
     if (squirrelX == roomCoords.faqX && squirrelY == roomCoords.faqY) {
       // TODO: the transition needs to feel more natural lol
@@ -132,6 +133,23 @@ const Game = () => {
 
     return () => clearInterval(interval);
   }, [squirrelX, squirrelY, targetX, targetY, isMoving, stride])
+
+  // Engine for map movement in response to squirrel
+  useEffect(() => {
+    // Left edge of view in terms of pixel location on map
+    const leftEdge = Math.round(viewLoc*vh - 50*vw);
+    // Right edge of view in terms of pixel location on map
+    const rightEdge = Math.round(leftEdge + 100*vw);
+    // Left edge of squirrel center grid cell in terms of pixels on map
+    const squirrelVWL = Math.round(squirrelX * constants.cellWidth*vh)
+    // Right edge of squirrel center grid cell in terms of pixels on map
+    const squirrelVWR = Math.round(squirrelVWL + constants.cellWidth*vh)
+    if (leftEdge > 1 && squirrelVWL <= leftEdge) { // using 1 instead of 0 to accomodate rounding error
+      setViewLoc(viewLoc - 6*constants.cellWidth)
+    } else if (rightEdge < 200*vh && squirrelVWR >= rightEdge) {
+      setViewLoc(viewLoc + 6*constants.cellWidth)
+    }
+  }, [squirrelX]);
 
   const initiateMovement = e => {
     setMoving(true);
@@ -146,6 +164,10 @@ const Game = () => {
     ));
   }
 
+  const boardStyle = {
+    left: `calc(50vw - ${viewLoc}vh)`
+  }
+
   const squirrelStyle = {
     gridColumn: `${squirrelX} / ${squirrelX + 3}`,
     gridRow: `${squirrelY - 2} / ${squirrelY + 1}`,
@@ -153,7 +175,7 @@ const Game = () => {
 
   return (
     <div>
-      {display == 0 ? <div id={styles.gameBoard} onClick={initiateMovement}>
+      {display == 0 ? <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
         {/* can't do this via CSS background image b/c won't fit properly */}
         <img className={styles.gridBackground} src={map}></img>
         <animated.img id={styles.squirrel}
