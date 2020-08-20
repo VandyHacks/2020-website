@@ -127,6 +127,7 @@ const Game = () => {
         }
         // console.log('Squirrel X:', squirrelX, 'Squirrel Y:', squirrelY)
         console.log('Target x y:', targetX, targetY);
+        // console.log('Squirrel x y:', squirrelX, squirrelY);
       }
       setStride(!stride);
     }, 200);
@@ -142,7 +143,6 @@ const Game = () => {
 
   // Engine for map movement in response to squirrel
   useEffect(() => {
-    console.log('YO!!!!!')
     // Left edge of view in terms of pixel location on map
     const leftEdge = Math.round(viewLoc*vh - 50*vw);
     // Right edge of view in terms of pixel location on map
@@ -152,9 +152,10 @@ const Game = () => {
     // Right edge of squirrel center grid cell in terms of pixels on map
     const squirrelVWR = Math.round(squirrelVWL + constants.cellWidth*vh)
     // Shift if squirrel is reasonably close to edge
-    if (leftEdge > 1 && squirrelVWL <= leftEdge + constants.cellWidth*vh) {
+    console.log('leftEdge:', leftEdge, 'rightEdge:', rightEdge, 'VWL:', squirrelVWL, 'VWR:', squirrelVWR)
+    if (leftEdge > 1 && squirrelVWL <= leftEdge + 2*constants.cellWidth*vh) {
       setViewLoc(viewLoc - 6*constants.cellWidth)
-    } else if (rightEdge < 200*vh && squirrelVWR >= rightEdge - constants.cellWidth*vh) {
+    } else if (rightEdge < 200*vh && squirrelVWR >= rightEdge - 2*constants.cellWidth*vh) {
       setViewLoc(viewLoc + 6*constants.cellWidth)
     }
   }, [squirrelX, vw, vh]);
