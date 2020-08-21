@@ -82,16 +82,19 @@ const Game = () => {
   const [squirrelPose, setSquirrelPose] = useState(fr)
   const [squirrelX, setSquirrelX] = useState(constants.startX)
   const [squirrelY, setSquirrelY] = useState(constants.startY)
+  // Initial state for squirrel animation
+  const [bounce, setBounce] = useSpring(() => ({
+    transform: 'translate(0px, 0px)'
+  }));
   // x and y coordinates of click location, flag for whether or not squirrel is in motion
   const [targetX, setTargetX] = useState(squirrelX)
   const [targetY, setTargetY] = useState(squirrelY)
   const [isMoving, setMoving] = useState(false);
   // I didn't have a better word for this but basically this toggles squirrel using left-walk-0 vs left-walk-1, etc.
   const [stride, setStride] = useState(false);
-  // Initial state for animation
-  const [bounce, setBounce] = useSpring(() => ({
-    transform: 'translate(0px, 0px)'
-  }))
+  // Positions for room labels/signs (only x, y is constant)
+  const [faqX] = useState(1)
+  
 
   // Engine for squirrel movement
   useEffect(() => {
@@ -160,6 +163,11 @@ const Game = () => {
     }
   }, [squirrelX, vw, vh]);
 
+  // Engine for room labels/signs in response to map position
+  // useEffect(() => {
+  //   if 
+  // }, [vw, vh, viewLoc])
+
   const initiateMovement = e => {
     setMoving(true);
     console.log('isMoving:', isMoving)
@@ -171,14 +179,19 @@ const Game = () => {
     setTargetY(Math.min(y, constants.gridWidth));
   }
 
+  // STYLES !!!!!!!
   const boardStyle = {
     left: `calc(50vw - ${viewLoc}vh)`
   }
 
   const squirrelStyle = {
-    gridColumn: `${squirrelX} / ${squirrelX + 3}`,
+    gridColumn: `${squirrelX - 1} / ${squirrelX + 2}`,
     gridRow: `${squirrelY - 2} / ${squirrelY + 1}`,
   }
+
+  // const faqStyle = {
+  //   if (faqStyle)
+  // }
 
   const rooms = [
     null,
@@ -198,6 +211,10 @@ const Game = () => {
           <animated.img id={styles.squirrel}
             src={squirrelPose}
             style={{ ...squirrelStyle, ...bounce }} />
+          {/* <animated.button className='nes-btn is-normal' style={faqStyle}>FAQ</animated.button>
+          <animated.button className='nes-btn is-normal' style={sponsorsStyle}>Sponsors</animated.button>
+          <animated.button className='nes-btn is-normal' style={speakersStyle}>Keynote Speakers</animated.button>
+          <animated.button className='nes-btn is-normal' style={scheduleStyle}>Schedule</animated.button> */}
         </div> :
         null}
       {rooms[display]}
