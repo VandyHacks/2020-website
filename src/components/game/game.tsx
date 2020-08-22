@@ -61,31 +61,47 @@ const Game = () => {
     'rectWidth': 1720,
     'startX': 30,
     'startY': 21,
-  }
-
-  const roomCoords = {
-    'faqX': 46,
-    'faqY': 12,
-    
-    'faqSignStartX': 34,
-    'faqSignStartY': 2,
-    'scheduleSignStartX': 44,
-    'scheduleSignStartY': 4,
-    'sponsorsSignStartX': 4,
-    'sponsorsSignStartY': 6,
-    'speakersSignStartX': 14,
-    'speakersSignStartY': 9,
     'signCellWidth': 7,
-    'signCellHeight': 2
-  }
-
-  const displayIDs = {
-    'home': 0,
-    'faq': 1,
+    'signCellHeight': 2,
   }
 
   // Determines which view to display (map, FAQ room, etc.)
-  const [display, setDisplay] = useState(displayIDs.home)
+  const [display, setDisplay] = useState(null);
+
+  const rooms = {
+    'home': {
+      'display': null,
+      'signStart': null,
+      'door': null,
+    },
+    'faq': {
+      'display': <FAQRoom setDisplay={setDisplay} />,
+      'signStart': [4, 5],
+      'door': [7, 16],
+    },
+    'past': {
+      'display': null, // TODO: need a component here
+      'signStart': [44, 4],
+      'door': [46, 12],
+    },
+    'schedule': {
+      'display': <ScheduleRoom />,
+      'signStart': [26, 7],
+      'door': [28, 11],
+    },
+    'speakers':  {
+      // TODO: judges AND speakers
+      'display': <SpeakersRoom />,
+      'signStart': [53, 12],
+      'door': [17, 16],
+    },
+    'sponsors': {
+      'display': <SponsorsRoom />,
+      'signStart': [34, 2],
+      'door': [38, 12],
+    },
+  }
+
   // Get window dimensions and distance btwn center of view and left edge of map
   const { vw, vh } = useWindowDims();
   const [viewLocVH, setviewLocVH] = useState(100);
@@ -98,16 +114,19 @@ const Game = () => {
     transform: 'translate(0px, 0px)'
   }));
   // x and y coordinates of click location, flag for whether or not squirrel is in motion
-  const [targetX, setTargetX] = useState(squirrelX)
-  const [targetY, setTargetY] = useState(squirrelY)
+  const [targetX, setTargetX] = useState(squirrelX);
+  const [targetY, setTargetY] = useState(squirrelY);
   const [isMoving, setMoving] = useState(false);
   // I didn't have a better word for this but basically this toggles squirrel using left-walk-0 vs left-walk-1, etc.
   const [stride, setStride] = useState(false);
   // Positions for room labels/signs in grid space (only x, y is constant)
-  const [faqSignX, setFaqSignX]           = useState(34)
-  const [scheduleSignX, setScheduleSignX] = useState(44)
-  const [sponsorsSignX, setSponsorsSignX] = useState(4)
-  const [speakersSignX, setSpeakersSignX] = useState(14)
+  
+  // TODO: UNDER CONSTRUCTION
+  // const [pastSignX, setPastSignX]         = useState(44)
+  const [faqSignX, setFaqSignX]           = useState(rooms.faq.signStart[0]);
+  const [sponsorsSignX, setSponsorsSignX] = useState(rooms.sponsors.signStart[0]);
+  const [speakersSignX, setSpeakersSignX] = useState(rooms.speakers.signStart[0]);
+  const [scheduleSignX, setScheduleSignX] = useState(rooms.schedule.signStart[0]);
   
 
   // Engine for squirrel movement
@@ -149,11 +168,11 @@ const Game = () => {
       setStride(!stride);
     }, 200);
 
-    // IF THE SQUIRREL IS AT THESE POINTS GO TO A ROOM
-    if (squirrelX == roomCoords.faqX && squirrelY == roomCoords.faqY) {
-      // TODO: the transition needs to feel more natural lol
-      setDisplay(1);
-    }
+    // // IF THE SQUIRREL IS AT THESE POINTS GO TO A ROOM
+    // if (squirrelX == roomCoords.faqX && squirrelY == roomCoords.faqY) {
+    //   // TODO: the transition needs to feel more natural lol
+    //   setDisplay(1);
+    // }
 
     return () => clearInterval(interval);
   }, [squirrelX, squirrelY, targetX, targetY, isMoving, stride])
@@ -187,47 +206,46 @@ const Game = () => {
     const rightEdgeCell = Math.round(rightEdge / (constants.cellDimVH*vh));
     // TODO: this is a lot of code repeat -> you should make a function lol
     // FAQ sign x coords (not rounded)
-    const faqSignStartPix = (roomCoords.faqSignStartX - 1) * constants.cellDimVH*vh;
-    const faqSignEndPix   = (roomCoords.faqSignStartX + roomCoords.signCellWidth - 1) * constants.cellDimVH*vh;
+    const faqSignStartPix = (rooms.faq.signStart[0] - 1) * constants.cellDimVH*vh;
+    const faqSignEndPix   = (rooms.faq.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
     console.log('faqSignCoords:', faqSignStartPix, faqSignEndPix)
     console.log('window coords:', leftEdge, rightEdge);
     if (faqSignStartPix >= leftEdge && faqSignEndPix <= rightEdge) {
-      // console.log
-      setFaqSignX(roomCoords.faqSignStartX);
+      setFaqSignX(rooms.faq.signStart[0]);
     } else if (faqSignStartPix < leftEdge) {
       setFaqSignX(leftEdgeCell);
     } else {
-      setFaqSignX(rightEdgeCell - roomCoords.signCellWidth);
+      setFaqSignX(rightEdgeCell - constants.signCellWidth + 1);
     }
     // Schedule sign x coords (not rounded)
-    const scheduleSignStartPix = (roomCoords.scheduleSignStartX - 1) * constants.cellDimVH*vh;
-    const scheduleSignEndPix   = (roomCoords.scheduleSignStartX + roomCoords.signCellWidth - 1) * constants.cellDimVH*vh;
+    const scheduleSignStartPix = (rooms.schedule.signStart[0] - 1) * constants.cellDimVH*vh;
+    const scheduleSignEndPix   = (rooms.schedule.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
     if (scheduleSignStartPix >= leftEdge && scheduleSignEndPix <= rightEdge) {
-      setScheduleSignX(roomCoords.scheduleSignStartX);
+      setScheduleSignX(rooms.schedule.signStart[0]);
     } else if (scheduleSignStartPix < leftEdge) {
       setScheduleSignX(leftEdgeCell);
     } else {
-      setScheduleSignX(rightEdgeCell - roomCoords.signCellWidth);
+      setScheduleSignX(rightEdgeCell - constants.signCellWidth + 1);
     }
     // Sponsors sign x coords (not rounded)
-    const sponsorsSignStartPix = (roomCoords.sponsorsSignStartX - 1) * constants.cellDimVH*vh;
-    const sponsorsSignEndPix   = (roomCoords.sponsorsSignStartX + roomCoords.signCellWidth - 1) * constants.cellDimVH*vh;
+    const sponsorsSignStartPix = (rooms.sponsors.signStart[0] - 1) * constants.cellDimVH*vh;
+    const sponsorsSignEndPix   = (rooms.sponsors.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
     if (sponsorsSignStartPix >= leftEdge && sponsorsSignEndPix <= rightEdge) {
-      setSponsorsSignX(roomCoords.sponsorsSignStartX);
+      setSponsorsSignX(rooms.sponsors.signStart[0]);
     } else if (sponsorsSignStartPix < leftEdge) {
       setSponsorsSignX(leftEdgeCell);
     } else {
-      setSponsorsSignX(rightEdgeCell - roomCoords.signCellWidth);
+      setSponsorsSignX(rightEdgeCell - constants.signCellWidth + 1);
     }
     // Keynote speakers sign x coords (not rounded)
-    const speakersSignStartPix = (roomCoords.speakersSignStartX - 1) * constants.cellDimVH*vh;
-    const speakersSignEndPix   = (roomCoords.speakersSignStartX + roomCoords.signCellWidth - 1) * constants.cellDimVH*vh;
+    const speakersSignStartPix = (rooms.speakers.signStart[0] - 1) * constants.cellDimVH*vh;
+    const speakersSignEndPix   = (rooms.speakers.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
     if (speakersSignStartPix >= leftEdge && speakersSignEndPix <= rightEdge) {
-      setSpeakersSignX(roomCoords.speakersSignStartX);
+      setSpeakersSignX(rooms.speakers.signStart[0]);
     } else if (speakersSignStartPix < leftEdge) {
       setSpeakersSignX(leftEdgeCell);
     } else {
-      setSpeakersSignX(rightEdgeCell - roomCoords.signCellWidth);
+      setSpeakersSignX(rightEdgeCell - constants.signCellWidth + 1);
     }
   }, [vw, vh, viewLocVH])
 
@@ -242,6 +260,14 @@ const Game = () => {
     setTargetY(Math.min(y, constants.gridWidth));
   }
 
+  // Function for when you click on a room sign and it takes you there
+  const shortcut = (e, roomID) => {
+    e.preventDefault();
+    
+    setTargetX(rooms[roomID].door[0]);
+    setTargetY(rooms[roomID].door[1]);
+  }
+
   // STYLES !!!!!!!
   const boardStyle = {
     left: `calc(50vw - ${viewLocVH}vh)`
@@ -251,47 +277,44 @@ const Game = () => {
     gridRow: `${squirrelY - 2} / ${squirrelY + 1}`,
   }
   const faqStyle = {
-    gridColumn: `${faqSignX} / ${faqSignX + roomCoords.signCellWidth}`,
-    gridRow: `${roomCoords.faqSignStartY} / ${roomCoords.faqSignStartY + roomCoords.signCellHeight}`,
+    gridColumn: `${faqSignX} / ${faqSignX + constants.signCellWidth}`,
+    gridRow: `${rooms.faq.signStart[1]} / ${rooms.faq.signStart[1] + constants.signCellHeight}`,
   }
   const scheduleStyle = {
-    gridColumn: `${scheduleSignX} / ${scheduleSignX + roomCoords.signCellWidth}`,
-    gridRow: `${roomCoords.scheduleSignStartY} / ${roomCoords.scheduleSignStartY + roomCoords.signCellHeight}`,
+    gridColumn: `${scheduleSignX} / ${scheduleSignX + constants.signCellWidth}`,
+    gridRow: `${rooms.schedule.signStart[1]} / ${rooms.schedule.signStart[1] + constants.signCellHeight}`,
   }
   const sponsorsStyle = {
-    gridColumn: `${sponsorsSignX} / ${sponsorsSignX + roomCoords.signCellWidth}`,
-    gridRow: `${roomCoords.sponsorsSignStartY} / ${roomCoords.sponsorsSignStartY + roomCoords.signCellHeight}`,
+    gridColumn: `${sponsorsSignX} / ${sponsorsSignX + constants.signCellWidth}`,
+    gridRow: `${rooms.sponsors.signStart[1]} / ${rooms.sponsors.signStart[1] + constants.signCellHeight}`,
   }
   const speakersStyle = {
-    gridColumn: `${speakersSignX} / ${speakersSignX + roomCoords.signCellWidth}`,
-    gridRow: `${roomCoords.speakersSignStartY} / ${roomCoords.speakersSignStartY + roomCoords.signCellHeight}`,
+    gridColumn: `${speakersSignX} / ${speakersSignX + constants.signCellWidth}`,
+    gridRow: `${rooms.speakers.signStart[1]} / ${rooms.speakers.signStart[1] + constants.signCellHeight}`,
   }
-
-  const rooms = [
-    null,
-    <FAQRoom setDisplay={setDisplay} />,
-    <ScheduleRoom />,
-    <SpeakersRoom />,
-    <SponsorsRoom />,
-    <JudgesRoom />
-  ];
 
   return (
     <div>
-      {display == 0 ?
+      {display == null ?
         <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
           {/* can't do this via CSS background image b/c won't fit properly */}
           <img className={styles.gridBackground} src={map} />
           <animated.img id={styles.squirrel}
             src={squirrelPose}
             style={{ ...squirrelStyle, ...bounce }} />
-          <animated.button className='nes-btn is-normal' style={faqStyle}>FAQ</animated.button>
-          <animated.button className='nes-btn is-normal' style={scheduleStyle}>Schedule</animated.button>
-          <animated.button className='nes-btn is-normal' style={sponsorsStyle}>Sponsors</animated.button>
-          <animated.button className='nes-btn is-normal' style={speakersStyle}>Keynote Speakers</animated.button>
-        </div> :
-        null}
-      {rooms[display]}
+          <animated.button className='nes-btn is-normal'
+                           style={faqStyle}
+                           onClick={e => shortcut(e, 'faq')}>FAQ</animated.button>
+          <animated.button className='nes-btn is-normal'
+                           style={scheduleStyle}
+                           onClick={e => shortcut(e, 'schedule')}>Schedule</animated.button>
+          <animated.button className='nes-btn is-normal'
+                           style={sponsorsStyle}
+                           onClick={e => shortcut(e, 'sponsors')}>Sponsors</animated.button>
+          <animated.button className='nes-btn is-normal'
+                           style={speakersStyle}
+                           onClick={e => shortcut(e, 'speakers')}>Keynote Speakers</animated.button>
+        </div> : display}
     </div>
   )
 }
