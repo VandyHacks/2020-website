@@ -65,50 +65,43 @@ const Game = () => {
     'signCellHeight': 2,
   }
 
+  // Determines which view to display (map, FAQ room, etc.)
+  const [display, setDisplay] = useState(null);
+
   const rooms = {
     'home': {
       'display': null,
       'signStart': null,
-      'doorCell': null,
+      'door': null,
     },
     'faq': {
       'display': <FAQRoom setDisplay={setDisplay} />,
       'signStart': [4, 5],
-      'doorCell': [7, 16],
+      'door': [7, 16],
     },
     'past': {
       'display': null, // TODO: need a component here
       'signStart': [44, 4],
-      'doorCell': [46, 12],
+      'door': [46, 12],
     },
     'schedule': {
       'display': <ScheduleRoom />,
       'signStart': [26, 7],
-      'doorCell': [28, 11],
+      'door': [28, 11],
     },
     'speakers':  {
       // TODO: judges AND speakers
       'display': <SpeakersRoom />,
       'signStart': [53, 12],
-      'doorCell': [17, 16],
+      'door': [17, 16],
     },
     'sponsors': {
       'display': <SponsorsRoom />,
       'signStart': [38, 12],
-      'doorCell': [34, 2],
+      'door': [34, 2],
     },
   }
-  // const rooms = [
-  //   null,
-  //   <FAQRoom setDisplay={setDisplay} />,
-  //   <ScheduleRoom />,
-  //   <SpeakersRoom />,
-  //   <SponsorsRoom />,
-  //   <JudgesRoom />
-  // ];
 
-  // Determines which view to display (map, FAQ room, etc.)
-  const [display, setDisplay] = useState(rooms.home.display)
   // Get window dimensions and distance btwn center of view and left edge of map
   const { vw, vh } = useWindowDims();
   const [viewLocVH, setviewLocVH] = useState(100);
@@ -130,10 +123,10 @@ const Game = () => {
   
   // TODO: UNDER CONSTRUCTION
   // const [pastSignX, setPastSignX]         = useState(44)
-  const [faqSignX, setFaqSignX]           = useState(roomCoords.faqSignStartX);
-  const [sponsorsSignX, setSponsorsSignX] = useState(roomCoords.sponsorsSignStartX);
-  const [speakersSignX, setSpeakersSignX] = useState(roomCoords.speakersSignStartX);
-  const [scheduleSignX, setScheduleSignX] = useState(roomCoords.scheduleSignStartX);
+  const [faqSignX, setFaqSignX]           = useState(rooms.faq.signStart[0]);
+  const [sponsorsSignX, setSponsorsSignX] = useState(rooms.sponsors.signStart[0]);
+  const [speakersSignX, setSpeakersSignX] = useState(rooms.speakers.signStart[0]);
+  const [scheduleSignX, setScheduleSignX] = useState(rooms.schedule.signStart[0]);
   
 
   // Engine for squirrel movement
@@ -213,46 +206,46 @@ const Game = () => {
     const rightEdgeCell = Math.round(rightEdge / (constants.cellDimVH*vh));
     // TODO: this is a lot of code repeat -> you should make a function lol
     // FAQ sign x coords (not rounded)
-    const faqSignStartPix = (roomCoords.faqSignStartX - 1) * constants.cellDimVH*vh;
-    const faqSignEndPix   = (roomCoords.faqSignStartX + roomCoords.signCellWidth - 1) * constants.cellDimVH*vh;
+    const faqSignStartPix = (rooms.faq.signStart[0] - 1) * constants.cellDimVH*vh;
+    const faqSignEndPix   = (rooms.faq.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
     console.log('faqSignCoords:', faqSignStartPix, faqSignEndPix)
     console.log('window coords:', leftEdge, rightEdge);
     if (faqSignStartPix >= leftEdge && faqSignEndPix <= rightEdge) {
-      setFaqSignX(roomCoords.faqSignStartX);
+      setFaqSignX(rooms.faq.signStart[0]);
     } else if (faqSignStartPix < leftEdge) {
       setFaqSignX(leftEdgeCell);
     } else {
-      setFaqSignX(rightEdgeCell - roomCoords.signCellWidth + 1);
+      setFaqSignX(rightEdgeCell - constants.signCellWidth + 1);
     }
     // Schedule sign x coords (not rounded)
-    const scheduleSignStartPix = (roomCoords.scheduleSignStartX - 1) * constants.cellDimVH*vh;
-    const scheduleSignEndPix   = (roomCoords.scheduleSignStartX + roomCoords.signCellWidth - 1) * constants.cellDimVH*vh;
+    const scheduleSignStartPix = (rooms.schedule.signStart[0] - 1) * constants.cellDimVH*vh;
+    const scheduleSignEndPix   = (rooms.schedule.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
     if (scheduleSignStartPix >= leftEdge && scheduleSignEndPix <= rightEdge) {
-      setScheduleSignX(roomCoords.scheduleSignStartX);
+      setScheduleSignX(rooms.schedule.signStart[0]);
     } else if (scheduleSignStartPix < leftEdge) {
       setScheduleSignX(leftEdgeCell);
     } else {
-      setScheduleSignX(rightEdgeCell - roomCoords.signCellWidth + 1);
+      setScheduleSignX(rightEdgeCell - constants.signCellWidth + 1);
     }
     // Sponsors sign x coords (not rounded)
-    const sponsorsSignStartPix = (roomCoords.sponsorsSignStartX - 1) * constants.cellDimVH*vh;
-    const sponsorsSignEndPix   = (roomCoords.sponsorsSignStartX + roomCoords.signCellWidth - 1) * constants.cellDimVH*vh;
+    const sponsorsSignStartPix = (rooms.sponsors.signStart[0] - 1) * constants.cellDimVH*vh;
+    const sponsorsSignEndPix   = (rooms.sponsors.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
     if (sponsorsSignStartPix >= leftEdge && sponsorsSignEndPix <= rightEdge) {
-      setSponsorsSignX(roomCoords.sponsorsSignStartX);
+      setSponsorsSignX(rooms.sponsors.signStart[0]);
     } else if (sponsorsSignStartPix < leftEdge) {
       setSponsorsSignX(leftEdgeCell);
     } else {
-      setSponsorsSignX(rightEdgeCell - roomCoords.signCellWidth + 1);
+      setSponsorsSignX(rightEdgeCell - constants.signCellWidth + 1);
     }
     // Keynote speakers sign x coords (not rounded)
-    const speakersSignStartPix = (roomCoords.speakersSignStartX - 1) * constants.cellDimVH*vh;
-    const speakersSignEndPix   = (roomCoords.speakersSignStartX + roomCoords.signCellWidth - 1) * constants.cellDimVH*vh;
+    const speakersSignStartPix = (rooms.speakers.signStart[0] - 1) * constants.cellDimVH*vh;
+    const speakersSignEndPix   = (rooms.speakers.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
     if (speakersSignStartPix >= leftEdge && speakersSignEndPix <= rightEdge) {
-      setSpeakersSignX(roomCoords.speakersSignStartX);
+      setSpeakersSignX(rooms.speakers.signStart[0]);
     } else if (speakersSignStartPix < leftEdge) {
       setSpeakersSignX(leftEdgeCell);
     } else {
-      setSpeakersSignX(rightEdgeCell - roomCoords.signCellWidth + 1);
+      setSpeakersSignX(rightEdgeCell - constants.signCellWidth + 1);
     }
   }, [vw, vh, viewLocVH])
 
@@ -268,12 +261,11 @@ const Game = () => {
   }
 
   // Function for when you click on a room sign and it takes you there
-  const shortcut = (e, display_id) => {
-    // TODO: the fact that these are both here and in roomCoords is redundant. Need a refactor.
+  const shortcut = (e, roomID) => {
     e.preventDefault();
     
-    setTargetX(doors[Object.keys(doors)[display_id]]);
-    setTargetY(doorsY[display_id - 1]);
+    setTargetX(rooms[roomID].door[0]);
+    setTargetY(rooms[roomID].door[1]);
   }
 
   // STYLES !!!!!!!
@@ -285,30 +277,21 @@ const Game = () => {
     gridRow: `${squirrelY - 2} / ${squirrelY + 1}`,
   }
   const faqStyle = {
-    gridColumn: `${faqSignX} / ${faqSignX + roomCoords.signCellWidth}`,
-    gridRow: `${roomCoords.faqSignStartY} / ${roomCoords.faqSignStartY + roomCoords.signCellHeight}`,
+    gridColumn: `${faqSignX} / ${faqSignX + constants.signCellWidth}`,
+    gridRow: `${rooms.faq.signStart[1]} / ${rooms.faq.signStart[1] + constants.signCellHeight}`,
   }
   const scheduleStyle = {
-    gridColumn: `${scheduleSignX} / ${scheduleSignX + roomCoords.signCellWidth}`,
-    gridRow: `${roomCoords.scheduleSignStartY} / ${roomCoords.scheduleSignStartY + roomCoords.signCellHeight}`,
+    gridColumn: `${scheduleSignX} / ${scheduleSignX + constants.signCellWidth}`,
+    gridRow: `${rooms.schedule.signStart[1]} / ${rooms.schedule.signStart[1] + constants.signCellHeight}`,
   }
   const sponsorsStyle = {
-    gridColumn: `${sponsorsSignX} / ${sponsorsSignX + roomCoords.signCellWidth}`,
-    gridRow: `${roomCoords.sponsorsSignStartY} / ${roomCoords.sponsorsSignStartY + roomCoords.signCellHeight}`,
+    gridColumn: `${sponsorsSignX} / ${sponsorsSignX + constants.signCellWidth}`,
+    gridRow: `${rooms.schedule.signStart[1]} / ${rooms.schedule.signStart[1] + constants.signCellHeight}`,
   }
   const speakersStyle = {
-    gridColumn: `${speakersSignX} / ${speakersSignX + roomCoords.signCellWidth}`,
-    gridRow: `${roomCoords.speakersSignStartY} / ${roomCoords.speakersSignStartY + roomCoords.signCellHeight}`,
+    gridColumn: `${speakersSignX} / ${speakersSignX + constants.signCellWidth}`,
+    gridRow: `${rooms.schedule.signStart[1]} / ${rooms.schedule.signStart[1] + constants.signCellHeight}`,
   }
-
-  // const rooms = [
-  //   null,
-  //   <FAQRoom setDisplay={setDisplay} />,
-  //   <ScheduleRoom />,
-  //   <SpeakersRoom />,
-  //   <SponsorsRoom />,
-  //   <JudgesRoom />
-  // ];
 
   return (
     <div>
@@ -321,19 +304,17 @@ const Game = () => {
             style={{ ...squirrelStyle, ...bounce }} />
           <animated.button className='nes-btn is-normal'
                            style={faqStyle}
-                           onClick={e => shortcut(e, 1)}>FAQ</animated.button>
+                           onClick={e => shortcut(e, 'faq')}>FAQ</animated.button>
           <animated.button className='nes-btn is-normal'
                            style={scheduleStyle}
-                           onClick={e => shortcut(e, 2)}>Schedule</animated.button>
+                           onClick={e => shortcut(e, 'schedule')}>Schedule</animated.button>
           <animated.button className='nes-btn is-normal'
                            style={sponsorsStyle}
-                           onClick={e => shortcut(e, 3)}>Sponsors</animated.button>
+                           onClick={e => shortcut(e, 'sponsors')}>Sponsors</animated.button>
           <animated.button className='nes-btn is-normal'
                            style={speakersStyle}
-                           onClick={e => shortcut(e, 4)}>Keynote Speakers</animated.button>
-        </div> : 
-        null}
-      {display}
+                           onClick={e => shortcut(e, 'speakers')}>Keynote Speakers</animated.button>
+        </div> : display}
     </div>
   )
 }
