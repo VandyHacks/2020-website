@@ -49,7 +49,7 @@ function useWindowDims() {
 }
 // ***********************************************************************
 
-const Game = () => {
+const Game = (props: any) => {
   <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
 
   // CONSTANTS
@@ -314,6 +314,7 @@ const Game = () => {
     gridColumn: `${speakersSignX} / ${speakersSignX + constants.signCellWidth}`,
     gridRow: `${rooms.speakers.signStart[1]} / ${rooms.speakers.signStart[1] + constants.signCellHeight}`,
   }
+  
 
   return (
     <div>
@@ -321,7 +322,8 @@ const Game = () => {
         <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
           {/* can't do this via CSS background image b/c won't fit properly */}
           <img className={styles.gridBackground} src={map} ref={mapRef}/>
-          <animated.img id={styles.squirrel}
+          <animated.img
+            id={styles.squirrel}
             src={squirrelPose}
             style={{ ...squirrelStyle, ...bounce }} />
           <animated.button className='nes-btn is-normal'

@@ -11,9 +11,56 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    /* Grid TODO: add shit to this, for now the only content is the back button*/
-    padding: 3vw;
-    display: grid;
-    grid-template-columns: 90% auto;
-    grid-template-rows: auto 90%;
+    padding: 2vh 4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* this is completely experimental, change to more animatic one */
+#avatar {
+    position: absolute;
+    right: 40%;
+    top: 50%;
+    width: 20vw;
+    height: auto;
+    animation: action 1s 3 alternate;
+}
+
+@keyframes action {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    50% { transform: translateY(20px); }
+}
+
+.dialogueTitle {
+    font-size: 2.5em;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+.dialogueButton {
+    width: 10vw;
+    min-height: 4vh;
+    background-color: #000;
+}
+
+#backButton {
+    width: 5vw;
+    height: 5vh;
+    background-color: #000;
+}
+
+#dialogue {
+    min-width: 65vw;
+    min-height: 20vh;
+    margin: 0 auto;
+}
+
+#dialogueChoices {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }

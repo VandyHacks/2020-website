@@ -7,7 +7,7 @@ import Top from '../top/top';
 import * as styles from './dashboard.module.css';
 
 
-const Dashboard: React.FC<{}> = () => {
+const Dashboard: React.FC<{}> = (props) => {
   const [showDashboard, setShowDashboard] = useState(true);
 
   const slideUp = useSpring({
@@ -18,7 +18,7 @@ const Dashboard: React.FC<{}> = () => {
 
   const startButton = useSpring({
     config: { duration: 500 },
-    transform: `translateY(${showDashboard ? 0 : -480}%)`,
+    transform: `translateY(${showDashboard ? 0 : 320}%)`,
     margin: '0 auto',
   });
 
@@ -29,22 +29,27 @@ const Dashboard: React.FC<{}> = () => {
 
   return (
     <div id={styles.dashboard}>
-      <animated.div style={slideUp}>
-        <Top />
-      </animated.div>
+      {props.menu ? 
+        <>
+          <animated.div style={slideUp}>
+            <Top />
+            </animated.div>
 
-      <animated.div style={startButton}>
-        <button
-          id={styles.startButton}
-          className={styles.animateFade}
-          onClick={() => setShowDashboard(state => !state)}>
-          {showDashboard ? 'press start to begin...' : 'show menu'}
-        </button>
-      </animated.div>
+          <animated.div style={startButton}>
+            <button
+              id={styles.startButton}
+              className={styles.animateFade}
+              onClick={() => setShowDashboard(state => !state)}>
+              {showDashboard ? 'press start to begin...' : 'show menu'}
+            </button>
+          </animated.div>
 
-      <animated.div style={slideDown}>
-        <Footer />
-      </animated.div>
+          <animated.div style={slideDown}>
+            <Footer />
+            </animated.div> 
+        </> :
+        null
+      }
     </div>
   );
 }
