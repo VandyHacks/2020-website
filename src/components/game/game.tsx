@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import map from '../../assets/map.png';
-import faqBackground from '../../assets/faqBackground.png';
+import FAQBackground from '../../assets/FAQBackground.png';
 
 // Import squirrel images
 import br from '../../assets/squirrel/back-rest.png';
@@ -74,7 +74,7 @@ const Game = (props: any) => {
       'signStart': null,
       'door': null,
     },
-    'faq': {
+    'FAQ': {
       'display': <FAQRoom setDisplay={setDisplay} />,
       'signStart': [4, 5],
       'door': [7, 16],
@@ -123,11 +123,15 @@ const Game = (props: any) => {
   
   // TODO: UNDER CONSTRUCTION
   // const [pastSignX, setPastSignX]         = useState(44)
-  const [faqSignX, setFaqSignX]           = useState(rooms.faq.signStart[0]);
+  const [FAQSignX, setFAQSignX]           = useState(rooms.FAQ.signStart[0]);
   const [sponsorsSignX, setSponsorsSignX] = useState(rooms.sponsors.signStart[0]);
   const [speakersSignX, setSpeakersSignX] = useState(rooms.speakers.signStart[0]);
   const [scheduleSignX, setScheduleSignX] = useState(rooms.schedule.signStart[0]);
   
+  const [FAQText, setFAQText] = useState('FAQ');
+  const [scheduleText, setScheduleText] = useState('Schedule');
+  const [speakersText, setSpeakersText] = useState('Speakers');
+  const [sponsorsText, setSponsorsText] = useState('Sponsors');
 
   // Engine for squirrel movement
   useEffect(() => {
@@ -169,7 +173,7 @@ const Game = (props: any) => {
     }, 200);
 
     // // IF THE SQUIRREL IS AT THESE POINTS GO TO A ROOM
-    // if (squirrelX == roomCoords.faqX && squirrelY == roomCoords.faqY) {
+    // if (squirrelX == roomCoords.FAQX && squirrelY == roomCoords.FAQY) {
     //   // TODO: the transition needs to feel more natural lol
     //   setDisplay(1);
     // }
@@ -206,55 +210,67 @@ const Game = (props: any) => {
     const rightEdgeCell = Math.round(rightEdge / (constants.cellDimVH*vh));
     // TODO: this is a lot of code repeat -> you should make a function lol
     // FAQ sign x coords (not rounded)
-    const faqSignStartPix = (rooms.faq.signStart[0] - 1) * constants.cellDimVH*vh;
-    const faqSignEndPix   = (rooms.faq.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
-    console.log('faqSignCoords:', faqSignStartPix, faqSignEndPix)
+    const FAQSignStartPix = (rooms.FAQ.signStart[0] - 1) * constants.cellDimVH*vh;
+    const FAQSignEndPix   = (rooms.FAQ.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
+    console.log('FAQSignCoords:', FAQSignStartPix, FAQSignEndPix)
     console.log('window coords:', leftEdge, rightEdge);
-    if (faqSignStartPix >= leftEdge && faqSignEndPix <= rightEdge) {
-      setFaqSignX(rooms.faq.signStart[0]);
-    } else if (faqSignStartPix < leftEdge) {
-      setFaqSignX(leftEdgeCell);
+    if (FAQSignStartPix >= leftEdge && FAQSignEndPix <= rightEdge) {
+      setFAQSignX(rooms.FAQ.signStart[0]);
+      setFAQText('FAQ');
+    } else if (FAQSignStartPix < leftEdge) {
+      setFAQSignX(leftEdgeCell);
+      setFAQText('<<< FAQ');
     } else {
-      setFaqSignX(rightEdgeCell - constants.signCellWidth + 1);
+      setFAQSignX(rightEdgeCell - constants.signCellWidth + 1);
+      setFAQText('FAQ >>>');
     }
     // Schedule sign x coords (not rounded)
     const scheduleSignStartPix = (rooms.schedule.signStart[0] - 1) * constants.cellDimVH*vh;
     const scheduleSignEndPix   = (rooms.schedule.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
     if (scheduleSignStartPix >= leftEdge && scheduleSignEndPix <= rightEdge) {
       setScheduleSignX(rooms.schedule.signStart[0]);
+      setScheduleText('Schedule');
     } else if (scheduleSignStartPix < leftEdge) {
       setScheduleSignX(leftEdgeCell);
+      setScheduleText('<<< Schedule');
     } else {
       setScheduleSignX(rightEdgeCell - constants.signCellWidth + 1);
+      setScheduleText('Schedule >>>');
     }
     // Sponsors sign x coords (not rounded)
     const sponsorsSignStartPix = (rooms.sponsors.signStart[0] - 1) * constants.cellDimVH*vh;
     const sponsorsSignEndPix   = (rooms.sponsors.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
     if (sponsorsSignStartPix >= leftEdge && sponsorsSignEndPix <= rightEdge) {
       setSponsorsSignX(rooms.sponsors.signStart[0]);
+      setSponsorsText('Sponsors');
     } else if (sponsorsSignStartPix < leftEdge) {
       setSponsorsSignX(leftEdgeCell);
+      setSponsorsText('<<< Sponsors');
     } else {
       setSponsorsSignX(rightEdgeCell - constants.signCellWidth + 1);
+      setSponsorsText('Sponsors >>>');
     }
     // Keynote speakers sign x coords (not rounded)
     const speakersSignStartPix = (rooms.speakers.signStart[0] - 1) * constants.cellDimVH*vh;
     const speakersSignEndPix   = (rooms.speakers.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
     if (speakersSignStartPix >= leftEdge && speakersSignEndPix <= rightEdge) {
       setSpeakersSignX(rooms.speakers.signStart[0]);
+      setSpeakersText('Speakers');
     } else if (speakersSignStartPix < leftEdge) {
       setSpeakersSignX(leftEdgeCell);
+      setSpeakersText('<<< Speakers');
     } else {
       setSpeakersSignX(rightEdgeCell - constants.signCellWidth + 1);
+      setSpeakersText('Speakers >>>');
     }
   }, [vw, vh, viewLocVH])
 
   // Engine for visiting rooms
   useEffect(() => {
     if (!isMoving) {
-      // go to faq
-      if (squirrelX == rooms.faq.door[0] && squirrelY == rooms.faq.door[1]) {
-        setDisplay(rooms.faq.display);
+      // go to FAQ
+      if (squirrelX == rooms.FAQ.door[0] && squirrelY == rooms.FAQ.door[1]) {
+        setDisplay(rooms.FAQ.display);
       } else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
         setDisplay(rooms.schedule.display);
       } else if (squirrelX == rooms.speakers.door[0] && squirrelY == rooms.speakers.door[1]) {
@@ -298,9 +314,9 @@ const Game = (props: any) => {
     gridColumn: `${squirrelX - 1} / ${squirrelX + 2}`,
     gridRow: `${squirrelY - 2} / ${squirrelY + 1}`,
   }
-  const faqStyle = {
-    gridColumn: `${faqSignX} / ${faqSignX + constants.signCellWidth}`,
-    gridRow: `${rooms.faq.signStart[1]} / ${rooms.faq.signStart[1] + constants.signCellHeight}`,
+  const FAQStyle = {
+    gridColumn: `${FAQSignX} / ${FAQSignX + constants.signCellWidth}`,
+    gridRow: `${rooms.FAQ.signStart[1]} / ${rooms.FAQ.signStart[1] + constants.signCellHeight}`,
   }
   const scheduleStyle = {
     gridColumn: `${scheduleSignX} / ${scheduleSignX + constants.signCellWidth}`,
@@ -326,18 +342,18 @@ const Game = (props: any) => {
             id={styles.squirrel}
             src={squirrelPose}
             style={{ ...squirrelStyle, ...bounce }} />
-          <animated.button className='nes-btn is-normal'
-                           style={faqStyle}
-                           onClick={e => shortcut(e, 'faq')}>FAQ</animated.button>
-          <animated.button className='nes-btn is-normal'
+          <animated.button className='nes-btn is-success'
+                           style={FAQStyle}
+                           onClick={e => shortcut(e, 'FAQ')}>{FAQText}</animated.button>
+          <animated.button className='nes-btn is-success'
                            style={scheduleStyle}
-                           onClick={e => shortcut(e, 'schedule')}>Schedule</animated.button>
-          <animated.button className='nes-btn is-normal'
+                           onClick={e => shortcut(e, 'schedule')}>{scheduleText}</animated.button>
+          <animated.button className='nes-btn is-success'
                            style={sponsorsStyle}
-                           onClick={e => shortcut(e, 'sponsors')}>Sponsors</animated.button>
-          <animated.button className='nes-btn is-normal'
+                           onClick={e => shortcut(e, 'sponsors')}>{sponsorsText}</animated.button>
+          <animated.button className='nes-btn is-success'
                            style={speakersStyle}
-                           onClick={e => shortcut(e, 'speakers')}>Keynote Speakers</animated.button>
+                           onClick={e => shortcut(e, 'speakers')}>{speakersText}</animated.button>
         </div> : display}
     </div>
   )
