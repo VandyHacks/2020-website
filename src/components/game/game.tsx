@@ -64,15 +64,21 @@ const Game = () => {
   }
 
   const roomCoords = {
-    'faqX': 46,
-    'faqY': 12,
-    
-    'faqSignStartX': 34,
-    'faqSignStartY': 2,
-    'scheduleSignStartX': 44,
-    'scheduleSignStartY': 4,
-    'sponsorsSignStartX': 4,
-    'sponsorsSignStartY': 6,
+    // Doors
+    'pastDoorX': 46,
+    'pastDoorY': 12,
+    'sponsorsDoorX': 38,
+    'sponsorsDoorY': 12,
+    'faqDoorX': 7,
+    'faqDoorY': 16,
+    'speakersDoorX': 17,
+    'speakersDoorY': 16,
+    'sponsorsSignStartX': 34,
+    'sponsorsSignStartY': 2,
+    'pastSignStartX': 44,
+    'pastSignStartY': 4,
+    'faqSignStartX': 4,
+    'faqSignStartY': 6,
     'speakersSignStartX': 14,
     'speakersSignStartY': 9,
     'signCellWidth': 7,
@@ -82,6 +88,9 @@ const Game = () => {
   const displayIDs = {
     'home': 0,
     'faq': 1,
+    'schedule': 2,
+    'sponsors': 3,
+    'speakers': 4
   }
 
   // Determines which view to display (map, FAQ room, etc.)
@@ -104,9 +113,9 @@ const Game = () => {
   // I didn't have a better word for this but basically this toggles squirrel using left-walk-0 vs left-walk-1, etc.
   const [stride, setStride] = useState(false);
   // Positions for room labels/signs in grid space (only x, y is constant)
-  const [faqSignX, setFaqSignX]           = useState(34)
-  const [scheduleSignX, setScheduleSignX] = useState(44)
-  const [sponsorsSignX, setSponsorsSignX] = useState(4)
+  const [sponsorsSignX, setSponsorsSignX] = useState(34)
+  const [pastSignX, setPastSignX]         = useState(44)
+  const [faqSignX, setFaqSignX]           = useState(4)
   const [speakersSignX, setSpeakersSignX] = useState(14)
   
 
@@ -149,11 +158,11 @@ const Game = () => {
       setStride(!stride);
     }, 200);
 
-    // IF THE SQUIRREL IS AT THESE POINTS GO TO A ROOM
-    if (squirrelX == roomCoords.faqX && squirrelY == roomCoords.faqY) {
-      // TODO: the transition needs to feel more natural lol
-      setDisplay(1);
-    }
+    // // IF THE SQUIRREL IS AT THESE POINTS GO TO A ROOM
+    // if (squirrelX == roomCoords.faqX && squirrelY == roomCoords.faqY) {
+    //   // TODO: the transition needs to feel more natural lol
+    //   setDisplay(1);
+    // }
 
     return () => clearInterval(interval);
   }, [squirrelX, squirrelY, targetX, targetY, isMoving, stride])
@@ -242,6 +251,12 @@ const Game = () => {
     setTargetY(Math.min(y, constants.gridWidth));
   }
 
+  const shortcut = (display_id) => {
+    if (display_id == 1) {
+      setTargetX(roomCoords.s)
+    }
+  }
+
   // STYLES !!!!!!!
   const boardStyle = {
     left: `calc(50vw - ${viewLocVH}vh)`
@@ -285,10 +300,18 @@ const Game = () => {
           <animated.img id={styles.squirrel}
             src={squirrelPose}
             style={{ ...squirrelStyle, ...bounce }} />
-          <animated.button className='nes-btn is-normal' style={faqStyle}>FAQ</animated.button>
-          <animated.button className='nes-btn is-normal' style={scheduleStyle}>Schedule</animated.button>
-          <animated.button className='nes-btn is-normal' style={sponsorsStyle}>Sponsors</animated.button>
-          <animated.button className='nes-btn is-normal' style={speakersStyle}>Keynote Speakers</animated.button>
+          <animated.button className='nes-btn is-normal'
+                           style={faqStyle}
+                           onClick={shortcut(1)}>FAQ</animated.button>
+          <animated.button className='nes-btn is-normal'
+                           style={scheduleStyle}
+                           onClick={shortcut(2)}>Schedule</animated.button>
+          <animated.button className='nes-btn is-normal'
+                           style={sponsorsStyle}
+                           onClick={shortcut(3)}>Sponsors</animated.button>
+          <animated.button className='nes-btn is-normal'
+                           style={speakersStyle}
+                           onClick={shortcut(4)}>Keynote Speakers</animated.button>
         </div> :
         null}
       {rooms[display]}
