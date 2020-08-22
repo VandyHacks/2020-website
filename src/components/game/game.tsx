@@ -61,45 +61,54 @@ const Game = () => {
     'rectWidth': 1720,
     'startX': 30,
     'startY': 21,
-  }
-
-  const roomCoords = {
-    // Doors
-    'pastDoorX': 46,
-    'pastDoorY': 12,
-    'sponsorsDoorX': 38,
-    'sponsorsDoorY': 12,
-    'faqDoorX': 7,
-    'faqDoorY': 16,
-    'speakersDoorX': 17,
-    'speakersDoorY': 16,
-    // TODO: verify schedule door coords
-    'scheduleDoorX': 28,
-    'scheduleDoorY': 11,
-    'sponsorsSignStartX': 34,
-    'sponsorsSignStartY': 2,
-    'pastSignStartX': 44,
-    'pastSignStartY': 4,
-    'faqSignStartX': 4,
-    'faqSignStartY': 5,
-    'speakersSignStartX': 53,
-    'speakersSignStartY': 12,
-    'scheduleSignStartX': 26,
-    'scheduleSignStartY': 7,
     'signCellWidth': 7,
-    'signCellHeight': 2
+    'signCellHeight': 2,
   }
 
-  const displayIDs = {
-    'home': 0,
-    'faq': 1,
-    'schedule': 2,
-    'sponsors': 3,
-    'speakers': 4
+  const rooms = {
+    'home': {
+      'display': null,
+      'signStart': null,
+      'doorCell': null,
+    },
+    'faq': {
+      'display': <FAQRoom setDisplay={setDisplay} />,
+      'signStart': [4, 5],
+      'doorCell': [7, 16],
+    },
+    'past': {
+      'display': null, // TODO: need a component here
+      'signStart': [44, 4],
+      'doorCell': [46, 12],
+    },
+    'schedule': {
+      'display': <ScheduleRoom />,
+      'signStart': [26, 7],
+      'doorCell': [28, 11],
+    },
+    'speakers':  {
+      // TODO: judges AND speakers
+      'display': <SpeakersRoom />,
+      'signStart': [53, 12],
+      'doorCell': [17, 16],
+    },
+    'sponsors': {
+      'display': <SponsorsRoom />,
+      'signStart': [38, 12],
+      'doorCell': [34, 2],
+    },
   }
+  // const rooms = [
+  //   null,
+  //   <FAQRoom setDisplay={setDisplay} />,
+  //   <ScheduleRoom />,
+  //   <SpeakersRoom />,
+  //   <SponsorsRoom />,
+  //   <JudgesRoom />
+  // ];
 
   // Determines which view to display (map, FAQ room, etc.)
-  const [display, setDisplay] = useState(displayIDs.home)
+  const [display, setDisplay] = useState(rooms.home.display)
   // Get window dimensions and distance btwn center of view and left edge of map
   const { vw, vh } = useWindowDims();
   const [viewLocVH, setviewLocVH] = useState(100);
@@ -262,22 +271,8 @@ const Game = () => {
   const shortcut = (e, display_id) => {
     // TODO: the fact that these are both here and in roomCoords is redundant. Need a refactor.
     e.preventDefault();
-    const doorsX = [
-      roomCoords.faqDoorX,
-      roomCoords.scheduleDoorX,
-      roomCoords.speakersDoorX,
-      roomCoords.sponsorsDoorX,
-      roomCoords.pastDoorX,
-    ]
-    const doorsY = [
-      roomCoords.faqDoorY,
-      roomCoords.scheduleDoorY,
-      roomCoords.speakersDoorY,
-      roomCoords.sponsorsDoorY,
-      roomCoords.pastDoorY,
-    ]
     
-    setTargetX(doorsX[display_id - 1]);
+    setTargetX(doors[Object.keys(doors)[display_id]]);
     setTargetY(doorsY[display_id - 1]);
   }
 
@@ -306,18 +301,18 @@ const Game = () => {
     gridRow: `${roomCoords.speakersSignStartY} / ${roomCoords.speakersSignStartY + roomCoords.signCellHeight}`,
   }
 
-  const rooms = [
-    null,
-    <FAQRoom setDisplay={setDisplay} />,
-    <ScheduleRoom />,
-    <SpeakersRoom />,
-    <SponsorsRoom />,
-    <JudgesRoom />
-  ];
+  // const rooms = [
+  //   null,
+  //   <FAQRoom setDisplay={setDisplay} />,
+  //   <ScheduleRoom />,
+  //   <SpeakersRoom />,
+  //   <SponsorsRoom />,
+  //   <JudgesRoom />
+  // ];
 
   return (
     <div>
-      {display == 0 ?
+      {display == null ?
         <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
           {/* can't do this via CSS background image b/c won't fit properly */}
           <img className={styles.gridBackground} src={map} />
@@ -336,9 +331,9 @@ const Game = () => {
           <animated.button className='nes-btn is-normal'
                            style={speakersStyle}
                            onClick={e => shortcut(e, 4)}>Keynote Speakers</animated.button>
-        </div> :
+        </div> : 
         null}
-      {rooms[display]}
+      {display}
     </div>
   )
 }
