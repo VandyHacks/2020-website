@@ -249,6 +249,22 @@ const Game = () => {
     }
   }, [vw, vh, viewLocVH])
 
+  // Engine for visiting rooms
+  useEffect(() => {
+    if (!isMoving) {
+      // go to faq
+      if (squirrelX == rooms.faq.door[0] && squirrelY == rooms.faq.door[1]) {
+        setDisplay(rooms.faq.display);
+      } else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
+        setDisplay(rooms.schedule.display);
+      } else if (squirrelX == rooms.speakers.door[0] && squirrelY == rooms.speakers.door[1]) {
+        setDisplay(rooms.speakers.display);
+      } else if (squirrelX == rooms.sponsors.door[0] && squirrelY == rooms.sponsors.door[1]) {
+        setDisplay(rooms.sponsors.display);
+      } 
+    }
+  }, [isMoving])
+
   // reference to the background map
   const mapRef = useRef(null);
 
