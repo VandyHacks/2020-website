@@ -87,7 +87,7 @@ const Game = () => {
     'schedule': {
       'display': <ScheduleRoom />,
       'signStart': [26, 7],
-      'door': [28, 11],
+      'door': [29, 13],
     },
     'speakers':  {
       // TODO: judges AND speakers
@@ -98,7 +98,7 @@ const Game = () => {
     'sponsors': {
       'display': <SponsorsRoom />,
       'signStart': [34, 2],
-      'door': [38, 12],
+      'door': [37, 12],
     },
   }
 
@@ -251,7 +251,7 @@ const Game = () => {
 
   // reference to the background map
   const mapRef = useRef(null);
-  
+
   const initiateMovement = e => {
     setMoving(true);
     // console.log('isMoving:', isMoving)
