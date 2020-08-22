@@ -97,8 +97,8 @@ const Game = () => {
     },
     'sponsors': {
       'display': <SponsorsRoom />,
-      'signStart': [38, 12],
-      'door': [34, 2],
+      'signStart': [34, 2],
+      'door': [38, 12],
     },
   }
 
@@ -286,11 +286,11 @@ const Game = () => {
   }
   const sponsorsStyle = {
     gridColumn: `${sponsorsSignX} / ${sponsorsSignX + constants.signCellWidth}`,
-    gridRow: `${rooms.schedule.signStart[1]} / ${rooms.schedule.signStart[1] + constants.signCellHeight}`,
+    gridRow: `${rooms.sponsors.signStart[1]} / ${rooms.sponsors.signStart[1] + constants.signCellHeight}`,
   }
   const speakersStyle = {
     gridColumn: `${speakersSignX} / ${speakersSignX + constants.signCellWidth}`,
-    gridRow: `${rooms.schedule.signStart[1]} / ${rooms.schedule.signStart[1] + constants.signCellHeight}`,
+    gridRow: `${rooms.speakers.signStart[1]} / ${rooms.speakers.signStart[1] + constants.signCellHeight}`,
   }
 
   return (
