@@ -73,14 +73,19 @@ const Game = () => {
     'faqDoorY': 16,
     'speakersDoorX': 17,
     'speakersDoorY': 16,
+    // TODO: verify schedule door coords
+    'scheduleDoorX': 28,
+    'scheduleDoorY': 11,
     'sponsorsSignStartX': 34,
     'sponsorsSignStartY': 2,
     'pastSignStartX': 44,
     'pastSignStartY': 4,
     'faqSignStartX': 4,
-    'faqSignStartY': 6,
-    'speakersSignStartX': 14,
-    'speakersSignStartY': 9,
+    'faqSignStartY': 5,
+    'speakersSignStartX': 53,
+    'speakersSignStartY': 12,
+    'scheduleSignStartX': 26,
+    'scheduleSignStartY': 7,
     'signCellWidth': 7,
     'signCellHeight': 2
   }
@@ -107,16 +112,19 @@ const Game = () => {
     transform: 'translate(0px, 0px)'
   }));
   // x and y coordinates of click location, flag for whether or not squirrel is in motion
-  const [targetX, setTargetX] = useState(squirrelX)
-  const [targetY, setTargetY] = useState(squirrelY)
+  const [targetX, setTargetX] = useState(squirrelX);
+  const [targetY, setTargetY] = useState(squirrelY);
   const [isMoving, setMoving] = useState(false);
   // I didn't have a better word for this but basically this toggles squirrel using left-walk-0 vs left-walk-1, etc.
   const [stride, setStride] = useState(false);
   // Positions for room labels/signs in grid space (only x, y is constant)
-  const [sponsorsSignX, setSponsorsSignX] = useState(34)
-  const [pastSignX, setPastSignX]         = useState(44)
-  const [faqSignX, setFaqSignX]           = useState(4)
-  const [speakersSignX, setSpeakersSignX] = useState(14)
+  
+  // TODO: UNDER CONSTRUCTION
+  // const [pastSignX, setPastSignX]         = useState(44)
+  const [faqSignX, setFaqSignX]           = useState(roomCoords.faqSignStartX);
+  const [sponsorsSignX, setSponsorsSignX] = useState(roomCoords.sponsorsSignStartX);
+  const [speakersSignX, setSpeakersSignX] = useState(roomCoords.speakersSignStartX);
+  const [scheduleSignX, setScheduleSignX] = useState(roomCoords.scheduleSignStartX);
   
 
   // Engine for squirrel movement
@@ -201,12 +209,11 @@ const Game = () => {
     console.log('faqSignCoords:', faqSignStartPix, faqSignEndPix)
     console.log('window coords:', leftEdge, rightEdge);
     if (faqSignStartPix >= leftEdge && faqSignEndPix <= rightEdge) {
-      // console.log
       setFaqSignX(roomCoords.faqSignStartX);
     } else if (faqSignStartPix < leftEdge) {
       setFaqSignX(leftEdgeCell);
     } else {
-      setFaqSignX(rightEdgeCell - roomCoords.signCellWidth);
+      setFaqSignX(rightEdgeCell - roomCoords.signCellWidth + 1);
     }
     // Schedule sign x coords (not rounded)
     const scheduleSignStartPix = (roomCoords.scheduleSignStartX - 1) * constants.cellDimVH*vh;
@@ -216,7 +223,7 @@ const Game = () => {
     } else if (scheduleSignStartPix < leftEdge) {
       setScheduleSignX(leftEdgeCell);
     } else {
-      setScheduleSignX(rightEdgeCell - roomCoords.signCellWidth);
+      setScheduleSignX(rightEdgeCell - roomCoords.signCellWidth + 1);
     }
     // Sponsors sign x coords (not rounded)
     const sponsorsSignStartPix = (roomCoords.sponsorsSignStartX - 1) * constants.cellDimVH*vh;
@@ -226,7 +233,7 @@ const Game = () => {
     } else if (sponsorsSignStartPix < leftEdge) {
       setSponsorsSignX(leftEdgeCell);
     } else {
-      setSponsorsSignX(rightEdgeCell - roomCoords.signCellWidth);
+      setSponsorsSignX(rightEdgeCell - roomCoords.signCellWidth + 1);
     }
     // Keynote speakers sign x coords (not rounded)
     const speakersSignStartPix = (roomCoords.speakersSignStartX - 1) * constants.cellDimVH*vh;
@@ -236,7 +243,7 @@ const Game = () => {
     } else if (speakersSignStartPix < leftEdge) {
       setSpeakersSignX(leftEdgeCell);
     } else {
-      setSpeakersSignX(rightEdgeCell - roomCoords.signCellWidth);
+      setSpeakersSignX(rightEdgeCell - roomCoords.signCellWidth + 1);
     }
   }, [vw, vh, viewLocVH])
 
@@ -251,10 +258,27 @@ const Game = () => {
     setTargetY(Math.min(y, constants.gridWidth));
   }
 
-  const shortcut = (display_id) => {
-    if (display_id == 1) {
-      setTargetX(roomCoords.s)
-    }
+  // Function for when you click on a room sign and it takes you there
+  const shortcut = (e, display_id) => {
+    // TODO: the fact that these are both here and in roomCoords is redundant. Need a refactor.
+    e.preventDefault();
+    const doorsX = [
+      roomCoords.faqDoorX,
+      roomCoords.scheduleDoorX,
+      roomCoords.speakersDoorX,
+      roomCoords.sponsorsDoorX,
+      roomCoords.pastDoorX,
+    ]
+    const doorsY = [
+      roomCoords.faqDoorY,
+      roomCoords.scheduleDoorY,
+      roomCoords.speakersDoorY,
+      roomCoords.sponsorsDoorY,
+      roomCoords.pastDoorY,
+    ]
+    
+    setTargetX(doorsX[display_id - 1]);
+    setTargetY(doorsY[display_id - 1]);
   }
 
   // STYLES !!!!!!!
@@ -302,16 +326,16 @@ const Game = () => {
             style={{ ...squirrelStyle, ...bounce }} />
           <animated.button className='nes-btn is-normal'
                            style={faqStyle}
-                           onClick={shortcut(1)}>FAQ</animated.button>
+                           onClick={e => shortcut(e, 1)}>FAQ</animated.button>
           <animated.button className='nes-btn is-normal'
                            style={scheduleStyle}
-                           onClick={shortcut(2)}>Schedule</animated.button>
+                           onClick={e => shortcut(e, 2)}>Schedule</animated.button>
           <animated.button className='nes-btn is-normal'
                            style={sponsorsStyle}
-                           onClick={shortcut(3)}>Sponsors</animated.button>
+                           onClick={e => shortcut(e, 3)}>Sponsors</animated.button>
           <animated.button className='nes-btn is-normal'
                            style={speakersStyle}
-                           onClick={shortcut(4)}>Keynote Speakers</animated.button>
+                           onClick={e => shortcut(e, 4)}>Keynote Speakers</animated.button>
         </div> :
         null}
       {rooms[display]}
