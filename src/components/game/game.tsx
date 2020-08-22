@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import map from '../../assets/map.png';
 import faqBackground from '../../assets/faqBackground.png';
@@ -93,7 +93,7 @@ const Game = () => {
       // TODO: judges AND speakers
       'display': <SpeakersRoom />,
       'signStart': [53, 12],
-      'door': [17, 16],
+      'door': [53, 18],
     },
     'sponsors': {
       'display': <SponsorsRoom />,
@@ -249,21 +249,27 @@ const Game = () => {
     }
   }, [vw, vh, viewLocVH])
 
+  // reference to the background map
+  const mapRef = useRef(null);
+  
   const initiateMovement = e => {
     setMoving(true);
-    console.log('isMoving:', isMoving)
-    const rect = e.target.getBoundingClientRect()
-    // Discretize x and y into grid cells
-    const x = Math.round(constants.gridWidth * (e.clientX - rect.left) / constants.rectWidth)
-    setTargetX(Math.min(x, constants.gridWidth - 2));
-    const y = Math.round(constants.gridHeight * (e.clientY - rect.top) / constants.rectHeight)
-    setTargetY(Math.min(y, constants.gridWidth));
+    // console.log('isMoving:', isMoving)
+    console.log('yoL', e.target == mapRef.current)
+    if (e.target == mapRef.current) {
+      console.log('MOVING!')
+      const rect = e.target.getBoundingClientRect()
+      // Discretize x and y into grid cells
+      const x = Math.round(constants.gridWidth * (e.clientX - rect.left) / constants.rectWidth)
+      setTargetX(Math.min(x, constants.gridWidth - 2));
+      const y = Math.round(constants.gridHeight * (e.clientY - rect.top) / constants.rectHeight)
+      setTargetY(Math.min(y, constants.gridWidth));
+    }
   }
 
   // Function for when you click on a room sign and it takes you there
   const shortcut = (e, roomID) => {
     e.preventDefault();
-    
     setTargetX(rooms[roomID].door[0]);
     setTargetY(rooms[roomID].door[1]);
   }
@@ -298,7 +304,7 @@ const Game = () => {
       {display == null ?
         <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
           {/* can't do this via CSS background image b/c won't fit properly */}
-          <img className={styles.gridBackground} src={map} />
+          <img className={styles.gridBackground} src={map} ref={mapRef}/>
           <animated.img id={styles.squirrel}
             src={squirrelPose}
             style={{ ...squirrelStyle, ...bounce }} />
