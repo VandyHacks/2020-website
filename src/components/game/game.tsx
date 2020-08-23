@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import map from '../../assets/map.png';
 import FAQBackground from '../../assets/FAQBackground.png';
-
+import cone from '../../assets/constructionCone.png'
+import worker from '../../assets/constructionWorker.png'
 // Import squirrel images
 import br from '../../assets/squirrel/back-rest.png';
 import bw from '../../assets/squirrel/back-walk.png';
@@ -97,7 +98,7 @@ const Game = (props: any) => {
     },
     'sponsors': {
       'display': <SponsorsRoom />,
-      'signStart': [34, 2],
+      'signStart': [34, 1],
       'door': [37, 12],
     },
   }
@@ -124,11 +125,13 @@ const Game = (props: any) => {
   // TODO: UNDER CONSTRUCTION
   // const [pastSignX, setPastSignX]         = useState(44)
   const [FAQSignX, setFAQSignX]           = useState(rooms.FAQ.signStart[0]);
+  const [pastSignX, setPastSignX]         = useState(rooms.past.signStart[0]);
   const [sponsorsSignX, setSponsorsSignX] = useState(rooms.sponsors.signStart[0]);
   const [speakersSignX, setSpeakersSignX] = useState(rooms.speakers.signStart[0]);
   const [scheduleSignX, setScheduleSignX] = useState(rooms.schedule.signStart[0]);
   
   const [FAQText, setFAQText] = useState('FAQ');
+  const [pastText, setPastText] = useState('Past Winners\n(coming soon!)')
   const [scheduleText, setScheduleText] = useState('Schedule');
   const [speakersText, setSpeakersText] = useState('Speakers');
   const [sponsorsText, setSponsorsText] = useState('Sponsors');
@@ -271,7 +274,9 @@ const Game = (props: any) => {
       // go to FAQ
       if (squirrelX == rooms.FAQ.door[0] && squirrelY == rooms.FAQ.door[1]) {
         setDisplay(rooms.FAQ.display);
-      } else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
+      }
+      // TODO: past room
+      else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
         setDisplay(rooms.schedule.display);
       } else if (squirrelX == rooms.speakers.door[0] && squirrelY == rooms.speakers.door[1]) {
         setDisplay(rooms.speakers.display);
@@ -318,6 +323,10 @@ const Game = (props: any) => {
     gridColumn: `${FAQSignX} / ${FAQSignX + constants.signCellWidth}`,
     gridRow: `${rooms.FAQ.signStart[1]} / ${rooms.FAQ.signStart[1] + constants.signCellHeight}`,
   }
+  const pastStyle = {
+    gridColumn: `${pastSignX} / ${pastSignX + constants.signCellWidth}`,
+    gridRow: `${rooms.past.signStart[1]} / ${rooms.past.signStart[1] + constants.signCellHeight}`,
+  }
   const scheduleStyle = {
     gridColumn: `${scheduleSignX} / ${scheduleSignX + constants.signCellWidth}`,
     gridRow: `${rooms.schedule.signStart[1]} / ${rooms.schedule.signStart[1] + constants.signCellHeight}`,
@@ -338,6 +347,12 @@ const Game = (props: any) => {
         <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
           {/* can't do this via CSS background image b/c won't fit properly */}
           <img className={styles.gridBackground} src={map} ref={mapRef}/>
+          {/* UNDER CONSTRUCTION ASSETS */}
+          {/* <img style={{gridColumn: '41 / 43', gridRow: '10 / 12'}} src={worker} /> */}
+          <img style={{gridArea: '12 / 44', margin: 0}} src={cone} />
+          <img style={{gridArea: '12 / 46', margin: 0}} src={cone} />
+          <img style={{gridArea: '12 / 48', margin: 0}} src={cone} />
+          <img style={{gridArea: '12 / 50', margin: 0}} src={cone} />
           <animated.img
             id={styles.squirrel}
             src={squirrelPose}
@@ -345,6 +360,9 @@ const Game = (props: any) => {
           <animated.button className='nes-btn is-success'
                            style={FAQStyle}
                            onClick={e => shortcut(e, 'FAQ')}>{FAQText}</animated.button>
+          <animated.button className='nes-btn is-disabled'
+                           style={pastStyle}
+                           /*onClick={e => shortcut(e, 'FAQ')}*/>{pastText}</animated.button>      
           <animated.button className='nes-btn is-success'
                            style={scheduleStyle}
                            onClick={e => shortcut(e, 'schedule')}>{scheduleText}</animated.button>
