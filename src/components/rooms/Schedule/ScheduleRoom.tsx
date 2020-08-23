@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+import * as styles from './ScheduleRoom.module.css'
+
+const events = {
+    
+}
 
 const ScheduleRoom: React.FC<{}> = () => {
     return (
-        <div>
-            <h1>Room Schedule</h1>
+        <div id={styles.scheduleRoom} className='nes-container is-rounded'>
+            Schedule
         </div>
     )
 }

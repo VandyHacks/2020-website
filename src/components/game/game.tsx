@@ -298,8 +298,7 @@ const Game = (props: any) => {
         // TODO: go to Vaken
       } else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
         // setDisplay(rooms.schedule.display);
-        toggleModalOpen(true);
-        console.log('modal open:', modalOpen)
+        toggleScheduleOpen(true);
       } else if (squirrelX == rooms.speakers.door[0] && squirrelY == rooms.speakers.door[1]) {
         setDisplay(rooms.speakers.display);
       } else if (squirrelX == rooms.sponsors.door[0] && squirrelY == rooms.sponsors.door[1]) {
@@ -401,9 +400,9 @@ const Game = (props: any) => {
           <animated.button className='nes-btn is-success'
                            style={speakersStyle}
                            onClick={e => shortcut(e, 'speakers')}>{speakersText}</animated.button>
-          { scheduleOpen ? <ScheduleRoom /> : null}
-          { speakersOpen ? <SpeakersRoom /> : null}
         </div> : display}
+        { scheduleOpen ? rooms.schedule.display : null}
+        { speakersOpen ? rooms.speakers.display : null}
     </div>
   )
 }

@@ -1,0 +1,8 @@
+#scheduleRoom {
+    position: absolute;
+    left: 5vw;
+    width: 90vw;
+    top: 5vh;
+    background: white;
+    color: black;
+}
