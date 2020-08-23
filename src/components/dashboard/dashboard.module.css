@@ -26,8 +26,7 @@
 } */
 
 #startButton {
-    width: 500px;
-    margin: 0 auto;
+    width: 100vw;
     background: none;
     border: none;
     font-size: 18px;
