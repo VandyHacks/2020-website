@@ -88,7 +88,7 @@ const Game = (props: any) => {
     'vaken': {
       'display': null,
       'signStart': [14, 9],
-      'door': [44, 6],
+      'door': [17, 16],
     },
     'schedule': {
       'display': <ScheduleRoom />,
@@ -385,7 +385,7 @@ const Game = (props: any) => {
                            /*onClick={e => shortcut(e, 'FAQ')}*/>{pastText}</animated.button>      
           <animated.button className='nes-btn is-primary'
                            style={vakenStyle}
-                           onClick={e => shortcut(e, 'schedule')}>{vakenText}</animated.button>
+                           onClick={e => shortcut(e, 'vaken')}>{vakenText}</animated.button>
           <animated.button className='nes-btn is-success'
                            style={scheduleStyle}
                            onClick={e => shortcut(e, 'schedule')}>{scheduleText}</animated.button>
