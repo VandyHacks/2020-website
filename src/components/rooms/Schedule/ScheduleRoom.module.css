@@ -3,6 +3,40 @@
     left: 5vw;
     width: 90vw;
     top: 5vh;
-    background: white;
+    background: #dbf4ff;
     color: black;
+}
+
+#scheduleRoom * {
+    color: black;
+}
+#scheduleRoom img {
+    width: 100px;
+    margin-left: -20px;
+    margin-top: -20px;
+}
+
+#dayToggle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 5vh;
+}
+
+#dayToggle button {
+    width: 30%;
+}
+
+#schedule {
+    display: flex;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+#schedule * {
+    font-size: 12px;
+}
+
+#schedule ul {
+    list-style-type: none;
 }

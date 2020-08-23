@@ -52,7 +52,7 @@ function useWindowDims() {
 // ***********************************************************************
 
 const Game = (props: any) => {
-  <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+  // <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
 
   // CONSTANTS
   const constants = {
@@ -70,6 +70,8 @@ const Game = (props: any) => {
   // Determines which view to display (map, FAQ room, etc.)
   const [display, setDisplay] = useState(null);
 
+  const scheduleRef = useRef(null);
+  const speakersRef = useRef(null);
   const rooms = {
     'home': {
       'display': null,
@@ -92,13 +94,13 @@ const Game = (props: any) => {
       'door': [17, 16],
     },
     'schedule': {
-      'display': <ScheduleRoom />,
+      'display': <ScheduleRoom ref={scheduleRef}/>,
       'signStart': [26, 7],
       'door': [29, 13],
     },
     'speakers':  {
       // TODO: judges AND speakers
-      'display': <SpeakersRoom />,
+      'display': <SpeakersRoom ref={speakersRef}/>,
       'signStart': [53, 12],
       'door': [53, 18],
     },
@@ -313,8 +315,8 @@ const Game = (props: any) => {
   const initiateMovement = e => {
     setMoving(true);
     // console.log('isMoving:', isMoving)
-    console.log('yoL', e.target == mapRef.current)
-    if (e.target == mapRef.current) {
+    // Move if clicking on map and no modals open
+    if (e.target == mapRef.current && !scheduleOpen && !speakersOpen) {
       console.log('MOVING!')
       const rect = e.target.getBoundingClientRect()
       // Discretize x and y into grid cells
@@ -322,6 +324,14 @@ const Game = (props: any) => {
       setTargetX(Math.min(x, constants.gridWidth - 2));
       const y = Math.round(constants.gridHeight * (e.clientY - rect.top) / constants.rectHeight)
       setTargetY(Math.min(y, constants.gridWidth));
+    }
+    if (e.target != scheduleRef.current && scheduleOpen) {
+      setTargetY(targetY + 1); // move squirrel so it doesn't immediately reopen
+      toggleScheduleOpen(false);
+    }
+    if (e.target != speakersRef.current && speakersOpen) {
+      setTargetY(targetY + 1);
+      toggleSpeakersOpen(false);
     }
   }
 
