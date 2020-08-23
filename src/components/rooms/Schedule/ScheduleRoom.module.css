@@ -28,7 +28,10 @@
 }
 
 #schedule {
-    display: flex;
+    display: grid;
+    grid-template-columns: 100px auto;
+    grid-template-rows: repeat(8, auto);
+    grid-gap: 10px;
     margin-left: 60px;
     margin-right: 60px;
 }
@@ -37,6 +40,6 @@
     font-size: 12px;
 }
 
-#schedule ul {
+#schedule li {
     list-style-type: none;
 }

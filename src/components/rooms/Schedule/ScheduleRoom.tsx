@@ -30,16 +30,24 @@ const events = {
 
 const ScheduleRoom: React.FC<{}> = () => {
     const [day, toggleDay] = useState('Fri');
-    let times = events[day].map((event) => 
-        <li key={event[0]}>
-            <div className={styles.time}>{event[0]}</div>
-        </li>
+    let len = events[day].length
+    console.log(len)
+    let times = events[day].map((event, i) => 
+        
+        <>
+        <div key={event[0]} style={{gridRow: `${i + 1}`, gridColumn: '1'}}>
+            {event[0]}
+        </div>
+        <div key={event[1]} style={{gridRow: `${i + 1}`, gridColumn: '2'}}>
+            {event[1]}
+        </div>
+        </>
     );
-    let descs = events[day].map((event) => 
-        <li key={event[0]}>
-        <div className={styles.time}>{event[1]}</div>
-    </li>
-    )
+    // let descs = events[day].map((event, i) => 
+    //     <li key={event[0]} style={{gridRow: `${i + 1}`}}>
+    //         {event[1]}
+    //     </li>
+    // )
     return (
         <div id={styles.scheduleRoom} className='nes-container is-rounded'>
             <div id={styles.dayToggle}>
@@ -47,13 +55,10 @@ const ScheduleRoom: React.FC<{}> = () => {
                 <button className='nes-btn is-normal' onClick={() => toggleDay('Sat')}>Saturday <br /> 10/3</button>
                 <button className='nes-btn is-normal' onClick={() => toggleDay('Sun')}>Sunday <br /> 10/4</button>
             </div>
-            <div id={styles.schedule} className="nes-balloon from-left">
-                <ul className ="nes-list is-circle">
-                    {times}
-                </ul>
-                <ul>
-                    {descs}
-                </ul>    
+            <div id={styles.schedule}
+                 className="nes-balloon from-left">
+                {times}
+                {/* {descs}   */}
             </div>
             {/* <i className="nes-bcrikko"></i> */}
             <img src={squirrel} />
