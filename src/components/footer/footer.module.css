@@ -23,7 +23,7 @@ body {
     flex-direction: column;
     align-items: center;
     font-size: 14px;
-    background-color: #060606;
+    /* background-color: #060606; */
     width: 500px;
     margin: 0 auto;
     bottom: -16px;
