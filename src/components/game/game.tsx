@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
+import window from 'global';
 import map from '../../assets/map.png';
 import FAQBackground from '../../assets/FAQBackground.png';
-import cone from '../../assets/constructionCone.png'
-import worker from '../../assets/constructionWorker.png'
+import cone from '../../assets/constructionCone.png';
+import worker from '../../assets/constructionWorker.png';
 // Import squirrel images
 import br from '../../assets/squirrel/back-rest.png';
 import bw from '../../assets/squirrel/back-walk.png';
