@@ -81,9 +81,14 @@ const Game = (props: any) => {
       'door': [7, 16],
     },
     'past': {
-      'display': null, // TODO: need a component here
-      'signStart': [44, 4],
+      'display': null, // TODO: need a component here when ready
+      'signStart': [44, 3],
       'door': [46, 12],
+    },
+    'vaken': {
+      'display': null,
+      'signStart': [14, 9],
+      'door': [44, 6],
     },
     'schedule': {
       'display': <ScheduleRoom />,
@@ -126,12 +131,14 @@ const Game = (props: any) => {
   // const [pastSignX, setPastSignX]         = useState(44)
   const [FAQSignX, setFAQSignX]           = useState(rooms.FAQ.signStart[0]);
   const [pastSignX, setPastSignX]         = useState(rooms.past.signStart[0]);
+  const [vakenSignX, setVakenSignX]       = useState(rooms.vaken.signStart[0]);
   const [sponsorsSignX, setSponsorsSignX] = useState(rooms.sponsors.signStart[0]);
   const [speakersSignX, setSpeakersSignX] = useState(rooms.speakers.signStart[0]);
   const [scheduleSignX, setScheduleSignX] = useState(rooms.schedule.signStart[0]);
   
-  const [FAQText, setFAQText] = useState('FAQ');
-  const [pastText, setPastText] = useState('Past Winners\n(coming soon!)')
+  const [FAQText, setFAQText]           = useState('FAQ');
+  const [pastText, setPastText]         = useState('Past Winners\n(coming soon!)')
+  const [vakenText, setVakenText]       = useState('Registration');
   const [scheduleText, setScheduleText] = useState('Schedule');
   const [speakersText, setSpeakersText] = useState('Speakers');
   const [sponsorsText, setSponsorsText] = useState('Sponsors');
@@ -174,12 +181,6 @@ const Game = (props: any) => {
       }
       setStride(!stride);
     }, 200);
-
-    // // IF THE SQUIRREL IS AT THESE POINTS GO TO A ROOM
-    // if (squirrelX == roomCoords.FAQX && squirrelY == roomCoords.FAQY) {
-    //   // TODO: the transition needs to feel more natural lol
-    //   setDisplay(1);
-    // }
 
     return () => clearInterval(interval);
   }, [squirrelX, squirrelY, targetX, targetY, isMoving, stride])
@@ -226,6 +227,19 @@ const Game = (props: any) => {
     } else {
       setFAQSignX(rightEdgeCell - constants.signCellWidth + 1);
       setFAQText('FAQ >>>');
+    }
+    // Registration sign x coords (not rounded)
+    const vakenSignStartPix = (rooms.vaken.signStart[0] - 1) * constants.cellDimVH*vh;
+    const vakenSignEndPix   = (rooms.vaken.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
+    if (vakenSignStartPix >= leftEdge && vakenSignEndPix <= rightEdge) {
+      setVakenSignX(rooms.vaken.signStart[0]);
+      setVakenText('Registration');
+    } else if (vakenSignStartPix < leftEdge) {
+      setVakenSignX(leftEdgeCell);
+      setVakenText('<<< Registr.');
+    } else {
+      setVakenSignX(rightEdgeCell - constants.signCellWidth + 1);
+      setVakenText('Registr. >>>');
     }
     // Schedule sign x coords (not rounded)
     const scheduleSignStartPix = (rooms.schedule.signStart[0] - 1) * constants.cellDimVH*vh;
@@ -276,7 +290,9 @@ const Game = (props: any) => {
         setDisplay(rooms.FAQ.display);
       }
       // TODO: past room
-      else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
+      else if (squirrelX == rooms.vaken.door[0] && squirrelY == rooms.vaken.door[1]) {
+        // TODO: go to Vaken
+      } else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
         setDisplay(rooms.schedule.display);
       } else if (squirrelX == rooms.speakers.door[0] && squirrelY == rooms.speakers.door[1]) {
         setDisplay(rooms.speakers.display);
@@ -327,6 +343,10 @@ const Game = (props: any) => {
     gridColumn: `${pastSignX} / ${pastSignX + constants.signCellWidth}`,
     gridRow: `${rooms.past.signStart[1]} / ${rooms.past.signStart[1] + constants.signCellHeight}`,
   }
+  const vakenStyle = {
+    gridColumn: `${vakenSignX} / ${vakenSignX + constants.signCellWidth}`,
+    gridRow: `${rooms.vaken.signStart[1]} / ${rooms.vaken.signStart[1] + constants.signCellHeight}`,
+  }
   const scheduleStyle = {
     gridColumn: `${scheduleSignX} / ${scheduleSignX + constants.signCellWidth}`,
     gridRow: `${rooms.schedule.signStart[1]} / ${rooms.schedule.signStart[1] + constants.signCellHeight}`,
@@ -363,6 +383,9 @@ const Game = (props: any) => {
           <animated.button className='nes-btn is-disabled'
                            style={pastStyle}
                            /*onClick={e => shortcut(e, 'FAQ')}*/>{pastText}</animated.button>      
+          <animated.button className='nes-btn is-primary'
+                           style={vakenStyle}
+                           onClick={e => shortcut(e, 'schedule')}>{vakenText}</animated.button>
           <animated.button className='nes-btn is-success'
                            style={scheduleStyle}
                            onClick={e => shortcut(e, 'schedule')}>{scheduleText}</animated.button>
