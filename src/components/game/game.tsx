@@ -1,11 +1,10 @@
+// Modules
 import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import window from 'global';
+
+// Images
 import map from '../../assets/map.png';
-import FAQBackground from '../../assets/FAQBackground.png';
-import cone from '../../assets/constructionCone.png';
-import worker from '../../assets/constructionWorker.png';
-// Import squirrel images
 import br from '../../assets/squirrel/back-rest.png';
 import bw from '../../assets/squirrel/back-walk.png';
 import fr from '../../assets/squirrel/front-rest.png';
@@ -15,6 +14,7 @@ import lw0 from '../../assets/squirrel/left-walk-0.png';
 import lw1 from '../../assets/squirrel/left-walk-1.png';
 import rw0 from '../../assets/squirrel/right-walk-0.png';
 import rw1 from '../../assets/squirrel/right-walk-1.png';
+import cone from '../../assets/constructionCone.png';
 
 // Rooms
 import FAQRoom from '../rooms/FAQ/FAQRoom';
@@ -113,9 +113,9 @@ const Game = (props: any) => {
   const { vw, vh } = useWindowDims();
   const [viewLocVH, setviewLocVH] = useState(100);
   // The squirrel image that gets displayed, followed by its x and y coordinates
-  const [squirrelPose, setSquirrelPose] = useState(fr)
-  const [squirrelX, setSquirrelX] = useState(constants.startX)
-  const [squirrelY, setSquirrelY] = useState(constants.startY)
+  const [squirrelPose, setSquirrelPose] = useState(fr);
+  const [squirrelX, setSquirrelX] = useState(constants.startX);
+  const [squirrelY, setSquirrelY] = useState(constants.startY);
   // Initial state for squirrel animation
   const [bounce, setBounce] = useSpring(() => ({
     transform: 'translate(0px, 0px)'
@@ -127,10 +127,9 @@ const Game = (props: any) => {
   // I didn't have a better word for this but basically this toggles squirrel using left-walk-0 vs left-walk-1, etc.
   const [stride, setStride] = useState(false);
   // Positions for room labels/signs in grid space (only x, y is constant)
-  
+  const [FAQSignX, setFAQSignX]           = useState(rooms.FAQ.signStart[0]);
   // TODO: UNDER CONSTRUCTION
   // const [pastSignX, setPastSignX]         = useState(44)
-  const [FAQSignX, setFAQSignX]           = useState(rooms.FAQ.signStart[0]);
   const [pastSignX, setPastSignX]         = useState(rooms.past.signStart[0]);
   const [vakenSignX, setVakenSignX]       = useState(rooms.vaken.signStart[0]);
   const [sponsorsSignX, setSponsorsSignX] = useState(rooms.sponsors.signStart[0]);
@@ -143,6 +142,10 @@ const Game = (props: any) => {
   const [scheduleText, setScheduleText] = useState('Schedule');
   const [speakersText, setSpeakersText] = useState('Speakers');
   const [sponsorsText, setSponsorsText] = useState('Sponsors');
+
+  // Toggle for modal components
+  const [scheduleOpen, toggleScheduleOpen] = useState(false);
+  const [speakersOpen, toggleSpeakersOpen] = useState(false);
 
   // Engine for squirrel movement
   useEffect(() => {
@@ -294,7 +297,9 @@ const Game = (props: any) => {
       else if (squirrelX == rooms.vaken.door[0] && squirrelY == rooms.vaken.door[1]) {
         // TODO: go to Vaken
       } else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
-        setDisplay(rooms.schedule.display);
+        // setDisplay(rooms.schedule.display);
+        toggleModalOpen(true);
+        console.log('modal open:', modalOpen)
       } else if (squirrelX == rooms.speakers.door[0] && squirrelY == rooms.speakers.door[1]) {
         setDisplay(rooms.speakers.display);
       } else if (squirrelX == rooms.sponsors.door[0] && squirrelY == rooms.sponsors.door[1]) {
@@ -396,6 +401,8 @@ const Game = (props: any) => {
           <animated.button className='nes-btn is-success'
                            style={speakersStyle}
                            onClick={e => shortcut(e, 'speakers')}>{speakersText}</animated.button>
+          { scheduleOpen ? <ScheduleRoom /> : null}
+          { speakersOpen ? <SpeakersRoom /> : null}
         </div> : display}
     </div>
   )
