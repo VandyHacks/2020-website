@@ -9,7 +9,7 @@ const FAQRoom: ((props: any) => JSX.Element) = (props) => {
 
     return (
         <div className={styles.room}>
-            <button id={styles.backButton} onClick={() => props.setDisplay(0)}>Back</button>
+            <button id={styles.backButton} onClick={() => props.setDisplayID('home')}>Back</button>
             <img src={avatar} id={styles.avatar} />
             <div id={styles.dialogue} className='nes-container is-dark is-rounded'>
                 <p className={styles.dialogueTitle}>~Dan Awena~</p>

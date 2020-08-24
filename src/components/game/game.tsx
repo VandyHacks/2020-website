@@ -66,46 +66,53 @@ const Game = (props: any) => {
   }
 
   // Determines which view to display (map, FAQ room, etc.)
-  const [display, setDisplay]: [null, JSX.Element | any] = useState(null);
+  const [displayID, setDisplayID]: [string, any] = useState('home');
 
   const scheduleRef = useRef(null);
   const speakersRef = useRef(null);
   const rooms = {
     'home': {
       'display': null,
+      // 'displayID': 0,
       'signStart': null,
       'door': null,
     },
     'FAQ': {
-      'display': <FAQRoom setDisplay={setDisplay} />,
+      'display': <FAQRoom setDisplayID={setDisplayID} />,
+      // 'displayID': 1,
       'signStart': [4, 5],
       'door': [7, 16],
     },
     'past': {
       'display': null, // TODO: need a component here when ready
+      // 'displayID': 2,
       'signStart': [44, 3],
       'door': [46, 12],
     },
-    'vaken': {
-      'display': null,
-      'signStart': [14, 9],
-      'door': [17, 16],
-    },
     'schedule': {
       'display': <ScheduleRoom ref={scheduleRef}/>,
+      // 'displayID': 0,
       'signStart': [26, 7],
       'door': [29, 13],
     },
     'speakers':  {
       // TODO: judges AND speakers
       'display': <SpeakersRoom ref={speakersRef}/>,
+      // 'displayID': 0,
       'signStart': [53, 12],
       'door': [53, 18],
     },
     'sponsors': {
-      'display': <SponsorsRoom setDisplay={setDisplay} />,
+      'display': <SponsorsRoom setDisplayID={setDisplayID} />,
+      // 'displayID': 3,
       'signStart': [34, 1],
       'door': [37, 12],
+    },
+    'vaken': {
+      'display': null,
+      // 'displayID': 0,
+      'signStart': [14, 9],
+      'door': [17, 16],
     },
   }
 
@@ -291,7 +298,7 @@ const Game = (props: any) => {
     if (!isMoving) {
       // go to FAQ
       if (squirrelX == rooms.FAQ.door[0] && squirrelY == rooms.FAQ.door[1]) {
-        setDisplay(rooms.FAQ.display);
+        setDisplayID('FAQ');
       }
       // TODO: past room
       else if (squirrelX == rooms.vaken.door[0] && squirrelY == rooms.vaken.door[1]) {
@@ -302,7 +309,7 @@ const Game = (props: any) => {
       } else if (squirrelX == rooms.speakers.door[0] && squirrelY == rooms.speakers.door[1]) {
         toggleSpeakersOpen(true);
       } else if (squirrelX == rooms.sponsors.door[0] && squirrelY == rooms.sponsors.door[1]) {
-        setDisplay(rooms.sponsors.display);
+        setDisplayID('sponsors');
       } 
     }
   }, [isMoving])
@@ -378,7 +385,7 @@ const Game = (props: any) => {
   return (
     <div>
       {
-        display == null ?
+        displayID == 'home' ?
         <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
           {/* can't do this via CSS background image b/c won't fit properly */}
           <img className={styles.gridBackground} src={map} ref={mapRef}/>
@@ -410,7 +417,7 @@ const Game = (props: any) => {
           <animated.button className='nes-btn is-success'
                            style={speakersStyle}
                            onClick={e => shortcut(e, 'speakers')}>{speakersText}</animated.button>
-        </div> : display}
+        </div> : rooms[displayID].display}
         { scheduleOpen ? rooms.schedule.display : null}
         { speakersOpen ? rooms.speakers.display : null}
     </div>

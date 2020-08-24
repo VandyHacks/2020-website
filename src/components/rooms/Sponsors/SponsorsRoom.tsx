@@ -8,7 +8,7 @@ const SponsorsRoom: ((props?: any) => JSX.Element) = (props) => {
 
     return (
         <div className={styles.room}>
-            <button id={styles.backButton} onClick={() => props.setDisplay(0)}>Back</button>
+            <button id={styles.backButton} onClick={() => props.setDisplayID('home')}>Back</button>
             <div id={styles.dialogue} className='nes-container is-dark is-rounded'>
                 <p className={styles.dialogueTitle}>~Sponsor Awena~</p>
                 <p>{mainDialogue}</p>
