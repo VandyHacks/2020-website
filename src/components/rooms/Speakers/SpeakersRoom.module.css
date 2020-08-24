@@ -1,0 +1,23 @@
+#speakersRoom {
+    position: absolute;
+    left: 5vw;
+    width: 90vw;
+    top: 5vh;
+    background: #dbf4ff;
+    color: black;
+}
+
+#speakersRoom * {
+    color: black;
+}
+
+#speakersRoom img {
+    width: 100px;
+    margin-left: -20px;
+    margin-top: -20px;
+}
+
+#selection {
+    display: grid;
+    
+}

@@ -302,7 +302,7 @@ const Game = (props: any) => {
         // setDisplay(rooms.schedule.display);
         toggleScheduleOpen(true);
       } else if (squirrelX == rooms.speakers.door[0] && squirrelY == rooms.speakers.door[1]) {
-        setDisplay(rooms.speakers.display);
+        toggleSpeakersOpen(true);
       } else if (squirrelX == rooms.sponsors.door[0] && squirrelY == rooms.sponsors.door[1]) {
         setDisplay(rooms.sponsors.display);
       } 

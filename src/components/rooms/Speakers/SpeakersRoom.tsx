@@ -27,32 +27,12 @@ const events = {
 }
 
 const SpeakersRoom: React.FC<{}> = () => {
-    const [day, toggleDay] = useState('speakers');
-    let times = events[day].map((event) => 
-        <li key={event[0]}>
-            <div className={styles.time}>{event[0]}</div>
-        </li>
-    );
-    let descs = events[day].map((event) => 
-        <li key={event[0]}>
-        <div className={styles.time}>{event[1]}</div>
-    </li>
-    )
+
     return (
-        <div id={styles.scheduleRoom} className='nes-container is-rounded'>
-            <div id={styles.dayToggle}>
-                <button className='nes-btn is-normal' onClick={() => toggleDay('Fri')}>Keynote <br /> Speakers</button>
-                <button className='nes-btn is-normal' onClick={() => toggleDay('Sat')}>Judges</button>
+        <div id={styles.speakersRoom} className='nes-container is-rounded'>
+            <div id={styles.selection}>
+                ...
             </div>
-            <div id={styles.schedule} className="nes-balloon from-left">
-                <ul className ="nes-list is-circle">
-                    {times}
-                </ul>
-                <ul>
-                    {descs}
-                </ul>    
-            </div>
-            <img src={squirrel} />
         </div>
     )
 }

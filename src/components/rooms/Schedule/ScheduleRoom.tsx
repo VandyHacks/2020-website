@@ -32,7 +32,7 @@ const ScheduleRoom: React.FC<{}> = () => {
     const [day, toggleDay] = useState('Fri');
     let len = events[day].length
     console.log(len)
-    let times = events[day].map((event, i) => 
+    let schedule = events[day].map((event, i) => 
         
         <>
         <div key={event[0]} style={{gridRow: `${i + 1}`, gridColumn: '1'}}>
@@ -43,11 +43,6 @@ const ScheduleRoom: React.FC<{}> = () => {
         </div>
         </>
     );
-    // let descs = events[day].map((event, i) => 
-    //     <li key={event[0]} style={{gridRow: `${i + 1}`}}>
-    //         {event[1]}
-    //     </li>
-    // )
     return (
         <div id={styles.scheduleRoom} className='nes-container is-rounded'>
             <div id={styles.dayToggle}>
@@ -57,7 +52,7 @@ const ScheduleRoom: React.FC<{}> = () => {
             </div>
             <div id={styles.schedule}
                  className="nes-balloon from-left">
-                {times}
+                {schedule}
                 {/* {descs}   */}
             </div>
             {/* <i className="nes-bcrikko"></i> */}
