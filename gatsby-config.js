@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `VandyHacks Promo Website`,
+    title: `VandyHacks Retro Edition`,
     description: `Official promotional website for VandyHacks VII`,
     author: `VandyHacks`,
   },

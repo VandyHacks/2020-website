@@ -6,10 +6,9 @@ import * as styles from './index.module.css'
 
 const IndexPage = () => (
   <div id={styles.main}>
+    <SEO title="Home" />
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
-    <Layout id='root'>
-      <SEO title="Home" />
-    </Layout>
+    <Layout id='root' />
   </div>
 )
 
