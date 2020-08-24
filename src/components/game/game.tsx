@@ -52,8 +52,6 @@ function useWindowDims() {
 // ***********************************************************************
 
 const Game = (props: any) => {
-  // <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
-
   // CONSTANTS
   const constants = {
     'gridHeight': 30,
@@ -68,7 +66,7 @@ const Game = (props: any) => {
   }
 
   // Determines which view to display (map, FAQ room, etc.)
-  const [display, setDisplay] = useState(null);
+  const [display, setDisplay]: [null, JSX.Element | any] = useState(null);
 
   const scheduleRef = useRef(null);
   const speakersRef = useRef(null);
@@ -105,7 +103,7 @@ const Game = (props: any) => {
       'door': [53, 18],
     },
     'sponsors': {
-      'display': <SponsorsRoom />,
+      'display': <SponsorsRoom setDisplay={setDisplay} />,
       'signStart': [34, 1],
       'door': [37, 12],
     },
@@ -186,7 +184,7 @@ const Game = (props: any) => {
         // console.log('Squirrel x y:', squirrelX, squirrelY);
       }
       setStride(!stride);
-    }, 200);
+    }, 150);
 
     return () => clearInterval(interval);
   }, [squirrelX, squirrelY, targetX, targetY, isMoving, stride])
@@ -338,6 +336,7 @@ const Game = (props: any) => {
   // Function for when you click on a room sign and it takes you there
   const shortcut = (e, roomID) => {
     e.preventDefault();
+    props.showMenu(false);
     setTargetX(rooms[roomID].door[0]);
     setTargetY(rooms[roomID].door[1]);
   }
@@ -378,7 +377,8 @@ const Game = (props: any) => {
 
   return (
     <div>
-      {display == null ?
+      {
+        display == null ?
         <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
           {/* can't do this via CSS background image b/c won't fit properly */}
           <img className={styles.gridBackground} src={map} ref={mapRef}/>

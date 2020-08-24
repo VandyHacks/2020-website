@@ -7,9 +7,7 @@ import TwitterLogo from '../../assets/twitter icon.png';
 
 import * as styles from './footer.module.css'
 
-const Footer: React.FC<{}> = () => {
-  <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
-
+const Footer: ((props?: any) => JSX.Element) = () => {
   const socials = [
     {
       name: 'facebook',

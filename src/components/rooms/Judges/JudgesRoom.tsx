@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const JudgesRoom: React.FC<{}> = () => {
+const JudgesRoom: ((props?: any) => JSX.Element) = () => {
     return (
         <div>
             <h1>JudgesRoom</h1>

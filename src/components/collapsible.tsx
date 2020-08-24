@@ -7,7 +7,7 @@ interface ColProps {
     content: string[],
 }
 
-const Col: React.FC<ColProps> = (props: ColProps) => {
+const Col: ((props?: any) => JSX.Element) = (props: ColProps) => {
     return (
         <Collapsible trigger={props.trigger}>
             {props.content[0]}
@@ -17,16 +17,4 @@ const Col: React.FC<ColProps> = (props: ColProps) => {
         </Collapsible>
     );
 }
-
-// const Col = (props: ColProps) => {
-//     return (
-//         <Collapsible trigger={props.trigger}>
-//             {props.content[0]}
-//             {props.content.slice(1).map((data, index) => (
-//                 <li key={`content_item_${index}`}>{data}</li>
-//             ))}
-//         </Collapsible>
-//     );
-// }
-
 export default Col;

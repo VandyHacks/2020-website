@@ -28,7 +28,7 @@ const events = {
     ]
 }
 
-const ScheduleRoom: React.FC<{}> = () => {
+const ScheduleRoom: ((props?: any) => JSX.Element) = () => {
     const [day, toggleDay] = useState('Fri');
     let len = events[day].length
     console.log(len)
@@ -53,9 +53,7 @@ const ScheduleRoom: React.FC<{}> = () => {
             <div id={styles.schedule}
                  className="nes-balloon from-left">
                 {schedule}
-                {/* {descs}   */}
             </div>
-            {/* <i className="nes-bcrikko"></i> */}
             <img src={squirrel} />
         </div>
     )

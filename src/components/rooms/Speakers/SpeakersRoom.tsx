@@ -26,8 +26,7 @@ const events = {
     ]
 }
 
-const SpeakersRoom: React.FC<{}> = () => {
-
+const SpeakersRoom: ((props?: any) => JSX.Element) = () => {
     return (
         <div id={styles.speakersRoom} className='nes-container is-rounded'>
             <div id={styles.selection}>

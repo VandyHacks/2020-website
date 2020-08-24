@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as styles from './window.module.css'
-  
-const Window: React.FC<{props: any}> = props => {
-  // <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+
+const Window: ((props?: any) => JSX.Element) = props => {
   // const [arrowDirection, setArrowDirection] = useState('down');
   // const [content, setContent] = useState(topText)
   // function toggleDisplay() {
@@ -12,9 +11,6 @@ const Window: React.FC<{props: any}> = props => {
 
   // TEST ITEMS DELETE LATER
   // const content = '<CONTENT GOES HERE>'
-  //
-
-
 
   return (
     <div id={styles.window} className='nes-container is-dark is-rounded'>

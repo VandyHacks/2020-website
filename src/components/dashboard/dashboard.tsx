@@ -7,7 +7,7 @@ import Top from '../top/top';
 import * as styles from './dashboard.module.css';
 
 
-const Dashboard: React.FC<{}> = (props) => {
+const Dashboard: ((props?: any) => JSX.Element) = (props) => {
   const [showDashboard, setShowDashboard] = useState(true);
 
   const slideUp = useSpring({
@@ -29,11 +29,12 @@ const Dashboard: React.FC<{}> = (props) => {
 
   return (
     <div id={styles.dashboard}>
-      {props.menu ? 
+      {
+        props.menu ?
         <>
           <animated.div style={slideUp}>
             <Top />
-            </animated.div>
+          </animated.div>
 
           <animated.div style={startButton}>
             <button
@@ -46,7 +47,7 @@ const Dashboard: React.FC<{}> = (props) => {
 
           <animated.div style={slideDown}>
             <Footer />
-            </animated.div> 
+          </animated.div>
         </> :
         null
       }
