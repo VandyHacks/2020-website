@@ -40,3 +40,12 @@
 .animateBlink {
     animation: blink 0.8s linear infinite;
 }
+
+@media only screen and (max-width: 480px) {
+    html {
+        font-size: 100%;
+    }
+    #top {
+        width: 300px;
+    }
+}
