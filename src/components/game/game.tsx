@@ -350,7 +350,9 @@ const Game = (props: any) => {
 
   // STYLES !!!!!!!
   const boardStyle = {
-    left: `calc(50vw - ${viewLocVH}vh)`
+    right: `calc(50vw - ${viewLocVH}vh)`,
+
+    left: `calc(50vw - ${viewLocVH}vh)`,
   }
   const squirrelStyle = {
     gridColumn: `${squirrelX - 1} / ${squirrelX + 2}`,
