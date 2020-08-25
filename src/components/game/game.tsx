@@ -309,7 +309,7 @@ const Game = (props: any) => {
       } else if (squirrelX == rooms.speakers.door[0] && squirrelY == rooms.speakers.door[1]) {
         toggleSpeakersOpen(true);
       } else if (squirrelX == rooms.sponsors.door[0] && squirrelY == rooms.sponsors.door[1]) {
-        setDisplayID('sponsors');
+        setDisplayID('S');
       } 
     }
   }, [isMoving])
@@ -417,7 +417,7 @@ const Game = (props: any) => {
           <animated.button className='nes-btn is-success'
                            style={speakersStyle}
                            onClick={e => shortcut(e, 'speakers')}>{speakersText}</animated.button>
-        </div> : rooms[displayID].display}
+        </div> : rooms[displayID]}
         { scheduleOpen ? rooms.schedule.display : null}
         { speakersOpen ? rooms.speakers.display : null}
     </div>

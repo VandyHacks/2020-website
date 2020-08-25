@@ -30,8 +30,6 @@ const events = {
 
 const ScheduleRoom: ((props?: any) => JSX.Element) = () => {
     const [day, toggleDay] = useState('Fri');
-    let len = events[day].length
-    console.log(len)
     let schedule = events[day].map((event, i) => 
         
         <>

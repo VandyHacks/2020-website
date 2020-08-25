@@ -5,19 +5,86 @@
     top: 5vh;
     background: #dbf4ff;
     color: black;
+    padding: 20px;
 }
+
+/* #speakersRoom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+} */
 
 #speakersRoom * {
     color: black;
 }
 
-#speakersRoom img {
-    width: 100px;
-    margin-left: -20px;
-    margin-top: -20px;
+#selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
 
-#selection {
-    display: grid;
-    
+.avatar {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    /* Only doing !important b/c it overwrites nes.css */
+    padding: 0px!important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70px;
+    transition: all .2s ease-in-out;
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+}
+
+.avatar img {
+    /* height: 100%; */
+    width: 100%;
+    border-radius: 10%;
+}
+
+#info {
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+
+#info img {
+    width: 200px;
+    height: 200px;
+    border: 4px solid black;
+}
+
+#name {
+    background: #dbf4ff;
+    font-size: 36px;
+    /* color: white;
+    text-shadow:
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000; */
+}
+
+#desc {
+    /* max-width: 100%;
+    min-width: 200px; */
+    text-align: left;
+    margin-left: 30px;
+}
+
+#desc p { 
+    /* text-decoration: underline; */
+    color: white;
+    font-size: 16px;
+    text-shadow:
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
