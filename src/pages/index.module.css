@@ -13,7 +13,7 @@ html {
     height: 100vh;
     background-color: #00c5ff;
     margin: 0;
-    overflow-x: hidden;
+    overflow: hidden;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     touch-action: none;
@@ -263,7 +263,6 @@ textarea {
 html {
     font: 112.5%/1.45em georgia, serif;
     box-sizing: border-box;
-    overflow-y: scroll;
 }
 
 * {
