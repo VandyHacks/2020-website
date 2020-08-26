@@ -382,6 +382,13 @@ const Game = (props: any) => {
     gridColumn: `${speakersSignX} / ${speakersSignX + constants.signCellWidth}`,
     gridRow: `${rooms.speakers.signStart[1]} / ${rooms.speakers.signStart[1] + constants.signCellHeight}`,
   }
+
+  let gridClickers: any = [];
+  for (let i = 1; i <= 60; i++) {
+    for (let j = 1; j <= 30; j++) {
+      gridClickers.push(<div style={{gridRow: `${j}`, gridColumn: `${i}`}} />);
+    }
+  }
   
 
   return (
@@ -391,6 +398,8 @@ const Game = (props: any) => {
         <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
           {/* can't do this via CSS background image b/c won't fit properly */}
           <img className={styles.gridBackground} src={map} ref={mapRef}/>
+          {/* Grid clickers */}
+          {gridClickers}
           {/* UNDER CONSTRUCTION ASSETS */}
           {/* <img style={{gridColumn: '41 / 43', gridRow: '10 / 12'}} src={worker} /> */}
           <img style={{gridArea: '12 / 44', margin: 0}} src={cone} />
