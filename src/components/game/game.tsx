@@ -324,11 +324,14 @@ const Game = (props: any) => {
     if (e.target == mapRef.current && !scheduleOpen && !speakersOpen) {
       console.log('MOVING!')
       const rect = e.target.getBoundingClientRect()
+      console.log(rect)
       // Discretize x and y into grid cells
-      const x = Math.round(constants.gridWidth * (e.clientX - rect.left) / constants.rectWidth)
-      setTargetX(Math.min(x, constants.gridWidth - 2));
-      const y = Math.round(constants.gridHeight * (e.clientY - rect.top) / constants.rectHeight)
+      const x = Math.floor(constants.gridWidth * (e.clientX - rect['left']) / rect.width) + 1
+      setTargetX(Math.min(x, constants.gridWidth - 2)); // squirrel is 3 pixels wide, can't be going off screen
+      const y = Math.floor(constants.gridHeight * (e.clientY) / rect.height) + 1
       setTargetY(Math.min(y, constants.gridWidth));
+      console.log('CLICKED:', x, y)
+      console.log('rect-left:', rect['left'])
     }
     if (e.target != scheduleRef.current && scheduleOpen) {
       setTargetY(targetY + 1); // move squirrel so it doesn't immediately reopen
@@ -383,14 +386,6 @@ const Game = (props: any) => {
     gridRow: `${rooms.speakers.signStart[1]} / ${rooms.speakers.signStart[1] + constants.signCellHeight}`,
   }
 
-  let gridClickers: any = [];
-  for (let i = 1; i <= 60; i++) {
-    for (let j = 1; j <= 30; j++) {
-      gridClickers.push(<div style={{gridRow: `${j}`, gridColumn: `${i}`}} />);
-    }
-  }
-  
-
   return (
     <div>
       {
@@ -398,8 +393,6 @@ const Game = (props: any) => {
         <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
           {/* can't do this via CSS background image b/c won't fit properly */}
           <img className={styles.gridBackground} src={map} ref={mapRef}/>
-          {/* Grid clickers */}
-          {gridClickers}
           {/* UNDER CONSTRUCTION ASSETS */}
           {/* <img style={{gridColumn: '41 / 43', gridRow: '10 / 12'}} src={worker} /> */}
           <img style={{gridArea: '12 / 44', margin: 0}} src={cone} />
