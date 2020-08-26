@@ -324,11 +324,14 @@ const Game = (props: any) => {
     if (e.target == mapRef.current && !scheduleOpen && !speakersOpen) {
       console.log('MOVING!')
       const rect = e.target.getBoundingClientRect()
+      console.log(rect)
       // Discretize x and y into grid cells
-      const x = Math.round(constants.gridWidth * (e.clientX - rect.left) / constants.rectWidth)
-      setTargetX(Math.min(x, constants.gridWidth - 2));
-      const y = Math.round(constants.gridHeight * (e.clientY - rect.top) / constants.rectHeight)
+      const x = Math.floor(constants.gridWidth * (e.clientX - rect['left']) / rect.width) + 1
+      setTargetX(Math.min(x, constants.gridWidth - 2)); // squirrel is 3 pixels wide, can't be going off screen
+      const y = Math.floor(constants.gridHeight * (e.clientY) / rect.height) + 1
       setTargetY(Math.min(y, constants.gridWidth));
+      console.log('CLICKED:', x, y)
+      console.log('rect-left:', rect['left'])
     }
     if (e.target != scheduleRef.current && scheduleOpen) {
       setTargetY(targetY + 1); // move squirrel so it doesn't immediately reopen
@@ -382,7 +385,6 @@ const Game = (props: any) => {
     gridColumn: `${speakersSignX} / ${speakersSignX + constants.signCellWidth}`,
     gridRow: `${rooms.speakers.signStart[1]} / ${rooms.speakers.signStart[1] + constants.signCellHeight}`,
   }
-  
 
   return (
     <div>
