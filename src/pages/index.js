@@ -1,4 +1,5 @@
 import React from "react"
+import { Helmet } from 'react-helmet'
 import ScrollLock from 'react-scrolllock'
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
