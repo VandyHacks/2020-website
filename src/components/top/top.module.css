@@ -8,15 +8,19 @@
     overflow: hidden;
 }
 
+#top * {
+    width: 95%;
+}
+
 #title {
-    max-width: 400px;
+    /* max-width: 400px; */
     margin: 0 auto;
     margin-top: 25px;
     overflow: hidden;
 }
 
 #about {
-    width: 400px;
+    /* width: 100%; */
     line-height: 1rem;
     margin: 24px auto 0;
     text-overflow: ellipsis;
@@ -42,9 +46,6 @@
 }
 
 @media only screen and (max-width: 480px) {
-    html {
-        font-size: 100%;
-    }
     #top {
         width: 300px;
     }
