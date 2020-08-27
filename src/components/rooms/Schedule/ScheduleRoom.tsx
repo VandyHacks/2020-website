@@ -5,26 +5,32 @@ import vh from '../../../assets/VH Pixel Logo.png'
 
 const events = {
     'Fri': [
-        ['9:30p', 'Go to bed'],
-        ['12:50a', 'Wake up'],
-        ['1:70a', 'Go to Egypt'],
-        ['1:71a', 'Stop time'],
-        ['5:09a', 'Get nerfed'],
+        ['7:45p', 'Opening Ceremony'],
+        ['9:00p', 'Workshop1'],
+        ['10:00p', 'Workshop2'],
+        ['11:00p', 'Workshop3']
     ],
     'Sat': [
-        ['10:00a', 'Visit your uncle'],
-        ['9:59a', 'You have a daughter'],
-        ['12:00p', 'Your grandfather is senile'],
-        ['1:00p', 'You wear white now'],
-        ['5:00p', 'EXPLOOOOOOOOOOSION!'],
-        ['6:00p', 'hayato'],
-        ['10:00p', 'wow so dependable im glad i met u'],
-        ['12:00a', 'ora ora bish'],
+        ['8:00a', 'Workshop4'],
+        ['9:00a', 'Workshop5'],
+        ['10:00a', 'Workshop6'],
+        ['11:00a', 'Workshop7'],
+        ['12:00p', 'Workshop8'],
+        ['1:15p', 'Sponsor1'],
+        ['3:00p', 'Sponsor2'],
+        ['3:45p', 'Sponsor3'],
+        ['4:30p', 'Event1'],
+        ['5:30p', 'Event2'],
+        ['6:30p', 'Event3'],
+        ['9:00p', 'Event4'],
+        ['10:30p', 'Event5'],
+        ['11:30p', 'Event6'],
+        
     ],
     'Sun': [
-        ['4:00p', 'redesigned waow'],
-        ['5:00p', 'your 15yo great great uncle is mad skinny'],
-        ['10:00p', 'gang violence'],
+        ['8:00a', 'Hacking Ends'],
+        ['10:30a', 'Judging'],
+        ['3:00p', 'Closing Ceremony'],
     ]
 }
 
@@ -42,17 +48,15 @@ const ScheduleRoom: ((props?: any) => JSX.Element) = () => {
         </>
     );
     return (
-        <div id={styles.scheduleRoom} className='nes-container is-rounded'>
+        <div id={styles.scheduleRoom} className={styles.pxlBorder}>
             <div id={styles.dayToggle}>
                 <button className='nes-btn is-normal' onClick={() => toggleDay('Fri')}>Friday <br /> 10/2</button>
                 <button className='nes-btn is-normal' onClick={() => toggleDay('Sat')}>Saturday <br /> 10/3</button>
                 <button className='nes-btn is-normal' onClick={() => toggleDay('Sun')}>Sunday <br /> 10/4</button>
             </div>
-            <div id={styles.schedule}
-                 className="nes-balloon from-left">
+            <div id={styles.schedule} className={styles.borderedText}>
                 {schedule}
             </div>
-            <img src={squirrel} />
         </div>
     )
 }

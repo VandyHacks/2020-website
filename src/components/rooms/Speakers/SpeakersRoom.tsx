@@ -9,19 +9,19 @@ const people = {
             'name': 'Gabriel Ting',
             'image': gabe,
             'heading': 'Co-President of VH',
-            'bio': 'I am a senior College Honors Scholar at Vanderbilt University triple majoring in Computer Science, Applied Mathematics, and Asian Studies! Check out my résumé below, and peruse some of my Work tab above with links to CS, Art, and humanities projects. In the summer of 2020, I worked for NASA JPL on Perseverance, the Mars Rover launched in 2020. I am continuing to work there part-time during the fall academic semester. My favorite course was the graduate-level Design and Analysis of Algorithms with Dr. Jeremy Spinrad. We covered a variety of techniques and proofs, also delving into interesting fields such as computational geometry.'
+            'bio': 'Uwu uwu uwu uwu uwu uwu uwu uwuuwuuwu uwuuwuuwuuwuuwu uwuuwuuwu uwu uwu u w u uwu uwu uwu uwu uwu uwuUWU UWU uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuUWUWUWUWUWUWUUWUWUWUWUW W U uwu uwu uwu Uuwu uwuuwu uwu uwu uwuuwuuwu uwu uwu uwu uwuuwuuwu uwu uwu uwu uwu uwu uwu u uwu w uwu u uwuuwuuwuuwuuwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwu uwuuwuuwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwuuwu uwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwu uwu uwu uwu.'
         },
         {
             'name': 'Gabriel Ting',
             'image': gabe,
             'heading': 'Co-President of VH',
-            'bio': 'I am a senior College Honors Scholar at Vanderbilt University triple majoring in Computer Science, Applied Mathematics, and Asian Studies! Check out my résumé below, and peruse some of my Work tab above with links to CS, Art, and humanities projects. In the summer of 2020, I worked for NASA JPL on Perseverance, the Mars Rover launched in 2020. I am continuing to work there part-time during the fall academic semester. My favorite course was the graduate-level Design and Analysis of Algorithms with Dr. Jeremy Spinrad. We covered a variety of techniques and proofs, also delving into interesting fields such as computational geometry.'
+            'bio': 'Uwu uwu uwu uwu uwu uwu uwu uwuuwuuwu uwuuwuuwuuwuuwu uwuuwuuwu uwu uwu u w u uwu uwu uwu uwu uwu uwuUWU UWU uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuUWUWUWUWUWUWUUWUWUWUWUW W U uwu uwu uwu Uuwu uwuuwu uwu uwu uwuuwuuwu uwu uwu uwu uwuuwuuwu uwu uwu uwu uwu uwu uwu u uwu w uwu u uwuuwuuwuuwuuwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwu uwuuwuuwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwuuwu uwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwu uwu uwu uwu.'
         },
         {
             'name': 'Gabriel Ting',
             'image': gabe,
             'heading': 'Co-President of VH',
-            'bio': 'I am a senior College Honors Scholar at Vanderbilt University triple majoring in Computer Science, Applied Mathematics, and Asian Studies! Check out my résumé below, and peruse some of my Work tab above with links to CS, Art, and humanities projects. In the summer of 2020, I worked for NASA JPL on Perseverance, the Mars Rover launched in 2020. I am continuing to work there part-time during the fall academic semester. My favorite course was the graduate-level Design and Analysis of Algorithms with Dr. Jeremy Spinrad. We covered a variety of techniques and proofs, also delving into interesting fields such as computational geometry.'
+            'bio': 'Uwu uwu uwu uwu uwu uwu uwu uwuuwuuwu uwuuwuuwuuwuuwu uwuuwuuwu uwu uwu u w u uwu uwu uwu uwu uwu uwuUWU UWU uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuUWUWUWUWUWUWUUWUWUWUWUW W U uwu uwu uwu Uuwu uwuuwu uwu uwu uwuuwuuwu uwu uwu uwu uwuuwuuwu uwu uwu uwu uwu uwu uwu u uwu w uwu u uwuuwuuwuuwuuwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwu uwuuwuuwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwuuwu uwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwu uwu uwu uwu.'
         },
         {
             'name': 'TBD',
@@ -48,7 +48,7 @@ const SpeakersRoom: ((props?: any) => JSX.Element) = () => {
         // <div className={['nes-container is-rounded', `${styles.avatar}`].join(' ')}
         //      onClick={() => setBio()}>
         // </div>
-        <div className={['nes-container is-rounded', `${styles.avatar}`].join(' ')}
+        <button className={['nes-btn', `${styles.avatar}`].join(' ')}
              onClick={() => {
                  setName(speaker.name);
                  setImage(speaker.image);
@@ -56,19 +56,19 @@ const SpeakersRoom: ((props?: any) => JSX.Element) = () => {
                  setBio(speaker.bio);
              }}>
             <img src={speaker.image}/>
-        </div>
+        </button>
     );
     return (
-        <div id={styles.speakersRoom} className={'nes-container is-rounded'}>
+        <div id={styles.speakersRoom} className={styles.pxlBorder}>
             <div id={styles.selection}>
                 {speakers}
             </div>
-            <div className='nes-container is-rounded with-title'>
-                <p className='title' id={styles.name}>{name}</p>
-                <div id={styles.info}>
-                    <img src={image} />
+            <div id={styles.infoInner}>
+                <p className={['title', `${styles.borderedText}`].join(' ')} id={styles.name}>{name}</p>
+                <div id={styles.infoInner}>
+                    <img src={image}/>
                     <div id={styles.desc}>
-                        <p> {heading} </p>
+                        <p className={styles.borderedText}> {heading} </p>
                         <div> {bio} </div>
                     </div>
                 </div>

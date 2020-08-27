@@ -9,8 +9,8 @@ import DownArrow from '../../assets/downarrow.png';
 
 
 const Top: ((props?: any) => JSX.Element) = () => {
-    const topText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit'
-    const bottomText = 'In each hemisphere of our brain, humans have a primary visual cortex, also known as V1, containing 140 million neurons, with tens of billions of connections between them. And yet human vision involves not just V1, but an entire series of visual cortices - V2, V3, V4, and V5 - '
+    const topText = 'VandyHacks is Vanderbilt’s student-run hackathon, where participants from all over the country create innovative and meaningful projects over the course of 36 hours. This year, our hackathon will be held virtually on October 2-4.'
+    const bottomText = ', meaning you can participate from the comfort of your own home! Come learn new topics with recorded workshops ranging from open source code to creating your own SlackBot. Meet and unwind with other fellow hackers with a round of Skribbl.io or virtual baking. Your project also has the chance to win some of our cool prizes! '
     const [arrowDirection, setArrowDirection] = useState('down');
     const [content, setContent] = useState(topText)
 

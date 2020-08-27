@@ -148,7 +148,7 @@ const Game = (props: any) => {
   const [vakenText, setVakenText]       = useState('Registration');
   const [scheduleText, setScheduleText] = useState('Schedule');
   const [speakersText, setSpeakersText] = useState('Speakers');
-  const [sponsorsText, setSponsorsText] = useState('Sponsors');
+  const [sponsorsText, setSponsorsText] = useState('Sponsors\n(coming soon!)');
 
   // Toggle for modal components
   const [scheduleOpen, toggleScheduleOpen] = useState(false);
@@ -265,19 +265,19 @@ const Game = (props: any) => {
       setScheduleSignX(rightEdgeCell - constants.signCellWidth + 1);
       setScheduleText('Schedule >>>');
     }
-    // Sponsors sign x coords (not rounded)
-    const sponsorsSignStartPix = (rooms.sponsors.signStart[0] - 1) * constants.cellDimVH*vh;
-    const sponsorsSignEndPix   = (rooms.sponsors.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
-    if (sponsorsSignStartPix >= leftEdge && sponsorsSignEndPix <= rightEdge) {
-      setSponsorsSignX(rooms.sponsors.signStart[0]);
-      setSponsorsText('Sponsors');
-    } else if (sponsorsSignStartPix < leftEdge) {
-      setSponsorsSignX(leftEdgeCell);
-      setSponsorsText('<<< Sponsors');
-    } else {
-      setSponsorsSignX(rightEdgeCell - constants.signCellWidth + 1);
-      setSponsorsText('Sponsors >>>');
-    }
+    // // Sponsors sign x coords (not rounded)
+    // const sponsorsSignStartPix = (rooms.sponsors.signStart[0] - 1) * constants.cellDimVH*vh;
+    // const sponsorsSignEndPix   = (rooms.sponsors.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
+    // if (sponsorsSignStartPix >= leftEdge && sponsorsSignEndPix <= rightEdge) {
+    //   setSponsorsSignX(rooms.sponsors.signStart[0]);
+    //   setSponsorsText('Sponsors');
+    // } else if (sponsorsSignStartPix < leftEdge) {
+    //   setSponsorsSignX(leftEdgeCell);
+    //   setSponsorsText('<<< Sponsors');
+    // } else {
+    //   setSponsorsSignX(rightEdgeCell - constants.signCellWidth + 1);
+    //   setSponsorsText('Sponsors >>>');
+    // }
     // Keynote speakers sign x coords (not rounded)
     const speakersSignStartPix = (rooms.speakers.signStart[0] - 1) * constants.cellDimVH*vh;
     const speakersSignEndPix   = (rooms.speakers.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
@@ -308,9 +308,10 @@ const Game = (props: any) => {
         toggleScheduleOpen(true);
       } else if (squirrelX == rooms.speakers.door[0] && squirrelY == rooms.speakers.door[1]) {
         toggleSpeakersOpen(true);
-      } else if (squirrelX == rooms.sponsors.door[0] && squirrelY == rooms.sponsors.door[1]) {
-        setDisplayID('sponsors');
-      } 
+      }
+      // } else if (squirrelX == rooms.sponsors.door[0] && squirrelY == rooms.sponsors.door[1]) {
+      //   setDisplayID('sponsors');
+      // } 
     }
   }, [isMoving])
 
@@ -399,6 +400,11 @@ const Game = (props: any) => {
           <img style={{gridArea: '12 / 46', margin: 0}} src={cone} />
           <img style={{gridArea: '12 / 48', margin: 0}} src={cone} />
           <img style={{gridArea: '12 / 50', margin: 0}} src={cone} />
+
+          <img style={{gridArea: '13 / 34', margin: 0}} src={cone} />
+          <img style={{gridArea: '13 / 36', margin: 0}} src={cone} />
+          <img style={{gridArea: '13 / 38', margin: 0}} src={cone} />
+          <img style={{gridArea: '13 / 40', margin: 0}} src={cone} />
           <animated.img
             id={styles.squirrel}
             src={squirrelPose}
@@ -415,7 +421,7 @@ const Game = (props: any) => {
           <animated.button className='nes-btn is-success'
                            style={scheduleStyle}
                            onClick={e => shortcut(e, 'schedule')}>{scheduleText}</animated.button>
-          <animated.button className='nes-btn is-success'
+          <animated.button className='nes-btn is-disabled'
                            style={sponsorsStyle}
                            onClick={e => shortcut(e, 'sponsors')}>{sponsorsText}</animated.button>
           <animated.button className='nes-btn is-success'

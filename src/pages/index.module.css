@@ -740,6 +740,6 @@ pre tt:after {
 
 @media only screen and (max-width: 480px) {
     * {
-        font-size: 88%;
+        /* font-size: 88%; */
     }
 }

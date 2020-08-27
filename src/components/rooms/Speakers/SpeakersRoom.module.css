@@ -3,19 +3,16 @@
     left: 5vw;
     width: 90vw;
     top: 5vh;
-    background: #dbf4ff;
+    max-height: 90vh;
+    background: cornflowerblue;
     color: black;
     padding: 20px;
+    overflow-y: scroll;
 }
 
-/* #speakersRoom {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-} */
-
-#speakersRoom * {
-    color: black;
+#speakersRoom::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
 }
 
 #selection {
@@ -32,59 +29,139 @@
     height: 70px;
     object-fit: cover;
     /* Only doing !important b/c it overwrites nes.css */
-    padding: 0px!important;
+    /* padding: 0px!important; */
     background-repeat: no-repeat;
     background-position: center;
     background-size: 70px;
     transition: all .2s ease-in-out;
 }
 
-.avatar:hover {
+/* .avatar:hover {
     transform: scale(1.1);
-}
+} */
 
 .avatar img {
     /* height: 100%; */
     width: 100%;
-    border-radius: 10%;
+    margin-left: -2px;
+    /* border-radius: 10%; */
+    border: 2px solid lightgray;
 }
 
-#info {
+#infoInner {
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
+    width: 100%;
+    /* text-align: center; */
+    justify-content: space-around;
+
+    /* margin-left: 0; */
+    border: 4px solid cornflowerblue;
 }
 
-#info img {
+#infoInner img {
     width: 200px;
     height: 200px;
-    border: 4px solid black;
+    border: 4px solid white;
+    outline: 2px solid lightgray;
+    margin: 10px;
 }
 
 #name {
-    background: #dbf4ff;
+    background: cornflowerblue;
     font-size: 36px;
-    /* color: white;
     text-shadow:
-        -1px -1px 0 #000,  
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000; */
+        -2px -2px 0 #000,  
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000;
 }
 
 #desc {
-    /* max-width: 100%;
-    min-width: 200px; */
+    max-width: 600px;
+    min-width: 200px;
+    margin: 10px;
     text-align: left;
-    margin-left: 30px;
 }
 
-#desc p { 
-    /* text-decoration: underline; */
-    color: white;
-    font-size: 16px;
+#desc p {
+    font-size: 18px;
     text-shadow:
         -1px -1px 0 #000,  
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000;
 }
+
+#infoInner {
+    background-color: cornflowerblue;
+}
+
+/* Color Variables */
+:root {
+    --inner: cornflowerBlue;
+    --border: black;
+    --accent: white;
+}
+
+/* PIXEL BORDER */
+.pxlBorder {
+    background: var(--inner);
+    box-shadow:
+      /* Inner Background Color -- Same as inner */
+        0   -6px 0  -2px var(--inner),
+        0    6px 0  -2px var(--inner),
+        0  -12px 0  -4px var(--inner),
+        0   12px 0  -4px var(--inner),
+        0  -18px 0  -8px var(--inner),
+        0   18px 0  -8px var(--inner),
+        0  -24px 0 -12px var(--inner),
+        0   24px 0 -12px var(--inner),
+      
+      /* Inner Border */
+       -2px  0   0   0   var(--border),
+        2px  0   0   0   var(--border),
+        0   -4px 0   0   var(--border),
+        0    4px 0   0   var(--border),
+        0  -10px 0  -2px var(--border),
+        0   10px 0  -2px var(--border),
+        0  -14px 0  -4px var(--border),
+        0   14px 0  -4px var(--border),
+        0  -20px 0  -8px var(--border),
+        0   20px 0  -8px var(--border),
+        0  -26px 0 -12px var(--border),
+        0   26px 0 -12px var(--border),
+      
+      /* Middle Border -- Accent */
+       -4px  0   0   0   var(--accent),
+        4px  0   0   0   var(--accent),
+        0   -2px 0   2px var(--accent),
+        0    2px 0   2px var(--accent),
+        0   -8px 0   0px var(--accent),
+        0    8px 0   0px var(--accent),
+        0  -12px 0  -2px var(--accent),
+        0   12px 0  -2px var(--accent),
+        0  -16px 0  -4px var(--accent),
+        0   16px 0  -4px var(--accent),
+        0  -22px 0  -8px var(--accent),
+        0   22px 0  -8px var(--accent),
+        0  -28px 0 -12px var(--accent),
+        0   28px 0 -12px var(--accent),
+      
+      /* Outer Border */
+       -6px  0   0   0   var(--border),
+        6px  0   0   0   var(--border),
+        0    0   0   4px var(--border),
+        0   -6px 0   2px var(--border),
+        0    6px 0   2px var(--border),
+        0  -10px 0   0   var(--border),
+        0   10px 0   0   var(--border),
+        0  -14px 0  -2px var(--border),
+        0   14px 0  -2px var(--border),
+        0  -18px 0  -4px var(--border),
+        0   18px 0  -4px var(--border),
+        0  -24px 0  -8px var(--border),
+        0   24px 0  -8px var(--border),
+        0  -30px 0 -12px var(--border),
+        0   30px 0 -12px var(--border);
+  }
