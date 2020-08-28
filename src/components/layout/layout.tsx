@@ -18,13 +18,15 @@ const Layout: ((props?: any) => JSX.Element) = () => {
       <ScrollLock isActive={true} />
       {/* Landscape breaks things lol */}
       { isTabletOrMobileDevice ?
-      <div id={styles.mobilePlaceholder}>
-        <div>
-          VandyHacks VII mobile edition is coming soon! For now, please visit us on desktop or
-          <a href='https://apply.vandyhacks.org/'> apply!</a>
-        </div>
-        <img src={logo} />
-      </div>      
+      <div>
+        <div id={styles.mobilePlaceholder}>
+          <div>
+            VandyHacks VII mobile edition is coming soon! For now, please visit us on desktop or
+            <a href='https://apply.vandyhacks.org/'> apply!</a>
+          </div>
+          <img src={logo} />
+        </div>   
+      </div>
       :
       <div>
         <Game showMenu={showMenu} />
