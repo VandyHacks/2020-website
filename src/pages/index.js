@@ -8,7 +8,7 @@ import * as styles from './index.module.css'
 const IndexPage = () => (
   <div id={styles.main}>
     <Helmet>
-      <meta name='viewport' content='width=device, initial-scale=1.0' />
+      <meta name='viewport' content='width=1024' />
     </Helmet>
     <ScrollLock isActive={true} />
     <SEO title="Home" />
