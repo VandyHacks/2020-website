@@ -20,11 +20,12 @@ const Layout: ((props?: any) => JSX.Element) = () => {
       { isTabletOrMobileDevice ?
       <div id={styles.mobilePlaceholder}>
         <div>
-        VandyHacks VII mobile edition is coming soon! For now, please visit us on desktop or
-        <a href='https://apply.vandyhacks.org/'> apply!</a>
+          VandyHacks VII mobile edition is coming soon! For now, please visit us on desktop or
+          <a href='https://apply.vandyhacks.org/'> apply!</a>
         </div>
-        <img src={logo} />
-      </div> :
+        {/* <img src={logo} /> */}
+      </div>
+      :
       <>
         <Game showMenu={showMenu} />
         <Dashboard menu={menu} />
