@@ -19,6 +19,7 @@ const Layout: ((props?: any) => JSX.Element) = () => {
       {/* Landscape breaks things lol */}
       { isTabletOrMobileDevice ?
       <>
+      <div>
       <div id={styles.mobilePlaceholder}>
         <div>
           VandyHacks VII mobile edition is coming soon! For now, please visit us on desktop or
@@ -26,6 +27,8 @@ const Layout: ((props?: any) => JSX.Element) = () => {
         </div>
         <img src={logo} />
       </div>
+      </div>
+      
       </>
       :
       <>
