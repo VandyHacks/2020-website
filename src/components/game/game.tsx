@@ -1,6 +1,8 @@
 // Modules
 import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
+import DeviceOrientation, { Orientation } from 'react-screen-orientation'
+
 import window from 'global';
 
 // Images
