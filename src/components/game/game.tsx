@@ -318,11 +318,6 @@ const Game = (props: any) => {
     }
   }, [isMoving])
 
-  // engine for requesting rotation
-  useEffect(() => {
-    setRequestRotate(vw > 2*vh);
-  }, [vw, vh]);
-
   // reference to the background map
   const mapRef = useRef(null);
 
@@ -397,9 +392,6 @@ const Game = (props: any) => {
 
   return (
     <div>
-      { requestRotate ? <div>HEY!</div> : 
-    
-    <div>
       {
         displayID == 'home' ?
         <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
@@ -441,7 +433,6 @@ const Game = (props: any) => {
         </div> : rooms[displayID].display}
         { scheduleOpen ? rooms.schedule.display : null}
         { speakersOpen ? rooms.speakers.display : null}
-      </div> }
     </div>
   )
 }

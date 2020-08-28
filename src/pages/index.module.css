@@ -9,8 +9,8 @@
 }
 
 html {
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw;
+    height: 100vh; */
     background-color: #00c5ff;
     margin: 0;
     overflow: hidden;

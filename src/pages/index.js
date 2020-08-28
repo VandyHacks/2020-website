@@ -10,7 +10,7 @@ const IndexPage = () => (
     {/* <Helmet>
       <meta name='viewport' content='width=1024' />
     </Helmet> */}
-    <ScrollLock isActive={true} />
+    {/* <ScrollLock active='true' /> */}
     <SEO title="Home" />
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
     <Layout id='root' />
