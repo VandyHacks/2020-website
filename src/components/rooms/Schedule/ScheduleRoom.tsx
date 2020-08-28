@@ -29,7 +29,7 @@ const events = {
     ],
     'Sun': [
         ['8:00a', 'Hacking Ends'],
-        ['10:30a', 'Judging'],
+   ['10:30a', 'Judging'],
         ['3:00p', 'Closing Ceremony'],
     ]
 }
