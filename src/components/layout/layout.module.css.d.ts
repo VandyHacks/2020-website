@@ -1,1 +1,1 @@
-export const requestRotate: string;
+export const mobilePlaceholder: string;
