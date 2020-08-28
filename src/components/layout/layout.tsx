@@ -26,10 +26,10 @@ const Layout: ((props?: any) => JSX.Element) = () => {
         <img src={logo} />
       </div>      
       :
-      <>
+      <div>
         <Game showMenu={showMenu} />
         <Dashboard menu={menu} />
-      </>}
+      </div>}
     </>
   )
 }

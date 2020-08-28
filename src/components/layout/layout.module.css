@@ -1,4 +1,9 @@
-
+/* Color Variables */
+:root {
+    --inner: cornflowerBlue;
+    --border: black;
+    --accent: white;
+}
 
 #container {
   width: 100vw;
