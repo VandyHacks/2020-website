@@ -1,39 +1,40 @@
 import React, { useState } from 'react';
 import * as styles from './SpeakersRoom.module.css'
-import gabe from '../../../assets/gabe.png'
-import VH from '../../../assets/VH Pixel Logo.png'
+import karl from '../../../assets/karl.jpg'
+import jeffrey from '../../../assets/jeffrey.jpg'
+import placeholder from '../../../assets/VH Pixel Logo.png'
 const people = {
     'judges': {},
     'speakers': [
         {
-            'name': 'Gabriel Ting',
-            'image': gabe,
-            'heading': 'Co-President of VH',
-            'bio': 'Uwu uwu uwu uwu uwu uwu uwu uwuuwuuwu uwuuwuuwuuwuuwu uwuuwuuwu uwu uwu u w u uwu uwu uwu uwu uwu uwuUWU UWU uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuUWUWUWUWUWUWUUWUWUWUWUW W U uwu uwu uwu Uuwu uwuuwu uwu uwu uwuuwuuwu uwu uwu uwu uwuuwuuwu uwu uwu uwu uwu uwu uwu u uwu w uwu u uwuuwuuwuuwuuwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwu uwuuwuuwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwuuwu uwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwu uwu uwu uwu.'
+            'name': 'Karl Mehta',
+            'image': karl,
+            'heading': 'CEO of EdCast, Founder of Code For India, Author of "Financial Inclusion at the Bottom of the Pyramid"',
+            'bio': "Mr. Mehta is currently Founder & CEO of EdCast Inc., a next-generation knowledge platform and former Venture Partner at Menlo Ventures. He is Founder of Silicon Valley based tech-driven non-profit, CodeforIndia.org and serves on several non-profit boards for education impact worldwide. Previously, he was the Founder & CEO of PlaySpan Inc., acquired in the March of 2011 by Visa Inc. (NYSE:V), the world's largest payment network. PlaySpan is a global leader in payments and monetization for digital media, mobile apps, social networks, and online games."
         },
         {
-            'name': 'Gabriel Ting',
-            'image': gabe,
-            'heading': 'Co-President of VH',
-            'bio': 'Uwu uwu uwu uwu uwu uwu uwu uwuuwuuwu uwuuwuuwuuwuuwu uwuuwuuwu uwu uwu u w u uwu uwu uwu uwu uwu uwuUWU UWU uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuUWUWUWUWUWUWUUWUWUWUWUW W U uwu uwu uwu Uuwu uwuuwu uwu uwu uwuuwuuwu uwu uwu uwu uwuuwuuwu uwu uwu uwu uwu uwu uwu u uwu w uwu u uwuuwuuwuuwuuwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwu uwuuwuuwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwuuwu uwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwu uwu uwu uwu.'
+            'name': 'Jeffrey J. Rothschild',
+            'image': jeffrey,
+            'heading': "Founding engineer at Facebook, Vice-Chairman at Vanderbilt's Technology Committee. Billionaire ",
+            'bio': "After earning his master's degree in computer science from Vanderbilt, Mr. Rothschild has been a co-founder of several technology and software companies including Veritas Software and Mpath Interactive. Mr. Rothschild  joined Facebook in 2005 as vice president of infrastructure engineering, becoming a major shareholders of the company. Rothschild serves as the vice chair of the board of trust of his alma mater, Vanderbilt University. With his wife, he endowed two scholarships in the School of Engineering and the College of Arts and Science in 2013, and he donated $20 million for the construction of two new buildings on campus, Vanderbilt Hall and Barnard Hall, in December 2016. Mr. Rothschild is engaged in early stage technology and impact investing."
         },
         {
-            'name': 'Gabriel Ting',
-            'image': gabe,
-            'heading': 'Co-President of VH',
-            'bio': 'Uwu uwu uwu uwu uwu uwu uwu uwuuwuuwu uwuuwuuwuuwuuwu uwuuwuuwu uwu uwu u w u uwu uwu uwu uwu uwu uwuUWU UWU uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuUWUWUWUWUWUWUUWUWUWUWUW W U uwu uwu uwu Uuwu uwuuwu uwu uwu uwuuwuuwu uwu uwu uwu uwuuwuuwu uwu uwu uwu uwu uwu uwu u uwu w uwu u uwuuwuuwuuwuuwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwu uwuuwuuwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwuuwu uwu uwu uwu uwu uwu uwu uwu uwuuwu uwuuwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwu uwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwuuwu uwu uwu uwu uwu.'
+            'name': '',
+            'image': placeholder,
+            'heading': 'Coming Soon!',
+            'bio': ''
         },
         {
-            'name': 'TBD',
-            'image': VH,
-            'heading': 'Someone super cool',
-            'bio': 'HELLLOOOOOOOOOOO filler text'
+            'name': '',
+            'image': placeholder,
+            'heading': 'Coming Soon!',
+            'bio': ''
         },
         {
-            'Name': 'TBD',
-            'image': VH,
-            'heading': 'Someone super cool',
-            'bio': 'HELLLOOOOOOOOOOO filler text'
+            'Name': '',
+            'image': placeholder,
+            'heading': 'Coming Soon!',
+            'bio': ''
         }
     ]
 }
