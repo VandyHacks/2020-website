@@ -7,9 +7,9 @@ import * as styles from './index.module.css'
 
 const IndexPage = () => (
   <div id={styles.main}>
-    <Helmet>
+    {/* <Helmet>
       <meta name='viewport' content='width=1024' />
-    </Helmet>
+    </Helmet> */}
     <ScrollLock isActive={true} />
     <SEO title="Home" />
     <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
