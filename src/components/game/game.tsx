@@ -121,6 +121,7 @@ const Game = (props: any) => {
   // Get window dimensions and distance btwn center of view and left edge of map
   const { vw, vh } = useWindowDims();
   const [viewLocVH, setviewLocVH] = useState(100);
+  const [requestRotate, setRequestRotate] = useState(false);
   // The squirrel image that gets displayed, followed by its x and y coordinates
   const [squirrelPose, setSquirrelPose] = useState(fr);
   const [squirrelX, setSquirrelX] = useState(constants.startX);
@@ -317,6 +318,11 @@ const Game = (props: any) => {
     }
   }, [isMoving])
 
+  // engine for requesting rotation
+  useEffect(() => {
+    setRequestRotate(vw > 2*vh);
+  }, [vw, vh]);
+
   // reference to the background map
   const mapRef = useRef(null);
 
@@ -391,6 +397,9 @@ const Game = (props: any) => {
 
   return (
     <div>
+      { requestRotate ? <div>HEY!</div> : 
+    
+    <div>
       {
         displayID == 'home' ?
         <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
@@ -432,6 +441,7 @@ const Game = (props: any) => {
         </div> : rooms[displayID].display}
         { scheduleOpen ? rooms.schedule.display : null}
         { speakersOpen ? rooms.speakers.display : null}
+      </div> }
     </div>
   )
 }
