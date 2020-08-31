@@ -63,15 +63,15 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:site`,
-          content: site.siteMetadata.author,
+          content: `@vandyhacks`,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: `@vandyhacks`,
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: `VandyHacks: Retro Edition`,
         },
         {
           name: `twitter:description`,
