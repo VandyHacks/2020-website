@@ -7,7 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import RetroLogo from '../../assets/VH Pixel Logo.png';
+import RetroLogo from '../assets/VH Pixel Logo.png';
 import  { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
