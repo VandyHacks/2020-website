@@ -15,7 +15,7 @@ const Layout: ((props?: any) => JSX.Element) = () => {
 
   return (
     <>
-      <ScrollLock isActive={true} />
+      {/* <ScrollLock isActive={true} /> */}
       {/* Landscape breaks things lol */}
       {/* { isTabletOrMobileDevice ? */}
       {/* <div>
