@@ -7,6 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
+import RetroLogo from '../../assets/VH Pixel Logo.png';
 import  { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -50,7 +51,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: '../../assets/VH Pixel Logo.png',
+          content: RetroLogo,
         },
         {
           property: `og:type`,
