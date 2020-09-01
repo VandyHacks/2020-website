@@ -432,7 +432,7 @@ const Game = (props: any) => {
     return (
       <BrowserRouter>
         <Route path='/' component={() => { 
-          window.location.href = 'https://apply.vandyhacks.org'; 
+          window.location.href = 'https://vandyhacksvi.devpost.com/project-gallery'; 
           return null;
         }}/>
       </BrowserRouter>);
