@@ -425,7 +425,6 @@ const Game = (props: any) => {
       <BrowserRouter>
         <Route path='/' component={() => { 
           window.location.href = 'https://apply.vandyhacks.org'; 
-          return null;
         }}/>
       </BrowserRouter>);
   } else if (goToDevpost) {
@@ -433,7 +432,6 @@ const Game = (props: any) => {
       <BrowserRouter>
         <Route path='/' component={() => { 
           window.location.href = 'https://vandyhacksvi.devpost.com/project-gallery'; 
-          return null;
         }}/>
       </BrowserRouter>);
   }
