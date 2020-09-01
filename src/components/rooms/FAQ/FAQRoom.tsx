@@ -69,7 +69,7 @@ const questions = [
 ];
   
 const FAQRoom: ((props: any) => JSX.Element) = (props) => {
-    const introText = "Hi! I'm Dan. Ask me anything.";
+    const introText = "Hi! I'm Tabriel. Ask me anything.";
     const [mainDialogue, setMainDialogue] = useState(introText);
     const questionButtons = questions.map((pair) => {
         return (<button className='nes-btn is-normal'
@@ -84,7 +84,7 @@ const FAQRoom: ((props: any) => JSX.Element) = (props) => {
                 onClick={() => {props.setDisplayID('home'); props.showMenu(true);}}>Back</button>
             <img src={avatar} id={styles.avatar} />
             <div id={styles.dialogue} className={retroBox}>
-                <p id={styles.dialogueTitle} className={styles.outlined}>~Dan Awena~</p>
+                <p id={styles.dialogueTitle} className={styles.outlined}>~Tabriel Ging~</p>
                 <div id={styles.mainDialogue} className={styles.outlined}>{mainDialogue}</div>
                 <div id={styles.dialogueChoices} className='nes-container is-dark'>
                     <div id={styles.choicesInner}>{questionButtons}</div>
