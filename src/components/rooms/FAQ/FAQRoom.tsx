@@ -6,8 +6,8 @@ import avatar from '../../../assets/faqAvatar.png';
 const FAQRoom: ((props: any) => JSX.Element) = (props) => {
     const introText = "Hi! I'm Dan. Ask me anything.";
     const [mainDialogue, setMainDialogue] = useState(introText);
-    
-    const buttons = 
+
+    // const buttons = 
     return (
         <div className={styles.room}>
             <button id={styles.backButton} className='nes-btn is-normal' 
