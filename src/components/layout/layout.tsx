@@ -28,9 +28,12 @@ const Layout: ((props?: any) => JSX.Element) = () => {
         </div>   
       </div>
       : */}
-      <div>
-        <Game showMenu={showMenu} />
+      <div id={styles.notLandscape}>
+        <Game showMenu={showMenu}/>
         <Dashboard menu={menu} />
+      </div>
+      <div id={styles.landscape}>
+        HIHIHIHIHIHI
       </div>
       {/* } */}
     </>
