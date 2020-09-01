@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as styles from './SpeakersRoom.module.css'
 import karl from '../../../assets/karl.jpg'
 import jeffrey from '../../../assets/jeffrey.jpg'
+import shauna from '../../../assets/shauna.png'
 import placeholder from '../../../assets/VH Pixel Logo.png'
 const people = {
     'judges': {},
@@ -19,10 +20,10 @@ const people = {
             'bio': "After earning his master's degree in computer science from Vanderbilt, Mr. Rothschild has been a co-founder of several technology and software companies including Veritas Software and Mpath Interactive. Mr. Rothschild  joined Facebook in 2005 as vice president of infrastructure engineering, becoming a major shareholders of the company. Rothschild serves as the vice chair of the board of trust of his alma mater, Vanderbilt University. With his wife, he endowed two scholarships in the School of Engineering and the College of Arts and Science in 2013, and he donated $20 million for the construction of two new buildings on campus, Vanderbilt Hall and Barnard Hall, in December 2016. Mr. Rothschild is engaged in early stage technology and impact investing."
         },
         {
-            'name': '',
-            'image': placeholder,
-            'heading': 'Coming Soon!',
-            'bio': ''
+            'name': 'Shauna McIntyre',
+            'image': shauna,
+            'heading': 'CEO of Sense Photonics ',
+            'bio': 'Shauna McIntyre is a seasoned technology and automotive executive with a track record of driving innovation in traditional industries. She serves as CEO of Sense Photonics, which builds next-generation 3D perception systems to enable robots, industrial solutions, and autonomous vehicles to see and navigate in the world around them. Prior she led a pan-Google initiative bringing Android, Assistant, and Google Maps into the car as embedded software to provide every car a safe and seamless connected experience that improves over time. Prior she served as Chief of Staff for Google Devices, the company’s rapidly growing consumer electronics business that combines the best of Google AI, software, and hardware to provide consumers with radically helpful experiences. Since April 2019 she has served on the Board of Directors of Lithia Motors (NYSE: LAD).'
         },
         {
             'name': '',
