@@ -26,14 +26,21 @@ html {
     /* background-color: #060606; */
     width: 500px;
     margin: 0 auto;
-    bottom: -24px;
+    height: 100%;
+    /* bottom: -16px; */
+}
+
+#footerMain a {
+    font-size: 18px;
+    color: white;
 }
 
 #retro-logo {
-    width: 80px;
-    height: auto;
+    /* width: 70px; */
+    height: 30%;
     margin-top: 20px;
-    margin-bottom: 24px;
+    /* margin-bottom: 30px; */
+    flex-shrink: 2;
 }
 
 .socials {

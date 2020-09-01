@@ -36,14 +36,15 @@ const Dashboard: ((props?: any) => JSX.Element) = (props) => {
             <Top />
           </animated.div>
 
-          <animated.div style={startButton}>
-            <button
-              id={styles.startButton}
-              className={styles.animateFade}
-              onClick={() => setShowDashboard(state => !state)}>
-              {showDashboard ? 'click here to begin...' : 'show menu'}
-            </button>
-          </animated.div>
+          {/* <animated.div style={startButton}> */}
+          <animated.button
+            id={styles.startButton}
+            className={styles.animateFade}
+            style={startButton}
+            onClick={() => setShowDashboard(state => !state)}>
+            {showDashboard ? 'click here to begin...' : 'show menu'}
+          </animated.button>
+          {/* </animated.div> */}
 
           <animated.div style={slideDown}>
             <Footer />

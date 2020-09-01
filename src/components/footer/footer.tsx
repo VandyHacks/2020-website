@@ -39,9 +39,7 @@ const Footer: ((props?: any) => JSX.Element) = () => {
 
   return (
     <div id={styles.footerMain} className='nes-container is-dark'>
-      Contact us!
-      <br />
-      email@vanderbilt.edu
+      <a href='mailto:info@vandyhacks.org'>Contact us!</a>
       <div id={styles.socials}>
         {socialLinks}
       </div>
