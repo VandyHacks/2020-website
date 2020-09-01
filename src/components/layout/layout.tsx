@@ -12,7 +12,7 @@ const Layout: ((props?: any) => JSX.Element) = () => {
   const [menu, showMenu] = useState(true);
 
   // const isLandscape = useMediaQuery({ orientation: 'landscape' });
-  disableBodyScroll(window);
+  // disableBodyScroll(window);
   return (
     <>
       {/* <ScrollLock isActive={true} /> */}
