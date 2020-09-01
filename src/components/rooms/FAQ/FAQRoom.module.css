@@ -33,12 +33,18 @@
     50% { transform: translateY(20px); }
 }
 
-.dialogueTitle {
+#dialogueTitle {
     font-size: 2.5em;
 }
 
-p {
-    font-size: 1.5em;
+#mainDialogue {
+    padding: 5px;
+    /* height: 50%;
+    overflow: scroll; */
+}
+
+.outlined {
+    /* font-size: 1.5em; */
     text-shadow:
         -1px -1px 0 #000,  
         1px -1px 0 #000,
@@ -56,13 +62,21 @@ p {
 }
 
 #dialogue {
-    min-width: 65vw;
-    height: 50vh;
+    width: 90vw;
+    height: 70vh;
     margin: 0 auto;
     margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
 #dialogueChoices {
+    /* height: 50%; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#choicesInner {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
