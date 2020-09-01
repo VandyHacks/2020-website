@@ -13,7 +13,7 @@ const SponsorsRoom: ((props?: any) => JSX.Element) = (props) => {
                 <p className={styles.dialogueTitle}>~Sponsor Awena~</p>
                 <p>{mainDialogue}</p>
                 <div id={styles.dialogueChoices}>
-                    <button onClick={() => { //console.log('uwu clicked') }} className={styles.dialogueButton}>cwick me uwu</button>
+                    <button onClick={() => { console.log('uwu clicked') }} className={styles.dialogueButton}>cwick me uwu</button>
                     <button className={styles.dialogueButton}>ask me more</button>
                     <button className={styles.dialogueButton}>ask me more</button>
                 </div>
