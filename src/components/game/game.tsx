@@ -91,7 +91,7 @@ const Game = (props: any) => {
       'display': null, // TODO: need a component here when ready
       // 'displayID': 2,
       'signStart': [44, 3],
-      'door': [46, 12],
+      'door': [45, 12],
     },
     'schedule': {
       'display': <ScheduleRoom ref={scheduleRef}/>,
@@ -159,8 +159,10 @@ const Game = (props: any) => {
   const [scheduleOpen, toggleScheduleOpen] = useState(false);
   const [speakersOpen, toggleSpeakersOpen] = useState(false);
 
-  // Toggle for going to link
+  // Toggle for going to registration
   const [goToVaken, toggleGoToVaken] = useState(false);
+  // Toggle for going to past winners
+  const [goToDevpost, toggleGoToDevpost] = useState(false);
 
   // Engine for squirrel movement
   useEffect(() => {
@@ -247,6 +249,21 @@ const Game = (props: any) => {
       setFAQSignX(rightEdgeCell - constants.signCellWidth + 1);
       setFAQText('FAQ >>>');
     }
+    // FAQ sign x coords (not rounded)
+    const PastSignStartPix = (rooms.past.signStart[0] - 1) * constants.cellDimVH*vh;
+    const PastSignEndPix   = (rooms.past.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
+    console.log('PastSignWinners:', PastSignStartPix, PastSignEndPix)
+    console.log('window coords:', leftEdge, rightEdge);
+    if (PastSignStartPix >= leftEdge && PastSignEndPix <= rightEdge) {
+      setPastSignX(rooms.past.signStart[0]);
+      setPastText('Past Winners');
+    } else if (PastSignStartPix < leftEdge) {
+      setPastSignX(leftEdgeCell);
+      setPastText('<<< Past Winners');
+    } else {
+      setPastSignX(rightEdgeCell - constants.signCellWidth + 1);
+      setPastText('Past Winners >>>');
+    }
     // Registration sign x coords (not rounded)
     const vakenSignStartPix = (rooms.vaken.signStart[0] - 1) * constants.cellDimVH*vh;
     const vakenSignEndPix   = (rooms.vaken.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
@@ -309,8 +326,10 @@ const Game = (props: any) => {
         setDisplayID('FAQ');
         props.showMenu(false);
       }
-      // TODO: past room
-      else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
+      else if (squirrelX == rooms.past.door[0] && squirrelY == rooms.past.door[1]) {
+        toggleGoToDevpost(true);
+        props.showMenu(false);
+      } else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
         // setDisplay(rooms.schedule.display);
         toggleScheduleOpen(true);
         props.showMenu(false);
@@ -323,6 +342,7 @@ const Game = (props: any) => {
       // } 
       else if (squirrelX == rooms.vaken.door[0] && squirrelY == rooms.vaken.door[1]) {
         toggleGoToVaken(true);
+        props.showMenu(false);
       }
     }
   }, [isMoving])
@@ -408,6 +428,14 @@ const Game = (props: any) => {
           return null;
         }}/>
       </BrowserRouter>);
+  } else if (goToDevpost) {
+    return (
+      <BrowserRouter>
+        <Route path='/' component={() => { 
+          window.location.href = 'https://apply.vandyhacks.org'; 
+          return null;
+        }}/>
+      </BrowserRouter>);
   }
 
   return (
@@ -418,11 +446,6 @@ const Game = (props: any) => {
           {/* can't do this via CSS background image b/c won't fit properly */}
           <img className={styles.gridBackground} src={map} ref={mapRef}/>
           {/* UNDER CONSTRUCTION ASSETS */}
-          {/* <img style={{gridColumn: '41 / 43', gridRow: '10 / 12'}} src={worker} /> */}
-          <img style={{gridArea: '12 / 44', margin: 0}} src={cone} />
-          <img style={{gridArea: '12 / 46', margin: 0}} src={cone} />
-          <img style={{gridArea: '12 / 48', margin: 0}} src={cone} />
-          <img style={{gridArea: '12 / 50', margin: 0}} src={cone} />
 
           <img style={{gridArea: '13 / 34', margin: 0}} src={cone} />
           <img style={{gridArea: '13 / 36', margin: 0}} src={cone} />
@@ -435,9 +458,9 @@ const Game = (props: any) => {
           <animated.button className='nes-btn is-success'
                            style={FAQStyle}
                            onClick={e => shortcut(e, 'FAQ')}>{FAQText}</animated.button>
-          <animated.button className='nes-btn is-disabled'
+          <animated.button className='nes-btn is-success'
                            style={pastStyle}
-                           /*onClick={e => shortcut(e, 'FAQ')}*/>{pastText}</animated.button>      
+                           onClick={e => shortcut(e, 'past')}>{pastText}</animated.button>      
           <animated.button className='nes-btn is-primary'
                            style={vakenStyle}
                            onClick={e => shortcut(e, 'vaken')}>{vakenText}</animated.button>
