@@ -25,15 +25,18 @@
 #about {
     /* width: 100%; */
     /* line-height: 1rem; */
+    height: 30%;
     margin: 24px auto 0;
     overflow: scroll;
+    flex-shrink: 2;
 }
 
 #dates {
     text-align: center;
     font-size: 18px;
     overflow: hidden;
-    height: 50px;
+    height: 60px;
+    flex-shrink: 1;
 }
 
 #up {
