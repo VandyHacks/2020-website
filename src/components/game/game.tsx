@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import DeviceOrientation, { Orientation } from 'react-screen-orientation'
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 
 import window from 'global';
 
@@ -26,6 +27,7 @@ import SponsorsRoom from '../rooms/Sponsors/SponsorsRoom';
 import JudgesRoom from '../rooms/Judges/JudgesRoom';
 
 import * as styles from './game.module.css'
+import { navigateTo, navigate } from 'gatsby';
 
 // Stolen from https://stackoverflow.com/a/36862446 **********************
 function getWindowDims() {
@@ -156,6 +158,9 @@ const Game = (props: any) => {
   // Toggle for modal components
   const [scheduleOpen, toggleScheduleOpen] = useState(false);
   const [speakersOpen, toggleSpeakersOpen] = useState(false);
+
+  // Toggle for going to link
+  const [goToVaken, toggleGoToVaken] = useState(false);
 
   // Engine for squirrel movement
   useEffect(() => {
@@ -304,9 +309,7 @@ const Game = (props: any) => {
         setDisplayID('FAQ');
       }
       // TODO: past room
-      else if (squirrelX == rooms.vaken.door[0] && squirrelY == rooms.vaken.door[1]) {
-        // TODO: go to Vaken
-      } else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
+      else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
         // setDisplay(rooms.schedule.display);
         toggleScheduleOpen(true);
       } else if (squirrelX == rooms.speakers.door[0] && squirrelY == rooms.speakers.door[1]) {
@@ -315,6 +318,10 @@ const Game = (props: any) => {
       // } else if (squirrelX == rooms.sponsors.door[0] && squirrelY == rooms.sponsors.door[1]) {
       //   setDisplayID('sponsors');
       // } 
+      else if (squirrelX == rooms.vaken.door[0] && squirrelY == rooms.vaken.door[1]) {
+        toggleGoToVaken(true);
+        console.log('go to vaken:', goToVaken);
+      }
     }
   }, [isMoving])
 
@@ -388,6 +395,16 @@ const Game = (props: any) => {
   const speakersStyle = {
     gridColumn: `${speakersSignX} / ${speakersSignX + constants.signCellWidth}`,
     gridRow: `${rooms.speakers.signStart[1]} / ${rooms.speakers.signStart[1] + constants.signCellHeight}`,
+  }
+
+  if (goToVaken) {
+    return (
+      <BrowserRouter>
+        <Route path='/' component={() => { 
+          window.location.href = 'https://apply.vandyhacks.org'; 
+          return null;
+        }}/>
+      </BrowserRouter>);
   }
 
   return (

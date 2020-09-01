@@ -30,6 +30,7 @@
     "react-helmet": "^5.2.1",
     "react-pixelify": "^0.2.2",
     "react-responsive": "^8.1.0",
+    "react-router-dom": "^5.2.0",
     "react-screen-orientation": "0.0.4",
     "react-scrolllock": "^5.0.1",
     "react-spring": "^8.0.27"
