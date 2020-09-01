@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
-import ScrollLock from 'react-scrolllock'
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import window from 'global'
 import { useMediaQuery } from 'react-responsive';
 import logo from '../../assets/VH Pixel Logo.png';
@@ -10,9 +10,9 @@ import Game from '../game/game';
 import * as styles from './layout.module.css';
 const Layout: ((props?: any) => JSX.Element) = () => {
   const [menu, showMenu] = useState(true);
-  const isTabletOrMobileDevice = useMediaQuery({ maxDeviceWidth: 1224 });
-  // const isLandscape = useMediaQuery({ orientation: 'landscape' });
 
+  // const isLandscape = useMediaQuery({ orientation: 'landscape' });
+  disableBodyScroll(window);
   return (
     <>
       {/* <ScrollLock isActive={true} /> */}
