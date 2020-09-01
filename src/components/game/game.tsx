@@ -328,7 +328,6 @@ const Game = (props: any) => {
       }
       else if (squirrelX == rooms.past.door[0] && squirrelY == rooms.past.door[1]) {
         toggleGoToDevpost(true);
-        props.showMenu(false);
       } else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
         // setDisplay(rooms.schedule.display);
         toggleScheduleOpen(true);
@@ -342,7 +341,6 @@ const Game = (props: any) => {
       // } 
       else if (squirrelX == rooms.vaken.door[0] && squirrelY == rooms.vaken.door[1]) {
         toggleGoToVaken(true);
-        props.showMenu(false);
       }
     }
   }, [isMoving])
@@ -428,20 +426,6 @@ const Game = (props: any) => {
     window.open('https://vandyhacksvi.devpost.com/project-gallery');
     toggleGoToDevpost(false);
   }
-
-    // // Engine for squirrel movement
-    // useEffect(() => {
-    //   const interval = setInterval(() => {
-    //     if (goToDevpost) {
-    //       window.location.href = 'https://vandyhacksvi.devpost.com/project-gallery';
-    //     }
-    //     if (goToVaken) {
-    //       window.location.href = 'https://apply.vandyhacks.org';
-    //     }
-    //   }, 50);
-  
-    //   return () => clearInterval(interval);
-    // }, [goToVaken, goToDevpost])
 
   return (
     <div>
