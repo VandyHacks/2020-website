@@ -9,24 +9,6 @@
   width: 100vw;
   height: 100vh;
 }
-#mobilePlaceholder {
-  width: 90vw;
-  /* height: 30vh; */
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 20vh;
-  margin-left: auto;
-  margin-right: auto;
-  
-}
-
-#mobilePlaceholder img{
-  height: 100px;
-  width: auto;
-  margin: 0 auto;
-  margin-top: 20px;
-}
 
 #notLandscape {
   visibility: visible;

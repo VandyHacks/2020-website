@@ -211,7 +211,7 @@ const Game = (props: any) => {
     const squirrelVWR = Math.round(squirrelVWL + constants.cellDimVH*vh)
     // Shift if squirrel is reasonably close to edge
     // console.log('leftEdge:', leftEdge, 'rightEdge:', rightEdge, 'VWL:', squirrelVWL, 'VWR:', squirrelVWR)
-    if (leftEdge > 1 && squirrelVWL <= leftEdge + 2*constants.cellDimVH*vh) {
+    if (leftEdge > 1 && squirrelVWL <= leftEdge + 3*constants.cellDimVH*vh) {
       setviewLocVH(viewLocVH - 6*constants.cellDimVH)
     } else if (rightEdge < 200*vh && squirrelVWR >= rightEdge - 2*constants.cellDimVH*vh) {
       setviewLocVH(viewLocVH + 6*constants.cellDimVH)
