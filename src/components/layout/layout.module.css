@@ -17,6 +17,7 @@
 #landscape {
   visibility: hidden;
   position: absolute;
+  overflow: scroll;
   width: 60vw;
   height: 60vh;
   left: 20vw;

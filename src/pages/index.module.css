@@ -13,7 +13,7 @@ html {
     height: 100vh; */
     background-color: #00c5ff;
     margin: 0;
-    /* overflow: hidden; */
+    overflow: hidden;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     touch-action: none;
@@ -42,7 +42,7 @@ html {
 
 body {
     margin: 0;
-    /* overflow: hidden; */
+    overflow: hidden;
     /* im sorry but this is a necessary evil with nes.css */
     background-color: #00c5ff !important;
     -webkit-font-smoothing: antialiased;
