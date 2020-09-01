@@ -38,7 +38,7 @@ const Footer: ((props?: any) => JSX.Element) = () => {
     </a>)
 
   return (
-    <div id={styles.footerMain} className='nes-container is-dark is-rounded'>
+    <div id={styles.footerMain} className='nes-container is-dark'>
       Contact us!
       <br />
       email@vanderbilt.edu

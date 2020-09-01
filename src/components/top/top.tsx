@@ -17,7 +17,7 @@ const Top: ((props?: any) => JSX.Element) = () => {
 
 
     return (
-        <div id={styles.top} className='nes-container is-dark is-rounded'>
+        <div id={styles.top} className='nes-container is-dark'>
             <div id={styles.title}>
                 <img src={Banner}></img>
                 <img src={Maintitle}></img>
