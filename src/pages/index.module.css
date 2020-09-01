@@ -25,6 +25,11 @@ html {
     color: white;
 }
 
+*::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
 #img {
     width: 100px;
     height: 100px;

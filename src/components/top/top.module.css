@@ -31,6 +31,7 @@
 #dates {
     text-align: center;
     font-size: 18px;
+    overflow: hidden;
 }
 
 #up {
