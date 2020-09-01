@@ -171,34 +171,34 @@ const Game = (props: any) => {
         setBounce({ transform: stride ? 'translate(0px, 0px)' : 'translate(0px, 10px' });
       }
       if (isMoving) {
-        // console.log('isMoving:', isMoving)
+        // //console.log('isMoving:', isMoving)
         if (targetY > squirrelY) {
-          // console.log('Moving up')
+          // //console.log('Moving up')
           setSquirrelPose(stride ? fw : fr);
           setSquirrelY(squirrelY + 1);
         } else if (targetY < squirrelY) {
-          // console.log('Moving down')
+          // //console.log('Moving down')
           setSquirrelPose(stride ? bw : br);
           setSquirrelY(squirrelY - 1);
         }
         if (targetX > squirrelX) {
-          // console.log('Moving left')
+          // //console.log('Moving left')
           setSquirrelPose(stride ? rw0 : rw1);
           setSquirrelX(squirrelX + 1);
         } else if (targetX < squirrelX) {
-          // console.log('Moving right')
+          // //console.log('Moving right')
           setSquirrelPose(stride ? lw0 : lw1);
           setSquirrelX(squirrelX - 1);
         }
         if (squirrelX == targetX && squirrelY == targetY) {
-          // console.log('clear interval');
+          // //console.log('clear interval');
           clearInterval(interval);
           setSquirrelPose(fr);
           setMoving(false);
         }
-        // console.log('Squirrel X:', squirrelX, 'Squirrel Y:', squirrelY)
-        console.log('Target x y:', targetX, targetY);
-        // console.log('Squirrel x y:', squirrelX, squirrelY);
+        // //console.log('Squirrel X:', squirrelX, 'Squirrel Y:', squirrelY)
+        //console.log('Target x y:', targetX, targetY);
+        // //console.log('Squirrel x y:', squirrelX, squirrelY);
       }
       setStride(!stride);
     }, 150);
@@ -217,7 +217,7 @@ const Game = (props: any) => {
     // Right edge of squirrel center grid cell in terms of pixels on map
     const squirrelVWR = Math.round(squirrelVWL + constants.cellDimVH*vh)
     // Shift if squirrel is reasonably close to edge
-    // console.log('leftEdge:', leftEdge, 'rightEdge:', rightEdge, 'VWL:', squirrelVWL, 'VWR:', squirrelVWR)
+    // //console.log('leftEdge:', leftEdge, 'rightEdge:', rightEdge, 'VWL:', squirrelVWL, 'VWR:', squirrelVWR)
     if (leftEdge > 1 && squirrelVWL <= leftEdge + 3*constants.cellDimVH*vh) {
       setviewLocVH(viewLocVH - 6*constants.cellDimVH)
     } else if (rightEdge < 200*vh && squirrelVWR >= rightEdge - 2*constants.cellDimVH*vh) {
@@ -237,8 +237,8 @@ const Game = (props: any) => {
     // FAQ sign x coords (not rounded)
     const FAQSignStartPix = (rooms.FAQ.signStart[0] - 1) * constants.cellDimVH*vh;
     const FAQSignEndPix   = (rooms.FAQ.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
-    console.log('FAQSignCoords:', FAQSignStartPix, FAQSignEndPix)
-    console.log('window coords:', leftEdge, rightEdge);
+    //console.log('FAQSignCoords:', FAQSignStartPix, FAQSignEndPix)
+    //console.log('window coords:', leftEdge, rightEdge);
     if (FAQSignStartPix >= leftEdge && FAQSignEndPix <= rightEdge) {
       setFAQSignX(rooms.FAQ.signStart[0]);
       setFAQText('FAQ');
@@ -252,8 +252,8 @@ const Game = (props: any) => {
     // FAQ sign x coords (not rounded)
     const PastSignStartPix = (rooms.past.signStart[0] - 1) * constants.cellDimVH*vh;
     const PastSignEndPix   = (rooms.past.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
-    console.log('PastSignWinners:', PastSignStartPix, PastSignEndPix)
-    console.log('window coords:', leftEdge, rightEdge);
+    //console.log('PastSignWinners:', PastSignStartPix, PastSignEndPix)
+    //console.log('window coords:', leftEdge, rightEdge);
     if (PastSignStartPix >= leftEdge && PastSignEndPix <= rightEdge) {
       setPastSignX(rooms.past.signStart[0]);
       setPastText('Past Winners');
@@ -350,19 +350,19 @@ const Game = (props: any) => {
 
   const initiateMovement = e => {
     setMoving(true);
-    // console.log('isMoving:', isMoving)
+    // //console.log('isMoving:', isMoving)
     // Move if clicking on map and no modals open
     if (e.target == mapRef.current && !scheduleOpen && !speakersOpen) {
-      console.log('MOVING!')
+      //console.log('MOVING!')
       const rect = e.target.getBoundingClientRect()
-      console.log(rect)
+      //console.log(rect)
       // Discretize x and y into grid cells
       const x = Math.floor(constants.gridWidth * (e.clientX - rect['left']) / rect.width) + 1
       setTargetX(Math.min(x, constants.gridWidth - 2)); // squirrel is 3 pixels wide, can't be going off screen
       const y = Math.floor(constants.gridHeight * (e.clientY) / rect.height) + 1
       setTargetY(Math.min(y, constants.gridWidth));
-      console.log('CLICKED:', x, y)
-      console.log('rect-left:', rect['left'])
+      //console.log('CLICKED:', x, y)
+      //console.log('rect-left:', rect['left'])
     }
     if (e.target != scheduleRef.current && scheduleOpen) {
       setTargetY(targetY + 1); // move squirrel so it doesn't immediately reopen
