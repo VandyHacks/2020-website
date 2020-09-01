@@ -21,6 +21,8 @@
   height: 60vh;
   left: 20vw;
   top: 20vh;
+  right: 20vw;
+  bottom: 20vh;
   padding: 5px;
   text-align: center;
   display: flex;
