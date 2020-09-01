@@ -14,19 +14,22 @@
 }
 
 #title {
-    /* max-width: 400px; */
     margin: 0 auto;
-    margin-top: 25px;
-    height: 50%;
     text-align: center;
-    /* overflow: hidden; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#title * {
+    margin: 5px;
 }
 
 #about {
     /* width: 100%; */
     /* line-height: 1rem; */
     height: 30%;
-    margin: 24px auto 0;
+    margin: 0 auto;
     overflow: scroll;
     flex-shrink: 2;
 }
@@ -36,7 +39,7 @@
     font-size: 18px;
     overflow: hidden;
     height: 60px;
-    flex-shrink: 1;
+    margin-top: 10px;    
 }
 
 #up {

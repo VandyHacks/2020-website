@@ -26,13 +26,13 @@ html {
     /* background-color: #060606; */
     width: 500px;
     margin: 0 auto;
-    bottom: -16px;
+    bottom: -24px;
 }
 
 #retro-logo {
-    width: 100px;
+    width: 80px;
     height: auto;
-    margin-top: 36px;
+    margin-top: 20px;
 }
 
 .socials {
