@@ -421,20 +421,27 @@ const Game = (props: any) => {
   }
 
   if (goToVaken) {
-    return (
-      <BrowserRouter>
-        <Route path='/' component={() => { 
-          window.location.href = 'https://apply.vandyhacks.org'; 
-        }}/>
-      </BrowserRouter>);
+    window.open('https://apply.vandyhacks.org');
+    toggleGoToVaken(false);
+
   } else if (goToDevpost) {
-    return (
-      <BrowserRouter>
-        <Route path='/' component={() => { 
-          window.location.href = 'https://vandyhacksvi.devpost.com/project-gallery'; 
-        }}/>
-      </BrowserRouter>);
+    window.open('https://vandyhacksvi.devpost.com/project-gallery');
+    toggleGoToDevpost(false);
   }
+
+    // // Engine for squirrel movement
+    // useEffect(() => {
+    //   const interval = setInterval(() => {
+    //     if (goToDevpost) {
+    //       window.location.href = 'https://vandyhacksvi.devpost.com/project-gallery';
+    //     }
+    //     if (goToVaken) {
+    //       window.location.href = 'https://apply.vandyhacks.org';
+    //     }
+    //   }, 50);
+  
+    //   return () => clearInterval(interval);
+    // }, [goToVaken, goToDevpost])
 
   return (
     <div>
