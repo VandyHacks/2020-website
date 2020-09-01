@@ -35,10 +35,10 @@
 #landscape {
   visibility: hidden;
   position: absolute;
-  width: 50vw;
-  height: 50vh;
-  left: 25vw;
-  top: 25vh;
+  width: 60vw;
+  height: 60vh;
+  left: 20vw;
+  top: 20vh;
   padding: 5px;
   text-align: center;
   display: flex;
