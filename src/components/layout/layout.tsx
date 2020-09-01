@@ -32,7 +32,7 @@ const Layout: ((props?: any) => JSX.Element) = () => {
         <Game showMenu={showMenu}/>
         <Dashboard menu={menu} />
       </div>
-      <div id={styles.landscape}>
+      <div id={styles.landscape}  className={styles.retroBox}>
         <div>Landscape mode wasn't invented yet in the 1980s, so it isn't invented here in VandyHacks retro edition (until further notice). Please return to portrait mode or visit us on desktop!</div>
         <img src={logo} id={styles.logo}/>
       </div>

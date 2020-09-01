@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import * as styles from './FAQRoom.module.css';
-
-import avatar from '../../../assets/avatar.jpg';
+import { retroBox } from '../../layout/layout.module.css'
+import avatar from '../../../assets/faqAvatar.png';
 
 const FAQRoom: ((props: any) => JSX.Element) = (props) => {
-    const introText = "lorem ipsum";
+    const introText = "Hi! I'm Dan. Ask me anything.";
     const [mainDialogue, setMainDialogue] = useState(introText);
-
+    
+    const buttons = 
     return (
         <div className={styles.room}>
-            <button id={styles.backButton} onClick={() => props.setDisplayID('home')}>Back</button>
+            <button id={styles.backButton} className='nes-btn is-normal' 
+                onClick={() => props.setDisplayID('home')}>Back</button>
             <img src={avatar} id={styles.avatar} />
-            <div id={styles.dialogue} className='nes-container is-dark is-rounded'>
+            <div id={styles.dialogue} className={[`${styles.dialogue}`, `${retroBox}`].join(' ')}>
                 <p className={styles.dialogueTitle}>~Dan Awena~</p>
                 <p>{mainDialogue}</p>
                 <div id={styles.dialogueChoices}>
