@@ -34,7 +34,7 @@
 
 #landscape {
   visibility: hidden;
-  position: fixed;
+  position: absolute;
   width: 50vw;
   height: 50vh;
   left: 25vw;
