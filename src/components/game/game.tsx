@@ -308,13 +308,13 @@ const Game = (props: any) => {
     const speakersSignEndPix   = (rooms.speakers.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
     if (speakersSignStartPix >= leftEdge && speakersSignEndPix <= rightEdge) {
       setSpeakersSignX(rooms.speakers.signStart[0]);
-      setSpeakersText('Speakers & judges');
+      setSpeakersText('Speakers');
     } else if (speakersSignStartPix < leftEdge) {
       setSpeakersSignX(leftEdgeCell);
-      setSpeakersText('<<< Speakers & judge');
+      setSpeakersText('<<< Speakers');
     } else {
       setSpeakersSignX(rightEdgeCell - constants.signCellWidth + 1);
-      setSpeakersText('Speakers & judges >>>');
+      setSpeakersText('Speakers >>>');
     }
   }, [vw, vh, viewLocVH])
 
