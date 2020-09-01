@@ -39,10 +39,12 @@
   height: 50vh;
   left: 25vw;
   top: 25vh;
-  line-height: 50vh;
+  padding: 5px;
   text-align: center;
-  padding: 5%;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
   background: var(--inner);
   box-shadow:
@@ -104,9 +106,17 @@
       0   30px 0 -12px var(--border);
 }
 
+#landscape img{
+  width: 10vw;
+  height: auto;
+}
+
 @media screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
   #notLandscape {
     visibility: hidden;
+  }
+  #notLandscape * {
+    width: 0;
   }
   #landscape {
     visibility: visible;

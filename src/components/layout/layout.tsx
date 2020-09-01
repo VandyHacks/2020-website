@@ -33,7 +33,8 @@ const Layout: ((props?: any) => JSX.Element) = () => {
         <Dashboard menu={menu} />
       </div>
       <div id={styles.landscape}>
-        HIHIHIHIHIHI
+        <div>Landscape mode wasn't invented yet in the 1980s, so it isn't invented here in VandyHacks retro edition (until further notice). Please return to portrait mode or visit us on desktop!</div>
+        <img src={logo} id={styles.logo}/>
       </div>
       {/* } */}
     </>
