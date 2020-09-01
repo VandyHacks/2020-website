@@ -50,9 +50,9 @@ const ScheduleRoom: ((props?: any) => JSX.Element) = () => {
     return (
         <div id={styles.scheduleRoom} className={styles.pxlBorder}>
             <div id={styles.dayToggle}>
-                <button className='nes-btn is-normal' onClick={() => toggleDay('Fri')}>Friday <br /> 10/2</button>
-                <button className='nes-btn is-normal' onClick={() => toggleDay('Sat')}>Saturday <br /> 10/3</button>
-                <button className='nes-btn is-normal' onClick={() => toggleDay('Sun')}>Sunday <br /> 10/4</button>
+                <button className='nes-btn is-normal' onClick={() => toggleDay('Fri')}>Fri <br /> 10/2</button>
+                <button className='nes-btn is-normal' onClick={() => toggleDay('Sat')}>Sat <br /> 10/3</button>
+                <button className='nes-btn is-normal' onClick={() => toggleDay('Sun')}>Sun <br /> 10/4</button>
             </div>
             <div id={styles.schedule} className={styles.borderedText}>
                 {schedule}

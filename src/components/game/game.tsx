@@ -153,7 +153,7 @@ const Game = (props: any) => {
   const [vakenText, setVakenText]       = useState('Registration');
   const [scheduleText, setScheduleText] = useState('Schedule');
   const [speakersText, setSpeakersText] = useState('Speakers');
-  const [sponsorsText, setSponsorsText] = useState('Sponsors\n(coming soon!)');
+  const [sponsorsText, setSponsorsText] = useState('Coming soon!');
 
   // Toggle for modal components
   const [scheduleOpen, toggleScheduleOpen] = useState(false);
