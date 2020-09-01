@@ -81,7 +81,7 @@ const FAQRoom: ((props: any) => JSX.Element) = (props) => {
     return (
         <div className={styles.room}>
             <button id={styles.backButton} className='nes-btn is-normal' 
-                onClick={() => props.setDisplayID('home')}>Back</button>
+                onClick={() => {props.setDisplayID('home'); props.showMenu(true);}}>Back</button>
             <img src={avatar} id={styles.avatar} />
             <div id={styles.dialogue} className={retroBox}>
                 <p id={styles.dialogueTitle} className={styles.outlined}>~Dan Awena~</p>

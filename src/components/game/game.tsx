@@ -82,7 +82,7 @@ const Game = (props: any) => {
       'door': null,
     },
     'FAQ': {
-      'display': <FAQRoom setDisplayID={setDisplayID} />,
+      'display': <FAQRoom setDisplayID={setDisplayID} showMenu={props.showMenu} />,
       // 'displayID': 1,
       'signStart': [4, 5],
       'door': [7, 16],
@@ -307,20 +307,22 @@ const Game = (props: any) => {
       // go to FAQ
       if (squirrelX == rooms.FAQ.door[0] && squirrelY == rooms.FAQ.door[1]) {
         setDisplayID('FAQ');
+        props.showMenu(false);
       }
       // TODO: past room
       else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
         // setDisplay(rooms.schedule.display);
         toggleScheduleOpen(true);
+        props.showMenu(false);
       } else if (squirrelX == rooms.speakers.door[0] && squirrelY == rooms.speakers.door[1]) {
         toggleSpeakersOpen(true);
+        props.showMenu(false);
       }
       // } else if (squirrelX == rooms.sponsors.door[0] && squirrelY == rooms.sponsors.door[1]) {
       //   setDisplayID('sponsors');
       // } 
       else if (squirrelX == rooms.vaken.door[0] && squirrelY == rooms.vaken.door[1]) {
         toggleGoToVaken(true);
-        console.log('go to vaken:', goToVaken);
       }
     }
   }, [isMoving])
@@ -347,17 +349,18 @@ const Game = (props: any) => {
     if (e.target != scheduleRef.current && scheduleOpen) {
       setTargetY(targetY + 1); // move squirrel so it doesn't immediately reopen
       toggleScheduleOpen(false);
+      props.showMenu(true);
     }
     if (e.target != speakersRef.current && speakersOpen) {
       setTargetY(targetY + 1);
       toggleSpeakersOpen(false);
+      props.showMenu(true);
     }
   }
 
   // Function for when you click on a room sign and it takes you there
   const shortcut = (e, roomID) => {
     e.preventDefault();
-    props.showMenu(false);
     setTargetX(rooms[roomID].door[0]);
     setTargetY(rooms[roomID].door[1]);
   }
