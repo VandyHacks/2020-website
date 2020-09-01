@@ -149,7 +149,7 @@ const Game = (props: any) => {
   const [scheduleSignX, setScheduleSignX] = useState(rooms.schedule.signStart[0]);
   
   const [FAQText, setFAQText]           = useState('FAQ');
-  const [pastText, setPastText]         = useState('Past Winners\n(coming soon!)')
+  const [pastText, setPastText]         = useState('Past Winners')
   const [vakenText, setVakenText]       = useState('Registration');
   const [scheduleText, setScheduleText] = useState('Schedule');
   const [speakersText, setSpeakersText] = useState('Speakers');

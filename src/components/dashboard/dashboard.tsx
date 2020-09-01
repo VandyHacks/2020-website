@@ -41,7 +41,7 @@ const Dashboard: ((props?: any) => JSX.Element) = (props) => {
               id={styles.startButton}
               className={styles.animateFade}
               onClick={() => setShowDashboard(state => !state)}>
-              {showDashboard ? 'press start to begin...' : 'show menu'}
+              {showDashboard ? 'click here to begin...' : 'show menu'}
             </button>
           </animated.div>
 

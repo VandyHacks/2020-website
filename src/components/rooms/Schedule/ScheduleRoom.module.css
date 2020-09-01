@@ -2,7 +2,8 @@
     position: absolute;
     left: 5vw;
     width: 90vw;
-    top: 5vh;
+    top: 10vh;
+    max-height: 80vh;
     background: cornflowerblue;
     /* color: black; */
 }
