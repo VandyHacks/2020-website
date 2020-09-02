@@ -208,6 +208,7 @@ const Game = (props: any) => {
 
   // Engine for map movement in response to squirrel
   useEffect(() => {
+    console.log('vw:', vw, 'vh:', vh)
     // Left edge of view in terms of pixel location on map
     const leftEdge = Math.round(viewLocVH*vh - 50*vw);
     // Right edge of view in terms of pixel location on map
@@ -385,9 +386,8 @@ const Game = (props: any) => {
 
   // STYLES !!!!!!!
   const boardStyle = {
-    right: `calc(50vw - ${viewLocVH}vh)`,
-
     left: `calc(50vw - ${viewLocVH}vh)`,
+    right: `calc(50vw - ${viewLocVH}vh)`,
   }
   const squirrelStyle = {
     gridColumn: `${squirrelX - 1} / ${squirrelX + 2}`,

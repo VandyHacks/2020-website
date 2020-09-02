@@ -1,9 +1,9 @@
 #gameBoard {
-    position: absolute;
+    position: fixed;
     /* HARDCODED for map image with 2:1 aspect ratio */
     height: 100vh;
     width: 200vh;
-    object-fit: cover;
+    /* object-fit: cover; */
     overflow: hidden;
     display: grid;
     grid-template-columns: repeat(60, 1fr);
