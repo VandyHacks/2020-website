@@ -5,26 +5,27 @@ import vh from '../../../assets/VH Pixel Logo.png'
 
 const events = {
     'Fri': [
-        ['7:45p', 'Opening Ceremony'],
-        ['9:00p', 'Workshop1'],
-        ['10:00p', 'Workshop2'],
-        ['11:00p', 'Workshop3']
+        ['7:00p', 'Opening Ceremony'],
+        ['9:00p', 'Hacking begins'],
+        ['9:00p', 'Big Data Workshop'],
+        ['10:00p', 'Full-Stack Workshop with Angular'],
+        ['11:00p', 'Full-Stack Workshop with React']
     ],
     'Sat': [
-        ['8:00a', 'Workshop4'],
-        ['9:00a', 'Workshop5'],
-        ['10:00a', 'Workshop6'],
-        ['11:00a', 'Workshop7'],
-        ['12:00p', 'Workshop8'],
+        ['8:00a', 'Google Cloud Workshop'],
+        ['9:00a', 'Neural Networks Workshop'],
+        ['10:00a', 'Open Source Workshop'],
+        ['11:00a', 'React Native Workshop'],
+        ['12:00p', 'SlackBot Workshop'],
         ['1:15p', 'Sponsor1'],
         ['3:00p', 'Sponsor2'],
         ['3:45p', 'Sponsor3'],
-        ['4:30p', 'Event1'],
-        ['5:30p', 'Event2'],
-        ['6:30p', 'Event3'],
-        ['9:00p', 'Event4'],
-        ['10:30p', 'Event5'],
-        ['11:30p', 'Event6'],
+        ['4:30p', 'Baking!'],
+        ['5:30p', 'Typing competition'],
+        ['6:30p', 'Zoomba'],
+        ['9:00p', 'Skribbl.io'],
+        ['10:30p', 'Guided meditation and mindfulness'],
+        ['11:30p', 'How to solve a Rubix cube!'],
         
     ],
     'Sun': [
