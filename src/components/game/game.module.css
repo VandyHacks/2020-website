@@ -10,6 +10,11 @@
     grid-template-rows: repeat(30, 1fr);
 }
 
+#gameBoard button {
+    padding: 0;
+    font-size: 1.5vh;
+}
+
 .gridBackground {
     grid-column: 1 / -1;
     grid-row: 1 / -1;

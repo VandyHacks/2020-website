@@ -40,6 +40,15 @@
     transform: scale(1.1);
 } */
 
+.outlined {
+    /* font-size: 1.5em; */
+    text-shadow:
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
 .avatar img {
     /* height: 100%; */
     width: 100%;
@@ -71,11 +80,6 @@
 #name {
     background: cornflowerblue;
     font-size: 36px;
-    text-shadow:
-        -2px -2px 0 #000,  
-        2px -2px 0 #000,
-        -2px 2px 0 #000,
-        2px 2px 0 #000;
 }
 
 #desc {
@@ -85,14 +89,14 @@
     text-align: left;
 }
 
-#desc p {
+/* #desc p {
     font-size: 18px;
     text-shadow:
         -1px -1px 0 #000,  
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000;
-}
+} */
 
 #infoInner {
     background-color: cornflowerblue;

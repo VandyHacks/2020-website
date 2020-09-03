@@ -95,7 +95,9 @@ footer a {
     height: 54px;
 }
 
-@media only screen and (max-width: 480px) {
+/* phones */
+
+@media screen and (min-width: 320px) and (max-width: 812px) {
     #footerMain {
         width: 300px;
         font-size: 10px;
@@ -103,5 +105,19 @@ footer a {
     #socials a {
         width: 44px;
         height: 44px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 812px) and (orientation: landscape) {
+    #footerMain a {
+        font-size: 3vh;
+    }
+    #socials {
+        margin-top: 0;
+        height: 36%;
+    }
+    #socials a {
+        width: 10%;
+        height: 10%;
     }
 }

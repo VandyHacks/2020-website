@@ -5,6 +5,7 @@
     top: 10vh;
     max-height: 80vh;
     background: cornflowerblue;
+    overflow: scroll;
     /* color: black; */
 }
 

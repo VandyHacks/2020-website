@@ -66,11 +66,11 @@ const SpeakersRoom: ((props?: any) => JSX.Element) = () => {
                 {speakers}
             </div>
             <div id={styles.infoInner}>
-                <p className={['title', `${styles.borderedText}`].join(' ')} id={styles.name}>{name}</p>
+                <p className={['title', `${styles.outlined}`].join(' ')} id={styles.name}>{name}</p>
                 <div id={styles.infoInner}>
                     <img src={image}/>
                     <div id={styles.desc}>
-                        <p className={styles.borderedText}> {heading} </p>
+                        <p className={styles.outlined}> {heading} </p>
                         <div> {bio} </div>
                     </div>
                 </div>
