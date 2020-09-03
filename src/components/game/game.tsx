@@ -208,7 +208,6 @@ const Game = (props: any) => {
 
   // Engine for map movement in response to squirrel
   useEffect(() => {
-    console.log('vw:', vw, 'vh:', vh)
     // Left edge of view in terms of pixel location on map
     const leftEdge = Math.round(viewLocVH*vh - 50*vw);
     // Right edge of view in terms of pixel location on map
