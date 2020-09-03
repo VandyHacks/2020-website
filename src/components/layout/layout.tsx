@@ -15,24 +15,11 @@ const Layout: ((props?: any) => JSX.Element) = () => {
   // disableBodyScroll(window);
   return (
     <>
-      {/* <ScrollLock isActive={true} /> */}
-      {/* Landscape breaks things lol */}
-      {/* { isTabletOrMobileDevice ? */}
-      {/* <div>
-        <div id={styles.mobilePlaceholder}>
-          <div>
-            VandyHacks VII mobile edition is coming soon! For now, please visit us on desktop or
-            <a href='https://apply.vandyhacks.org/'> apply!</a>
-          </div>
-          <img src={logo} />
-        </div>   
-      </div>
-      : */}
       <div id={styles.notLandscape}>
         <Game showMenu={showMenu}/>
         <Dashboard menu={menu} />
       </div>
-      <div id={styles.landscape}  className={styles.retroBox}>
+      {/* <div id={styles.landscape}  className={styles.retroBox}>
         <div>
           <div>
             Landscape mode wasn't invented yet in the 1980s, so it isn't invented here in VandyHacks retro edition (until further notice). Please return to portrait mode or visit us on desktop!
@@ -41,8 +28,7 @@ const Layout: ((props?: any) => JSX.Element) = () => {
           <a href='https://apply.vandyhacks.org'>here!</a>
         </div>
         <img src={logo} id={styles.logo}/>
-      </div>
-      {/* } */}
+      </div> */}
     </>
   )
 }
