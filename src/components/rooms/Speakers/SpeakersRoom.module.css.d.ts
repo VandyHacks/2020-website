@@ -5,4 +5,3 @@ export const outlined: string;
 export const infoInner: string;
 export const name: string;
 export const desc: string;
-export const pxlBorder: string;

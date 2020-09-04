@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './FAQRoom.module.css';
-import { retroBox } from '../../layout/layout.module.css'
+import { outlined, retroBox } from '../../../pages/index.module.css'
 import avatar from '../../../assets/faqAvatar.png';
 
 const questions = [

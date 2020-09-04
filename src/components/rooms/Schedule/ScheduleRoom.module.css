@@ -4,7 +4,7 @@
     width: 90vw;
     top: 10vh;
     max-height: 80vh;
-    background: cornflowerblue;
+    /* background: cornflowerblue; */
     overflow: scroll;
     /* color: black; */
 }
@@ -38,77 +38,6 @@
     margin-bottom: 20px;
 }
 
-#schedule * {
-    font-size: 12px;
-    text-shadow:
-        -1px -1px 0 #000,  
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
-}
-
 #schedule li {
     list-style-type: none;
-}
-
-/* PIXEL BORDER */
-.pxlBorder {
-    background: var(--inner);
-    box-shadow:
-      /* Inner Background Color -- Same as inner */
-        0   -6px 0  -2px var(--inner),
-        0    6px 0  -2px var(--inner),
-        0  -12px 0  -4px var(--inner),
-        0   12px 0  -4px var(--inner),
-        0  -18px 0  -8px var(--inner),
-        0   18px 0  -8px var(--inner),
-        0  -24px 0 -12px var(--inner),
-        0   24px 0 -12px var(--inner),
-      
-      /* Inner Border */
-       -2px  0   0   0   var(--border),
-        2px  0   0   0   var(--border),
-        0   -4px 0   0   var(--border),
-        0    4px 0   0   var(--border),
-        0  -10px 0  -2px var(--border),
-        0   10px 0  -2px var(--border),
-        0  -14px 0  -4px var(--border),
-        0   14px 0  -4px var(--border),
-        0  -20px 0  -8px var(--border),
-        0   20px 0  -8px var(--border),
-        0  -26px 0 -12px var(--border),
-        0   26px 0 -12px var(--border),
-      
-      /* Middle Border -- Accent */
-       -4px  0   0   0   var(--accent),
-        4px  0   0   0   var(--accent),
-        0   -2px 0   2px var(--accent),
-        0    2px 0   2px var(--accent),
-        0   -8px 0   0px var(--accent),
-        0    8px 0   0px var(--accent),
-        0  -12px 0  -2px var(--accent),
-        0   12px 0  -2px var(--accent),
-        0  -16px 0  -4px var(--accent),
-        0   16px 0  -4px var(--accent),
-        0  -22px 0  -8px var(--accent),
-        0   22px 0  -8px var(--accent),
-        0  -28px 0 -12px var(--accent),
-        0   28px 0 -12px var(--accent),
-      
-      /* Outer Border */
-       -6px  0   0   0   var(--border),
-        6px  0   0   0   var(--border),
-        0    0   0   4px var(--border),
-        0   -6px 0   2px var(--border),
-        0    6px 0   2px var(--border),
-        0  -10px 0   0   var(--border),
-        0   10px 0   0   var(--border),
-        0  -14px 0  -2px var(--border),
-        0   14px 0  -2px var(--border),
-        0  -18px 0  -4px var(--border),
-        0   18px 0  -4px var(--border),
-        0  -24px 0  -8px var(--border),
-        0   24px 0  -8px var(--border),
-        0  -30px 0 -12px var(--border),
-        0   30px 0 -12px var(--border);
 }

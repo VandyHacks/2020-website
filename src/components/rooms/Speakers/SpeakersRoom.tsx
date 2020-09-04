@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './SpeakersRoom.module.css'
+import { outlined, retroBox } from '../../../pages/index.module.css'
 import karl from '../../../assets/karl.jpg'
 import jeffrey from '../../../assets/jeffrey.jpg'
 import shauna from '../../../assets/shauna.png'
@@ -61,16 +62,16 @@ const SpeakersRoom: ((props?: any) => JSX.Element) = () => {
         </button>
     );
     return (
-        <div id={styles.speakersRoom} className={styles.pxlBorder}>
+        <div id={styles.speakersRoom} className={retroBox}>
             <div id={styles.selection}>
                 {speakers}
             </div>
             <div id={styles.infoInner}>
-                <p className={['title', `${styles.outlined}`].join(' ')} id={styles.name}>{name}</p>
+                <p className={['title', `${outlined}`].join(' ')} id={styles.name}>{name}</p>
                 <div id={styles.infoInner}>
                     <img src={image}/>
                     <div id={styles.desc}>
-                        <p className={styles.outlined}> {heading} </p>
+                        <p className={outlined}> {heading} </p>
                         <div> {bio} </div>
                     </div>
                 </div>

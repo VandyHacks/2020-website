@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import * as styles from './ScheduleRoom.module.css'
+import { outlined, retroBox } from '../../../pages/index.module.css'
 import squirrel from '../../../assets/squirrel/right-rest.png'
 import vh from '../../../assets/VH Pixel Logo.png'
 
@@ -49,13 +50,13 @@ const ScheduleRoom: ((props?: any) => JSX.Element) = () => {
         </>
     );
     return (
-        <div id={styles.scheduleRoom} className={styles.pxlBorder}>
+        <div id={styles.scheduleRoom} className={retroBox}>
             <div id={styles.dayToggle}>
                 <button className='nes-btn is-normal' onClick={() => toggleDay('Fri')}>Fri <br /> 10/2</button>
                 <button className='nes-btn is-normal' onClick={() => toggleDay('Sat')}>Sat <br /> 10/3</button>
                 <button className='nes-btn is-normal' onClick={() => toggleDay('Sun')}>Sun <br /> 10/4</button>
             </div>
-            <div id={styles.schedule} className={styles.borderedText}>
+            <div id={styles.schedule} className={outlined}>
                 {schedule}
             </div>
         </div>
