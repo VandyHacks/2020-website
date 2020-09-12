@@ -28,11 +28,11 @@ const events = {
         ['6:30p', 'Zoomba'],
         ['9:00p', 'Skribbl.io'],
         ['10:30p', 'Guided meditation and mindfulness'],
-        ['11:30p', 'How to solve a Rubix cube!'],
+        ['11:30p', 'How to solve a Rubik\'s cube!'],
         
     ],
     'Sun': [
-        ['8:00a', 'Hacking Ends'],
+        ['9:00a', 'Hacking Ends'],
    ['10:30a', 'Judging'],
         ['3:00p', 'Closing Ceremony'],
     ]
