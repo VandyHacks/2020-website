@@ -7,17 +7,19 @@ import vh from '../../../assets/VH Pixel Logo.png'
 const events = {
     'Fri': [
         ['7:00p', 'Opening Ceremony'],
+        ['7:00p', 'Keynote Speaker - Authors of Swipe to Unlock: Business Strategy for Technologists'],
+        ['7:50p', 'Keynote Speaker - Jeffrey Rothschild'],
         ['9:00p', 'Hacking begins'],
-        ['9:00p', 'Big Data Workshop'],
-        ['10:00p', 'Full-Stack Workshop with Angular'],
-        ['11:00p', 'Full-Stack Workshop with React']
+        ['9:00p', 'Full-Stack Workshop w/ Angular'],
+        ['10:00p', 'Intro to Open Source Workshop'],
+        ['11:00p', 'SlackBot Workshop']
     ],
     'Sat': [
-        ['8:00a', 'Google Cloud Workshop'],
-        ['9:00a', 'Neural Networks Workshop'],
-        ['10:00a', 'Open Source Workshop'],
-        ['11:00a', 'React Native Workshop'],
-        ['12:00p', 'SlackBot Workshop'],
+        ['8:00a', 'Neural Networks Workshop'],
+        ['9:00a', 'React Native Workshop'],
+        ['10:00a', 'Big Data Workshop'],
+        ['11:00a', 'Google Cloud Workshop'],
+        ['12:00p', 'Full-Stack Workshop w/ React'],
         ['1:15p', 'Sponsor Event'],
         ['3:00p', 'Sponsor Event'],
         ['3:45p', 'Sponsor Event'],
