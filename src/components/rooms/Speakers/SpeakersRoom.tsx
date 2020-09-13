@@ -68,7 +68,7 @@ const SpeakersRoom: ((props?: any) => JSX.Element) = () => {
             <div id={styles.selection}>
                 {speakers}
             </div>
-            <div id={styles.infoInner}>
+            <div>
                 <p className={['title', `${outlined}`].join(' ')} id={styles.name}>{name}</p>
                 <div id={styles.infoInner}>
                     <img src={image}/>
