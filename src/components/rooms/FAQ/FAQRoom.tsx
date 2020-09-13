@@ -12,12 +12,12 @@ const questions = [
     {
       question: "How does registration work?",
       answer:
-        "Sign in, and submit your application at apply.vandyhacks.org! You'll also be able to check the status of your application on our registration portal."
+        <div>Sign in, and submit your application at <a href="https://apply.vandyhacks.org/" target="_blank" rel="noopener">apply.vandyhacks.org</a>! You'll also be able to check the status of your application on our registration portal.</div>
     },
     {
       question: "What if I've never been to a hackathon?",
       answer:
-        "Not to worry! A few days before the event, you’ll receive an email with a link to our hacker guide, which will contain all the information you need to make the most out of your weekend. During the event, the VandyHacks Team will be around to help answer any questions. As always, feel free to email us at info@vandyhacks.org, or reach out on Discord."
+        <div>Not to worry! A few days before the event, you’ll receive an email with a link to our hacker guide, which will contain all the information you need to make the most out of your weekend. During the event, the VandyHacks Team will be around to help answer any questions. As always, feel free to email us at <a href="mailto:info@vandyhacks.org" target="_blank" rel="noopener">info@vandyhacks.org</a>, or reach out on Discord.</div>
     },
     {
       question: "What do I need?",
@@ -46,7 +46,7 @@ const questions = [
     {
       question: "Where can I find the Discord invite?",
       answer:
-        "Once we've approved your application, we'll send you an email with the invitation to the Discord server. The invitation may end up in your spam folder - if it's still not there, feel free to send us an email at info@vandyhacks.org!"
+        <div>Once we've approved your application, we'll send you an email with the invitation to the Discord server. The invitation may end up in your spam folder - if it's still not there, feel free to send us an email at <a href="mailto:info@vandyhacks.org" target="_blank" rel="noopener">info@vandyhacks.org</a>!</div>
     },
     {
       question: "Who can apply?",
@@ -69,12 +69,12 @@ const questions = [
     },
     {
       question: "What if I’m interested in being a mentor?",
-      answer: "Send us an email at info@vandyhacks.org!"
+      answer: <div>Send us an email at <a href="mailto:info@vandyhacks.org" target="_blank" rel="noopener">info@vandyhacks.org</a>!</div>
     },
     {
       question: "I have more questions!",
       answer:
-        "Send us an email at info@vandyhacks.org! We'll be happy to answer!"
+        <div>Send us an email at <a href="mailto:info@vandyhacks.org" target="_blank" rel="noopener">info@vandyhacks.org</a>! We'll be happy to answer!</div>
     },
 ];
   
