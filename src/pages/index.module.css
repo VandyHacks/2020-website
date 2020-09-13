@@ -18,13 +18,13 @@ html {
     font-family: DisposableDroidBB, sans-serif;
     font-size: 20px;
     color: white;
-    scrollbar-width: none;
+    /* scrollbar-width: none; */
 }
 
-*::-webkit-scrollbar { /* WebKit */
+/* *::-webkit-scrollbar {
     width: 0;
     height: 0;
-}
+} */
 
 #img {
     width: 100px;
@@ -759,6 +759,13 @@ pre tt:after {
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000;
+}
+
+/* Color Variables */
+:root {
+    --inner: #212529;
+    --border: black;
+    --accent: white;
 }
 
 .retroBox {

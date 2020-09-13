@@ -10,11 +10,6 @@
     overflow-y: scroll;
 }
 
-#speakersRoom::-webkit-scrollbar { /* WebKit */
-    width: 0;
-    height: 0;
-}
-
 #selection {
     display: flex;
     flex-wrap: wrap;
