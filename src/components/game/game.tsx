@@ -130,8 +130,8 @@ const Game = (props: any) => {
   const [squirrelY, setSquirrelY] = useState(constants.startY);
   const [isTurbo, toggleIsTurbo] = useState(false);
   const speeds = {
-    'resting': isTurbo ? 10 : 300,
-    'moving': isTurbo ? 1: 80,
+    'resting': isTurbo ? 1 : 300,
+    'moving': isTurbo ? 1 : 80,
   }
   const [squirrelSpeed, setSquirrelSpeed] = useState(speeds.resting);
   // Initial state for squirrel animation
@@ -175,7 +175,7 @@ const Game = (props: any) => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isMoving) {
-        setBounce(isTurbo ? { transform: stride ? 'translate(-80px, 0px)' : 'translate(80px, 0px' }
+        setBounce(isTurbo ? { transform: stride ? 'translate(-15px, 0px)' : 'translate(15px, 0px' }
                           : { transform: stride ? 'translate(0px, 0px)' : 'translate(0px, 10px)'});
       }
       if (isTurbo && !isSuperSaiyan) {
