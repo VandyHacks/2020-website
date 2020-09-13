@@ -10,7 +10,7 @@ import DownArrow from '../../assets/downarrow.png';
 
 const Top: ((props?: any) => JSX.aboutRef.current) = () => {
     const topText = 'October 2-4'
-    const bottomText = 'VandyHacks is Vanderbilt’s student-run hackathon, where participants from all over the country create innovative and meaningful projects over the course of 36 hours. This year, our hackathon will be held virtually on October 2nd-4th, meaning you can participate from the comfort of your own home! Come learn new topics with recorded workshops ranging from open source code to creating your own SlackBot. Meet and unwind with other fellow hackers with a round of Skribbl.io or virtual baking. Your project also has the chance to win some of our cool prizes! '
+    const bottomText = 'VandyHacks is Vanderbilt’s student-run hackathon, where participants from all over the world create innovative projects over the course of 36 hours. This year, our hackathon will be held virtually on October 2nd-4th, meaning you can participate from the comfort of your own home! Come learn new topics with recorded workshops ranging from open source software to creating your own SlackBot. Meet our sponsors at their networking events. Unwind with other fellow hackers with a round of Skribbl.io or virtual baking. This year, we are excited to host some stellar guest speakers. Your project also has the chance to win some of our cool prizes! '
     const [arrowDirection, setArrowDirection] = useState('down');
     const [content, setContent] = useState(<div id={styles.dates}>{topText}</div>)
     const aboutRef = useRef(null);
