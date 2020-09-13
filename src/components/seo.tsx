@@ -7,6 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
+import RetroLogo from '../assets/VH Pixel Logo.png';
 import  { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -49,20 +50,28 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
+          property: `og:image`,
+          content: RetroLogo,
+        },
+        {
           property: `og:type`,
           content: `website`,
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
+        },
+        {
+          name: `twitter:site`,
+          content: `@vandyhacks`,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: `@vandyhacks`,
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: `VandyHacks: Retro Edition`,
         },
         {
           name: `twitter:description`,
