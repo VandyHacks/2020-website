@@ -44,9 +44,9 @@ const questions = [
         "An entirely remote hackathon encompasses everything that an in-person hackathon has, except now you can do it from the comfort of your own bedroom! This includes a Discord server to meet other hackers, pre-recorded workshops, virtual game nights, and a live stream of the closing ceremony."
     },
     {
-      question: "Where can I find the Discord link?",
+      question: "Where can I find the Discord invite?",
       answer:
-        "Once we've approved your application, we'll send you an email with the invitation to the Discord. The invitation may end up in your spam folder - if it's still not there, feel free to send us an email at info@vandyhacks.org!"
+        "Once we've approved your application, we'll send you an email with the invitation to the Discord server. The invitation may end up in your spam folder - if it's still not there, feel free to send us an email at info@vandyhacks.org!"
     },
     {
       question: "Who can apply?",
@@ -61,7 +61,7 @@ const questions = [
     {
       question: "I'm currently residing outside of the U.S. Can I still attend? ",
       answer:
-        "Yes, you can still attend! Due to shipping restrictions, if you reside outside the U.S., we will be unable to send you any swag items or prizes. However, other than that, you are fully able to participate in all of the hacking and the other events we will be holding!"
+        "Yes, you can still attend! Due to shipping restrictions, if you reside outside the U.S., we will be unable to send you any swag items or physical prizes. However, other than that, you are fully able to participate in all of the hacking and the other events we will be holding!"
     },
     {
       question: "How do I submit a project?",
