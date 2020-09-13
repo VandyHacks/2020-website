@@ -18,6 +18,7 @@ html {
     font-family: DisposableDroidBB, sans-serif;
     font-size: 20px;
     color: white;
+    scrollbar-width: none;
 }
 
 *::-webkit-scrollbar { /* WebKit */
