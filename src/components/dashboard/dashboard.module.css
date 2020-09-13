@@ -1,5 +1,11 @@
+@font-face {
+    font-family: 'ARCADE_N';
+    src: URL('fonts/ARCADE_N.TTF') format('truetype');
+}
+
 #dashboard {
     display: grid;
+    font-family: ARCADE_N;
     height: 120vh;
     grid-template-rows: 55vh 10vh 35vh;
 }
@@ -26,7 +32,7 @@
 } */
 
 #startButton {
-    width: 100vw;
+    width: 250px;
     background: none;
     border: none;
     font-size: 18px;

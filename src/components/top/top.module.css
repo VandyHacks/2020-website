@@ -37,6 +37,7 @@
 }
 
 #dates {
+    font-family: "ARCADE_N";
     text-align: center;
     font-size: 18px;
     overflow: hidden;
@@ -44,7 +45,7 @@
     margin-top: 10px;    
 }
 
-#up {
+/* #up {
     max-width: 10px;
     max-height: auto;
     padding: 2px 0px 2px 0px;
@@ -53,6 +54,13 @@
 }
 
 #down {
+    max-width: 12px;
+    max-height: auto;
+    padding: 2px 0px 2px 0px;
+    align-self: flex-end;
+} */
+
+#downArrow {
     max-width: 12px;
     max-height: auto;
     padding: 2px 0px 2px 0px;

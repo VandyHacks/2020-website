@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'ARCADE_N';
+    src: URL('fonts/ARCADE_N.TTF') format('truetype');
+}
+
 #gameBoard {
     position: fixed;
     /* HARDCODED for map image with 2:1 aspect ratio */
@@ -12,7 +17,7 @@
 
 #gameBoard button {
     padding: 0;
-    font-size: 1.5vh;
+    font-size: 2.6vh;
 }
 
 .gridBackground {
@@ -64,4 +69,17 @@
     grid-column: -1;
     height: 50%;
     background: black;
+}
+
+#turboButton {
+    position: fixed;
+    left: 3vw;
+    bottom: 3vh;
+}
+
+#turboButton img {
+    margin: 0;
+    margin-bottom: 0.5vh;
+    height: 2vh;
+    width: auto;
 }

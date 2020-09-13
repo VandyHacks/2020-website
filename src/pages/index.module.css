@@ -1,11 +1,6 @@
 @font-face {
-    font-family: 'ARCADE_N';
-    src: URL('../fonts/ARCADE_N.TTF') format('truetype');
-}
-
-@font-face {
-    font-family: 'hellovetica';
-    src: URL('fonts/hellovetica.ttf') format('truetype');
+    font-family: 'DisposableDroidBB';
+    src: URL('fonts/DisposableDroidBB.ttf') format('truetype');
 }
 
 html {
@@ -20,15 +15,16 @@ html {
 }
 
 * {
-    font-family: ARCADE_N, sans-serif;
-    font-size: 10px;
+    font-family: DisposableDroidBB, sans-serif;
+    font-size: 20px;
     color: white;
+    /* scrollbar-width: none; */
 }
 
-*::-webkit-scrollbar { /* WebKit */
+/* *::-webkit-scrollbar {
     width: 0;
     height: 0;
-}
+} */
 
 #img {
     width: 100px;
@@ -763,6 +759,13 @@ pre tt:after {
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000;
+}
+
+/* Color Variables */
+:root {
+    --inner: #212529;
+    --border: black;
+    --accent: white;
 }
 
 .retroBox {

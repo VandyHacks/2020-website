@@ -1,9 +1,4 @@
 import React, { useState, useRef } from "react";
-import PropTypes from "prop-types";
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
-import window from 'global'
-import { useMediaQuery } from 'react-responsive';
-import logo from '../../assets/VH Pixel Logo.png';
 import Dashboard from '../dashboard/dashboard';
 import Game from '../game/game';
 
@@ -15,7 +10,7 @@ const Layout: ((props?: any) => JSX.Element) = () => {
   // disableBodyScroll(window);
   return (
     <>
-      <div id={styles.notLandscape}>
+      <div>
         <Game showMenu={showMenu}/>
         <Dashboard menu={menu} />
       </div>

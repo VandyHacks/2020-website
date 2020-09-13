@@ -18,6 +18,7 @@ import lw1 from '../../assets/squirrel/left-walk-1.png';
 import rw0 from '../../assets/squirrel/right-walk-0.png';
 import rw1 from '../../assets/squirrel/right-walk-1.png';
 import cone from '../../assets/constructionCone.png';
+import turbo from '../../assets/turbo.png'
 
 // Rooms
 import FAQRoom from '../rooms/FAQ/FAQRoom';
@@ -123,11 +124,16 @@ const Game = (props: any) => {
   // Get window dimensions and distance btwn center of view and left edge of map
   const { vw, vh } = useWindowDims();
   const [viewLocVH, setviewLocVH] = useState(100);
-  const [requestRotate, setRequestRotate] = useState(false);
-  // The squirrel image that gets displayed, followed by its x and y coordinates
+  // Squirrel states
   const [squirrelPose, setSquirrelPose] = useState(fr);
   const [squirrelX, setSquirrelX] = useState(constants.startX);
   const [squirrelY, setSquirrelY] = useState(constants.startY);
+  const [isTurbo, toggleIsTurbo] = useState(false);
+  const speeds = {
+    'resting': isTurbo ? 1 : 300,
+    'moving': isTurbo ? 1 : 80,
+  }
+  const [squirrelSpeed, setSquirrelSpeed] = useState(speeds.resting);
   // Initial state for squirrel animation
   const [bounce, setBounce] = useSpring(() => ({
     transform: 'translate(0px, 0px)'
@@ -163,14 +169,22 @@ const Game = (props: any) => {
   const [goToVaken, toggleGoToVaken] = useState(false);
   // Toggle for going to past winners
   const [goToDevpost, toggleGoToDevpost] = useState(false);
-
+  // If we just use isTurbo, then squirrel goes SS and doesn't move for a sec which seemed weird idk
+  const [isSuperSaiyan, toggleIsSuperSaiyan] = useState(false);
   // Engine for squirrel movement
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isMoving) {
-        setBounce({ transform: stride ? 'translate(0px, 0px)' : 'translate(0px, 10px' });
+        setBounce(isTurbo ? { transform: stride ? 'translate(-15px, 0px)' : 'translate(15px, 0px' }
+                          : { transform: stride ? 'translate(0px, 0px)' : 'translate(0px, 10px)'});
+      }
+      if (isTurbo && !isSuperSaiyan) {
+        toggleIsSuperSaiyan(true);
+      } else if (!isTurbo) {
+        toggleIsSuperSaiyan(false);
       }
       if (isMoving) {
+        setSquirrelSpeed(speeds.moving);
         // //console.log('isMoving:', isMoving)
         if (targetY > squirrelY) {
           // //console.log('Moving up')
@@ -192,6 +206,7 @@ const Game = (props: any) => {
         }
         if (squirrelX == targetX && squirrelY == targetY) {
           // //console.log('clear interval');
+          setSquirrelSpeed(speeds.resting);
           clearInterval(interval);
           setSquirrelPose(fr);
           setMoving(false);
@@ -201,7 +216,7 @@ const Game = (props: any) => {
         // //console.log('Squirrel x y:', squirrelX, squirrelY);
       }
       setStride(!stride);
-    }, 150);
+    }, squirrelSpeed);
 
     return () => clearInterval(interval);
   }, [squirrelX, squirrelY, targetX, targetY, isMoving, stride])
@@ -388,7 +403,13 @@ const Game = (props: any) => {
     left: `calc(50vw - ${viewLocVH}vh)`,
     right: `calc(50vw - ${viewLocVH}vh)`,
   }
-  const squirrelStyle = {
+  const squirrelStyle = isSuperSaiyan ? {
+    gridColumn: `${squirrelX - 1} / ${squirrelX + 2}`,
+    gridRow: `${squirrelY - 2} / ${squirrelY + 1}`,
+    MozFilter: 'brightness(2.2) opacity(0.75) saturate(400%) drop-shadow(-5px -5px 10px white) drop-shadow(5px 5px 10px white)',
+    WebKitFilter: 'brightness(2.2) opacity(0.75) saturate(400%) drop-shadow(-5px -5px 10px white) drop-shadow(5px 5px 10px white)',
+    filter: 'brightness(2.2) opacity(0.75) saturate(400%) drop-shadow(-5px -5px 10px white) drop-shadow(5px 5px 10px white)'
+  } : {
     gridColumn: `${squirrelX - 1} / ${squirrelX + 2}`,
     gridRow: `${squirrelY - 2} / ${squirrelY + 1}`,
   }
@@ -461,6 +482,9 @@ const Game = (props: any) => {
           <animated.button className='nes-btn is-success'
                            style={speakersStyle}
                            onClick={e => shortcut(e, 'speakers')}>{speakersText}</animated.button>
+          <button className='nes-btn is-warning'
+                  id={styles.turboButton}
+                  onClick={() => toggleIsTurbo(!isTurbo)}>TURBO<img src={turbo}/>MODE</button>
         </div> : rooms[displayID].display}
         { scheduleOpen ? rooms.schedule.display : null}
         { speakersOpen ? rooms.speakers.display : null}

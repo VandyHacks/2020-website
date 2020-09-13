@@ -10,11 +10,6 @@
     overflow-y: scroll;
 }
 
-#speakersRoom::-webkit-scrollbar { /* WebKit */
-    width: 0;
-    height: 0;
-}
-
 #selection {
     display: flex;
     flex-wrap: wrap;
@@ -80,11 +75,17 @@
 #name {
     /* background: cornflowerblue; */
     font-size: 36px;
+    font-family: "ARCADE_N";
+    text-align: center;
 }
 
 #desc {
     max-width: 600px;
     min-width: 200px;
-    margin: 10px;
+    margin: 12px;
     text-align: left;
+}
+
+#desc p {
+    font-size: 2em;
 }
