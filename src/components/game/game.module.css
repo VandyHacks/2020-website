@@ -70,3 +70,16 @@
     height: 50%;
     background: black;
 }
+
+#turboButton {
+    position: fixed;
+    left: 3vw;
+    bottom: 3vh;
+}
+
+#turboButton img {
+    margin: 0;
+    margin-bottom: 0.5vh;
+    height: 2vh;
+    width: auto;
+}
