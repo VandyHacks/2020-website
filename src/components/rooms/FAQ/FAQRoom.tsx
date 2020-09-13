@@ -12,17 +12,17 @@ const questions = [
     {
       question: "How does registration work?",
       answer:
-        "Since this is an online event, we want to open registration to anyone that is interested. If you're curious, email us for more info at info@vandyhacks.org."
+        "Sign in, and submit your application at apply.vandyhacks.org! You'll also be able to check the status of your application on our registration portal."
     },
     {
       question: "What if I've never been to a hackathon?",
       answer:
-        "Not to worry! A few weeks before the event, you’ll receive an email with a link to our hacker guide, which will contain all the information you need to make the most out of your weekend. During the event, the VandyHacks Team will be around to help answer any questions. As always, feel free to email us at info@vandyhacks.org, or reach out on Discord."
+        "Not to worry! A few days before the event, you’ll receive an email with a link to our hacker guide, which will contain all the information you need to make the most out of your weekend. During the event, the VandyHacks Team will be around to help answer any questions. As always, feel free to email us at info@vandyhacks.org, or reach out on Discord."
     },
     {
       question: "What do I need?",
       answer:
-        "Some kind of device you can write code on, and an internet connection!"
+        "Some kind of device you can write code on and an internet connection!"
     },
     {
       question: "How are teams formed? Do I need a team?",
@@ -32,11 +32,11 @@ const questions = [
     {
       question: "Will there be other activities besides hacking?",
       answer:
-        "Of course! We'll have workshops and other activities throughout the event."
+        "Of course! We'll have workshops you can learn from, sponsored events you can network at, virtual game nights where you can meet other hackers, and so much more! You can find the complete schedule on our website."
     },
     {
       question: "Can I submit my older projects?",
-      answer: "You are free to work on any project you like, however we require that all devpost submissions be projects that were made during the hackathon and uniquely for the hackathon."
+      answer: "You are free to work on any project you like; however, we require that all Devpost submissions be projects that were started and made during our hackathon and uniquely for VandyHacks VII."
     },
     {
       question: "What does a virtual hackathon mean?",
@@ -44,9 +44,14 @@ const questions = [
         "An entirely remote hackathon encompasses everything that an in-person hackathon has, except now you can do it from the comfort of your own bedroom! This includes a Discord server to meet other hackers, pre-recorded workshops, virtual game nights, and a live stream of the closing ceremony."
     },
     {
+      question: "Where can I find the Discord link?",
+      answer:
+        "Once we've approved your application, we'll send you an email with the invitation to the Discord. The invitation may end up in your spam folder - if it's still not there, feel free to send us an email at info@vandyhacks.org!"
+    },
+    {
       question: "Who can apply?",
       answer:
-        "Anyone who is 18 years or older (we will be checking ID) and is currently enrolled in college or university with a valid student ID. This means both international and non-Vandy students are welcome, as well!"
+        "Anyone who is 18 years or older and is currently enrolled in college or university with a valid student ID. This means both international and non-Vandy students are welcome, as well!"
     },
     {
       question: "I have no coding experience. Can I still attend?",
@@ -54,12 +59,17 @@ const questions = [
         "Even more reason for you to come! We will be hosting beginners' workshops for you to get started, and our mentors can help you out along the way. We greatly encourage new hackers to attend, and no prior experience is necessary!"
     },
     {
+      question: "I'm currently residing outside of the U.S. Can I still attend? ",
+      answer:
+        "Yes, you can still attend! Due to shipping restrictions, if you reside outside the U.S., we will be unable to send you any swag items or prizes. However, other than that, you are fully able to participate in all of the hacking and the other events we will be holding!"
+    },
+    {
       question: "How do I submit a project?",
-      answer: "This year, we'll be submitting projects on Devpost."
+      answer: "This year, we'll be submitting projects on Devpost. More detailed instructions on project submission will be featured in our hacker guide."
     },
     {
       question: "What if I’m interested in being a mentor?",
-      answer: "Send us an email at: info@vandyhacks.org"
+      answer: "Send us an email at info@vandyhacks.org!"
     },
     {
       question: "I have more questions!",
