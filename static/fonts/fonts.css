@@ -4,6 +4,6 @@
 }
 
 @font-face {
-    font-family: 'hellovetica';
-    src: URL('./hellovetica.ttf') format('truetype');
+    font-family: 'DisposableDroidBB';
+    src: URL('fonts/DisposableDroidBB.ttf') format('truetype');
 }
