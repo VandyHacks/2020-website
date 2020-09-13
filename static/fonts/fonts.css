@@ -5,5 +5,5 @@
 
 @font-face {
     font-family: 'DisposableDroidBB';
-    src: URL('fonts/DisposableDroidBB.ttf') format('truetype');
+    src: URL('./DisposableDroidBB.ttf') format('truetype');
 }
