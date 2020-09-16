@@ -70,7 +70,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:title`,
-          content: `VandyHacks: Retro Edition`,
+          content: `VandyHacks VII: Retro Edition`,
         },
         {
           name: `twitter:description`,
