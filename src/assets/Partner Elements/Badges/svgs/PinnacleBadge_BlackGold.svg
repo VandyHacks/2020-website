@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 2680 1728" style="enable-background:new 0 0 2680 1728;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#1D1D1D;stroke:#C69C5E;stroke-width:5;stroke-miterlimit:10;}
+	.st1{fill:#C69C5E;}
+	.st2{font-family:'KeplerStd-ScnCapt';}
+	.st3{font-size:62.9897px;}
+	.st4{font-size:41.9931px;}
+	.st5{fill:none;stroke:#C69C5E;stroke-width:5;stroke-miterlimit:10;}
+	.st6{fill:none;stroke:#C69D5E;stroke-width:5;stroke-miterlimit:10;}
+</style>
+<g>
+	<polygon class="st0" points="1873.4,867.9 1779.8,973.7 1061,973.7 1059.9,763.2 1778.7,763.2 	"/>
+	<polygon class="st0" points="1137.1,740.2 1259.7,868.1 1137.1,996 1014.6,868.1 	"/>
+	<text transform="matrix(0.9577 0 0 1 1304.2002 864.8301)"><tspan x="0" y="0" class="st1 st2 st3">Participating Event</tspan><tspan x="0" y="50.4" class="st1 st2 st4">Pinnacle 2021</tspan></text>
+	<line class="st5" x1="1284.6" y1="833" x2="1284.6" y2="903.2"/>
+	<g>
+		<g>
+			<path class="st6" d="M1119.2,896.6c5.3,5.5,12.2,8.3,19.1,8.3c6.9,0,13.9-2.8,19.2-8.3c10.6-11.1,10.6-29,0-40L1119.2,896.6z"/>
+			<polyline class="st6" points="1157.6,856.6 1138.4,836.5 1080.8,896.7 			"/>
+		</g>
+		<ellipse class="st6" cx="1137.1" cy="869" rx="62.2" ry="65"/>
+	</g>
+</g>
+</svg>
