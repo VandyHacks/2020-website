@@ -78,7 +78,7 @@ const questions = [
     },
     {
       question: "I love VandyHacks!",
-      answer: "Us too! vh{v1rtually_the_be$t_<3}"
+      answer: "So do we! vh{v1rtually_the_be$t_<3}"
     },
 ];
   
