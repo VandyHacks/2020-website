@@ -4,17 +4,25 @@ import { outlined, retroBox } from '../../../pages/index.module.css'
 import karl from '../../../assets/speakers/karl.jpg'
 import jeffrey from '../../../assets/speakers/jeffrey.jpg'
 import shauna from '../../../assets/speakers/shauna.png'
-import swipeToUnlock from '../../../assets/speakers/swipeToUnlock.png'
+import adi_parth from '../../../assets/speakers/adi_parth.png'
 import thiago from '../../../assets/speakers/thiago.jpg'
+import jennison from '../../../assets/speakers/jennison.jpg'
 import placeholder from '../../../assets/VH Pixel Logo.png'
+import { addListener } from 'process';
 const people = {
     'judges': {},
     'speakers': [
         {
-            'name': '"Swipe to Unlock"',
-            'image': swipeToUnlock,
+            'name': 'Adi Agashe and Parth Detroja',
+            'image': adi_parth,
             'heading': 'Authors of "Swipe to Unlock"',
-            'bio': 'Aditya Agashe (PM at Microsoft), Neel Mehta (PM at Google), and Parth Detroja (PM at Facebook) are the international bestselling authors of "Swipe to Unlock: The Primer on Technology and Business Strategy". The book has sold tens of thousands of copies around the world and has been featured in the Wall Street Journal, Forbes, and Business Insider. It became the #1 business book on Amazon when it launched in 2017. The three authors combined have over 90,000 followers on LinkedIn where they regularly share tech strategy predictions and analysis.'
+            'bio': 'Aditya Agashe and Parth Detroja are prominent Product Managers and Authors of the bestselling technology strategy book, Swipe to Unlock. Both have been featured in the Wall Street Journal, Forbes, Business Insider, Inc. and more. Aditya works on Azure cloud growth team to build hyper-converged and hybrid features that help customers adopt cloud technologies. He is the host of Product Alliance, and has previously managed product and engineering teams as the founder of Belle Applications and Head of Product at Speare. Parth is currently a Product Manager at Facebook where he leads social music product efforts such as adding music to stories on Facebook and Instagram. He has previously worked product management and growth roles at other top tech companies including Microsoft, Amazon, and IBM.'
+        },
+        {
+            'name': 'Jennison Asuncion',
+            'image': jennison,
+            'heading': 'Head of Accessibility at LinkedIn',
+            'bio': "Jennison started his digital accessibility (a11y) career on the Royal Bank of Canada’s IT A11y team in Toronto, working with web and mobile developers and designers on making their UIs accessible to customers with disabilities. In 2013, he was recruited by LinkedIn where he is currently their Head of A11y Engineering Evangelism. His role includes driving adoption of a11y standards in LinkedIn's Engineering organization. Jennison began a11y and inclusive design Meetup groups in Toronto (2012) and the San Francisco Bay Area (2014). As a Community Group member, he is involved in the development of the World Wide Web (W3C) Accessibility Guidelines (WCAG) 3.0, which will be the next version of these guidelines, which are the international standards for developing web, mobile and other technologies to be accessible. By far, Jennison is proudest of Co-founding Global A11y Awareness Day (GAAD). Marking its tenth anniversary in 2021, this is an annual event, on the 3rd Thursday of May, which brings global attention to digital inclusion by and for the more than one billion people worldwide with disabilities."
         },
         {
             'name': 'Jeffrey J. Rothschild',

@@ -40,8 +40,8 @@
 #mainDialogue {
     padding: 5px;
     /* font-size: 1.3em; */
-    /* height: 50%;
-    overflow: scroll; */
+    height: 50%;
+    overflow: scroll;
 }
 
 .dialogueButton {
@@ -59,9 +59,6 @@
     margin: 0 auto;
     margin-bottom: 5px;
     padding: 5%;
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
 }
 
 #dialogueChoices {
@@ -69,9 +66,25 @@
     overflow-y: scroll;
     overflow-x: hidden;
     height: 50vh;
-    max-width: 500px;
-    position: absolute;
-    right: 10px;
+    width: 50%;
+    min-width: 300px;
+    background: #333333;
+}
+
+#dialogueContent {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 100%;
+    justify-content: space-around;
+    height: 100%;
+}
+
+#mainDialogue {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 50vh;
+    width: 50%;
+    min-width: 300px;
     background: #333333;
 }
 
@@ -79,4 +92,21 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+@media screen and (min-width: 320px) and (max-width: 812px) {
+
+    #dialogueContent {
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+    #dialogueChoices {
+        height: 40%;
+        width: 100%;
+    }
+    #mainDialogue {
+        height: 40%;
+        width: 100%;
+    }
+
 }
