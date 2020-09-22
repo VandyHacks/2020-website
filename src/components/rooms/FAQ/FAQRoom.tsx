@@ -76,6 +76,10 @@ const questions = [
       answer:
         <div>Send us an email at <a href="mailto:info@vandyhacks.org" target="_blank" rel="noopener">info@vandyhacks.org</a>! We'll be happy to answer!</div>
     },
+    {
+      question: "I love VandyHacks!",
+      answer: "So do we! vh{v1rtually_the_be$t_<3}"
+    },
 ];
   
 const FAQRoom: ((props: any) => JSX.Element) = (props) => {
