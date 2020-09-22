@@ -93,12 +93,12 @@ const FAQRoom: ((props: any) => JSX.Element) = (props) => {
             <button id={styles.backButton} className='nes-btn is-normal' 
                 onClick={() => {props.setDisplayID('home'); props.showMenu(true);}}>Back</button>
             <img src={avatar} id={styles.avatar} />
+            <div id={styles.dialogueChoices} className='nes-container is-dark'>
+                    <div id={styles.choicesInner}>{questionButtons}</div>
+                </div>
             <div id={styles.dialogue} className={retroBox}>
                 <p id={styles.dialogueTitle} className={styles.outlined}>~Tabriel Ging~</p>
                 <div id={styles.mainDialogue} className={styles.outlined}>{mainDialogue}</div>
-                <div id={styles.dialogueChoices} className='nes-container is-dark'>
-                    <div id={styles.choicesInner}>{questionButtons}</div>
-                </div>
             </div>
         </div>
     )

@@ -68,6 +68,10 @@
     /* height: 50%; */
     overflow-y: scroll;
     overflow-x: hidden;
+    height: 50vh;
+    max-width: 500px;
+    position: absolute;
+    right: 10px;
     background: #333333;
 }
 

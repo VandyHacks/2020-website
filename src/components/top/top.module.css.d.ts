@@ -5,3 +5,5 @@ export const dates: string;
 export const downArrow: string;
 export const animateBlink: string;
 export const blink: string;
+export const mlhBadge: string;
+export const pinnacleBadge: string;
