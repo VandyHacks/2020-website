@@ -4,7 +4,6 @@ import ScrollLock from 'react-scrolllock'
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 import * as styles from './index.module.css'
-import pinnacleBadge from '../assets/PinnacleBadge_BoW_PinBadge.png'
 
 const IndexPage = () => (
   <div id={styles.main}>
