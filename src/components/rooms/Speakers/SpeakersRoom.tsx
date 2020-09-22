@@ -21,7 +21,7 @@ const people = {
         {
             'name': 'Jennison Asuncion',
             'image': jennison,
-            'heading': 'Head of Accessibility at LinkedIn',
+            'heading': 'Head of Accessibility at LinkedIn Engineering Evangelism',
             'bio': "Jennison started his digital accessibility (a11y) career on the Royal Bank of Canada’s IT A11y team in Toronto, working with web and mobile developers and designers on making their UIs accessible to customers with disabilities. In 2013, he was recruited by LinkedIn where he is currently their Head of A11y Engineering Evangelism. His role includes driving adoption of a11y standards in LinkedIn's Engineering organization. Jennison began a11y and inclusive design Meetup groups in Toronto (2012) and the San Francisco Bay Area (2014). As a Community Group member, he is involved in the development of the World Wide Web (W3C) Accessibility Guidelines (WCAG) 3.0, which will be the next version of these guidelines, which are the international standards for developing web, mobile and other technologies to be accessible. By far, Jennison is proudest of Co-founding Global A11y Awareness Day (GAAD). Marking its tenth anniversary in 2021, this is an annual event, on the 3rd Thursday of May, which brings global attention to digital inclusion by and for the more than one billion people worldwide with disabilities."
         },
         {
