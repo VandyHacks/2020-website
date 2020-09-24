@@ -6,6 +6,8 @@ import Banner from '../../assets/retroedn-used.png';
 import Maintitle from '../../assets/vandygoldhacks.png'
 import Subtitle from '../../assets/thehackathon.png'
 import DownArrow from '../../assets/downarrow.png';
+import pinnacleBadge from '../../assets/PinnacleBadge_BoW_PinBadge.png'
+
 
 
 const Top: ((props?: any) => JSX.aboutRef.current) = () => {
@@ -18,6 +20,7 @@ const Top: ((props?: any) => JSX.aboutRef.current) = () => {
         aboutRef.current.scrollTop = aboutRef.current.scrollHeight - aboutRef.current.clientHeight;
     }
     return (
+        <>
         <div id={styles.top} className='nes-container is-dark'>
             <div id={styles.title}>
                 <img src={Banner}></img>
@@ -29,6 +32,24 @@ const Top: ((props?: any) => JSX.aboutRef.current) = () => {
             <img src={DownArrow} id={styles.downArrow} onClick={scrollDown}/>
             {/* <img id={styles[arrowDirection]} className={styles.animateBlink} onClick={toggleDisplay} src={DownArrow} alt="DownArrow" /> */}
         </div>
+        <a id="mlh-trust-badge"
+       className={styles.mlhBadge}
+      //  style={{display:'block',maxWidth:'100px',minWidth:'40px',position:'fixed',right:'50px',top:'0',width:'10%',zIndex:'10000'}}
+       href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf'//"https://mlh.io/seasons/na-2021/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2021-season&utm_content=white"
+       target="_blank">
+         <img src="https://s3.amazonaws.com/logged-assets/trust-badge/2021/mlh-trust-badge-2021-white.svg"
+              alt="Major League Hacking 2021 Hackathon Season"
+              style={{width:'100%'}}/>
+    </a>
+    <a id="pinnacle-badge"
+       className={styles.pinnacleBadge}
+       href='https://pinnacle.us.org/'
+       target='_blank'>
+         <img src={pinnacleBadge}
+              alt="Pinnacle 2021 Badge"
+              style={{width:'100%'}}/>
+    </a>
+        </>
     )
 }
 

@@ -7,4 +7,5 @@ export const dialogueButton: string;
 export const backButton: string;
 export const dialogue: string;
 export const dialogueChoices: string;
+export const dialogueContent: string;
 export const choicesInner: string;

@@ -482,7 +482,7 @@ const Game = (props: any) => {
           <animated.button className='nes-btn is-success'
                            style={speakersStyle}
                            onClick={e => shortcut(e, 'speakers')}>{speakersText}</animated.button>
-          <button className='nes-btn is-warning'
+          <button className={isTurbo ? 'nes-btn is-error' : 'nes-btn is-warning'}
                   id={styles.turboButton}
                   onClick={() => toggleIsTurbo(!isTurbo)}>TURBO<img src={turbo}/>MODE</button>
         </div> : rooms[displayID].display}

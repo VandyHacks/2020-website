@@ -27,7 +27,7 @@ const questions = [
     {
       question: "How are teams formed? Do I need a team?",
       answer:
-        "Teams are formed in the #team-finding channel–feel free to find people that share interests, and get building. We'll also provide a virtual space to meet teams. However, teams are not required, so feel free to work individually."
+        "Teams are formed in the #team-matching channel on Discord where you can find people that share interests, and get building! We'll also provide a virtual space to meet teams. However, teams are not required, so feel free to work individually."
     },
     {
       question: "Will there be other activities besides hacking?",
@@ -76,6 +76,10 @@ const questions = [
       answer:
         <div>Send us an email at <a href="mailto:info@vandyhacks.org" target="_blank" rel="noopener">info@vandyhacks.org</a>! We'll be happy to answer!</div>
     },
+    {
+      question: "I love VandyHacks!",
+      answer: "So do we! vh{v1rtually_the_be$t_<3}"
+    },
 ];
   
 const FAQRoom: ((props: any) => JSX.Element) = (props) => {
@@ -94,10 +98,12 @@ const FAQRoom: ((props: any) => JSX.Element) = (props) => {
                 onClick={() => {props.setDisplayID('home'); props.showMenu(true);}}>Back</button>
             <img src={avatar} id={styles.avatar} />
             <div id={styles.dialogue} className={retroBox}>
-                <p id={styles.dialogueTitle} className={styles.outlined}>~Tabriel Ging~</p>
-                <div id={styles.mainDialogue} className={styles.outlined}>{mainDialogue}</div>
-                <div id={styles.dialogueChoices} className='nes-container is-dark'>
-                    <div id={styles.choicesInner}>{questionButtons}</div>
+                <p id={styles.dialogueTitle}>~Tabriel Ging~</p>
+                <div id={styles.dialogueContent}>
+                  <div id={styles.dialogueChoices} className='nes-container is-dark'>
+                      <div id={styles.choicesInner}>{questionButtons}</div>
+                  </div>
+                  <div id={styles.mainDialogue} className='nes-container is-dark'>{mainDialogue}</div>
                 </div>
             </div>
         </div>
