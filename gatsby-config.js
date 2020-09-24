@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `VandyHacks Retro Edition`,
-    description: `Official promotional website for VandyHacks VII`,
+    title: `VandyHacks VII: Retro Edition`,
+    description: `Official promotional website for VandyHacks VII. Come join VHVII at Vanderbilt University on Oct 2-4, 2020.`,
     author: `VandyHacks`,
   },
   plugins: [
