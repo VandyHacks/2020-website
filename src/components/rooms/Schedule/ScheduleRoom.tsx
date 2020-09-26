@@ -39,6 +39,7 @@ const events = {
         ['9:45a', 'Skribbl.io'],
         ['10:30a', 'Keynote Speaker - Thiago Olson'],
         ['10:30a', 'Judging'],
+        ['1:20p', 'Keynote Speaker - Jennison Asuncion'],
         ['3:00p', 'Closing Ceremony'],
     ]
 }
