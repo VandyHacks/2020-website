@@ -154,7 +154,7 @@ const Game = () => {
   
   const [FAQText, setFAQText]           = useState('FAQ');
   const [pastText, setPastText]         = useState('Past Winners')
-  const [vakenText, setVakenText]       = useState('Registration');
+  const [vakenText, setVakenText]       = useState('Register');
   const [scheduleText, setScheduleText] = useState('Schedule');
   const [speakersText, setSpeakersText] = useState('Speakers');
   const [sponsorsText, setSponsorsText] = useState('Sponsors');
@@ -163,7 +163,7 @@ const Game = () => {
   const [scheduleOpen, toggleScheduleOpen] = useState(false);
   const [speakersOpen, toggleSpeakersOpen] = useState(false);
 
-  // Toggle for going to registration
+  // Toggle for going to Register
   const [goToVaken, toggleGoToVaken] = useState(false);
   // Toggle for going to past winners
   const [goToDevpost, toggleGoToDevpost] = useState(false);
@@ -277,18 +277,18 @@ const Game = () => {
       setPastSignX(rightEdgeCell - constants.signCellWidth + 1);
       setPastText('Past Winners >>>');
     }
-    // Registration sign x coords (not rounded)
+    // Register sign x coords (not rounded)
     const vakenSignStartPix = (rooms.vaken.signStart[0] - 1) * constants.cellDimVH*vh;
     const vakenSignEndPix   = (rooms.vaken.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
     if (vakenSignStartPix >= leftEdge && vakenSignEndPix <= rightEdge) {
       setVakenSignX(rooms.vaken.signStart[0]);
-      setVakenText('Registration');
+      setVakenText('Register');
     } else if (vakenSignStartPix < leftEdge) {
       setVakenSignX(leftEdgeCell);
-      setVakenText('<<< Registr.');
+      setVakenText('<<< Register');
     } else {
       setVakenSignX(rightEdgeCell - constants.signCellWidth + 1);
-      setVakenText('Registr. >>>');
+      setVakenText('Register >>>');
     }
     // Schedule sign x coords (not rounded)
     const scheduleSignStartPix = (rooms.schedule.signStart[0] - 1) * constants.cellDimVH*vh;
