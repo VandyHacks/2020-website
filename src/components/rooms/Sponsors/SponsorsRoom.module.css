@@ -13,7 +13,7 @@
 
     padding: 2vh 4vw;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
 }
 
@@ -34,14 +34,109 @@
 }
 
 #sponsorsBox {
+    scrollbar-width: thin;
+    scrollbar-color: #212529 white;
+}
+
+/* Works on Chrome/Edge/Safari */
+#sponsorsBox::-webkit-scrollbar {
+    width: 12px;
+}
+#sponsorsBox::-webkit-scrollbar-track {
+    background: white;
+}
+#sponsorsBox::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 20px;
+    border: 3px solid #212529;
+}
+
+.retroBox {
+    padding: 5px;
+    background: white;
+    box-shadow:
+      /* Inner Background Color -- Same as inner */
+        0   -6px 0  -2px white,
+        0    6px 0  -2px white,
+        0  -12px 0  -4px white,
+        0   12px 0  -4px white,
+        0  -18px 0  -8px white,
+        0   18px 0  -8px white,
+        0  -24px 0 -12px white,
+        0   24px 0 -12px white,
+      
+      /* Inner Border */
+      -2px  0   0   0   var(--border),
+        2px  0   0   0   var(--border),
+        0   -4px 0   0   var(--border),
+        0    4px 0   0   var(--border),
+        0  -10px 0  -2px var(--border),
+        0   10px 0  -2px var(--border),
+        0  -14px 0  -4px var(--border),
+        0   14px 0  -4px var(--border),
+        0  -20px 0  -8px var(--border),
+        0   20px 0  -8px var(--border),
+        0  -26px 0 -12px var(--border),
+        0   26px 0 -12px var(--border),
+      
+      /* Middle Border -- Accent */
+      -4px  0   0   0   var(--accent),
+        4px  0   0   0   var(--accent),
+        0   -2px 0   2px var(--accent),
+        0    2px 0   2px var(--accent),
+        0   -8px 0   0px var(--accent),
+        0    8px 0   0px var(--accent),
+        0  -12px 0  -2px var(--accent),
+        0   12px 0  -2px var(--accent),
+        0  -16px 0  -4px var(--accent),
+        0   16px 0  -4px var(--accent),
+        0  -22px 0  -8px var(--accent),
+        0   22px 0  -8px var(--accent),
+        0  -28px 0 -12px var(--accent),
+        0   28px 0 -12px var(--accent),
+      
+      /* Outer Border */
+      -6px  0   0   0   var(--border),
+        6px  0   0   0   var(--border),
+        0    0   0   4px var(--border),
+        0   -6px 0   2px var(--border),
+        0    6px 0   2px var(--border),
+        0  -10px 0   0   var(--border),
+        0   10px 0   0   var(--border),
+        0  -14px 0  -2px var(--border),
+        0   14px 0  -2px var(--border),
+        0  -18px 0  -4px var(--border),
+        0   18px 0  -4px var(--border),
+        0  -24px 0  -8px var(--border),
+        0   24px 0  -8px var(--border),
+        0  -30px 0 -12px var(--border),
+        0   30px 0 -12px var(--border);
+}
+
+#sponsorsBox {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 0 auto;
+    height: 40vh;
+    width: 50vw;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 90%;
+    margin-bottom: 5px;
+}
+
+li {
+    text-align: center;
+}
+
+.trigger {
     display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
 }
-
-#sponsorsBox img {
-    width: 50%;
-}
-
-
 
 #dialogueTitle {
     font-size: 2.5em;

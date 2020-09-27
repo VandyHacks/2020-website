@@ -1,8 +1,7 @@
 // Modules
 import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
-import DeviceOrientation, { Orientation } from 'react-screen-orientation'
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import Dashboard from '../dashboard/dashboard'
 
 import window from 'global';
 
@@ -55,7 +54,7 @@ function useWindowDims() {
 }
 // ***********************************************************************
 
-const Game = (props: any) => {
+const Game = () => {
   // CONSTANTS
   const constants = {
     'gridHeight': 30,
@@ -71,6 +70,7 @@ const Game = (props: any) => {
 
   // Determines which view to display (map, FAQ room, etc.)
   const [displayID, setDisplayID]: [string, any] = useState('home');
+  const [menu, showMenu] = useState(true);
 
   const scheduleRef = useRef(null);
   const speakersRef = useRef(null);
@@ -82,7 +82,7 @@ const Game = (props: any) => {
       'door': null,
     },
     'FAQ': {
-      'display': <FAQRoom setDisplayID={setDisplayID} showMenu={props.showMenu} />,
+      'display': <FAQRoom setDisplayID={setDisplayID} showMenu={showMenu} />,
       // 'displayID': 1,
       'signStart': [4, 5],
       'door': [7, 16],
@@ -107,7 +107,7 @@ const Game = (props: any) => {
       'door': [53, 18],
     },
     'sponsors': {
-      'display': <SponsorsRoom setDisplayID={setDisplayID} showMenu={props.showMenu} />,
+      'display': <SponsorsRoom setDisplayID={setDisplayID} showMenu={showMenu} />,
       // 'displayID': 3,
       'signStart': [34, 1],
       'door': [37, 12],
@@ -119,7 +119,6 @@ const Game = (props: any) => {
       'door': [17, 16],
     },
   }
-
   // Get window dimensions and distance btwn center of view and left edge of map
   const { vw, vh } = useWindowDims();
   const [viewLocVH, setviewLocVH] = useState(100);
@@ -338,17 +337,17 @@ const Game = (props: any) => {
       // go to FAQ
       if (squirrelX == rooms.FAQ.door[0] && squirrelY == rooms.FAQ.door[1]) {
         setDisplayID('FAQ');
-        props.showMenu(false);
+        showMenu(false);
       }
       else if (squirrelX == rooms.past.door[0] && squirrelY == rooms.past.door[1]) {
         toggleGoToDevpost(true);
       } else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
         // setDisplay(rooms.schedule.display);
         toggleScheduleOpen(true);
-        props.showMenu(false);
+        showMenu(false);
       } else if (squirrelX == rooms.speakers.door[0] && squirrelY == rooms.speakers.door[1]) {
         toggleSpeakersOpen(true);
-        props.showMenu(false);
+        showMenu(false);
       } else if (squirrelX == rooms.sponsors.door[0] && squirrelY == rooms.sponsors.door[1]) {
         setDisplayID('sponsors');
       } 
@@ -380,12 +379,12 @@ const Game = (props: any) => {
     if (e.target != scheduleRef.current && scheduleOpen) {
       setTargetY(targetY + 1); // move squirrel so it doesn't immediately reopen
       toggleScheduleOpen(false);
-      props.showMenu(true);
+      showMenu(true);
     }
     if (e.target != speakersRef.current && speakersOpen) {
       setTargetY(targetY + 1);
       toggleSpeakersOpen(false);
-      props.showMenu(true);
+      showMenu(true);
     }
   }
 
@@ -480,6 +479,7 @@ const Game = (props: any) => {
         </div> : rooms[displayID].display}
         { scheduleOpen ? rooms.schedule.display : null}
         { speakersOpen ? rooms.speakers.display : null}
+        { displayID == 'home'? <Dashboard menu={menu} /> : null}
     </div>
   )
 }

@@ -2,6 +2,8 @@ export const room: string;
 export const avatar: string;
 export const action: string;
 export const sponsorsBox: string;
+export const retroBox: string;
+export const trigger: string;
 export const dialogueTitle: string;
 export const mainDialogue: string;
 export const dialogueButton: string;
