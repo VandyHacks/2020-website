@@ -1,6 +1,6 @@
 .room {
     /* The image used TODO: this will need to be factored out into IDs for individual rooms*/
-    background-image: url("../../../assets/faqBackground.png");
+    background-image: url("../../../assets/sponsorshipBackground.png");
 
     /* Full height */
     min-width: 100vw;
@@ -13,16 +13,16 @@
 
     padding: 2vh 4vw;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
 }
 
 /* this is completely experimental, change to more animatic one */
 #avatar {
     position: absolute;
-    right: 40%;
-    top: 50%;
-    width: 20vw;
+    right: 54vw;
+    top: 30vh;
+    width: 200px;
     height: auto;
     animation: action 1s 3 alternate;
 }
@@ -33,34 +33,91 @@
     50% { transform: translateY(20px); }
 }
 
-.dialogueTitle {
+#sponsorsBox {
+    display: block;
+}
+
+#sponsorsBox img {
+    width: 50%;
+}
+
+
+
+#dialogueTitle {
     font-size: 2.5em;
 }
 
-p {
-    font-size: 1.5em;
+#mainDialogue {
+    padding: 5px;
+    /* font-size: 1.3em; */
+    height: 50%;
+    overflow: scroll;
 }
 
 .dialogueButton {
-    width: 10vw;
+    /* width: 10vw; */
     min-height: 4vh;
-    background-color: #000;
 }
 
 #backButton {
-    width: 5vw;
-    height: 5vh;
-    background-color: #000;
+    width: 20vw;
+    height: 50px;
 }
 
 #dialogue {
-    min-width: 65vw;
-    min-height: 20vh;
+    width: 90vw;
+    height: 70vh;
     margin: 0 auto;
+    margin-bottom: 5px;
+    padding: 5%;
 }
 
 #dialogueChoices {
+    /* height: 50%; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 50vh;
+    width: 50%;
+    min-width: 300px;
+    background: #333333;
+}
+
+#dialogueContent {
     display: flex;
     flex-direction: row;
+    flex-basis: 100%;
     justify-content: space-around;
+    height: 100%;
+}
+
+#mainDialogue {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 50vh;
+    width: 50%;
+    min-width: 300px;
+    background: #333333;
+}
+
+#choicesInner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+@media screen and (min-width: 320px) and (max-width: 812px) {
+
+    #dialogueContent {
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+    #dialogueChoices {
+        height: 40%;
+        width: 100%;
+    }
+    #mainDialogue {
+        height: 40%;
+        width: 100%;
+    }
+
 }

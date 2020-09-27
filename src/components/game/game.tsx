@@ -17,7 +17,6 @@ import lw0 from '../../assets/squirrel/left-walk-0.png';
 import lw1 from '../../assets/squirrel/left-walk-1.png';
 import rw0 from '../../assets/squirrel/right-walk-0.png';
 import rw1 from '../../assets/squirrel/right-walk-1.png';
-import cone from '../../assets/constructionCone.png';
 import turbo from '../../assets/turbo.png'
 
 // Rooms
@@ -108,7 +107,7 @@ const Game = (props: any) => {
       'door': [53, 18],
     },
     'sponsors': {
-      'display': <SponsorsRoom setDisplayID={setDisplayID} />,
+      'display': <SponsorsRoom setDisplayID={setDisplayID} showMenu={props.showMenu} />,
       // 'displayID': 3,
       'signStart': [34, 1],
       'door': [37, 12],
@@ -159,7 +158,7 @@ const Game = (props: any) => {
   const [vakenText, setVakenText]       = useState('Registration');
   const [scheduleText, setScheduleText] = useState('Schedule');
   const [speakersText, setSpeakersText] = useState('Speakers');
-  const [sponsorsText, setSponsorsText] = useState('Coming soon!');
+  const [sponsorsText, setSponsorsText] = useState('Sponsors');
 
   // Toggle for modal components
   const [scheduleOpen, toggleScheduleOpen] = useState(false);
@@ -305,19 +304,19 @@ const Game = (props: any) => {
       setScheduleSignX(rightEdgeCell - constants.signCellWidth + 1);
       setScheduleText('Schedule >>>');
     }
-    // // Sponsors sign x coords (not rounded)
-    // const sponsorsSignStartPix = (rooms.sponsors.signStart[0] - 1) * constants.cellDimVH*vh;
-    // const sponsorsSignEndPix   = (rooms.sponsors.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
-    // if (sponsorsSignStartPix >= leftEdge && sponsorsSignEndPix <= rightEdge) {
-    //   setSponsorsSignX(rooms.sponsors.signStart[0]);
-    //   setSponsorsText('Sponsors');
-    // } else if (sponsorsSignStartPix < leftEdge) {
-    //   setSponsorsSignX(leftEdgeCell);
-    //   setSponsorsText('<<< Sponsors');
-    // } else {
-    //   setSponsorsSignX(rightEdgeCell - constants.signCellWidth + 1);
-    //   setSponsorsText('Sponsors >>>');
-    // }
+    // Sponsors sign x coords (not rounded)
+    const sponsorsSignStartPix = (rooms.sponsors.signStart[0] - 1) * constants.cellDimVH*vh;
+    const sponsorsSignEndPix   = (rooms.sponsors.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
+    if (sponsorsSignStartPix >= leftEdge && sponsorsSignEndPix <= rightEdge) {
+      setSponsorsSignX(rooms.sponsors.signStart[0]);
+      setSponsorsText('Sponsors');
+    } else if (sponsorsSignStartPix < leftEdge) {
+      setSponsorsSignX(leftEdgeCell);
+      setSponsorsText('<<< Sponsors');
+    } else {
+      setSponsorsSignX(rightEdgeCell - constants.signCellWidth + 1);
+      setSponsorsText('Sponsors >>>');
+    }
     // Keynote speakers sign x coords (not rounded)
     const speakersSignStartPix = (rooms.speakers.signStart[0] - 1) * constants.cellDimVH*vh;
     const speakersSignEndPix   = (rooms.speakers.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
@@ -350,10 +349,9 @@ const Game = (props: any) => {
       } else if (squirrelX == rooms.speakers.door[0] && squirrelY == rooms.speakers.door[1]) {
         toggleSpeakersOpen(true);
         props.showMenu(false);
-      }
-      // } else if (squirrelX == rooms.sponsors.door[0] && squirrelY == rooms.sponsors.door[1]) {
-      //   setDisplayID('sponsors');
-      // } 
+      } else if (squirrelX == rooms.sponsors.door[0] && squirrelY == rooms.sponsors.door[1]) {
+        setDisplayID('sponsors');
+      } 
       else if (squirrelX == rooms.vaken.door[0] && squirrelY == rooms.vaken.door[1]) {
         toggleGoToVaken(true);
       }
@@ -454,12 +452,6 @@ const Game = (props: any) => {
         <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
           {/* can't do this via CSS background image b/c won't fit properly */}
           <img className={styles.gridBackground} src={map} ref={mapRef}/>
-          {/* UNDER CONSTRUCTION ASSETS */}
-
-          <img style={{gridArea: '13 / 34', margin: 0}} src={cone} />
-          <img style={{gridArea: '13 / 36', margin: 0}} src={cone} />
-          <img style={{gridArea: '13 / 38', margin: 0}} src={cone} />
-          <img style={{gridArea: '13 / 40', margin: 0}} src={cone} />
           <animated.img
             id={styles.squirrel}
             src={squirrelPose}
@@ -476,7 +468,7 @@ const Game = (props: any) => {
           <animated.button className='nes-btn is-success'
                            style={scheduleStyle}
                            onClick={e => shortcut(e, 'schedule')}>{scheduleText}</animated.button>
-          <animated.button className='nes-btn is-disabled'
+          <animated.button className='nes-btn is-success'
                            style={sponsorsStyle}
                            onClick={e => shortcut(e, 'sponsors')}>{sponsorsText}</animated.button>
           <animated.button className='nes-btn is-success'
