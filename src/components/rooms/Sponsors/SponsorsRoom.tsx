@@ -15,8 +15,8 @@ import vanguard from '../../../assets/sponsors/vanguard.png';
 const sponsorInfo = [
   {
     logo: allianceBernstein,
+    link: 'https://www.alliancebernstein.com/',
     positions: {
-      'Visit Sponsor Site': 'https://www.alliancebernstein.com/',
       'Business Analyst Summer Internship': 'https://abglobal.wd1.myworkdayjobs.com/en-US/abcampuscareers/job/Nashville-Tennessee/Business-Analyst-Summer-Internship---Technology---Operations-Program_R0004494-1',
       'Software Development Summer Internship': 'https://abglobal.wd1.myworkdayjobs.com/en-US/abcampuscareers/job/Nashville-Tennessee/Software-Development-Summer-Internship---Technology---Operations-Program_R0004497-1',
       'Infrastructure Engineering Summer Internship': 'https://abglobal.wd1.myworkdayjobs.com/en-US/abcampuscareers/job/Nashville-Tennessee/Infrastructure-Engineering-Summer-Internship---Technology---Operations-Program_R0004496',
@@ -27,73 +27,84 @@ const sponsorInfo = [
   },
   {
     logo: hrt,
+    link: 'https://www.hudsonrivertrading.com/',
     positions: {
-      'Visit Sponsor Site': 'https://www.hudsonrivertrading.com/',
-      'See open positions': 'https://www.hudsonrivertrading.com/campus-recruiting/',
+      'Open Positions': 'https://www.hudsonrivertrading.com/campus-recruiting/',
     },
   },
   {
     logo: imc,
+    link: 'https://www.imc.com/us/',
     positions: {
-      'Visit Sponsor Site': 'https://www.imc.com/us/',
-      'See open positions': 'https://careers.imc.com/us/en/student-opportunities',
+      'Open Positions': 'https://careers.imc.com/us/en/student-opportunities',
     },
   },
   {
     logo: vanguard,
+    link: 'https://investor.vanguard.com/corporate-portal/',
     positions: {
-      'Visit Sponsor Site': 'https://investor.vanguard.com/corporate-portal/',
       'Positions coming soon!': 'https://www.vanguardjobs.com/',
     },
   },
   {
     logo: l3harris,
+    link: 'https://www.l3harris.com/',
     positions: {
-      'Visit Sponsor Site': 'https://www.l3harris.com/',
-      'See open positions': 'https://careers.l3harris.com/job/nashville/software-engineer-new-grad-nashville-tn/4832/17240201'
+      'Open Positions': 'https://careers.l3harris.com/job/nashville/software-engineer-new-grad-nashville-tn/4832/17240201'
     }
   },
   {
     logo: asurion,
+    link: 'https://www.asurion.com/',
     positions: {
-      'Visit Sponsor Site': 'https://www.asurion.com/',
-      'See open positions': 'https://careers.asurion.com/ShowJob/JobId/4414/SoftwareEngineerIntern?cs=true&gjid=cHJvamVjdHMvc21hc2hmbHktdGFsZW50LWNsZC1qb2JzLXByb2Qvam9icy85NjcyOTI3MTg3NzE0OTM4Mg=='
+      'Open Positions': 'https://careers.asurion.com/ShowJob/JobId/4414/SoftwareEngineerIntern?cs=true&gjid=cHJvamVjdHMvc21hc2hmbHktdGFsZW50LWNsZC1qb2JzLXByb2Qvam9icy85NjcyOTI3MTg3NzE0OTM4Mg=='
     },
   },
   {
     logo: exponent,
+    link: 'https://www.exponent.com/',
     positions: {
-      'Visit Sponsor Site': 'https://www.exponent.com/',
       'Contact stephen@tryexponent.com': 'mailto:stephen@tryexponent.com'
     }
   },
   {
     logo: capitalOne,
+    link: 'https://www.capitalone.com/',
     positions: {
-      'Visit Sponsor Site': 'https://www.capitalone.com/',
-      'See open positions': 'https://campus.capitalone.com/search-jobs/?orgIds=1786&acm=4412%2C29098%2C29017'
+      'Open Positions': 'https://campus.capitalone.com/search-jobs/?orgIds=1786&acm=4412%2C29098%2C29017'
     }
   }
 ]
 
 const sponsors = sponsorInfo.map((sponsor) => {
-  const positions = Object.keys(sponsor.positions).map(title => {
-    console.log('Hi', sponsor.positions[title])
-    return (
-      <li>
-        <a href={sponsor.positions[title]} target='_blank' rel='noopener'><button className='nes-btn is-primary'>{title}</button></a>
-      </li>
-    )
-  })
-  return (
-    <>
-      <Collapsible trigger={<img src={sponsor.logo} className={styles.trigger}/>}>
-        <a href={sponsor.link} target="_blank" rel="noopener">
-          Visit Sponsor Site!
+  let positions:any;
+  if (Object.keys(sponsor.positions).length > 1) {
+    const collapsibleContent = Object.keys(sponsor.positions).map(title => {
+      return (
+        <p>
+        <a href={sponsor.positions[title]} target='_blank' rel='noopener' style={{marginTop: '5px'}}>
+          {title}
         </a>
-        {positions}
+        </p>
+      )
+    });
+    positions = (
+      <Collapsible trigger={<button className='nes-btn is-normal'>Open Positions</button>}>
+        {collapsibleContent}
       </Collapsible>
-    </>
+    );
+  } else {
+    positions = (<a href={Object.values(sponsor.positions)[0]} target='_blank' rel='noopener'>
+                  <button className='nes-btn is-primary'>{Object.keys(sponsor.positions)[0]}</button>
+                </a>);
+  }
+  return (
+    <div className={styles.pair}>
+      <a href={sponsor.link} target="_blank" rel="noopener">
+        <img src={sponsor.logo}/>
+      </a>
+      {positions}
+    </div>
   );
 })
   
@@ -109,15 +120,6 @@ const SponsorsRoom: ((props: any) => JSX.Element) = (props) => {
             <div id={styles.sponsorsBox} className={styles.retroBox}>
               {sponsors}
             </div>
-            {/* <div id={styles.dialogue} className={retroBox}>
-                <p id={styles.dialogueTitle}>~Tabriel Ging~</p>
-                <div id={styles.dialogueContent}>
-                  <div id={styles.dialogueChoices} className='nes-container is-dark'>
-                      <div id={styles.choicesInner}>{questionButtons}</div>
-                  </div>
-                  <div id={styles.mainDialogue} className='nes-container is-dark'>{mainDialogue}</div>
-                </div>
-            </div> */}
         </div>
     )
 }
