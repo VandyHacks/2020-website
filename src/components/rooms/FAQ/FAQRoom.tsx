@@ -27,7 +27,7 @@ const questions = [
     {
       question: "How are teams formed? Do I need a team?",
       answer:
-        "Teams are formed in the #team-finding channel–feel free to find people that share interests, and get building. We'll also provide a virtual space to meet teams. However, teams are not required, so feel free to work individually."
+        "Teams are formed in the #team-matching channel on Discord where you can find people that share interests, and get building! We'll also provide a virtual space to meet teams. However, teams are not required, so feel free to work individually."
     },
     {
       question: "Will there be other activities besides hacking?",
