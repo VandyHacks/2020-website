@@ -7,7 +7,7 @@ import allianceBernstein from '../../../assets/sponsors/alliance-bernstein.png'
 import asurion from '../../../assets/sponsors/asurion.png'
 import capitalOne from '../../../assets/sponsors/capital-one.png';
 import exponent from '../../../assets/sponsors/exponent.png';
-import hrt from '../../../assets/sponsors/hrt.svg';
+import hrt from '../../../assets/sponsors/hrt.png';
 import imc from '../../../assets/sponsors/imc.png';
 import l3harris from '../../../assets/sponsors/l3-harris.png'
 import vanguard from '../../../assets/sponsors/vanguard.png';
