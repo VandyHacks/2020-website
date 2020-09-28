@@ -64,7 +64,7 @@ const sponsorInfo = [
     logo: exponent,
     link: 'https://www.exponent.com/',
     positions: {
-      'Contact stephen@tryexponent.com': 'mailto:stephen@tryexponent.com'
+      'Email us': 'mailto:stephen@tryexponent.com'
     }
   },
   {
