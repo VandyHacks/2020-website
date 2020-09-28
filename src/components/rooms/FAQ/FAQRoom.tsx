@@ -15,6 +15,11 @@ const questions = [
         "Sign in, and submit your application at apply.vandyhacks.org! You'll also be able to check the status of your application on our registration portal."
     },
     {
+      question: "When is the registration deadline?",
+      answer:
+        "Registration closes on October 2nd at 12:00 pm CDT."
+    },
+    {
       question: "What if I've never been to a hackathon?",
       answer:
         "Not to worry! A few days before the event, you’ll receive an email with a link to our hacker guide, which will contain all the information you need to make the most out of your weekend. During the event, the VandyHacks Team will be around to help answer any questions. As always, feel free to email us at info@vandyhacks.org, or reach out on Discord."
@@ -66,6 +71,10 @@ const questions = [
     {
       question: "How do I submit a project?",
       answer: "This year, we'll be submitting projects on Devpost. More detailed instructions on project submission will be featured in our hacker guide."
+    },
+    {
+      question: "Am I eligible to win a prize?",
+      answer: "If you're currently living in the U.S. and study at a university in the U.S., you are eligible to win and receive a prize. If you're currently living outside the U.S. but study at a university inside the U.S., you are eligible to win but illegible to receive a prize. If you currently live outside the U.S. and study at a university outside the U.S., you are illegible to win or receive a prize, but you are still able to participate in all other hackathon festivities. "
     },
     {
       question: "What if I’m interested in being a mentor?",
