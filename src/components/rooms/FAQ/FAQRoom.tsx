@@ -74,7 +74,7 @@ const questions = [
     },
     {
       question: "Am I eligible to win a prize?",
-      answer: "If you're currently living in the U.S. and study at a university in the U.S., you are eligible to win and receive a prize. If you're currently living outside the U.S. but study at a university inside the U.S., you are eligible to win but illegible to receive a prize. If you currently live outside the U.S. and study at a university outside the U.S., you are illegible to win or receive a prize, but you are still able to participate in all other hackathon festivities. "
+      answer: "If you're currently living in the U.S. and study at a university in the U.S., you are eligible to win and receive a prize. If you're currently living outside the U.S. but study at a university inside the U.S., you are eligible to win but ineligible to receive a prize. If you currently live outside the U.S. and study at a university outside the U.S., you are ineligible to win or receive a prize, but you are still able to participate in all other hackathon festivities. "
     },
     {
       question: "What if I’m interested in being a mentor?",
