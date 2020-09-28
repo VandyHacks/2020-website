@@ -19,7 +19,6 @@ const events = {
         ['9:00a', 'React Native Workshop'],
         ['10:00a', 'Big Data Workshop'],
         ['11:00a', 'Google Cloud Workshop'],
-        ['12:00p', 'Full-Stack Workshop w/ React'],
         ['1:00p', 'Sponsor Career Fair'],
         ['3:30p', 'Zoomba'],
         ['4:30p', 'MLH Werewolf'],
