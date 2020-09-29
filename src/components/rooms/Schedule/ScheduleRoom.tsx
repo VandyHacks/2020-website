@@ -19,7 +19,6 @@ const events = {
         ['9:00a', 'React Native Workshop'],
         ['10:00a', 'Big Data Workshop'],
         ['11:00a', 'Google Cloud Workshop'],
-        ['12:00p', 'Full-Stack Workshop w/ React'],
         ['1:00p', 'Sponsor Career Fair'],
         ['3:30p', 'Zoomba'],
         ['4:30p', 'MLH Werewolf'],
@@ -36,9 +35,11 @@ const events = {
     'Sun': [
         ['8:30a', 'Hacking Ends'],
         ['8:30a', 'Make your Demo!'],
+        ['8:30a', 'How to Demo Workshop'],
         ['9:45a', 'Skribbl.io'],
         ['10:30a', 'Keynote Speaker - Thiago Olson'],
         ['10:30a', 'Judging'],
+        ['1:20p', 'Keynote Speaker - Jennison Asuncion'],
         ['3:00p', 'Closing Ceremony'],
     ]
 }

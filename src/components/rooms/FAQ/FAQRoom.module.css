@@ -59,6 +59,7 @@
     margin: 0 auto;
     margin-bottom: 5px;
     padding: 5%;
+    opacity: 0.95;
 }
 
 #dialogueChoices {

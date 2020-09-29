@@ -1,6 +1,6 @@
 .room {
     /* The image used TODO: this will need to be factored out into IDs for individual rooms*/
-    background-image: url("../../../assets/faqBackground.png");
+    background-image: url("../../../assets/sponsorshipBackground.png");
 
     /* Full height */
     min-width: 100vw;
@@ -20,9 +20,9 @@
 /* this is completely experimental, change to more animatic one */
 #avatar {
     position: absolute;
-    right: 40%;
-    top: 50%;
-    width: 20vw;
+    right: 54vw;
+    top: 30vh;
+    width: 200px;
     height: auto;
     animation: action 1s 3 alternate;
 }
@@ -33,34 +33,132 @@
     50% { transform: translateY(20px); }
 }
 
-.dialogueTitle {
-    font-size: 2.5em;
+#sponsorsBox {
+    scrollbar-width: thin;
+    scrollbar-color: #212529 white;
 }
 
-p {
-    font-size: 1.5em;
+/* Works on Chrome/Edge/Safari */
+#sponsorsBox::-webkit-scrollbar {
+    width: 12px;
+}
+#sponsorsBox::-webkit-scrollbar-track {
+    background: white;
+}
+#sponsorsBox::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 20px;
+    border: 3px solid #212529;
 }
 
-.dialogueButton {
-    width: 10vw;
-    min-height: 4vh;
-    background-color: #000;
+.retroBox {
+    padding: 5px;
+    background: white;
+    box-shadow:
+      /* Inner Background Color -- Same as inner */
+        0   -6px 0  -2px white,
+        0    6px 0  -2px white,
+        0  -12px 0  -4px white,
+        0   12px 0  -4px white,
+        0  -18px 0  -8px white,
+        0   18px 0  -8px white,
+        0  -24px 0 -12px white,
+        0   24px 0 -12px white,
+      
+      /* Inner Border */
+      -2px  0   0   0   var(--border),
+        2px  0   0   0   var(--border),
+        0   -4px 0   0   var(--border),
+        0    4px 0   0   var(--border),
+        0  -10px 0  -2px var(--border),
+        0   10px 0  -2px var(--border),
+        0  -14px 0  -4px var(--border),
+        0   14px 0  -4px var(--border),
+        0  -20px 0  -8px var(--border),
+        0   20px 0  -8px var(--border),
+        0  -26px 0 -12px var(--border),
+        0   26px 0 -12px var(--border),
+      
+      /* Middle Border -- Accent */
+      -4px  0   0   0   var(--accent),
+        4px  0   0   0   var(--accent),
+        0   -2px 0   2px var(--accent),
+        0    2px 0   2px var(--accent),
+        0   -8px 0   0px var(--accent),
+        0    8px 0   0px var(--accent),
+        0  -12px 0  -2px var(--accent),
+        0   12px 0  -2px var(--accent),
+        0  -16px 0  -4px var(--accent),
+        0   16px 0  -4px var(--accent),
+        0  -22px 0  -8px var(--accent),
+        0   22px 0  -8px var(--accent),
+        0  -28px 0 -12px var(--accent),
+        0   28px 0 -12px var(--accent),
+      
+      /* Outer Border */
+      -6px  0   0   0   var(--border),
+        6px  0   0   0   var(--border),
+        0    0   0   4px var(--border),
+        0   -6px 0   2px var(--border),
+        0    6px 0   2px var(--border),
+        0  -10px 0   0   var(--border),
+        0   10px 0   0   var(--border),
+        0  -14px 0  -2px var(--border),
+        0   14px 0  -2px var(--border),
+        0  -18px 0  -4px var(--border),
+        0   18px 0  -4px var(--border),
+        0  -24px 0  -8px var(--border),
+        0   24px 0  -8px var(--border),
+        0  -30px 0 -12px var(--border),
+        0   30px 0 -12px var(--border);
 }
 
-#backButton {
-    width: 5vw;
-    height: 5vh;
-    background-color: #000;
-}
-
-#dialogue {
-    min-width: 65vw;
-    min-height: 20vh;
+#sponsorsBox {
+    overflow-y: scroll;
+    overflow-x: hidden;
     margin: 0 auto;
+    height: 40vh;
+    width: 70%;
+    min-width: 320px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.9;
+    margin-bottom: 5px;
 }
 
-#dialogueChoices {
+.pair {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
 }
+
+.sponsorsBox button {
+    width: 160px;
+}
+
+.pair img {
+    width: 200px;
+    height: auto;
+}
+
+.sponsorsBox a {
+    /* display: block; */
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+.sponsorsBox p {
+    width: 160px;
+    margin-left: 10px;
+}
+
+/* .trigger {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+} */

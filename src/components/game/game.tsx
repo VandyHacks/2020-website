@@ -1,8 +1,7 @@
 // Modules
 import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
-import DeviceOrientation, { Orientation } from 'react-screen-orientation'
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import Dashboard from '../dashboard/dashboard'
 
 import window from 'global';
 
@@ -17,7 +16,6 @@ import lw0 from '../../assets/squirrel/left-walk-0.png';
 import lw1 from '../../assets/squirrel/left-walk-1.png';
 import rw0 from '../../assets/squirrel/right-walk-0.png';
 import rw1 from '../../assets/squirrel/right-walk-1.png';
-import cone from '../../assets/constructionCone.png';
 import turbo from '../../assets/turbo.png'
 
 // Rooms
@@ -56,7 +54,7 @@ function useWindowDims() {
 }
 // ***********************************************************************
 
-const Game = (props: any) => {
+const Game = () => {
   // CONSTANTS
   const constants = {
     'gridHeight': 30,
@@ -72,6 +70,7 @@ const Game = (props: any) => {
 
   // Determines which view to display (map, FAQ room, etc.)
   const [displayID, setDisplayID]: [string, any] = useState('home');
+  const [menu, showMenu] = useState(true);
 
   const scheduleRef = useRef(null);
   const speakersRef = useRef(null);
@@ -83,7 +82,7 @@ const Game = (props: any) => {
       'door': null,
     },
     'FAQ': {
-      'display': <FAQRoom setDisplayID={setDisplayID} showMenu={props.showMenu} />,
+      'display': <FAQRoom setDisplayID={setDisplayID} showMenu={showMenu} />,
       // 'displayID': 1,
       'signStart': [4, 5],
       'door': [7, 16],
@@ -108,7 +107,7 @@ const Game = (props: any) => {
       'door': [53, 18],
     },
     'sponsors': {
-      'display': <SponsorsRoom setDisplayID={setDisplayID} />,
+      'display': <SponsorsRoom setDisplayID={setDisplayID} showMenu={showMenu} />,
       // 'displayID': 3,
       'signStart': [34, 1],
       'door': [37, 12],
@@ -120,7 +119,6 @@ const Game = (props: any) => {
       'door': [17, 16],
     },
   }
-
   // Get window dimensions and distance btwn center of view and left edge of map
   const { vw, vh } = useWindowDims();
   const [viewLocVH, setviewLocVH] = useState(100);
@@ -156,16 +154,16 @@ const Game = (props: any) => {
   
   const [FAQText, setFAQText]           = useState('FAQ');
   const [pastText, setPastText]         = useState('Past Winners')
-  const [vakenText, setVakenText]       = useState('Registration');
+  const [vakenText, setVakenText]       = useState('Register');
   const [scheduleText, setScheduleText] = useState('Schedule');
   const [speakersText, setSpeakersText] = useState('Speakers');
-  const [sponsorsText, setSponsorsText] = useState('Coming soon!');
+  const [sponsorsText, setSponsorsText] = useState('Sponsors');
 
   // Toggle for modal components
   const [scheduleOpen, toggleScheduleOpen] = useState(false);
   const [speakersOpen, toggleSpeakersOpen] = useState(false);
 
-  // Toggle for going to registration
+  // Toggle for going to Register
   const [goToVaken, toggleGoToVaken] = useState(false);
   // Toggle for going to past winners
   const [goToDevpost, toggleGoToDevpost] = useState(false);
@@ -279,18 +277,18 @@ const Game = (props: any) => {
       setPastSignX(rightEdgeCell - constants.signCellWidth + 1);
       setPastText('Past Winners >>>');
     }
-    // Registration sign x coords (not rounded)
+    // Register sign x coords (not rounded)
     const vakenSignStartPix = (rooms.vaken.signStart[0] - 1) * constants.cellDimVH*vh;
     const vakenSignEndPix   = (rooms.vaken.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
     if (vakenSignStartPix >= leftEdge && vakenSignEndPix <= rightEdge) {
       setVakenSignX(rooms.vaken.signStart[0]);
-      setVakenText('Registration');
+      setVakenText('Register');
     } else if (vakenSignStartPix < leftEdge) {
       setVakenSignX(leftEdgeCell);
-      setVakenText('<<< Registr.');
+      setVakenText('<<< Register');
     } else {
       setVakenSignX(rightEdgeCell - constants.signCellWidth + 1);
-      setVakenText('Registr. >>>');
+      setVakenText('Register >>>');
     }
     // Schedule sign x coords (not rounded)
     const scheduleSignStartPix = (rooms.schedule.signStart[0] - 1) * constants.cellDimVH*vh;
@@ -305,19 +303,19 @@ const Game = (props: any) => {
       setScheduleSignX(rightEdgeCell - constants.signCellWidth + 1);
       setScheduleText('Schedule >>>');
     }
-    // // Sponsors sign x coords (not rounded)
-    // const sponsorsSignStartPix = (rooms.sponsors.signStart[0] - 1) * constants.cellDimVH*vh;
-    // const sponsorsSignEndPix   = (rooms.sponsors.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
-    // if (sponsorsSignStartPix >= leftEdge && sponsorsSignEndPix <= rightEdge) {
-    //   setSponsorsSignX(rooms.sponsors.signStart[0]);
-    //   setSponsorsText('Sponsors');
-    // } else if (sponsorsSignStartPix < leftEdge) {
-    //   setSponsorsSignX(leftEdgeCell);
-    //   setSponsorsText('<<< Sponsors');
-    // } else {
-    //   setSponsorsSignX(rightEdgeCell - constants.signCellWidth + 1);
-    //   setSponsorsText('Sponsors >>>');
-    // }
+    // Sponsors sign x coords (not rounded)
+    const sponsorsSignStartPix = (rooms.sponsors.signStart[0] - 1) * constants.cellDimVH*vh;
+    const sponsorsSignEndPix   = (rooms.sponsors.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
+    if (sponsorsSignStartPix >= leftEdge && sponsorsSignEndPix <= rightEdge) {
+      setSponsorsSignX(rooms.sponsors.signStart[0]);
+      setSponsorsText('Sponsors');
+    } else if (sponsorsSignStartPix < leftEdge) {
+      setSponsorsSignX(leftEdgeCell);
+      setSponsorsText('<<< Sponsors');
+    } else {
+      setSponsorsSignX(rightEdgeCell - constants.signCellWidth + 1);
+      setSponsorsText('Sponsors >>>');
+    }
     // Keynote speakers sign x coords (not rounded)
     const speakersSignStartPix = (rooms.speakers.signStart[0] - 1) * constants.cellDimVH*vh;
     const speakersSignEndPix   = (rooms.speakers.signStart[0] + constants.signCellWidth - 1) * constants.cellDimVH*vh;
@@ -339,21 +337,20 @@ const Game = (props: any) => {
       // go to FAQ
       if (squirrelX == rooms.FAQ.door[0] && squirrelY == rooms.FAQ.door[1]) {
         setDisplayID('FAQ');
-        props.showMenu(false);
+        showMenu(false);
       }
       else if (squirrelX == rooms.past.door[0] && squirrelY == rooms.past.door[1]) {
         toggleGoToDevpost(true);
       } else if (squirrelX == rooms.schedule.door[0] && squirrelY == rooms.schedule.door[1]) {
         // setDisplay(rooms.schedule.display);
         toggleScheduleOpen(true);
-        props.showMenu(false);
+        showMenu(false);
       } else if (squirrelX == rooms.speakers.door[0] && squirrelY == rooms.speakers.door[1]) {
         toggleSpeakersOpen(true);
-        props.showMenu(false);
-      }
-      // } else if (squirrelX == rooms.sponsors.door[0] && squirrelY == rooms.sponsors.door[1]) {
-      //   setDisplayID('sponsors');
-      // } 
+        showMenu(false);
+      } else if (squirrelX == rooms.sponsors.door[0] && squirrelY == rooms.sponsors.door[1]) {
+        setDisplayID('sponsors');
+      } 
       else if (squirrelX == rooms.vaken.door[0] && squirrelY == rooms.vaken.door[1]) {
         toggleGoToVaken(true);
       }
@@ -382,12 +379,12 @@ const Game = (props: any) => {
     if (e.target != scheduleRef.current && scheduleOpen) {
       setTargetY(targetY + 1); // move squirrel so it doesn't immediately reopen
       toggleScheduleOpen(false);
-      props.showMenu(true);
+      showMenu(true);
     }
     if (e.target != speakersRef.current && speakersOpen) {
       setTargetY(targetY + 1);
       toggleSpeakersOpen(false);
-      props.showMenu(true);
+      showMenu(true);
     }
   }
 
@@ -454,12 +451,6 @@ const Game = (props: any) => {
         <div id={styles.gameBoard} onClick={initiateMovement} style={boardStyle}>
           {/* can't do this via CSS background image b/c won't fit properly */}
           <img className={styles.gridBackground} src={map} ref={mapRef}/>
-          {/* UNDER CONSTRUCTION ASSETS */}
-
-          <img style={{gridArea: '13 / 34', margin: 0}} src={cone} />
-          <img style={{gridArea: '13 / 36', margin: 0}} src={cone} />
-          <img style={{gridArea: '13 / 38', margin: 0}} src={cone} />
-          <img style={{gridArea: '13 / 40', margin: 0}} src={cone} />
           <animated.img
             id={styles.squirrel}
             src={squirrelPose}
@@ -476,7 +467,7 @@ const Game = (props: any) => {
           <animated.button className='nes-btn is-success'
                            style={scheduleStyle}
                            onClick={e => shortcut(e, 'schedule')}>{scheduleText}</animated.button>
-          <animated.button className='nes-btn is-disabled'
+          <animated.button className='nes-btn is-success'
                            style={sponsorsStyle}
                            onClick={e => shortcut(e, 'sponsors')}>{sponsorsText}</animated.button>
           <animated.button className='nes-btn is-success'
@@ -488,6 +479,7 @@ const Game = (props: any) => {
         </div> : rooms[displayID].display}
         { scheduleOpen ? rooms.schedule.display : null}
         { speakersOpen ? rooms.speakers.display : null}
+        { displayID == 'home'? <Dashboard menu={menu} /> : null}
     </div>
   )
 }
