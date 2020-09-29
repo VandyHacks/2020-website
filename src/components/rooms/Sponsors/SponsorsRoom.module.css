@@ -145,13 +145,13 @@
     height: auto;
 }
 
-a {
+.sponsorsBox a {
     /* display: block; */
     text-align: center;
     overflow-wrap: break-word;
 }
 
-p {
+.sponsorsBox p {
     width: 160px;
     margin-left: 10px;
 }

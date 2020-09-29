@@ -35,6 +35,7 @@ const events = {
     'Sun': [
         ['8:30a', 'Hacking Ends'],
         ['8:30a', 'Make your Demo!'],
+        ['8:30a', 'How to Demo Workshop'],
         ['9:45a', 'Skribbl.io'],
         ['10:30a', 'Keynote Speaker - Thiago Olson'],
         ['10:30a', 'Judging'],
