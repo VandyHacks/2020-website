@@ -7,6 +7,7 @@ import allianceBernstein from '../../../assets/sponsors/alliance-bernstein.png'
 import asurion from '../../../assets/sponsors/asurion.png'
 import capitalOne from '../../../assets/sponsors/capital-one.png';
 import exponent from '../../../assets/sponsors/exponent.png';
+import googleCloud from '../../../assets/sponsors/google-cloud.png'
 import hrt from '../../../assets/sponsors/hrt.png';
 import imc from '../../../assets/sponsors/imc.png';
 import l3harris from '../../../assets/sponsors/l3-harris.png'
@@ -45,6 +46,13 @@ const sponsorInfo = [
     positions: {
       'Positions coming soon!': 'https://www.vanguardjobs.com/',
     },
+  },
+  {
+    logo: googleCloud,
+    link: 'https://cloud.google.com/',
+    positions: {
+      'Visit website': 'https://cloud.google.com/'
+    }
   },
   {
     logo: l3harris,
