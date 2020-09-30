@@ -22,6 +22,7 @@ const events = {
         ['1:00p', 'Sponsor Career Fair'],
         ['3:30p', 'Zoomba'],
         ['4:30p', 'MLH Werewolf'],
+        ['4:45p', 'Exploring Data-Driven Advocacy'],
         ['5:00p', 'Let\'s Bake Together!'],
         ['6:00p', 'MLH Capture the Flag'],
         ['6:30p', 'Keynote Speaker - Karl Mehta'],

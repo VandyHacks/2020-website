@@ -27,6 +27,10 @@
     animation: action 1s 3 alternate;
 }
 
+#backButton {
+    width: 20vw;
+}
+
 @keyframes action {
     0% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
@@ -151,7 +155,7 @@
     overflow-wrap: break-word;
 }
 
-.sponsorsBox p {
+.pair p {
     width: 160px;
     margin-left: 10px;
 }
