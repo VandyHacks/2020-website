@@ -6,11 +6,12 @@ import vh from '../../../assets/VH Pixel Logo.png'
 
 const events = {
     'Fri': [
-        ['7:00p', 'Opening Ceremony'],
+        ['6:00p', 'Opening Ceremony'],
         ['7:00p', 'Keynote Speaker - Authors of Swipe to Unlock: Business Strategy for Technologists'],
         ['7:50p', 'Keynote Speaker - Jeffrey Rothschild'],
         ['9:00p', 'Hacking begins'],
         ['9:00p', 'Full-Stack Workshop w/ Angular'],
+        ['9:00p', 'Google Cloud Tech Talk - Cloud Hero Workshop'],
         ['10:00p', 'Intro to Open Source Workshop'],
         ['11:00p', 'SlackBot Workshop']
     ],
@@ -21,8 +22,8 @@ const events = {
         ['11:00a', 'Google Cloud Workshop'],
         ['1:00p', 'Sponsor Career Fair'],
         ['3:30p', 'Zoomba'],
+        ['4:00p', '% Project Talk - Exploring Data-Driven Advocacy'],
         ['4:30p', 'MLH Werewolf'],
-        ['4:45p', 'Exploring Data-Driven Advocacy'],
         ['5:00p', 'Let\'s Bake Together!'],
         ['6:00p', 'MLH Capture the Flag'],
         ['6:30p', 'Keynote Speaker - Karl Mehta'],
@@ -30,7 +31,7 @@ const events = {
         ['8:00p', 'Keynote Speaker - Shauna McIntyre'],
         ['9:00p', 'Typing Competition!'],
         ['10:30p', 'Guided meditation and mindfulness'],
-        ['11:30p', 'How to solve a Rubik\'s cube!'],
+        ['11:30p', 'How to solve a Rubik\'s cube?'],
         
     ],
     'Sun': [
