@@ -6,9 +6,11 @@ import vh from '../../../assets/VH Pixel Logo.png'
 
 const events = {
     'Fri': [
+        ['4:30p', 'Team Matching - Glimpse Session'],
         ['6:00p', 'Opening Ceremony'],
         ['7:00p', 'Keynote Speaker - Authors of Swipe to Unlock: Business Strategy for Technologists'],
         ['7:50p', 'Keynote Speaker - Jeffrey Rothschild'],
+        ['8:30p', 'Team Matching - Glimpse Session'],
         ['9:00p', 'Hacking begins'],
         ['9:00p', 'Full-Stack Workshop w/ Angular'],
         ['9:00p', 'Google Cloud Tech Talk - Cloud Hero Workshop'],
