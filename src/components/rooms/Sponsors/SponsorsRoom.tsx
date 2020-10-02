@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Collapsible from 'react-collapsible';
 import * as styles from './SponsorsRoom.module.css';
-import { outlined, retroBox } from '../../../pages/index.module.css';
 import avatar from '../../../assets/sponsorshipAvatar.png';
 import allianceBernstein from '../../../assets/sponsors/alliance-bernstein.png';
 import asurion from '../../../assets/sponsors/asurion.png';
