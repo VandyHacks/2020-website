@@ -26,7 +26,6 @@ const events = {
         ['3:30p', 'Zoomba'],
         ['4:00p', '% Project Talk - Exploring Data-Driven Advocacy'],
         ['4:30p', 'MLH Werewolf'],
-        ['4:45p', 'Exploring Data-Driven Advocacy'],
         ['5:00p', 'Let\'s Bake Together!'],
         ['6:00p', 'MLH Capture the Flag'],
         ['6:30p', 'Keynote Speaker - Karl Mehta'],
@@ -39,8 +38,8 @@ const events = {
     ],
     'Sun': [
         ['8:30a', 'Hacking Ends'],
-        ['8:30a', 'Make your Demo!'],
         ['8:30a', 'How to Demo Workshop'],
+        ['9:30a', 'Finish your Demo!'],
         ['9:45a', 'Skribbl.io'],
         ['10:30a', 'Keynote Speaker - Thiago Olson'],
         ['10:30a', 'Judging'],
