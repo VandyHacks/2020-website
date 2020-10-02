@@ -26,6 +26,7 @@ const events = {
         ['3:30p', 'Zoomba'],
         ['4:00p', '% Project Talk - Exploring Data-Driven Advocacy'],
         ['4:30p', 'MLH Werewolf'],
+        ['4:45p', 'Exploring Data-Driven Advocacy'],
         ['5:00p', 'Let\'s Bake Together!'],
         ['6:00p', 'MLH Capture the Flag'],
         ['6:30p', 'Keynote Speaker - Karl Mehta'],

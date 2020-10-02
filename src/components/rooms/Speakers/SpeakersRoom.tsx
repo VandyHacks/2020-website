@@ -21,14 +21,14 @@ const people = {
         {
             'name': 'Jennison Asuncion',
             'image': jennison,
-            'heading': 'Head of Accessibility at LinkedIn Engineering Evangelism',
+            'heading': 'Head of Accessibility Engineering Evangelism at LinkedIn',
             'bio': "Jennison started his digital accessibility (a11y) career on the Royal Bank of Canada’s IT A11y team in Toronto, working with web and mobile developers and designers on making their UIs accessible to customers with disabilities. In 2013, he was recruited by LinkedIn where he is currently their Head of A11y Engineering Evangelism. His role includes driving adoption of a11y standards in LinkedIn's Engineering organization. Jennison began a11y and inclusive design Meetup groups in Toronto (2012) and the San Francisco Bay Area (2014). As a Community Group member, he is involved in the development of the World Wide Web (W3C) Accessibility Guidelines (WCAG) 3.0, which will be the next version of these guidelines, which are the international standards for developing web, mobile and other technologies to be accessible. By far, Jennison is proudest of Co-founding Global A11y Awareness Day (GAAD). Marking its tenth anniversary in 2021, this is an annual event, on the 3rd Thursday of May, which brings global attention to digital inclusion by and for the more than one billion people worldwide with disabilities."
         },
         {
-            'name': 'Jeffrey J. Rothschild',
+            'name': 'Jeff Rothschild',
             'image': jeffrey,
-            'heading': "Founding engineer at Facebook, Vice-Chairman at Vanderbilt's Technology Committee. Billionaire ",
-            'bio': "After earning his master's degree in computer science from Vanderbilt, Mr. Rothschild has been a co-founder of several technology and software companies including Veritas Software and Mpath Interactive. Mr. Rothschild  joined Facebook in 2005 as vice president of infrastructure engineering, becoming a major shareholders of the company. Rothschild serves as the vice chair of the board of trust of his alma mater, Vanderbilt University. With his wife, he endowed two scholarships in the School of Engineering and the College of Arts and Science in 2013, and he donated $20 million for the construction of two new buildings on campus, Vanderbilt Hall and Barnard Hall, in December 2016. Mr. Rothschild is engaged in early stage technology and impact investing."
+            'heading': "Entrepreneur and Investor",
+            'bio': "Jeff Rothschild was co-founder of the storage software company Veritas Software and the online gaming company Mpath Interactive. Jeff joined Facebook in 2005 as VP Infrastructure Enginereering and spent 10 years focused on scalability, availability, and performance. Since leaving Facebook in 2015, Jeff has been working as an investor and mentor to entrepreneurs and is on the board of Pure Storage. Jeff also serves as Vice-Chair of the Board of Trust of Vanderbilt University, where he had earned his BA in Psychology and MS in Computer Science. Jeff’s philanthropic and impact investing activities include educational projects supporting disadvantaged students, a shoe company in Guatemala, an ophthalmologic hospital providing restorative eye surgery in western Kenya, and farmers cooperatives and credit unions, also in Kenya."
         },
         {
             'name': 'Karl Mehta',
