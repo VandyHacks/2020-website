@@ -27,6 +27,7 @@
   "dependencies": {
     "@mdi/svg": "^4.9.95",
     "favicon-switcher": "^1.2.2",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "tsparticles": "^1.26.0"
   }
 }

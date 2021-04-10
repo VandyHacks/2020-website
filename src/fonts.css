@@ -2,7 +2,7 @@
 @font-face {
   font-family: 'Major Mono Display';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   font-display: swap;
   src: local('Major Mono Display Regular'), local('MajorMonoDisplay-Regular'),
     url(./majormono.woff2) format('woff2');
