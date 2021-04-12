@@ -17,7 +17,7 @@ body {
   width: 100vw;
   color: #eceaee;
   font-family:  'Major Mono Display', monospace;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   position: absolute;
   display: inline-block;
   
@@ -86,12 +86,12 @@ noscript > h1 {
   position: absolute;
   z-index: 1;
   width: 100vw;
-  top: 85vh;
+  top: 80vh;
 }
 
 .socials svg {
-  width: 30px;
-  height: 30px;
+  width: 38px;
+  height: 38px;
   border-radius: 14%;
   transition: transform 0.1s ease-in-out;
   overflow: hidden;
@@ -106,8 +106,8 @@ noscript > h1 {
   align-items: center;
   justify-content: center;
   margin: 0 12px;
-  width: 36px;
-  height: 36px;
+  width: 43px;
+  height: 43px;
 }
 
 #facebook-container:hover {
