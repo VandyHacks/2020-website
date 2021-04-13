@@ -45,7 +45,7 @@ body {
   position: absolute;
   z-index: 1;
   min-width: 100vw;
-  bottom: 6vh;
+  top: 82vh;
 }
 
 .socials svg {
@@ -221,7 +221,7 @@ main a:hover {
   position: absolute;
   z-index: 2;
   width: 100vw;
-  bottom: 1vh;
+  top: 93vh;
   line-height: 0.8rem;
 }
 
@@ -241,7 +241,7 @@ main a:hover {
 
 @media only screen and (max-width: 700px) {
   .text{
-    top: 38vh;
+    top: 36vh;
   }
   .form {
     top: 70vh
@@ -250,7 +250,7 @@ main a:hover {
     width: 69%;
   }
   .socials{
-    bottom: 7vh;
+    top: 78vh;
   }
   .socials {
     padding: 0% 1%;
