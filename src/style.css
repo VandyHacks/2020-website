@@ -222,6 +222,7 @@ main a:hover {
   z-index: 2;
   width: 100vw;
   bottom: 1vh;
+  line-height: 0.8rem;
 }
 
 .footer a {
@@ -270,9 +271,9 @@ main a:hover {
   }
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1400px), screen and (min-height: 1200px) {
   .text{
-    top: 43vh;
+    top: 46vh;
   }
 
   .form__group {
